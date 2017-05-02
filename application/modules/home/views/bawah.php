@@ -397,6 +397,50 @@ showLoaderOnConfirm: true
 
 </script>
 <script type="text/javascript">
+function approvekasbon($d) {
+var id = $d;
+
+  swal({
+title: "Are you sure?",
+text: "You will not be able to recover this !"+id,
+type: "warning",
+showCancelButton: true,
+closeOnConfirm: false,
+showLoaderOnConfirm: true
+},
+
+
+ function (isConfirm) {
+
+
+
+    var url1= "<?php echo site_url('ajax/approvekasbon/') ?>";
+
+      if (!isConfirm) return;
+      $.ajax({
+          url: url1+id,
+          type: "POST",
+
+          dataType: "HTML",
+          success: function () {
+              setTimeout(function () {
+                  swal(" request finished!");
+                  window.location.reload();
+        }, 4000);
+
+
+          },
+          error: function (xhr, ajaxOptions, thrownError) {
+              swal("Error deleting!", "Please try again", "error");
+          }
+
+      });
+
+});
+}
+
+</script>
+<script type="text/javascript">
 
     function hap($d) {
     var id = $d;

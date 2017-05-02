@@ -410,4 +410,13 @@ $this->load->view('atas',$data);
 $this->load->view('kasbon/tambah',$data);
 $this->load->view('bawah',$data);
 }
+function listkasbon(){
+  $data['com']=$this->db->get('company')->row();
+  $this->db->select_sum('nominal');
+  $data['sum']=$this->db->get('kasbon_view')->row();
+  $data['all']=$this->db->get('kasbon_view')->result();
+    $this->load->view('atas',$data);
+    $this->load->view('approve/kasbon',$data);
+    $this->load->view('bawah',$data);
+}
 }

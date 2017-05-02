@@ -70,6 +70,23 @@ function kasbon(){
 $this->db->delete('kasbon');
   echo "OK";
 }
+function approvekasbon(){
+  $no=$this->uri->segment(3);
+  $st=$this->uri->segment(4);
+  $user=$this->session->userdata('nama');
+  $data=array('status'=>$st,'approve_by'=>$user);
+
+if ($st=="APPROVE") {
+  $this->db->where('no_transaksi', $no);
+  $this->db->update('kasbon', $data);
+  echo "ok approve";
+}else{
+  $this->db->where('no_transaksi', $no);
+  $this->db->update('kasbon', $data);
+  echo "ok reject";
+}
+
+}
 }
 
 /* End of file Ajax.php */
