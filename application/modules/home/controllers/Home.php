@@ -394,6 +394,9 @@ function hitung(){
 }
 function kasbon(){
   $id=$this->session->userdata('nip');
+
+  $this->db->select_sum('nominal');
+  $data['sum']=$this->db->get_where('kasbon_view',array('nip'=>$id,'status'=>"APPROVE"))->row();
    $data['com']=$this->db->get('company')->row();
 $data['all']=$this->db->get_where('kasbon_view',array('nip'=>$id))->result();
   $this->load->view('atas',$data);

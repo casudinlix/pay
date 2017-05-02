@@ -24,6 +24,9 @@
                                     </ul>
                                 </div>
                                 <div class="panel-body">
+                                <strong>  Jumlah Kasbon Anda Sebesar <?php foreach ($sum as $key ): ?>
+                                  Rp. <?php echo number_format($key) ?>
+                                <?php endforeach; ?></strong>
                                     <table class="table datatable">
                                         <thead>
                                             <tr>
@@ -62,7 +65,10 @@ $no=1;
       <span class="label label-success"><strong> <?php echo $key->status_byr ?></strong></span>
 <?php endif; ?></td>
 <td colspan="" rowspan="" headers="">
-  <a href="#" class='btn btn-danger' onclick="kasbon('<?php echo $key->no_transaksi?>')"><i class="fa fa-trash-o"></i></a>
+  <?php if ($key->status=="PENDING"): ?>
+    <a href="#" class='btn btn-danger' onclick="kasbon('<?php echo $key->no_transaksi?>')"><i class="fa fa-trash-o"></i></a>
+
+  <?php endif; ?>
 </td>
                                                   </tr>
                                                 <?php
