@@ -18,6 +18,15 @@
                                     <div class="row">
 
                                         <div class="col-md-6">
+                                          <div class="form-group">
+                                             <label class="col-md-3 control-label">Kode</label>
+                                                                                          <div class="col-md-9">
+                                                                                              <div class="input-group">
+                                                                                                  <span class="input-group-addon"><span class="fa fa-book"></span></span>
+                                        <input type="text" name="kode" class="form-control" value="<?php echo $kode ?>" readonly="">
+                                                                                           </div>
+                                                                                      </div>
+                                        </div>
 
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Name</label>
@@ -26,8 +35,7 @@
                                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
       <input type="text" name="nip" class="form-control  nip" id="name" required="" autocomplete="off"/>
                                                     </div>
-                                                    <span class="help-block">This is sample of text field</span>
-                                                </div>
+                                                 </div>
                                             </div>
 
                                             <div class="form-group">
@@ -37,8 +45,7 @@
                                                         <span class="input-group-addon"><span class="fa fa-hand-o-right"></span></span>
                                           <input type="text" name="nip" id="nip" class="form-control nip" required="" autocomplete="off"/>
                                                     </div>
-                                                    <span class="help-block">This is sample of text field</span>
-                                                </div>
+                                                 </div>
                                             </div>
                                             <div class="form-group">                                               <label class="col-md-3 control-label">Periode</label>
                                                                                             <div class="col-md-9">

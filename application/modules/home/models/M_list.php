@@ -40,4 +40,14 @@ function no(){
   $style = substr($y.$b.$h."-".$create,0,9);
   return $style;
 }
+function cuti(){
+  $h=date('d');
+  $b=date('m');
+  $y=date('y');
+  $create = strtoupper(uniqid(rand(),true));
+  $s='A.';
+
+  $style = substr($s.$y.$b.$h."-".$create,0,11);
+  return $style;
+}
 }

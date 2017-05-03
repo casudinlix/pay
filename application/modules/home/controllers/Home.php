@@ -327,9 +327,12 @@ function editinsentif(){
 }
 function absen(){
   $id=$this->uri->segment(3);
+  $this->load->model('m_list');
+
   $data['com']=$this->db->get('company')->row();
   $data['jadwal']= $this->db->get_where('schedule',array('nip'=>$id))->result();
   $data['absen']=$this->db->get_where('absensi',array('nip'=>$id))->result();
+
   $this->load->view('atas',$data);
   $this->load->view('absen/absen',$data);
   $this->load->view('bawah',$data);
@@ -353,6 +356,8 @@ function listleave(){
   $this->load->view('bawah',$data);
 }
 function addleave(){
+  $this->load->model('m_list');
+  $data['kode']=$this->m_list->cuti();
   $data['com']=$this->db->get('company')->row();
   $this->load->view('atas',$data);
   $this->load->view('cuti/add',$data);
@@ -363,8 +368,8 @@ function editleave(){
   $id=$this->uri->segment(3);
   $id1=$this->uri->segment(4);
   $data['com']=$this->db->get('company')->row();
-  $data['u']=$this->db->get_where('m_cuti',array('nip'=>$id,'periode'=>$id1))->row();
-  $data['cuti']=$this->db->get_where('cuti_view',array('nip'=>$id,'periode'=>$id1))->row();
+  $data['u']=$this->db->get_where('m_cuti',array('id_cuti'=>$id))->row();
+  $data['cuti']=$this->db->get_where('cuti_view',array('id_cuti'=>$id))->row();
   $this->load->view('atas',$data);
   $this->load->view('cuti/edit',$data);
   $this->load->view('bawah',$data);
@@ -396,7 +401,7 @@ function kasbon(){
   $id=$this->session->userdata('nip');
 
   $this->db->select_sum('nominal');
-  $data['sum']=$this->db->get_where('kasbon_view',array('nip'=>$id,'status'=>"APPROVE"))->row();
+  $data['sum']=$this->db->get_where('kasbon_view',array('nip'=>$id,'status'=>"APPROVE",'status_byr'=>"BELUM BAYAR"))->row();
    $data['com']=$this->db->get('company')->row();
 $data['all']=$this->db->get_where('kasbon_view',array('nip'=>$id))->result();
   $this->load->view('atas',$data);

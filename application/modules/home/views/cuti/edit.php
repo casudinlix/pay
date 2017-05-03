@@ -18,6 +18,15 @@
                                     <div class="row">
 
                                         <div class="col-md-6">
+                                          <div class="form-group">
+                                             <label class="col-md-3 control-label">Kode</label>
+                                                                                          <div class="col-md-9">
+                                                                                              <div class="input-group">
+                                                                                                  <span class="input-group-addon"><span class="fa fa-book"></span></span>
+                                          <input type="text" name="kode" class="form-control" value="<?php echo $this->uri->segment(3) ?>" readonly="">
+                                                                                           </div>
+                                                                                      </div>
+                                          </div>
 
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Name</label>

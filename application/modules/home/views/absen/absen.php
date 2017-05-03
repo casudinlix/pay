@@ -36,7 +36,8 @@
 
   <?php foreach ($absen as $absen1): ?>
     <td><?php echo $absen1->in ?></td>
-    <td><?php echo $absen1->out ?></td><td><?php echo tgl_indo($absen1->date) ?></td><td><?php echo $absen1->overtime ?></td>
+    <td><?php echo $absen1->out ?></td><td><?php echo tgl_indo($absen1->date) ?></td>
+    <td><?php echo hitunglembur($absen1->in,$absen1->out) ?></td>
     <td><?php echo $absen1->late ?></td><td><?php echo $absen1->status ?></td>
     </tr>
   <?php endforeach; ?>

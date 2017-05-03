@@ -42,4 +42,16 @@ function tgl_indo($day){
  $day_indo = $day[2]." ".$day[1]." ".$day[0];
  return $day_indo;
 }
-?>
+function hitunglembur($in,$out){
+  list($h,$m,$s)=explode(":",$in);
+$dtawal=mktime($h,$m,$s,"1","1","1");
+list($h,$m,$s)=explode(":",$out);
+$dtakhir=mktime($h,$m,$s,"1","1","1");
+$dtselisih=$dtakhir - $dtawal;
+$totalmenit=$dtselisih/60;
+$jam=explode(".",$totalmenit/60);
+$sisamenit=($totalmenit/60)-$jam[0];
+$sisa=$sisamenit*60;
+return ;
+
+}

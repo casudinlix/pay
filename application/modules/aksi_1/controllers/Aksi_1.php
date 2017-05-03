@@ -191,23 +191,25 @@ function editinsentif(){
   redirect('home/insentif');
 }
 function addleave(){
+  $kode=$this->input->post('kode');
   $nip=$this->input->post('nip',TRUE);
   $nama=$this->input->post('nama',TRUE);
   $per=$this->input->post('periode');
   $expired=$this->input->post('expired');
   $used=$this->input->post('used',TRUE);
   $sisa=$this->input->post('sisa',TRUE);
-  $data=array('nip'=>$nip,'periode'=>$per,'expired'=>$expired,'terpakai'=>$used,'sisa'=>$sisa);
+  $data=array('id_cuti'=>$kode,'nip'=>$nip,'periode'=>$per,'expired'=>$expired,'terpakai'=>$used,'sisa'=>$sisa);
   $this->db->insert('m_cuti', $data);
   redirect('home/listleave');
 }
 function editleave(){
+  $kode=$this->input->post('kode');
   $nip=$this->input->post('nip',TRUE);
   $per=$this->input->post('periode');
   $expired=$this->input->post('expired');
   $used=$this->input->post('used',TRUE);
   $sisa=$this->input->post('sisa',TRUE);
-  $array=array('nip'=>$nip,'periode'=>$per);
+  $array=array('id_cuti'=>$kode,'nip'=>$nip,'periode'=>$per);
   $data=array('expired'=>$expired,'terpakai'=>$used,'sisa'=>$sisa);
   $this->db->where($array);
 
