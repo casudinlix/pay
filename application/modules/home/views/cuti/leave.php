@@ -64,7 +64,7 @@ $total=$sampai->diff($dari);
 <td colspan="" rowspan="" headers="">xx</td>
 </tr>                                        
   <?php endforeach;?>   
-  </tbody>
+  </tbody>   
             </table>
                                 </div>
                             </div>
