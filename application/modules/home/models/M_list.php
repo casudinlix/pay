@@ -10,13 +10,13 @@ class M_list extends CI_Model{
   }
   function paging($offset, $search, $num){
     if ($search) {
-			$query = $this->db->or_like(array('nip' => $search, 'name' => $search));
+			$query = $this->db->or_like(array('nip' => $search, 'nama_lengkap' => $search));
 		}
-		$query = $this->db->count_all_results('join_user');
+		$query = $this->db->count_all_results('karyawan_view');
 		if ($search) {
-			$query = $this->db->or_like(array('nip' => $search, 'name' =>$search));
+			$query = $this->db->or_like(array('nip' => $search, 'nama_lengkap' =>$search));
 		}
-		$query = $this->db->get('join_user', $offset, $num);
+		$query = $this->db->get('karyawan_view', $offset, $num);
 		return $query->result();
 
   }
@@ -45,9 +45,39 @@ function cuti(){
   $b=date('m');
   $y=date('y');
   $create = strtoupper(uniqid(rand(),true));
-  $s='A.';
+  $s='JC';
 
   $style = substr($s.$y.$b.$h."-".$create,0,11);
+  return $style;
+}
+function idgaji(){
+  $h=date('d');
+  $b=date('m');
+  $y=date('y');
+  $create = strtoupper(uniqid(rand(),true));
+  $s='GJ';
+
+  $style = substr($s.$h."-".$create,0,11);
+  return $style;
+}
+function jabatan(){
+  $h=date('d');
+  $b=date('m');
+  $y=date('y');
+  $create = strtoupper(uniqid(rand(),true));
+  $s='A';
+
+  $style = substr($s."0"."-".$create,0,5);
+  return $style;
+}
+function insentif(){
+  $h=date('d');
+  $b=date('m');
+  $y=date('y');
+  $create = strtoupper(uniqid(rand(),true));
+  $s='I';
+
+  $style = substr($s."0"."-".$create,0,5);
   return $style;
 }
 }

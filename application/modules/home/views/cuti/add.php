@@ -20,16 +20,16 @@
                                         <div class="col-md-6">
                                           <div class="form-group">
                                              <label class="col-md-3 control-label">Kode</label>
-                                                                                          <div class="col-md-9">
-                                                                                              <div class="input-group">
-                                                                                                  <span class="input-group-addon"><span class="fa fa-book"></span></span>
-                                        <input type="text" name="kode" class="form-control" value="<?php echo $kode ?>" readonly="">
+  <div class="col-md-9">
+    <div class="input-group">
+   <span class="input-group-addon"><span class="fa fa-book"></span></span>
+<input type="text" name="kode" class="form-control" value="<?php echo $kode ?>" readonly="">
                                                                                            </div>
                                                                                       </div>
                                         </div>
 
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label">Name</label>
+                                                <label class="col-md-3 control-label">Nama Lengkap</label>
                                                 <div class="col-md-9">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
@@ -42,65 +42,50 @@
                                                 <label class="col-md-3 control-label">NIP</label>
                                                 <div class="col-md-9">
                                                     <div class="input-group">
-                                                        <span class="input-group-addon"><span class="fa fa-hand-o-right"></span></span>
-                                          <input type="text" name="nip" id="nip" class="form-control nip" required="" autocomplete="off"/>
+<span class="input-group-addon"><span class="fa fa-hand-o-right"></span></span>
+  <input type="text" name="nip" id="nip" class="form-control nip" required="" autocomplete="off"/>
                                                     </div>
                                                  </div>
                                             </div>
-                                            <div class="form-group">                                               <label class="col-md-3 control-label">Periode</label>
-                                                                                            <div class="col-md-9">
-                                                                                                <div class="input-group">
-                                                                                                    <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+<div class="form-group">
+<label class="col-md-3 control-label">Awal Masa Berlaku Cuti</label>
+<div class="col-md-9">
+ <div class="input-group">
+ <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
 <input type="text" name="periode" class="form-control datepicker">
-                                                                                             </div>
-                                                                                        </div>
+  </div>
+    </div>
 </div>
-                                                                                                                                    <div class="form-group">
-
-                                                                                                                                          <label class="col-md-3 control-label">Expired</label>
-                                                                                                                                          <div class="col-md-9">
-                                                                                                                                              <div class="input-group">
-                                                                                                                                                  <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                                                                                        <input type="text" name="expired" class="form-control datepicker">                                                                                                </div>
-                                                                                                                                              <span class="help-block">This is sample of text field</span>
-                                                                                                                                          </div>
-                                                                                                                                       </div>
-                                                                                                                                       <div class="form-group">
-                                                                                                                                  <label class="col-md-3 control-label">Used</label>
-                                                                                                                                        <div class="col-md-9">
-                                                                                                                                            <div class="input-group">
-                                                                                                                                                <span class="input-group-addon"><span class="fa fa-money"></span></span>
-                                                                                                                                  <input type="number" name="used" class="form-control" required="" autocomplete="off" value="0"/>
-                                                                                                                                            </div>
-                                                                                                                                            <span class="help-block">This is sample of text field</span>
-                                                                                                                                        </div>
-                                                                                                                                    </div>
-
-                                                                                                                                    <div class="form-group">
-
-
-                                                                                                                                    <label class="col-md-3 control-label">Remaining</label>
-                                                                                                                                          <div class="col-md-9">
-                                                                                                                                              <div class="input-group">
-                                                                                                                                                  <span class="input-group-addon"><span class="fa fa-money"></span></span>
-                                                                                                                                    <input type="number" name="sisa" class="form-control" required="" autocomplete="off" value="12"/>
-                                                                                                                                              </div>
-                                                                                                                                              <span class="help-block">This is sample of text field</span>
-                                                                                                                                          </div>
-                                                                                                                                      </div>
-
-
-
-
-
-
-
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
+     <div class="form-group">
+ <label class="col-md-3 control-label">Akhir Masa Berlaku</label>
+ <div class="col-md-9">
+ <div class="input-group">
+ <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+ <input type="text" name="expired" class="form-control datepicker">
+       </div>
+     </div>
+  </div>
+  <div class="form-group">
+ <label class="col-md-3 control-label">Terpakai</label>
+  <div class="col-md-9">
+  <div class="input-group">
+ <span class="input-group-addon"><span class="fa fa-money"></span></span>
+ <input type="number" name="used" class="form-control" required="" autocomplete="off" value="0"/>
+  </div>
+ </div>
+ </div>
+<div class="form-group">
+<label class="col-md-3 control-label">Sisa Cuti</label>
+ <div class="col-md-9">
+ <div class="input-group">
+  <span class="input-group-addon"><span class="fa fa-money"></span></span>
+<input type="number" name="sisa" class="form-control" required="" autocomplete="off" value="12"/>
+    </div>
+       </div>
+     </div>
+         </div>
+           </div>
+          </div>
                                 <div class="panel-footer">
                                      <input type="submit" name="" value="Save" class="btn btn-primary">
 

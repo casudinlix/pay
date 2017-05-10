@@ -16,7 +16,7 @@
                                 <div class="panel-heading">
 
                                     <div class="col-md-4">
-  <a href="<?php echo site_url('home/addsalary')?>"  <button class="btn btn-success btn-block"><span class="fa fa-plus"></span> Add new Salary</button></a>
+  <a href="<?php echo site_url('home/addsalary')?>"  <button class="btn btn-success btn-block"><span class="fa fa-plus"></span> Tambah Gaji Baru</button></a>
                                     </div>
                                     <ul class="panel-controls">
                                         <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
@@ -29,10 +29,10 @@
                                             <tr>
                                                 <th>No</th>
 
-                                                <th> Salary</th>
-                                                <th> Jobs Desk</th>
-                                                <th>Group Level</th>
-                                                <th>Action</th>
+                                                <th> Gaji Pokok</th>
+                                                <th> Jabatan</th>
+                                                <th>Golongan</th>
+                                                <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -43,8 +43,8 @@ $no=1;
                                                   <td><?php echo $no ?></td>
 
                                                   <td>Rp.<?php echo number_format( $key->nominal)?></td>
-                                                  <td><?php echo  $key->jabatan?></td>
-                                                  <td><?php echo $key->golongan ?></td>
+                                                  <td><?php echo  $key->nama_jabatan?></td>
+                                                  <td><?php echo $key->gol_jabatan ?></td>
                                                   <td><a href="<?php echo site_url('home/editsalary/'.$key->id)?>" class="fa fa-pencil fa-lg btn btn-info"></a>
                                                   </tr>
                                                 <?php

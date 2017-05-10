@@ -38,16 +38,16 @@
 <td><?php echo $key->approve_by ?></td>
 <td><?php echo tgl_indo($key->approve_date) ?></td>
 <td>
-  <?php if ($key->status=="PENDING"): ?>
-    <span class="label label-info">Pending</span>
+  <?php if ($key->status=="POSTING"): ?>
+    <span class="label label-info"><?php echo $key->status ?></span>
 
   <?php endif; ?>
   <?php if ($key->status=="APPROVE"): ?>
-    <span class="label label-success"> Approve</span>
+    <span class="label label-success"> <?php echo $key->status ?></span>
 
   <?php endif; ?>
   <?php if ($key->status=="REJECT"): ?>
-    <span class="label label-danger"><strong> Reject</strong></span>
+    <span class="label label-danger"><strong> <?php echo $key->status ?></strong></span>
 
   <?php endif; ?>
 </td>

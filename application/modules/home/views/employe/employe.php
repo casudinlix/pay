@@ -2,7 +2,7 @@
 
 <!-- PAGE TITLE -->
 <div class="page-title">
-    <h2><span class="fa fa-users"></span> List Employe <small><?php echo $jumlah ?> Employe</small></h2>
+    <h2><span class="fa fa-users"></span> Daftar Karyawan <small><?php echo $jumlah ?> Karyawan</small></h2>
 </div>
 <!-- END PAGE TITLE -->
 
@@ -49,18 +49,18 @@
               <div class="panel panel-default">
                   <div class="panel-body profile">
                       <div class="profile-image">
-  <a  data-toggle="modal" data-target="#detail"  data-nip="<?php echo $key->nip?>" data-jabatan="<?php echo $key->jabatan?>"
-  data-name="<?php echo $key->name?>" data-phone="<?php echo $key->phone?>" data-address="<?php echo $key->address?>" data-email="<?php echo $key->email?>"
-  data-level="<?php echo $key->level?>" data-golongan="<?php echo $key->golongan?>"
+  <a  data-toggle="modal" data-target="#detail"  data-nip="<?php echo $key->nip?>" data-jabatan="<?php echo $key->nama_jabatan?>"
+  data-name="<?php echo $key->nama_lengkap?>" data-phone="<?php echo $key->no_hp?>" data-address="<?php echo $key->alm_tinggal?>" data-email="<?php echo $key->email?>"
+    data-golongan="<?php echo $key->gol_jabatan?>"
 
 
-                          title="Detail" > <img src="<?php echo employe($key->photo)?>" alt="<?php echo $key->photo?>"/></a>
+                          title="Detail" > <img src="<?php echo employe($key->foto)?>" alt="<?php echo $key->foto?>"/></a>
                       </div>
                       <div class="profile-data">
 
-                          <div class="profile-data-name"><?php echo $key->name ?></div>
+                          <div class="profile-data-name"><?php echo $key->nama_lengkap ?></div>
                           <div class="profile-data-title"><?php echo $key->nip; ?></div>
-                          <div class="profile-data-title"><?php echo $key->jabatan; ?></div>
+                          <div class="profile-data-title"><?php echo $key->nama_jabatan; ?></div>
 
                       </div>
                       <div class="profile-controls">
@@ -70,10 +70,10 @@
                   </div>
                   <div class="panel-body">
                       <div class="contact-info">
-                          <p><small>Mobile</small><br/><?php echo $key->phone ?></p>
+                          <p><small>Nomor Hp</small><br/><?php echo $key->no_hp ?></p>
                           <p><small>*Email*</small><br/><?php echo $key->email ?></p>
-                          <p><small>Address</small><br/><?php echo $key->address ?></p>
-                            <p><small>Group Level</small><br/><?php echo $key->golongan ?></p>
+                          <p><small>Alamat</small><br/><?php echo $key->alm_tinggal ?></p>
+                            <p><small>Golongan</small><br/><?php echo $key->gol_jabatan ?></p>
                       </div>
                   </div>
               </div>

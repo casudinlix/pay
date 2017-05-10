@@ -5,7 +5,7 @@
   </div>
 </div>
 <div class="panel-footer">
-  <img src="<?php echo employe($user->photo) ?>" width="90" height="90">
+  <img src="<?php echo employe($user->foto) ?>" width="90" height="90">
 
 <?php $d= $this->uri->segment(3)?>
 <a onclick="deletpoto(<?php echo $d?>)" class='btn btn-danger' href="#">Delete</a>

@@ -30,22 +30,22 @@
                                            <tr>
                                              <th>Kode</th>
                                             <th>NIP</th>
-<th>Name</th>
-<th>Periode</th><th>Expired</th><th>Used</th><th>Remaining</th><th>Action</th>
+<th>Nama Lengkap</th>
+<th>Awal Berlaku</th><th>Akhir Masa Berlaku</th><th>Terpakai</th><th>Sisa Cuti</th><th>Aksi</th>
 
                                            </tr>
                                        </thead>
                                        <tbody>
                                          <tr>
                                            <?php foreach ($cuti as $key): ?>
-                                             <td><?php echo $key->id_cuti ?></td>
+                                             <td><?php echo $key->id_jc ?></td>
                                              <td><?php echo $key->nip ?></td>
-                                             <td><?php echo $key->name ?></td>
-                                             <td><?php echo tgl_indo($key->periode) ?></td>
-                                             <td><?php echo tgl_indo($key->expired )?></td>
+                                             <td><?php echo $key->nama_lengkap ?></td>
+                                             <td><?php echo tgl_indo($key->awal_berlaku_cuti) ?></td>
+                                             <td><?php echo tgl_indo($key->akhir_berlaku_cuti )?></td>
                                              <td><?php echo $key->terpakai ?></td>
-                                             <td><?php echo $key->sisa ?></td>
-              <td><a class="btn btn-info" href="<?php echo site_url('home/editleave/')?><?php echo $key->id_cuti?>"><i class="fa fa-pencil"></i></a></td>
+                                             <td><?php echo $key->sisa_cuti ?></td>
+              <td><a class="btn btn-info" href="<?php echo site_url('home/editleave/')?><?php echo $key->id_jc?>"><i class="fa fa-pencil"></i></a></td>
                                              </tr>
                                            <?php endforeach; ?>
 

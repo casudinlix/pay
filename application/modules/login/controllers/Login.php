@@ -7,14 +7,14 @@ class Login extends CI_Controller{
   {
     parent::__construct();
     //Codeigniter : Write Less Do More
-    if($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='Admin')
+    if($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='ADMIN')
     {
       redirect('home');
     }elseif ($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='HRD') {
       redirect('hrd');
-    }elseif ($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='Payroll') {
+    }elseif ($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='ACCOUNTING') {
       redirect('payroll');
-    }elseif ($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='Employe') {
+    }elseif ($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='KARYAWAN') {
       redirect('employe');
     }
 
@@ -44,8 +44,8 @@ $this->load->model('m_login');
     foreach($cek->result() as $data){
       $sess_data['login'] =TRUE;
       $sess_data['nip'] = $data->nip;
-      $sess_data['nama'] = $data->name;
-      $sess_data['level'] =  $data->level;
+      $sess_data['nama'] = $data->nama_lengkap;
+      $sess_data['level'] =  $data->hak_akses;
       $this->session->set_userdata($sess_data);
 
     }

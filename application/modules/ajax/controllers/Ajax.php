@@ -18,12 +18,12 @@ class Ajax extends CI_Controller {
     $keyword=$this->uri->segment(3);
       //$this->db->select('sift_name, jam_in,jam_out');
        //$this->db->like();
-       		$data =$this->db->get('users');
+       		$data =$this->db->get('karyawan');
           foreach($data->result() as $row)
       		{
       			$arr['query'] = $keyword;
       			$arr['suggestions'][] = array(
-      				'value'	=>$row->name,
+      				'value'	=>$row->nama_lengkap,
       				'nip'	=>$row->nip
       				//'jam_out'	=>$row->jam_out
 
@@ -37,7 +37,7 @@ class Ajax extends CI_Controller {
 function cuti(){
   $nip=$this->uri->segment(3);
   $date=$this->uri->segment(4);
-  $w=array('nip'=>$nip,'date'=>$date);
+  $w=array('id_cuti'=>$nip,'date'=>$date);
   $this->db->where($w);
   $this->db->delete('cuti');
 
@@ -73,8 +73,9 @@ $this->db->delete('kasbon');
 function approvekasbon(){
   $no=$this->uri->segment(3);
   $st=$this->uri->segment(4);
+  $tgl=date("Y-m-d");
   $user=$this->session->userdata('nama');
-  $data=array('status'=>$st,'approve_by'=>$user);
+  $data=array('tgl_approve'=>$tgl,'status_aju'=>$st,'disetujui_oleh'=>$user);
 
 if ($st=="APPROVE") {
   $this->db->where('no_transaksi', $no);

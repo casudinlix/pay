@@ -20,83 +20,75 @@
                                         <div class="col-md-6">
 
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label">Task</label>
+                                                <label class="col-md-3 control-label">ID Insentif</label>
                                                 <div class="col-md-9">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-      <input type="text" name="task" class="form-control" required="" autocomplete="off"/>
+      <input type="text" name="code" class="form-control" required="" value="<?php echo $code?>" readonly=""/>
                                                     </div>
-                                                    <span class="help-block">This is sample of text field</span>
-                                                </div>
+                                                 </div>
                                             </div>
-
+<div class="form-group">
+                                                <label class="col-md-3 control-label">Nominal Insentif</label>
+                                                <div class="col-md-9">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+      <input type="number" name="nominal" class="form-control" required="" />
+                                                    </div>
+                                                 </div>
+                                            </div>
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label">Many</label>
+                                                <label class="col-md-3 control-label">Jenis Insentif</label>
                                                 <div class="col-md-9">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-hand-o-right"></span></span>
-                                          <input type="number" name="many" class="form-control" required="" autocomplete="off"/>
+                                          <input type="text" name="jenis" class="form-control" required="" autocomplete="off"/>
                                                     </div>
-                                                    <span class="help-block">This is sample of text field</span>
-                                                </div>
+                                                 </div>
+                                            </div>
+ <div class="form-group">
+                                                <label class="col-md-3 control-label">Jumlah Insentif</label>
+                                                <div class="col-md-9">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><span class="fa fa-hand-o-right"></span></span>
+<input type="text" name="jml" class="form-control" required="" autocomplete="off" value="1"/>
+                                                    </div>
+                                                 </div>
                                             </div>
 
-                                                                                        <div class="form-group">
-                                                                                            <label class="col-md-3 control-label">Group Level</label>
-                                                                                            <div class="col-md-9">
-                                                                                                <div class="input-group">
-                                                                                                    <span class="input-group-addon"><span class="fa fa-group"></span></span>
+    <div class="form-group">
+          <label class="col-md-3 control-label">Jabatan</label>
+   <div class="col-md-9">
+     <div class="input-group">
+     <span class="input-group-addon"><span class="fa fa-group"></span></span>
+<select class="form-control" name="jabatan">
+  <option value="">-Select-</option>
+  <?php foreach ($jabatan as $key): ?>
+    <option value="<?php echo $key->id_jabatan ?>"><?php echo $key->id_jabatan."-".$key->nama_jabatan ?></option>
+  <?php endforeach; ?>
+</select> 
+             </div>
+
+
+</div>
+</div>
+<div class="form-group">
+          <label class="col-md-3 control-label">Golongan</label>
+   <div class="col-md-9">
+     <div class="input-group">
+     <span class="input-group-addon"><span class="fa fa-group"></span></span>
 <select class="form-control" name="gol">
   <option value="">-Select-</option>
-  <?php foreach ($gol as $key): ?>
-    <option value="<?php echo $key ?>"><?php echo $key ?></option>
-  <?php endforeach; ?>
-</select>                                                                                                </div>
-                                                                                                <span class="help-block">This is sample of text field</span>
-                                                                                            </div>
-                                                                                        </div>
-
-                                                                                                                                    <div class="form-group">
-                                                                                                                                      <div class="form-group">
-                                                                                                                                          <label class="col-md-3 control-label">Jobs Office</label>
-                                                                                                                                          <div class="col-md-9">
-                                                                                                                                              <div class="input-group">
-                                                                                                                                                  <span class="input-group-addon"><span class="fa fa-money"></span></span>
-                                                                                                                        <select class="form-control" name="jabatan">
-                                                                                                                        <option value="">-Select-</option>
-                                                                                                                        <?php foreach ($jabatan as $key): ?>
-                                                                                                                        <option value="<?php echo $key ?>"><?php echo $key ?></option>
-                                                                                                                        <?php endforeach; ?>
-                                                                                                                        </select>                                                                                                </div>
-                                                                                                                                              <span class="help-block">This is sample of text field</span>
-                                                                                                                                          </div>
-                                                                                                                                      </div>
-                                                                                                                                  <label class="col-md-3 control-label">Nominal</label>
-                                                                                                                                        <div class="col-md-9">
-                                                                                                                                            <div class="input-group">
-                                                                                                                                                <span class="input-group-addon"><span class="fa fa-money"></span></span>
-                                                                                                                                  <input type="number" name="nominal" class="form-control" required="" autocomplete="off"/>
-                                                                                                                                            </div>
-                                                                                                                                            <span class="help-block">This is sample of text field</span>
-                                                                                                                                        </div>
-                                                                                                                                    </div>
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  
+</select> 
+             </div>
 
 
+</div>
 
-
-
-
-
-
-
-
-
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
                                 <div class="panel-footer">
                                      <input type="submit" name="" value="Save" class="btn btn-primary">
 

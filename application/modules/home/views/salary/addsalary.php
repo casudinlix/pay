@@ -23,45 +23,42 @@
 
 
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label">Salary</label>
+                                                <label class="col-md-3 control-label">Gaji</label>
                                                 <div class="col-md-9">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-money"></span></span>
                                           <input type="number" name="salary" class="form-control" required="" autocomplete="off"/>
                                                     </div>
-                                                    <span class="help-block">This is sample of text field</span>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label">Jobs Desk</label>
+                                                <label class="col-md-3 control-label">Jabatan</label>
                                                 <div class="col-md-9">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
                                                         <select class="form-control"  name="jabatan" required="">
                                                           <option value="">--</option>
                                                           <?php foreach ($jabatan as $key): ?>
-                                                            <option value="<?php echo $key ?>"><?php echo $key ?></option>
+                                                            <option value="<?php echo $key->id_jabatan ?>"><?php echo $key->id_jabatan."-".$key->nama_jabatan ?></option>
                                                           <?php endforeach; ?>
                                                         </select>
                                                     </div>
-                                                    <span class="help-block">This is sample of text field</span>
-                                                </div>
+                                                 </div>
                                             </div>
 
 
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label">Group Level</label>
+                                                <label class="col-md-3 control-label">Golongan</label>
                                                 <div class="col-md-9">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
                                                         <select class="form-control"  name="gol" required="">
                                                           <option value="">--</option>
-                                                          <?php foreach ($gol as $key): ?>
-                                                            <option value="<?php echo $key ?>"><?php echo $key ?></option>
-                                                          <?php endforeach; ?>
+                                                          <option value="A">A</option>
+                                                          <option value="B">B</option>
+                                                          <option value="C">C</option>
                                                         </select>
                                                     </div>
-                                                    <span class="help-block">This is sample of text field</span>
                                                 </div>
                                             </div>
 

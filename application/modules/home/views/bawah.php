@@ -206,7 +206,15 @@
   <script type="text/javascript">
     swal("Schedule Exis", "You clicked the button!", "error")
   </script>
+
 <?php endif; ?>
+<?php if ($this->session->flashdata('potongcuti')): ?>
+  <script type="text/javascript">
+    swal("Cuti Sudah Terposting", "You clicked the button!", "success")
+  </script>
+
+<?php endif; ?>
+
 <?php if ($this->session->flashdata('sukses')): ?>
   <script type="text/javascript">
     swal("Data Saved!", "You clicked the button!", "success")

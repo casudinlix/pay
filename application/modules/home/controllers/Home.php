@@ -22,9 +22,9 @@ $this->load->library(array('PHPExcel','PHPExcel/IOFactory'));
   function index()
   {
 $data['com']=$this->db->get('company')->row();
-$data['jumlah']=$this->db->get('employe')->num_rows();
-$data['cuti']=$this->db->get_where('cuti',array('status'=>'PENDING','status !='=>'REJECT'))->num_rows();
-$data['kasbon']=$this->db->get_where('kasbon_view',array('status'=>'PENDING','status !='=>'REJECT'))->num_rows();
+$data['jumlah']=$this->db->get('karyawan')->num_rows();
+$data['cuti']=$this->db->get_where('aju_cuti',array('status_cuti'=>'POSTING','status_cuti !='=>'REJECT'))->num_rows();
+$data['kasbon']=$this->db->get_where('kasbon',array('status_aju'=>'PENDING','status_aju !='=>'REJECT'))->num_rows();
 $this->load->view('atas', $data);
 $this->load->view('home', $data);
 $this->load->view('bawah', $data);
@@ -41,10 +41,10 @@ $this->session->unset_userdata($semua);
   function employe($offset = 0){
     $this->load->model('m_list');
     $data['com']=$this->db->get('company')->row();
-    $data['all']=$this->db->get('join_user')->result();
-    $data['jumlah']=$this->db->get('join_user')->num_rows();
+    $data['all']=$this->db->get('karyawan_view')->result();
+    $data['jumlah']=$this->db->get('karyawan_view')->num_rows();
 
-    $jml = $this->db->get('join_user');
+    $jml = $this->db->get('karyawan');
 		$search= $this->input->post('search');
 		$config['base_url'] = site_url().'/home/employe/';
 		$config['total_rows']  = $jml->num_rows();
@@ -85,17 +85,14 @@ function addemploye(){
   $this->load->model('m_list');
   $data['nip']=$this->m_list->nip();
   $data['com']=$this->db->get('company')->row();
-  $data['agama']=$this->db->enum('employe','religion');
-  $data['bank']=$this->db->enum('employe', 'bank');
-  $data['pendidikan']=$this->db->enum('employe', 'education');
-  $data['nikah']=$this->db->enum('employe', 'merried_status');
-  $data['status']=$this->db->enum('employe', 'status');
-  $data['golongan']=$this->db->enum('employe', 'golongan');
-  $data['id']=$this->db->enum('employe', 'type_id');
-  $data['type']=$this->db->enum('employe', 'type_employe');
-  $data['sex']=$this->db->enum('employe', 'sex');
-  $data['job']=$this->db->enum('employe', 'jabatan');
-$data['level']=$this->db->enum('users', 'level');
+  $data['agama']=$this->db->enum('karyawan','agama');
+  $data['bank']=$this->db->enum('karyawan', 'bank');
+  $data['pendidikan']=$this->db->enum('karyawan', 'pendidikan');
+    $data['status']=$this->db->enum('karyawan', 'status');
+   $data['id']=$this->db->enum('karyawan', 'jenis_id');
+   $data['sex']=$this->db->enum('karyawan', 'jk');
+  $data['job']=$this->db->get('jabatan')->result();
+$data['level']=$this->db->enum('users', 'hak_akses');
   $this->load->view('atas',$data);
   $this->load->view('employe/add',$data);
   $this->load->view('bawah',$data);
@@ -103,7 +100,7 @@ $data['level']=$this->db->enum('users', 'level');
 function photo(){
 $data['com']=$this->db->get('company')->row();
 $id=$this->uri->segment(3);
-$data['user']=$this->db->get_where('employe',array('nip'=>$id))->row();
+$data['user']=$this->db->get_where('karyawan',array('nip'=>$id))->row();
 $this->load->view('atas',$data);
 $this->load->view('employe/photo',$data);
 $this->load->view('bawah',$data);
@@ -121,7 +118,7 @@ function uploadphoto(){
                   $token=$this->input->post('token');
                   $poto=$token.$nama;
                   $this->db->where('nip', $token);
-                  $this->db->update('employe', array('photo'=>$nama));
+                  $this->db->update('karyawan', array('foto'=>$nama));
                   echo "Ok";
                 	//$this->db->insert('employe',array('photo'=>$nama,'token'=>$token));
                 }else{
@@ -165,20 +162,20 @@ function deletpoto($d){
 function editemploye(){
   $data['com']=$this->db->get('company')->row();
   $id=$this->uri->segment(3);
-  $data['user']=$this->db->get_where('join_user',array('nip'=>$id))->row();
-  $data['profil']=$this->db->get_where('employe',array('nip'=>$id))->row();
+  $data['user']=$this->db->get_where('karyawan_view',array('nip'=>$id))->row();
+  $data['user1']=$this->db->get_where('karyawan',array('nip'=>$id))->row();
+  $data['profil']=$this->db->get_where('karyawan_view',array('nip'=>$id))->row();
   $data['pass']=$this->db->get_where('users',array('nip'=>$id))->row();
-  $data['agama']=$this->db->enum('employe','religion');
-  $data['bank']=$this->db->enum('employe', 'bank');
-  $data['pendidikan']=$this->db->enum('employe', 'education');
-  $data['id']=$this->db->enum('employe', 'type_id');
-  $data['nikah']=$this->db->enum('employe', 'merried_status');
-  $data['status']=$this->db->enum('employe', 'status');
-  $data['golongan']=$this->db->enum('employe', 'golongan');
-  $data['type']=$this->db->enum('employe', 'type_employe');
-  $data['sex']=$this->db->enum('employe', 'sex');
-  $data['job']=$this->db->enum('employe', 'jabatan');
-$data['level']=$this->db->enum('users', 'level');
+  $data['agama']=$this->db->enum('karyawan_view','agama');
+  $data['bank']=$this->db->enum('karyawan_view', 'bank');
+  $data['pendidikan']=$this->db->enum('karyawan_view', 'pendidikan');
+  $data['id']=$this->db->enum('karyawan_view', 'jenis_id');
+  $data['jabatan']=$this->db->get('jabatan')->result();
+  $data['status']=$this->db->enum('karyawan_view', 'status');
+  
+  
+  $data['sex']=$this->db->enum('karyawan_view', 'jk');
+  
   $this->load->view('atas',$data);
   $this->load->view('employe/editemploye',$data);
   $this->load->view('bawah',$data);
@@ -266,8 +263,8 @@ function deletshift(){
 }
 function attendance(){
   $data['com']=$this->db->get('company')->row();
-$data['all']=$this->db->get('absensi_new')->result();
-$data['status']=$this->db->enum('absensi','status');
+$data['all']=$this->db->get('absensi_view')->result();
+
 
   $this->load->view('atas',$data);
   $this->load->view('absensi/absensi',$data);
@@ -275,15 +272,14 @@ $data['status']=$this->db->enum('absensi','status');
 }
 function salary(){
 $data['com']=$this->db->get('company')->row();
-$data['gaji']=$this->db->get('m_gaji')->result();
+$data['gaji']=$this->db->get('m_gaji_view')->result();
   $this->load->view('atas',$data);
   $this->load->view('salary/salary',$data);
   $this->load->view('bawah',$data);
 }
 function addsalary(){
 $data['com']=$this->db->get('company')->row();
-$data['jabatan']=$this->db->enum('employe', 'jabatan');
-$data['gol']=$this->db->enum('insentif', 'golongan');
+$data['jabatan']=$this->db->get('jabatan')->result();
 
 $this->load->view('atas',$data);
 $this->load->view('salary/addsalary',$data);
@@ -292,25 +288,73 @@ $this->load->view('bawah',$data);
 function editsalary(){
   $id=$this->uri->segment(3);
   $data['com']=$this->db->get('company')->row();
-$data['sal']=$this->db->get_where('m_gaji',array('id'=>$id))->row();
-$data['jabatan']=$this->db->enum('employe', 'jabatan');
-$data['gol']=$this->db->enum('insentif', 'golongan');
+$data['sal']=$this->db->get_where('m_gaji_view',array('id'=>$id))->row();
+$data['sal1']=$this->db->get_where('m_gaji',array('id'=>$id))->row();
+
+$data['jabatan']=$this->db->get('jabatan')->result();
+ 
   $this->load->view('atas',$data);
   $this->load->view('salary/editsalary',$data);
   $this->load->view('bawah',$data);
 }
+function jabatan(){
+  $data['com']=$this->db->get('company')->row();
+$data['all']=$this->db->get('jabatan')->result();
+  $this->load->view('atas',$data);
+  $this->load->view('jabatan/jabatan',$data);
+  $this->load->view('bawah',$data);
+}
+function addjabatan(){
+   $data['com']=$this->db->get('company')->row();
+$this->load->model('m_list');
+$data['code']=$this->m_list->jabatan();
+  $this->load->view('atas',$data);
+  $this->load->view('jabatan/add',$data);
+  $this->load->view('bawah',$data);
+}
+function editjabatan(){
+  $data['com']=$this->db->get('company')->row();
+  $id=$this->uri->segment(3);
+  $data['jab']=$this->db->get_where('jabatan',array('id_jabatan'=>$id))->row();
+  $this->load->view('atas',$data);
+  $this->load->view('jabatan/edit',$data);
+  $this->load->view('bawah',$data);
+}
+function user(){
+  $data['com']=$this->db->get('company')->row();
+$data['all']=$this->db->get('users')->result();
+  $this->load->view('atas',$data);
+  $this->load->view('user/user',$data);
+  $this->load->view('bawah',$data);
+}
+function adduser(){
+  $data['com']=$this->db->get('company')->row();
+$this->load->model('m_list');
+$data['code']=$this->m_list->nip();
+  $this->load->view('atas',$data);
+  $this->load->view('user/add',$data);
+  $this->load->view('bawah',$data);
+}
+function edituser(){
+  $data['com']=$this->db->get('company')->row();
+$id=$this->uri->segment(3);
+$data['user']=$this->db->get_where('users', array('nip'=>$id))->row();
+  $this->load->view('atas',$data);
+  $this->load->view('user/edit',$data);
+  $this->load->view('bawah',$data);
+}
 function insentif(){
   $data['com']=$this->db->get('company')->row();
-  $data['intensif']=$this->db->get('insentif')->result();
+  $data['intensif']=$this->db->get('insentif_view')->result();
     $this->load->view('atas',$data);
     $this->load->view('insentif/insentif',$data);
     $this->load->view('bawah',$data);
 }
 function addinsentif(){
   $data['com']=$this->db->get('company')->row();
-  $data['intensif']=$this->db->get('insentif')->result();
-  $data['gol']=$this->db->enum('insentif','golongan' );
-  $data['jabatan']=$this->db->enum('employe','jabatan' );
+$this->load->model('m_list');
+$data['code']=$this->m_list->insentif();
+$data['jabatan']=$this->db->get('jabatan')->result();
     $this->load->view('atas',$data);
     $this->load->view('insentif/add',$data);
     $this->load->view('bawah',$data);
@@ -318,9 +362,9 @@ function addinsentif(){
 function editinsentif(){
   $id=$this->uri->segment(3);
   $data['com']=$this->db->get('company')->row();
-  $data['in']=$this->db->get_where('insentif',array('id'=>$id))->row();
-  $data['gol']=$this->db->enum('insentif','golongan' );
-  $data['jabatan']=$this->db->enum('employe','jabatan' );
+  $data['in']=$this->db->get_where('insentif',array('id_insentif'=>$id))->row();
+  $data['in1']=$this->db->get_where('insentif_view', array('id_insentif'=>$id))->row();
+  $data['jabatan']=$this->db->get('jabatan')->result();
     $this->load->view('atas',$data);
     $this->load->view('insentif/edit',$data);
     $this->load->view('bawah',$data);
@@ -330,7 +374,7 @@ function absen(){
   $this->load->model('m_list');
 
   $data['com']=$this->db->get('company')->row();
-  $data['jadwal']= $this->db->get_where('schedule',array('nip'=>$id))->result();
+  
   $data['absen']=$this->db->get_where('absensi',array('nip'=>$id))->result();
 
   $this->load->view('atas',$data);
@@ -368,8 +412,8 @@ function editleave(){
   $id=$this->uri->segment(3);
   $id1=$this->uri->segment(4);
   $data['com']=$this->db->get('company')->row();
-  $data['u']=$this->db->get_where('m_cuti',array('id_cuti'=>$id))->row();
-  $data['cuti']=$this->db->get_where('cuti_view',array('id_cuti'=>$id))->row();
+  $data['u']=$this->db->get_where('jatah_cuti',array('id_jc'=>$id))->row();
+  $data['cuti']=$this->db->get_where('cuti_view',array('id_jc'=>$id))->row();
   $this->load->view('atas',$data);
   $this->load->view('cuti/edit',$data);
   $this->load->view('bawah',$data);
@@ -378,8 +422,9 @@ function leave(){
   $id=$this->uri->segment(3);
 
   $data['com']=$this->db->get('company')->row();
-$data['cuti']=$this->db->get_where('cuti_view',array('nip'=>$id,'sisa >'=>'0'))->result();
-$data['cek']=$this->db->get_where('cuti_pengajuan_view',array('nip'=>$id));
+$data['cuti']=$this->db->get_where('jatah_cuti',array('nip'=>$id))->row();
+$data['cek']=$this->db->get_where('aju_cuti_view',array('nip'=>$id))->result();
+
   $this->load->view('atas',$data);
   $this->load->view('cuti/leave',$data);
   $this->load->view('bawah',$data);
@@ -420,7 +465,9 @@ $this->load->view('bawah',$data);
 }
 function listkasbon(){
   $data['com']=$this->db->get('company')->row();
-  $this->db->select_sum('nominal');
+  $this->db->select_sum('nominal_kasbon');
+  $this->db->where_in('status_aju','PENDING');
+  $this->db->or_where_in('status_aju','APPROVE');
   $data['sum']=$this->db->get('kasbon_view')->row();
   $data['all']=$this->db->get('kasbon_view')->result();
     $this->load->view('atas',$data);

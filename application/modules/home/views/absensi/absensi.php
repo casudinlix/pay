@@ -41,46 +41,39 @@
                           </form>
 
 
-     <table class="table table-responsive datatable" id="dataTable">
+     <table class="table table-responsive table1" id="example">
                                         <thead>
                                             <tr>
 
                                               <th colspan="" class="danger">NIP</th>
                                               <th colspan="" class="danger">Name</th>
-                                              <th colspan="" class="danger">Shift</th>
-                                              <th colspan="" class="danger">Date</th>
-                                              <th colspan="" class="danger">In / Out</th>
-                                              <th class="info">Actual In / Out</th>
-                                              <th class="info">Actual Date</th>
-                                              <th class="info">Overtime</th>
-                                              <th class="info">Late</th>
+                                             
+                                              <th class="info">Jam In / Out</th>
+                                              <th class="info">Tanggal</th>
+                                              <th class="info">Lembur</th>
+                                              <th class="info">Telat</th>
                                               <th class="info">Total</th>
-                                              <th class="info"></th>
-                                              <th class="warning">Action</th>
+                                              <th class="info">Status</th>
+                                              <th class="warning">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                              <?php foreach ($all as $key): ?>
-                                                <td class="danger"><?php echo $key->nip ?></td>
-                                                <td class="danger"><?php echo $key->name ?></td>
-                                                <td class="danger"><?php echo $key->shift ?></td>
-                                                <td class="danger"><?php echo tgl_indo($key->aktual_date) ?></td>
-                                                <td class="danger"><?php echo $key->aktual_in ?>-<?php echo $key->aktual_out ?></td>
+                                           <?php   foreach ($all as $key): ?>
+                                                  
 
-                                                <td><?php echo $key->in ?> -<?php echo $key->out ?></td>
-<td><?php echo tgl_indo($key->date) ?></td>
-<td><?php echo $key->overtime ?></td>
-<td><?php echo $key->late ?></td>
-<td><?php echo $key->total ?></td>
-<td><?php echo $key->status ?></td>
-
-
-<td>xx</td>
-                                                </tr>
-                                              <?php endforeach; ?>
-
-
+                                                  <td><?php echo $key->nip?></td>
+<td colspan="" rowspan="" headers=""><?php echo $key->nama_lengkap?></td>
+<td colspan="" rowspan="" headers=""><?php echo $key->in."-".$key->out?></td>
+<td colspan="" rowspan="" headers=""><?php echo tgl_indo($key->tgl_absensi)?></td>
+<td colspan="" rowspan="" headers=""><?php echo $key->lembur?></td>
+<td colspan="" rowspan="" headers=""><?php echo $key->telat?></td>
+<td colspan="" rowspan="" headers=""><?php echo $key->total?>Jam</td>
+<td colspan="" rowspan="" headers=""><?php echo $key->status?></td>
+                                                  <td>
+                                                  </tr>
+                                                <?php
+                    endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>

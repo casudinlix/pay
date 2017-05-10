@@ -54,19 +54,22 @@ body{
                         <a href="#" class="x-navigation-control"></a>
                     </li>
                     <li class="xn-openable">
-                        <a href="#"><span class="fa fa-cogs fa-spin"></span> <span class="xn-text">Master</span></a>
+                        <a href="#"><span class="fa fa-cogs fa-spin"></span> <span class="xn-text">Data Master</span></a>
                         <ul class="animated zoomIn">
-                            <li><a href="<?php echo site_url('home/employe')?>"><span class="fa fa-users"></span> Employee</a></li>
+                            <li><a href="<?php echo site_url('home/employe')?>"><span class="fa fa-users"></span> Karyawan</a></li>
                                                         <li class="xn-openable">
-                                                            <a href="#"><span class="fa fa-money"></span> Payroll</a>
+                                                            <a href="#"><span class="fa fa-money"></span> Accounting</a>
                                                             <ul>
-                                                              <li><a href="<?php echo site_url('home/salary')?>"><span class="fa fa-money"></span> Salary</a></li>
+                                                              <li><a href="<?php echo site_url('home/salary')?>"><span class="fa fa-money"></span> Gaji</a></li>
 
                                                                 <li><a href="<?php echo site_url('home/insentif')?>"><span class="fa fa-dollar"></span>Insentif</a></li>
 
                                                              </ul>
                                                         </li>
-                            <li><a href="<?php echo site_url('home/company/1')?>"><span class="fa fa-building-o"></span> Company</a></li>
+                            <li><a href="<?php echo site_url('home/company/1')?>"><span class="fa fa-building-o"></span> Edit Info Company</a></li>
+                             <li><a href="<?php echo site_url('home/jabatan')?>"><span class="fa fa-group"></span> Jabatan</a></li>
+                              <li><a href="<?php echo site_url('home/user')?>"><span class="fa fa-user"></span> User Pengguna</a></li>
+
 
 
 
@@ -76,30 +79,23 @@ body{
                     </li>
 
                     <li class="xn-openable">
-                        <a href="#"><span class="fa fa-clock-o"></span> <span class="xn-text">Time Management</span></a>
+                        <a href="#"><span class="fa fa-clock-o"></span> <span class="xn-text">Management Waktu</span></a>
                         <ul class="animated zoomIn">
                           <li class="xn-openable">
-                              <a href="#"><span class="fa fa-clock-o"></span> Leave & Attendance</a>
+                              <a href="#"><span class="fa fa-clock-o"></span> Absensi & Cuti</a>
 
                               <ul>
-                                  <li><a href="<?php echo site_url('home/attendance') ?>"><span class="glyphicon glyphicon-dashboard"></span> Attendance & Overtime</a></li>
-                                  <li><a href="<?php echo site_url('home/listleave') ?>"><span class="glyphicon glyphicon-new-window"></span>Input Leave</a></li>
+                                  <li><a href="<?php echo site_url('home/attendance') ?>"><span class="glyphicon glyphicon-dashboard"></span> Absensi & Lembur</a></li>
+                                  <li><a href="<?php echo site_url('home/listleave') ?>"><span class="glyphicon glyphicon-new-window"></span>Input Cuti</a></li>
 
                               </ul>
                           </li>
-                            <li class="xn-openable">
-                                <a href="#"><span class="fa fa-calendar"></span> Schedule</a>
-                                <ul>
-       <li><a href="<?php echo site_url('home/settingsift')?>"><span class="fa fa-clock-o"></span> SIFT</a></li>
-       <li><a href="<?php echo site_url('home/createschedule')?>"><span class="glyphicon glyphicon-time fa fa-plus"></span>Create Schedule</a></li>
-
-                                </ul>
-                            </li>
+                            
 
                         </ul>
                     </li>
                     <li class="xn-openable">
-                        <a href="#"><span class="fa fa-dollar"></span> <span class="xn-text">Payroll Management</span></a>
+                        <a href="#"><span class="fa fa-dollar"></span> <span class="xn-text">Accounting Management</span></a>
                         <ul class="animated zoomIn">
                           <li class="">
                               <a href="<?php echo site_url('home/listkasbon')?>"><span class="fa fa-money"></span> Kasbon</a>
@@ -111,28 +107,28 @@ body{
                         </ul>
                     </li>
                     <li class="xn-openable">
-                        <a href="#"><span class="fa fa-calendar"></span> <span class="xn-text">Leave & Attendance</span></a>
+                        <a href="#"><span class="fa fa-calendar"></span> <span class="xn-text">Ijin & Absen</span></a>
                         <ul class="animated zoomIn">
                             <li>
-                                <a href="<?php echo site_url('home/absen/'.$this->session->userdata('nip'))?>"><span class="fa fa-clock-o"></span> Absence</a>
-<a href="<?php echo site_url('home/leave/'.$this->session->userdata('nip')) ?>"><span class="fa fa-calendar-o"></span>Leave</a>
+                                <a href="<?php echo site_url('home/absen/'.$this->session->userdata('nip'))?>"><span class="fa fa-clock-o"></span> Absensi Saya</a>
+<a href="<?php echo site_url('home/leave/'.$this->session->userdata('nip')) ?>"><span class="fa fa-calendar-o"></span>Cuti / Ijin</a>
 
                             </li>
 
                         </ul>
                     </li>
                     <li class="xn-openable">
-                        <a href="#"><span class="fa fa-shopping-cart"></span> <span class="xn-text">Transaction</span></a>
+                        <a href="#"><span class="fa fa-shopping-cart"></span> <span class="xn-text">Transaksi</span></a>
                         <ul class="animated zoomIn">
 
 
-                            <li><a href="<?php echo site_url('home/hitung')?>"><span class="glyphicon glyphicon-usd"></span>Calculate salary</a></li>
-                            <li><a href="<?php echo site_url('home/kasbon/'.$this->session->userdata('nip'))?>"><span class="fa fa-archive"></span>Cash Receipt</a></li>
+                            <li><a href="<?php echo site_url('home/hitung')?>"><span class="glyphicon glyphicon-usd"></span>Hitung Gaji Karyawan</a></li>
+                            <li><a href="<?php echo site_url('home/kasbon/'.$this->session->userdata('nip'))?>"><span class="fa fa-archive"></span>Kasbon</a></li>
 
                         </ul>
                     </li>
                     <li class="xn-openable">
-                        <a href="#"><span class="fa fa-file-o"></span> <span class="xn-text">Report</span></a>
+                        <a href="#"><span class="fa fa-file-o"></span> <span class="xn-text">Laporan</span></a>
                         <ul class="animated zoomIn">
 
 

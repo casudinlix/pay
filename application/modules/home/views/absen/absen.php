@@ -25,9 +25,9 @@
                                    <table class="table table-bordered table1">
                                        <thead>
                                            <tr>
-                                            <th>Actual In</th>
-<th> Actual Out</th>
-<th>Date</th><th>Overtime</th><th>Late</th><th>Status</th>
+                                            <th>Jam Masuk</th>
+<th> Jam Keluar</th>
+<th>Tanggal Absen</th><th>Lembur</th><th>Terlambat</th><th>Total</th><th>Status</th>
 
                                            </tr>
                                        </thead>
@@ -36,9 +36,10 @@
 
   <?php foreach ($absen as $absen1): ?>
     <td><?php echo $absen1->in ?></td>
-    <td><?php echo $absen1->out ?></td><td><?php echo tgl_indo($absen1->date) ?></td>
-    <td><?php echo hitunglembur($absen1->in,$absen1->out) ?></td>
-    <td><?php echo $absen1->late ?></td><td><?php echo $absen1->status ?></td>
+    <td><?php echo $absen1->out ?></td><td><?php echo tgl_indo($absen1->tgl_absensi) ?></td>
+    <td><?php echo $absen1->lembur?></td>
+    <td><?php echo $absen1->telat ?></td><td><?php echo $absen1->total ?></td>
+    <td><?php echo $absen1->status ?></td>
     </tr>
   <?php endforeach; ?>
 

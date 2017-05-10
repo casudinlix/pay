@@ -20,89 +20,72 @@
                                         <div class="col-md-6">
                                           <div class="form-group">
                                              <label class="col-md-3 control-label">Kode</label>
-                                                                                          <div class="col-md-9">
-                                                                                              <div class="input-group">
-                                                                                                  <span class="input-group-addon"><span class="fa fa-book"></span></span>
-                                          <input type="text" name="kode" class="form-control" value="<?php echo $this->uri->segment(3) ?>" readonly="">
+  <div class="col-md-9">
+    <div class="input-group">
+   <span class="input-group-addon"><span class="fa fa-book"></span></span>
+<input type="text" name="kode" class="form-control" value="<?php echo $this->uri->segment(3); ?>" readonly="">
                                                                                            </div>
                                                                                       </div>
-                                          </div>
+                                        </div>
 
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label">Name</label>
+                                                <label class="col-md-3 control-label">Nama Lengkap</label>
                                                 <div class="col-md-9">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-      <input type="text" name="nip" class="form-control  nip" id="name" required="" autocomplete="off" readonly="" value="<?php echo $cuti->name ?>"/>
+      <input type="text" name="nip" class="form-control  nip" id="name" value="<?php echo $cuti->nama_lengkap?>"/>
                                                     </div>
-                                                    <span class="help-block">This is sample of text field</span>
-                                                </div>
+                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">NIP</label>
                                                 <div class="col-md-9">
                                                     <div class="input-group">
-                                                        <span class="input-group-addon"><span class="fa fa-hand-o-right"></span></span>
-                                          <input type="text" name="nip" id="nip" class="form-control nip" required="" autocomplete="off" readonly="" value="<?php echo $cuti->nip ?>"/>
+<span class="input-group-addon"><span class="fa fa-hand-o-right"></span></span>
+  <input type="text" name="nip" id="nip" class="form-control nip" value="<?php echo $cuti->nip?>" readonly/>
                                                     </div>
-                                                    <span class="help-block">This is sample of text field</span>
-                                                </div>
+                                                 </div>
                                             </div>
-                                            <div class="form-group">                                               <label class="col-md-3 control-label">Periode</label>
-                                                                                            <div class="col-md-9">
-                                                                                                <div class="input-group">
-                                                                                                    <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-<input type="text" name="periode" class="form-control " readonly="" value="<?php echo $cuti->periode ?>">
-                                                                                             </div>
-                                                                                        </div>
+<div class="form-group">
+<label class="col-md-3 control-label">Awal Masa Berlaku Cuti</label>
+<div class="col-md-9">
+ <div class="input-group">
+ <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+<input type="text" name="periode" class="form-control datepicker" value="<?php echo $cuti->awal_berlaku_cuti?>" >
+  </div>
+    </div>
 </div>
-                                                                                                                                    <div class="form-group">
-
-                                                                                                                                          <label class="col-md-3 control-label">Expired</label>
-                                                                                                                                          <div class="col-md-9">
-                                                                                                                                              <div class="input-group">
-                                                                                                                                                  <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                                                                                        <input type="text" name="expired" class="form-control datepicker" value="<?php echo $cuti->expired ?>">                                                                                                </div>
-                                                                                                                                              <span class="help-block">This is sample of text field</span>
-                                                                                                                                          </div>
-                                                                                                                                       </div>
-                                                                                                                                       <div class="form-group">
-                                                                                                                                  <label class="col-md-3 control-label">Used</label>
-                                                                                                                                        <div class="col-md-9">
-                                                                                                                                            <div class="input-group">
-                                                                                                                                                <span class="input-group-addon"><span class="fa fa-money"></span></span>
-                                                                                                                                  <input type="number" name="used" class="form-control" required="" autocomplete="off"  value="<?php echo $cuti->terpakai ?>"/>
-                                                                                                                                            </div>
-                                                                                                                                            <span class="help-block">This is sample of text field</span>
-                                                                                                                                        </div>
-                                                                                                                                    </div>
-
-                                                                                                                                    <div class="form-group">
-
-
-                                                                                                                                    <label class="col-md-3 control-label">Remaining</label>
-                                                                                                                                          <div class="col-md-9">
-                                                                                                                                              <div class="input-group">
-                                                                                                                                                  <span class="input-group-addon"><span class="fa fa-money"></span></span>
-                                                                                                                                    <input type="number" name="sisa" class="form-control" required="" autocomplete="off"  value="<?php echo $cuti->sisa ?>"/>
-                                                                                                                                              </div>
-                                                                                                                                              <span class="help-block">This is sample of text field</span>
-                                                                                                                                          </div>
-                                                                                                                                      </div>
-
-
-
-
-
-
-
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
+     <div class="form-group">
+ <label class="col-md-3 control-label">Akhir Masa Berlaku</label>
+ <div class="col-md-9">
+ <div class="input-group">
+ <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+ <input type="text" name="expired" class="form-control datepicker" value="<?php echo $cuti->akhir_berlaku_cuti?>" >
+       </div>
+     </div>
+  </div>
+  <div class="form-group">
+ <label class="col-md-3 control-label">Terpakai</label>
+  <div class="col-md-9">
+  <div class="input-group">
+ <span class="input-group-addon"><span class="fa fa-money"></span></span>
+ <input type="number" name="used" class="form-control" required="" autocomplete="off" value="<?php echo $cuti->terpakai?>"/>
+  </div>
+ </div>
+ </div>
+<div class="form-group">
+<label class="col-md-3 control-label">Sisa Cuti</label>
+ <div class="col-md-9">
+ <div class="input-group">
+  <span class="input-group-addon"><span class="fa fa-money"></span></span>
+<input type="number" name="sisa" class="form-control" required="" autocomplete="off" value="<?php echo $cuti->sisa_cuti?>"/>
+    </div>
+       </div>
+     </div>
+         </div>
+           </div>
+          </div>
                                 <div class="panel-footer">
                                      <input type="submit" name="" value="Save" class="btn btn-primary">
 

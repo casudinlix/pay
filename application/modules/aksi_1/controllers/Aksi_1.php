@@ -18,7 +18,7 @@ if (empty($_POST)) {
 function addemploye(){
   $nip=$this->input->post('nip',TRUE);
   $nama=$this->input->post('nama',TRUE);
-  $nikah=$this->input->post('nikah');
+   
   $status=$this->input->post('status');
   $sex=$this->input->post('sex',TRUE);
   $ttl=$this->input->post('ttl',TRUE);
@@ -27,9 +27,9 @@ function addemploye(){
   $edu=$this->input->post('edu',TRUE);
   $id=$this->input->post('id',TRUE);
   $idtype=$this->input->post('idtype',TRUE);
-  $npwp=$this->input->post('npwp',TRUE);
+   
   $jam=$this->input->post('jam',TRUE);
-  $typeemploye=$this->input->post('typeemploye',TRUE);
+   
   $bank=$this->input->post('bank',TRUE);
   $phone=$this->input->post('phone',TRUE);
   $email=$this->input->post('email',TRUE);
@@ -39,22 +39,20 @@ function addemploye(){
   $job=$this->input->post('job',TRUE);
   $account=$this->input->post('account',TRUE);
   $address=$this->input->post('alamat',TRUE);
-$personal=array('nip'=>$nip,'ttl'=>$ttl,'joindate'=>$join,'sex'=>$sex,'religion'=>$agama,
-'jabatan'=>$job,'account_number'=>$account,'bank'=>$bank,'education'=>$edu,'address'=>$address,
-'email'=>$email,'phone'=>$phone,'id_number'=>$id,'npwp'=>$npwp,'jamsostek'=>$jam,
-'photo'=>'no.png','type_employe'=>$typeemploye,'golongan'=>$golongan,'status'=>$status,'merried_status'=>$nikah);
-$login=array('nip'=>$nip,'name'=>$nama,'pass'=>$pass,'level'=>$role);
-$this->db->insert('employe', $personal);
-$this->db->insert('users', $login);
+
+$personal=array('nip'=>$nip,'nama_lengkap'=>$nama,'tgl_lahir'=>$ttl,'tgl_bergabung'=>$join,'jk'=>$sex,'agama'=>$agama,'id_jabatan'=>$job,'gol_jabatan'=>$golongan,'no_rek'=>$account,'bank'=>$bank,'pendidikan'=>$edu,'alm_tinggal'=>$address,
+'email'=>$email,'no_hp'=>$phone,'no_id'=>$id,'jenis_id'=>$idtype,'foto'=>'no.png','status'=>$status);
+ 
+$this->db->insert('karyawan', $personal);
+//$this->db->insert('users', $login);
 
 $this->session->set_flashdata('sukses', 'value');
 redirect('home/employe');
 }
 function editemploye(){
-  $nip=$this->input->post('nip');
+  $nip=$this->input->post('nip',TRUE);
   $nama=$this->input->post('nama',TRUE);
-  $nikah=$this->input->post('nikah');
-  $golongan=$this->input->post('golongan');
+   
   $status=$this->input->post('status');
   $sex=$this->input->post('sex',TRUE);
   $ttl=$this->input->post('ttl',TRUE);
@@ -63,27 +61,23 @@ function editemploye(){
   $edu=$this->input->post('edu',TRUE);
   $id=$this->input->post('id',TRUE);
   $idtype=$this->input->post('idtype',TRUE);
-  $npwp=$this->input->post('npwp',TRUE);
+   
   $jam=$this->input->post('jam',TRUE);
-  $typeemploye=$this->input->post('typeemploye',TRUE);
+   
   $bank=$this->input->post('bank',TRUE);
   $phone=$this->input->post('phone',TRUE);
   $email=$this->input->post('email',TRUE);
+  $golongan=$this->input->post('golongan');
   $pass=trim(base64_encode($this->input->post('pass',TRUE)));
   $role=$this->input->post('role',TRUE);
   $job=$this->input->post('job',TRUE);
   $account=$this->input->post('account',TRUE);
   $address=$this->input->post('alamat',TRUE);
-  $personal=array('ttl'=>$ttl,'joindate'=>$join,'sex'=>$sex,'religion'=>$agama,
-  'jabatan'=>$job,'account_number'=>$account,'bank'=>$bank,'education'=>$edu,'address'=>$address,
-  'email'=>$email,'phone'=>$phone,'id_number'=>$id,'npwp'=>$npwp,'jamsostek'=>$jam,
-  'type_employe'=>$typeemploye,'golongan'=>$golongan,'status'=>$status,'merried_status'=>$nikah);
 
-  $login=array('name'=>$nama,'pass'=>$pass,'level'=>$role);
-  $this->db->where('nip', $nip);
-  $this->db->update('employe', $personal);
-  $this->db->where('nip', $nip);
-  $this->db->update('users', $login);
+$personal=array('nama_lengkap'=>$nama,'tgl_lahir'=>$ttl,'jk'=>$sex,'agama'=>$agama,'id_jabatan'=>$job,'gol_jabatan'=>$golongan,'no_rek'=>$account,'bank'=>$bank,'pendidikan'=>$edu,'alm_tinggal'=>$address,
+'email'=>$email,'no_hp'=>$phone,'no_id'=>$id,'jenis_id'=>$idtype,'status'=>$status);
+$this->db->where('nip', $nip);
+ $this->db->update('karyawan', $personal);
 
   $this->session->set_flashdata('update', 'value');
   redirect('home/employe');
@@ -153,9 +147,46 @@ function addsalary(){
   $gol=$this->input->post('gol',TRUE);
   $salary=$this->input->post('salary',TRUE);
   $jabatan=$this->input->post('jabatan',TRUE);
-  $data=array('nominal'=>$salary,'jabatan'=>$jabatan,'golongan'=>$gol);
+  $data=array('nominal'=>$salary,'id_jabatan'=>$jabatan,'gol_jabatan'=>$gol);
   $this->db->insert('m_gaji', $data);
   redirect('home/salary');
+}
+function addjabatan(){
+  $code=$this->input->post('code', TRUE);
+  $nama=$this->input->post('nama', TRUE);
+  $golongan=$this->input->post('golongan', TRUE);
+  $data=array('id_jabatan'=>$code,'nama_jabatan'=>$nama);
+  $this->db->insert('jabatan', $data);
+  redirect('home/jabatan');
+
+}
+function editjabatan(){
+  $code=$this->input->post('code', TRUE);
+  $nama=$this->input->post('nama', TRUE);
+  $golongan=$this->input->post('golongan', TRUE);
+  $data=array('nama_jabatan'=>$nama);
+  $this->db->where('id_jabatan', $code);
+  $this->db->update('jabatan', $data);
+  redirect('home/jabatan');
+}
+function adduser(){
+$code=$this->input->post('code', TRUE);
+$nama=$this->input->post('nama', TRUE);
+ $pass=base64_decode($this->input->post('pass', TRUE));
+$hak=$this->input->post('hak', TRUE);
+$data=array('nip'=>$code,'nama_lengkap'=>$nama,'pass'=>$pass,'hak_akses'=>$hak);
+$this->db->insert('users', $data);
+redirect('home/user');
+}
+function edituser(){
+  $code=$this->input->post('code', TRUE);
+  $nama=$this->input->post('nama', TRUE);
+ $pass=base64_encode($this->input->post('pass', TRUE));
+$hak=$this->input->post('hak', TRUE);
+$data=array('nama_lengkap'=>$nama,'pass'=>$pass,'hak_akses'=>$hak);
+$this->db->where('nip', $code);
+$this->db->update('users', $data);
+redirect('home/user');
 }
 function editsalary(){
   $id=$this->input->post('id');
@@ -163,30 +194,32 @@ function editsalary(){
   $salary=$this->input->post('salary',TRUE);
   $jabatan=$this->input->post('jabatan',TRUE);
   $gol=$this->input->post('gol');
-  $data=array('nominal'=>$salary,'jabatan'=>$jabatan,'golongan'=>$gol);
+  $data=array('nominal'=>$salary,'id_jabatan'=>$jabatan,'gol_jabatan'=>$gol);
   $this->db->where('id', $id);
   $this->db->update('m_gaji', $data);
   redirect('home/salary');
 }
 function addinsentif(){
-  $task=$this->input->post('task',TRUE);
-  $many=$this->input->post('many',TRUE);
-  $gol=$this->input->post('gol',TRUE);
-  $jab=$this->input->post('jabatan',TRUE);
-  $nom=$this->input->post('nominal',TRUE);
-  $data=array('tindakan'=>$task,'jml'=>$many,'jabatan'=>$jab,'golongan'=>$gol,'nominal'=>$nom);
+  $code=$this->input->post('code', TRUE);
+  $nom=$this->input->post('nominal', TRUE);
+  $jenis=$this->input->post('jenis', TRUE);
+  $jml=$this->input->post('jml', TRUE);
+  $jab=$this->input->post('jabatan', TRUE);
+  $gol=$this->input->post('gol', TRUE);
+  $data=array('id_insentif'=>$code,'jenis_insentif'=>$jenis,'jml_insentif'=>$jml,'id_jabatan'=>$jab,'gol_jabatan'=>$gol,'nominal_insentif'=>$nom);
   $this->db->insert('insentif', $data);
+
   redirect('home/insentif');
 }
 function editinsentif(){
-  $id=$this->input->post('id');
-  $task=$this->input->post('task',TRUE);
-  $many=$this->input->post('many',TRUE);
-  $gol=$this->input->post('gol',TRUE);
-  $jab=$this->input->post('jabatan',TRUE);
-  $nom=$this->input->post('nominal',TRUE);
-  $data=array('tindakan'=>$task,'jml'=>$many,'jabatan'=>$jab,'golongan'=>$gol,'nominal'=>$nom);
-  $this->db->where('id', $id);
+   $code=$this->input->post('code', TRUE);
+  $nom=$this->input->post('nominal', TRUE);
+  $jenis=$this->input->post('jenis', TRUE);
+  $jml=$this->input->post('jml', TRUE);
+  $jab=$this->input->post('jabatan', TRUE);
+  $gol=$this->input->post('gol', TRUE);
+  $data=array('jenis_insentif'=>$jenis,'jml_insentif'=>$jml,'id_jabatan'=>$jab,'gol_jabatan'=>$gol,'nominal_insentif'=>$nom);
+  $this->db->where('id_insentif', $code);
   $this->db->update('insentif', $data);
   redirect('home/insentif');
 }
@@ -198,8 +231,8 @@ function addleave(){
   $expired=$this->input->post('expired');
   $used=$this->input->post('used',TRUE);
   $sisa=$this->input->post('sisa',TRUE);
-  $data=array('id_cuti'=>$kode,'nip'=>$nip,'periode'=>$per,'expired'=>$expired,'terpakai'=>$used,'sisa'=>$sisa);
-  $this->db->insert('m_cuti', $data);
+  $data=array('id_jc'=>$kode,'nip'=>$nip,'awal_berlaku_cuti'=>$per,'akhir_berlaku_cuti'=>$expired,'terpakai'=>$used,'sisa_cuti'=>$sisa);
+  $this->db->insert('jatah_cuti', $data);
   redirect('home/listleave');
 }
 function editleave(){
@@ -209,11 +242,12 @@ function editleave(){
   $expired=$this->input->post('expired');
   $used=$this->input->post('used',TRUE);
   $sisa=$this->input->post('sisa',TRUE);
-  $array=array('id_cuti'=>$kode,'nip'=>$nip,'periode'=>$per);
-  $data=array('expired'=>$expired,'terpakai'=>$used,'sisa'=>$sisa);
-  $this->db->where($array);
+  $array=array('id_jc'=>$kode);
 
-  $this->db->update('m_cuti', $data);
+  $data=array('awal_berlaku_cuti'=>$per,'akhir_berlaku_cuti'=>$expired,'terpakai'=>$used,'sisa_cuti'=>$sisa);
+  $this->db->where('id_jc',$kode);
+
+  $this->db->update('jatah_cuti', $data);
   redirect('home/listleave');
 }
 function import(){
@@ -252,9 +286,9 @@ function import(){
                    $dataexcel[$i - 1]['nip'] = $data['cells'][$i][1];
                    $dataexcel[$i - 1]['in'] = $data['cells'][$i][2];
                    $dataexcel[$i - 1]['out'] = $data['cells'][$i][3];
-                   $dataexcel[$i - 1]['date'] = $data['cells'][$i][4];
-                   $dataexcel[$i - 1]['overtime'] = $data['cells'][$i][5];
-                   $dataexcel[$i - 1]['late'] = $data['cells'][$i][6];
+                   $dataexcel[$i - 1]['tgl_absensi'] = $data['cells'][$i][4];
+                   $dataexcel[$i - 1]['lembur'] = $data['cells'][$i][5];
+                   $dataexcel[$i - 1]['telat'] = $data['cells'][$i][6];
                    $dataexcel[$i - 1]['total'] = $data['cells'][$i][7];
                    $dataexcel[$i - 1]['status'] = $data['cells'][$i][8];
               }
@@ -263,9 +297,9 @@ function import(){
                 'nip' => $dataexcel[$i]['nip'],
                 'in' => $dataexcel[$i]['in'],
                 'out' => $dataexcel[$i]['out'],
-                'date' => $dataexcel[$i]['date'],
-                'overtime' => $dataexcel[$i]['overtime'],
-                'late' => $dataexcel[$i]['late'],
+                'tgl_absensi' => $dataexcel[$i]['tgl_absensi'],
+                'lembur' => $dataexcel[$i]['lembur'],
+                'telat' => $dataexcel[$i]['telat'],
                 'total' => $dataexcel[$i]['total'],
                 'status' => $dataexcel[$i]['status'],
             );
@@ -285,20 +319,42 @@ function import(){
 
 }
 function cuti(){
-  $kurang=1;
+  $id=$this->input->post('id');
   $sisa=$this->input->post('sisa');
   $nip=$this->input->post('nip');
   $ket=$this->input->post('ket');
   $date=$this->input->post('tgl');
-  $cuti=$this->db->get_where('m_cuti', array('nip'=>$nip,'sisa >'=>0))->row();
-
-  $where=array('nip'=>$nip,'sisa >'=>'0');
-  $data=array('nip'=>$nip,'date'=>$date,'ket'=>$ket,'approve_by'=>'Null','approve_date'=>'0000-00-00','status'=>'PENDING');
+  $data=array('id_cuti'=>$id,'nip'=>$nip,'date'=>$date,'ket'=>$ket,'approve_by'=>'','approve_date'=>'','status'=>'PENDING');
   $this->db->insert('cuti', $data);
-  $potong=array('sisa'=>$sisa);
-  $this->db->where($where);
-  $this->db->update('m_cuti', $potong);
+
+
+
   redirect($_SERVER['HTTP_REFERER']);
+}
+function potongcuti(){
+  $id=$this->input->post('kode');
+  $tgl=$this->input->post('tgl');
+$this->db->select('sisa,terpakai');
+$total=$this->db->get_where('m_cuti',array('id_cuti'=>$id));
+foreach ($total->result() as $key) {
+  $sisa=$key->sisa;
+  $terpakai=$key->terpakai;
+}
+//echo $sisa."<br />";
+//echo $terpakai;
+
+echo $kurangi=$this->db->get_where('cuti',array('id_cuti'=>$id,'date'=>$tgl))->num_rows();
+
+$data=array('sisa'=>$sisa - $kurangi,'terpakai'=> $terpakai+ $kurangi);
+$s=array('status'=>'POSTING');
+$this->db->where('id_cuti', $id);
+$this->db->update('m_cuti', $data);
+$this->db->where('id_cuti', $id);
+$this->db->update('cuti', $s);
+$this->session->set_flashdata('potongcuti', 'value');
+redirect($_SERVER['HTTP_REFERER']);
+
+
 }
 function kasbon(){
   $id=$this->input->post('id');

@@ -1,5 +1,4 @@
 
-
 <!-- PAGE CONTENT WRAPPER -->
 <div class="page-content-wrap">
 
@@ -10,9 +9,9 @@
 
                 <div class="panel panel-default tabs">
                     <ul class="nav nav-tabs" role="tablist">
-                        <li class="active"><a href="#tab-first" role="tab" data-toggle="tab">Personal Data</a></li>
-                        <li><a href="#tab-second" role="tab" data-toggle="tab">Payment Settings</a></li>
-                        <li><a href="#tab-third" role="tab" data-toggle="tab">Email Settings / Login</a></li>
+                        <li class="active"><a href="#tab-first" role="tab" data-toggle="tab">Data Pribadi</a></li>
+                        <li><a href="#tab-second" role="tab" data-toggle="tab">Pengaturan Pembayaran</a></li>
+                        <li><a href="#tab-third" role="tab" data-toggle="tab">Email Settings</a></li>
                     </ul>
                     <div class="panel-body tab-content">
                         <div class="tab-pane active" id="tab-first">
@@ -20,53 +19,43 @@
                             <div class="form-group">
                                 <label class="col-md-3 col-xs-12 control-label"> Nip</label>
                                 <div class="col-md-6 col-xs-12">
-   <input type="text" class="form-control" name='nip' autocomplete="OFF" readonly="" value="<?php echo $this->uri->segment(3) ?>"/>
+                                    <input type="text" class="form-control" name='nip' autocomplete="OFF" readonly="" value="<?php echo $this->uri->segment(3) ?>"/>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-3 col-xs-12 control-label">Name</label>
+                                <label class="col-md-3 col-xs-12 control-label">Nama Lengkap</label>
                                 <div class="col-md-6 col-xs-12">
-                  <input type="text" class="form-control" name='nama' required="" autocomplete="OFF" value="<?php echo $user->name ?>"/>
+      <input type="text" class="form-control" name='nama' required="" autocomplete="OFF" value="<?php echo $user->nama_lengkap?>"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-3 col-xs-12 control-label">Sex</label>
+                                <label class="col-md-3 col-xs-12 control-label">Jenis Kelamin</label>
                                 <div class="col-md-6 col-xs-12">
-                                  <select class="sex form-control" tabindex="-1" name='sex' required="" autocomplete="OFF">
-                                    <option><?php echo $profil->sex ?></option>
+                                  <select class="sex form-control" tabindex="-1" name='sex' required="">
+                                    <option><?php echo $user->jk?></option>
                                   <?php foreach ($sex as $key): ?>
-                                  <option value="<?php echo $key ?>"><?php echo $key ?></option>
-
-                                  <?php endforeach; ?>
-                                  </select>                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 col-xs-12 control-label">Merried Status</label>
-                                <div class="col-md-6 col-xs-12">
-                                  <select class="nikah form-control" tabindex="-1" name='nikah' required="">
-                                    <option><?php echo $profil->merried_status ?></option>
-                                  <?php foreach ($nikah as $key): ?>
                                   <option value="<?php echo $key ?>"><?php echo $key ?></option>
 
                                   <?php endforeach; ?>
                                   </select>
                                   </div>
                             </div>
+                            
                             <div class="form-group">
-                                <label class="col-md-3 col-xs-12 control-label">Date of birth</label>
+                                <label class="col-md-3 col-xs-12 control-label">Tanggal Lahir</label>
                               <div class="col-md-6 col-xs-12">
-<input type="text" class="form-control datepicker"  name='ttl' required="" placeholder="YYYY-MM-DD" autocomplete="OFF" value="<?php echo $profil->ttl ?>"/>
+<input type="text" class="form-control datepicker"  name='ttl' required="" value="<?php echo $user->tgl_lahir?>"/>
 
 </div>
 
                       </div>
 
                       <div class="form-group">
-                          <label class="col-md-3 col-xs-12 control-label">Religion</label>
+                          <label class="col-md-3 col-xs-12 control-label">Agama</label>
                           <div class="col-md-6 col-xs-12">
                             <select class="select2_single form-control" tabindex="-1" name='agama' required="">
-                              <option><?php echo $profil->religion ?></option>
+                              <option><?php echo $user->agama?></option>
                             <?php foreach ($agama as $key): ?>
                             <option value="<?php echo $key ?>"><?php echo $key ?></option>
 
@@ -75,25 +64,31 @@
                           </div>
                       </div>
                       <div class="form-group">
-                                                <label class="col-md-3 col-xs-12 control-label">Address</label>
+          <label class="col-md-3 col-xs-12 control-label">Alamat</label>
                                                 <div class="col-md-6 col-xs-12">
-<textarea class="form-control" rows="5" name='alamat'><?php echo $profil->address?></textarea>
+<textarea class="form-control" rows="5" name='alamat'><?php echo $user->alm_tinggal?></textarea>
 
                                                 </div>
                                             </div>
+                                            <div class="form-group">
+                                                <label class="col-md-3 col-xs-12 control-label">Telphone</label>
+                                                <div class="col-md-6 col-xs-12">
+ <input type="number" name="phone" class="form-control" required="" value="<?php echo $user->no_hp?>">
+                                                </div>
+                                            </div>
                       <div class="form-group">
-                          <label class="col-md-3 col-xs-12 control-label">Join Date</label>
+                          <label class="col-md-3 col-xs-12 control-label">Tanggal Bergabung</label>
                         <div class="col-md-6 col-xs-12">
-                      <input type="text" class="form-control datepicker"   name='join' required="" placeholder="YYYY-MM-DD" autocomplete="OFF" value="<?php echo $profil->joindate ?>"/>
+<input type="text" class="form-control datepicker"   name='join' required="" value="<?php echo $user1->tgl_bergabung?>"/>
 
                       </div>
 
                       </div>
                       <div class="form-group">
-                          <label class="col-md-3 col-xs-12 control-label">Education</label>
+                          <label class="col-md-3 col-xs-12 control-label">Pendidikan</label>
                           <div class="col-md-6 col-xs-12">
                             <select class="edu form-control" tabindex="-1" name='edu' required="">
-                              <option><?php echo $profil->education?></option>
+                              <option><?php echo $user->pendidikan?></option>
                             <?php foreach ($pendidikan as $key): ?>
                             <option value="<?php echo $key ?>"><?php echo $key ?></option>
 
@@ -102,16 +97,16 @@
                            </div>
                       </div>
                       <div class="form-group">
-                          <label class="col-md-3 col-xs-12 control-label">Id Card Number</label>
+                          <label class="col-md-3 col-xs-12 control-label">Nomor Identitas</label>
                           <div class="col-md-6 col-xs-12">
-                              <input type="number" class="form-control" name='id' required="" autocomplete="OFF" value="<?php echo $profil->id_number?>"/>
+                              <input type="number" class="form-control" name='id' value="<?php echo $user->no_id?>" autocomplete="OFF"/>
                           </div>
                       </div>
                       <div class="form-group">
-                          <label class="col-md-3 col-xs-12 control-label">Identity Type</label>
+                          <label class="col-md-3 col-xs-12 control-label">Type Identitas</label>
                           <div class="col-md-6 col-xs-12">
                             <select class="idtype form-control" tabindex="-1" name='idtype' required="">
-                              <option><?php echo $profil->type_id?></option>
+                              <option><?php echo $user->jenis_id?></option>
                             <?php foreach ($id as $key): ?>
                             <option value="<?php echo $key ?>"><?php echo $key ?></option>
 
@@ -119,40 +114,29 @@
                             </select>
                           </div>
                       </div>
-                      <div class="form-group">
-                          <label class="col-md-3 col-xs-12 control-label">NPWP</label>
-                          <div class="col-md-6 col-xs-12">
-                              <input type="number" class="form-control" name='npwp' required="" autocomplete="OFF" value="<?php echo $profil->npwp?>"/>
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          <label class="col-md-3 col-xs-12 control-label">Jamsostek</label>
-                          <div class="col-md-6 col-xs-12">
-                              <input type="number" class="form-control" name='jam' required="" autocomplete="OFF" value="<?php echo $profil->jamsostek?>"/>
-                          </div>
-                      </div>
+                     
                       <div class="form-group">
                           <label class="col-md-3 col-xs-12 control-label">Jabatan</label>
                           <div class="col-md-6 col-xs-12">
                             <select class="job form-control" tabindex="-1" name='job' required="">
-                              <option><?php echo $profil->jabatan?></option>
-                            <?php foreach ($job as $key): ?>
-                            <option value="<?php echo $key ?>"><?php echo $key ?></option>
+                              <option value="<?php echo $user1->id_jabatan?>"><?php echo $user1->id_jabatan."-".$user->nama_jabatan?></option>
+                            <?php foreach ($jabatan as $key): ?>
+                            <option value="<?php echo $key->id_jabatan ?>"><?php echo $key->id_jabatan?> - <?php echo $key->nama_jabatan ?></option>
 
                             <?php endforeach; ?>
                             </select>
                           </div>
                       </div>
                       <div class="form-group">
-                          <label class="col-md-3 col-xs-12 control-label">Type Emloye</label>
+                          <label class="col-md-3 col-xs-12 control-label">Golongan</label>
                           <div class="col-md-6 col-xs-12">
-                            <select class="typeemploye form-control" tabindex="-1" name='typeemploye' required="">
-                              <option><?php echo $profil->type_employe?></option>
-                            <?php foreach ($type as $key): ?>
-                            <option value="<?php echo $key ?>"><?php echo $key ?></option>
-
-                            <?php endforeach; ?>
-                            </select>
+                              <select name="golongan" class="form form-control" required="">
+                                <option><?php echo $user->gol_jabatan?></option>
+                                 <option value="A">A</option>
+                                  <option value="B">B</option>
+                                   <option value="C">C</option>
+                                    
+                              </select>
                           </div>
                       </div>
                     </div>
@@ -162,7 +146,7 @@
                                 <label class="col-md-2 col-xs-12 control-label">Bank</label>
                                 <div class="col-md-6 col-xs-12">
                                   <select class="bank form-control" tabindex="-1" name='bank' required="">
-                                    <option><?php echo $profil->bank?></option>
+                                    <option><?php echo $user->bank?></option>
                                   <?php foreach ($bank as $key): ?>
                                   <option value="<?php echo $key ?>"><?php echo $key ?></option>
 
@@ -171,17 +155,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-2 col-xs-12 control-label">Account Number</label>
+                                <label class="col-md-2 col-xs-12 control-label">Nomor Rekening</label>
                                 <div class="col-md-6 col-xs-12">
-                                  <input type="number" name="account" class="form-control" required="" autocomplete="off" value="<?php echo $profil->account_number?>">
+                                  <input type="number" name="account" class="form-control" value="<?php echo $user->no_rek?>">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-md-2 col-xs-12 control-label">Phone</label>
-                                <div class="col-md-6 col-xs-12">
-                                  <input type="number" name="phone" class="form-control" required="" autocomplete="off" value="<?php echo $profil->phone?>">
-                                </div>
-                            </div>
+
                             <div class="form-group">
                                 <div class="col-md-2"></div>
                               </div>
@@ -198,56 +177,26 @@
                             <div class="form-group">
                                 <label class="col-md-3 col-xs-12 control-label">E-mail</label>
                                 <div class="col-md-6 col-xs-12">
-                                    <input type="email" class="form-control" name='email' required="" autocomplete="off" value="<?php echo $profil->email?>"/>
+                                    <input type="email" class="form-control" name='email' value="<?php echo $user->email?>"/>
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label class="col-md-3 col-xs-12 control-label">Password</label>
-                                <div class="col-md-6 col-xs-12">
-                                    <input type="password" class="form-control" name="pass" required="" value="<?php echo base64_decode($pass->pass)?>"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 col-xs-12 control-label">Role</label>
-                                <div class="col-md-6 col-xs-12">
-                                  <select class="typeemploye form-control" tabindex="-1" name='role' required="">
-                                    <option><?php echo $pass->level?></option>
-                                  <?php foreach ($level as $key): ?>
-                                  <option value="<?php echo $key ?>"><?php echo $key ?></option>
-
-                                  <?php endforeach; ?>
-                                  </select>
-                                </div>
-                            </div>
+                           
+                            
                             <div class="form-group">
                                 <label class="col-md-3 col-xs-12 control-label"> Status</label>
                                 <div class="col-md-6 col-xs-12">
-                                  <select class="nikah form-control" tabindex="-1" name='status' required="">
-                                    <option><?php echo $profil->status?></option>
-                                  <?php foreach ($status as $key): ?>
-                                  <option value="<?php echo $key ?>"><?php echo $key ?></option>
-
-                                  <?php endforeach; ?>
-                                  </select>
+                                  <select name="status" class="form-control" required="">
+                                <option><?php echo $user->status?></option>
+                                    <option value="AKTIF">AKTIF</option>
+                                    <option value="TIDAK AKTIF">TIDAK AKTIF</option>}
+                                    </select>
                                   </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-md-3 col-xs-12 control-label"> Group Level</label>
-                                <div class="col-md-6 col-xs-12">
-                                  <select class="nikah form-control" tabindex="-1" name='golongan' required="">
-                                    <option><?php echo $profil->golongan?></option>
-                                  <?php foreach ($golongan as $key): ?>
-                                  <option value="<?php echo $key ?>"><?php echo $key ?></option>
-
-                                  <?php endforeach; ?>
-                                  </select>
-                                  </div>
-                            </div>
-                        </div>
+                           
+                                                </div>
                     </div>
                   </div>
-                  <input type="hidden" name="id" value="<?php echo $this->uri->segment(3)?>" >
                     <div class="panel-footer">
                         <button class="btn btn-primary pull-right">Save Changes <span class="fa fa-floppy-o fa-right"></span></button>
                     </div>
@@ -258,7 +207,7 @@
 
         </div>
     </div>
-
+</div>
 
     </form>
 </div>
