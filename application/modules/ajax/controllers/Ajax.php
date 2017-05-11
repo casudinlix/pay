@@ -47,20 +47,21 @@ function approve(){
   $nip=$this->uri->segment(3);
   $date=$this->uri->segment(4);
   $s=$this->uri->segment(5);
+  $id=$this->uri->segment(6);
   $tgl=date('Y-m-d') ;
-  $w=array('nip'=>$nip,'date'=>$date);
-  $absensi=array('nip'=>$nip,'in'=>'00:00:00','out'=>'00:00:00','date'=>$date,'status'=>'CUTI');
-  $data=array('status'=>$s,'approve_date'=>$tgl,'approve_by'=>$this->session->userdata('nama'));
+  $user=$this->session->userdata('nama');
+  $w=array('id_cuti'=>$id,'tgl_awal_cuti'=>$date,'nip'=>$nip);
+
+  $data=array('tgl_approve'=>$tgl,'disetujui_oleh'=>$user,'status_cuti'=>'APPROVE');
 
   if ($s=="REJECT") {
     $this->db->where($w);
-    $this->db->update('cuti',$data);
+    $this->db->update('aju_cuti',$data);
     echo "OK";
   }else{
     $this->db->where($w);
-    $this->db->update('cuti',$data);
-  $this->db->where($w);
-  $this->db->update('absensi', $absensi);
+    $this->db->update('aju_cuti',$data);
+  
   echo "OK";
 }
 }
@@ -86,6 +87,28 @@ if ($st=="APPROVE") {
   $this->db->update('kasbon', $data);
   echo "ok reject";
 }
+
+}
+function postingajucuti(){
+  $id=$this->uri->segment(3);
+  $nip=$this->uri->segment(4);
+  $lama=$this->uri->segment(5);
+  $status=$this->uri->segment(6);
+$cek=$this->db->get_where('jatah_cuti', array('id_jc'=>$id))->result();
+foreach ($cek as $key) {
+  $sisa=$key->sisa_cuti;
+  $terpakai=$key->terpakai;
+}
+$digunakan=$lama;
+$sisacuti=$sisa-$lama;
+$data=array('terpakai'=>$digunakan,'sisa_cuti'=>$sisacuti);
+$data1=array('status_cuti'=>$status);
+  $this->db->where('id_jc',$id);
+  $this->db->update('jatah_cuti', $data);
+
+  $this->db->where('id_cuti', $id);
+  $this->db->update('aju_cuti', $data1);
+
 
 }
 }

@@ -11,7 +11,7 @@
 <div class="widget widget-default widget-carousel">
     <div class="owl-carousel" id="owl-example">
         <div>
-            <div class="widget-title">Total Employe</div>
+            <div class="widget-title">Total Karyawan</div>
             <div class="widget-subtitle"></div>
             <div class="widget-int"><?php echo $jumlah ?></div>
         </div>
@@ -42,14 +42,14 @@
     </div>
     <div class="widget-data">
         <div class="widget-int num-count"><?php echo $cuti ?></div>
-        <div class="widget-title">Action Required</div>
-        <div class="widget-subtitle">Total employee leave request</div>
+        <div class="widget-title">Perlu Persetujuan</div>
+        <div class="widget-subtitle">Total Karyawan Mengajukan Cuti</div>
     </div>
     <div class="widget-controls">
         <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
     </div>
 </div>
-<div class="widget widget-default widget-item-icon" onclick="location.href='<?php echo site_url("home/kasbon")?>';">
+<div class="widget widget-default widget-item-icon" onclick="location.href='<?php echo site_url("home/listkasbon")?>';">
     <div class="widget-item-left">
         <span class="fa fa-money"></span>
     </div>

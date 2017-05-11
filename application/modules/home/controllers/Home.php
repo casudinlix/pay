@@ -429,11 +429,21 @@ $data['cek']=$this->db->get_where('aju_cuti_view',array('nip'=>$id))->result();
   $this->load->view('cuti/leave',$data);
   $this->load->view('bawah',$data);
 }
+function ajucuti(){
+  $id=$this->uri->segment(3);
+    $data['com']=$this->db->get('company')->row();
+    $data['sisa']=$this->db->get_where('jatah_cuti',array('nip'=>$id));
+
+    $this->load->view('atas',$data);
+  $this->load->view('cuti/aju_cuti',$data);
+  $this->load->view('bawah',$data);
+
+}
 function approvecuti(){
   $data['com']=$this->db->get('company')->row();
-  $data['cek']=$this->db->get('cuti_pengajuan_view')->result();
-$data['status']=$this->db->enum('cuti_pengajuan_view','status');
-
+  $this->db->where_in('status_cuti','POSTING');
+$this->db->or_where_in('status_cuti', 'APPROVE');
+$data['cek']=$this->db->get('aju_cuti_view')->result();
   $this->load->view('atas',$data);
   $this->load->view('approve/listcuti',$data);
   $this->load->view('bawah',$data);
@@ -445,8 +455,8 @@ function hitung(){
 function kasbon(){
   $id=$this->session->userdata('nip');
 
-  $this->db->select_sum('nominal');
-  $data['sum']=$this->db->get_where('kasbon_view',array('nip'=>$id,'status'=>"APPROVE",'status_byr'=>"BELUM BAYAR"))->row();
+  $this->db->select_sum('nominal_kasbon');
+  $data['sum']=$this->db->get_where('kasbon_view',array('nip'=>$id,'status_aju'=>"APPROVE",'status_kasbon'=>"BELUM BAYAR"))->row();
    $data['com']=$this->db->get('company')->row();
 $data['all']=$this->db->get_where('kasbon_view',array('nip'=>$id))->result();
   $this->load->view('atas',$data);

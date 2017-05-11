@@ -4,7 +4,7 @@
                    <div class="row">
                        <div class="col-md-12">
 
-                           <form class="form-horizontal" action="<?php echo site_url('aksi_1/kasbon')?>" method="post">
+     <form class="form-horizontal" action="<?php echo site_url('aksi_1/kasbon')?>" method="post">
                            <div class="panel panel-default">
                                <div class="panel-heading">
                                    <h3 class="panel-title"><strong>Form Pengajuan Kasbon</strong> </h3>
@@ -34,7 +34,15 @@
                                            </div>
                                         </div>
                                    </div>
-
+<div class="form-group">
+                                       <label class="col-md-3 col-xs-12 control-label">Keterangan</label>
+                                       <div class="col-md-6 col-xs-12">
+                                           <div class="input-group">
+                                               <span class="input-group-addon"><span class="fa fa-bold"></span></span>
+                                    <textarea name="ket" required="" class="form-control"></textarea>
+                                           </div>
+                                        </div>
+                                   </div>
                                    <div class="form-group">
                                        <label class="col-md-3 col-xs-12 control-label">Tanggal</label>
                                        <div class="col-md-6 col-xs-12">

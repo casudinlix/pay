@@ -34,6 +34,7 @@
 
                                                 <th> No Transaksi</th>
                                                 <th> Nominal</th>
+                                                <th> Keterangan</th>
                                                 <th>Tanggal Pengajuan</th>
                                                 <th>Tanggal Di Setujui</th>
                                                 <th>Disetujui Oleh</th>
@@ -51,6 +52,7 @@ $no=1;
 <td colspan="" rowspan="" headers=""><?php echo $key->no_transaksi ?></td>
 
 <td colspan="" rowspan="" headers="">Rp.<?php echo number_format($key->nominal_kasbon )?></td>
+<td colspan="" rowspan="" headers=""><?php echo $key->ket_kasbon ?></td>
 <td colspan="" rowspan="" headers=""><?php echo tgl_indo($key->tgl_aju_kasbon) ?></td>
 <td colspan="" rowspan="" headers=""><?php echo tgl_indo($key->tgl_approve) ?></td>
 <td colspan="" rowspan="" headers=""><?php echo $key->disetujui_oleh ?></td>

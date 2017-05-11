@@ -143,6 +143,19 @@ $tt=$this->db->select('aktual_date');
   $this->db->insert('schedule', $data);
   redirect($_SERVER['HTTP_REFERER']);
 }
+function ajucuti(){
+  $id=$this->input->post('id', TRUE);
+  $tgl=date("Y-m-d");
+  $periode=$this->input->post('periode', TRUE);
+  $ket=$this->input->post('ket', TRUE);
+  $awal=$this->input->post('awal', TRUE);
+  $akhir=$this->input->post('akhir', TRUE);
+  $data=array('id_cuti'=>$periode,'nip'=>$id,'tgl_awal_cuti'=>$awal,'tgl_akhir_cuti'=>$akhir,'ket_cuti'=>$ket,
+    'status_cuti'=>'PENDING','tgl_aju_cuti'=>$tgl);
+  $this->db->insert('aju_cuti', $data);
+  redirect('home/leave/'.$id);
+
+}
 function addsalary(){
   $gol=$this->input->post('gol',TRUE);
   $salary=$this->input->post('salary',TRUE);
@@ -361,9 +374,10 @@ function kasbon(){
   $no=$this->input->post('no');
 $nominal=$this->input->post('nominal');
 $tgl=$this->input->post('tgl');
-$data=array('no_transaksi'=>$no,'nip'=>$id,'nominal'=>$nominal,'tgl'=>$tgl,'approve_by'=>'','status'=>'PENDING','status_byr'=>'BELUM BAYAR');
+$ket=$this->input->post('ket', TRUE);
+$data=array('no_transaksi'=>$no,'nip'=>$id,'nominal_kasbon'=>$nominal,'ket_kasbon'=>$ket,'tgl_aju_kasbon'=>$tgl,'disetujui_oleh'=>'','status_aju'=>'PENDING','status_kasbon'=>'BELUM BAYAR');
 $this->db->insert('kasbon', $data);
-redirect('home/kasbon');
+redirect('home/kasbon/'.$id);
 }
 }
 

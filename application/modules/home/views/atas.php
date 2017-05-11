@@ -89,6 +89,7 @@ body{
                                   <li><a href="<?php echo site_url('home/listleave') ?>"><span class="glyphicon glyphicon-new-window"></span>Input Cuti</a></li>
 
                               </ul>
+                              <a href="<?php echo site_url('home/approvecuti')?>"><span class="fa fa-calendar-o"></span> Pengajuan Cuti</a>
                           </li>
                             
 
@@ -102,7 +103,7 @@ body{
 
 
                           </li>
-
+<li><a href="<?php echo site_url('home/hitung')?>"><span class="glyphicon glyphicon-usd"></span>Hitung Gaji Karyawan</a></li>
 
                         </ul>
                     </li>
@@ -122,7 +123,7 @@ body{
                         <ul class="animated zoomIn">
 
 
-                            <li><a href="<?php echo site_url('home/hitung')?>"><span class="glyphicon glyphicon-usd"></span>Hitung Gaji Karyawan</a></li>
+                            
                             <li><a href="<?php echo site_url('home/kasbon/'.$this->session->userdata('nip'))?>"><span class="fa fa-archive"></span>Kasbon</a></li>
 
                         </ul>
