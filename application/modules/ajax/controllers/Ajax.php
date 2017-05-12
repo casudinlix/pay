@@ -34,6 +34,27 @@ class Ajax extends CI_Controller {
 
 
   }
+  function hitunggaji(){
+    $keyword=$this->uri->segment(3);
+      //$this->db->select('sift_name, jam_in,jam_out');
+       //$this->db->like();
+          $data =$this->db->get('all_view_1');
+          foreach($data->result() as $row)
+          {
+            $arr['query'] = $keyword;
+            $arr['suggestions'][] = array(
+              'value' =>$row->nip,
+              'nama_lengkap' =>$row->nama_lengkap,
+              'nama_jabatan'=>$row->nama_jabatan,
+              'gol_jabatan'=>$row->gol_jabatan,
+              'nominal'=>$row->nominal
+              
+
+            );
+          }
+          // minimal PHP 5.2
+          echo json_encode($arr);
+  }
 function cuti(){
   $nip=$this->uri->segment(3);
   $date=$this->uri->segment(4);

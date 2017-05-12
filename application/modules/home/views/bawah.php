@@ -175,6 +175,25 @@
             });
         });
     </script>
+     <script type='text/javascript'>
+        var site = "<?php echo site_url();?>";
+        $(function(){
+            $('.cari').autocomplete({
+                // serviceUrl berisi URL ke controller/fungsi yang menangani request kita
+                serviceUrl: site+'ajax/hitunggaji',
+                // fungsi ini akan dijalankan ketika user memilih salah satu hasil request
+                onSelect: function (suggestion) {
+                    $('#nip').val(''+suggestion.nip); 
+                    $('#nama_lengkap').val(''+suggestion.nama_lengkap); 
+                    $('#nama_jabatan').val(''+suggestion.nama_jabatan); 
+                    $('#gol_jabatan').val(''+suggestion.gol_jabatan); 
+                    $('#nominal').val(''+suggestion.nominal); 
+
+                    
+                }
+            });
+        });
+    </script>
         <!-- END Untuk kalender-->
         <script>
            $(function(){

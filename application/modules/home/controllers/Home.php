@@ -450,7 +450,17 @@ $data['cek']=$this->db->get('aju_cuti_view')->result();
 }
 function hitung(){
     $data['com']=$this->db->get('company')->row();
+    $data['gaji']=$this->db->get('gaji_view')->result();
+     $this->load->view('atas',$data);
+  $this->load->view('hitung/hitung',$data);
+  $this->load->view('bawah',$data);
 
+}
+function hitunggaji(){
+  $data['com']=$this->db->get('company')->row();
+  $this->load->view('atas',$data);
+  $this->load->view('hitung/hitunggaji',$data);
+  $this->load->view('bawah',$data);
 }
 function kasbon(){
   $id=$this->session->userdata('nip');

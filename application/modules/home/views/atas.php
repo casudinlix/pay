@@ -89,10 +89,10 @@ body{
                                   <li><a href="<?php echo site_url('home/listleave') ?>"><span class="glyphicon glyphicon-new-window"></span>Input Cuti</a></li>
 
                               </ul>
-                              <a href="<?php echo site_url('home/approvecuti')?>"><span class="fa fa-calendar-o"></span> Pengajuan Cuti</a>
+                             
                           </li>
                             
-
+<li> <a href="<?php echo site_url('home/approvecuti')?>"><span class="fa fa-calendar-o"></span> Pengajuan Cuti</a></li>
                         </ul>
                     </li>
                     <li class="xn-openable">
