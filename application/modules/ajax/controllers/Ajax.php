@@ -55,6 +55,28 @@ class Ajax extends CI_Controller {
           // minimal PHP 5.2
           echo json_encode($arr);
   }
+  function hutang(){
+    $keyword=$this->uri->segment(3);
+      //$this->db->select('sift_name, jam_in,jam_out');
+       //$this->db->like();
+    //$this->db->select_sum('nominal_kasbon');
+
+    $this->db->where('status_aju', "APPROVE");
+    $this->db->where('status_kasbon', "BELUM BAYAR");
+          $data =$this->db->get('kasbon_view');
+          foreach($data->result() as $row)
+          {
+            $arr['query'] = $keyword;
+            $arr['suggestions'][] = array(
+              'value' =>$row->nip,
+              'nominal_kasbon' =>$row->nominal_kasbon
+              
+
+            );
+          }
+          // minimal PHP 5.2
+          echo json_encode($arr);
+  }
 function cuti(){
   $nip=$this->uri->segment(3);
   $date=$this->uri->segment(4);

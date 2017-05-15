@@ -16,7 +16,7 @@
                                 <div class="panel-heading">
 
                                     <div class="col-md-4">
-    <a href="<?php echo site_url('home/hitunggaji')?>"  <button class="btn btn-success btn-block"><span class="fa fa-plus"></span> Tambah Transaksi Gaji</button></a>
+    
                                     </div>
 
                                     <ul class="panel-controls">
@@ -31,15 +31,12 @@
                                             <tr>
                                                 <th>No</th>
 
-                                                <th> ID Gaji</th>
-                                                <th> Bulan Gaji</th>
                                                 <th> Nip</th>
                                                 <th>Nama Lengkap</th>
                                                 <th>Jabatan</th>
                                                 <th>Golongan</th>
-                                                <th>Potongan</th>
-                                                <th>Total Gaji</th>
-                                                <th>Status</th>
+                                                <th>Gaji Pokok</th>
+                                                
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -48,24 +45,24 @@
 <?php $no=1;
  foreach($gaji as $key):?>                                            
 <td colspan="" rowspan="" headers=""><?php echo $no?></td>
-<td colspan="" rowspan="" headers=""><?php echo $key->id_gaji?></td>
-<td colspan="" rowspan="" headers=""><?php echo $key->bulan_gaji?></td>
 <td colspan="" rowspan="" headers=""><?php echo $key->nip?></td>
-<td colspan="" rowspan="" headers=""><?php echo $key->nama_lengkap?></td>
+
+<td colspan="" rowspan="" headers=""><?php echo $key->nama_jabatan?></td>
 <td colspan="" rowspan="" headers=""><?php echo $key->nama_jabatan?></td>
 <td colspan="" rowspan="" headers=""><?php echo $key->gol_jabatan?></td>
-<td colspan="" rowspan="" headers=""><?php echo $key->potongan?></td>
-<td colspan="" rowspan="" headers=""><?php echo $key->total_gaji?></td>
-<td colspan="" rowspan="" headers=""><?php echo $key->status_gaji?></td>
+<td colspan="" rowspan="" headers="">Rp.<?php echo number_format($key->nominal)?></td>
+
 <td colspan="" rowspan="" headers="">
-    <button class="btn btn-success" onclick="printgajih('$key->id_gaji')"><i class="fa fa-print"></i></button>
+    
+    <a title="Tambah Transaksi" href="<?php echo site_url('home/hitunggaji/'.$key->nip)?>" class='btn btn-info'><i class="fa fa-plus"></i></a>
 </td>
 </tr>
 
 <?php 
-$id=$key->id_gaji;
+$no++;
 endforeach;
-$no++;?>                                        </tbody>
+?>       
+<button class="btn btn-success" onclick="printgajih('')"><i class="fa fa-print"></i></button>                                 </tbody>
                                     </table>
                                 </div>
                             </div>

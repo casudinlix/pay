@@ -450,14 +450,25 @@ $data['cek']=$this->db->get('aju_cuti_view')->result();
 }
 function hitung(){
     $data['com']=$this->db->get('company')->row();
-    $data['gaji']=$this->db->get('gaji_view')->result();
+    $data['gaji']=$this->db->get('all_view_1')->result();
      $this->load->view('atas',$data);
   $this->load->view('hitung/hitung',$data);
   $this->load->view('bawah',$data);
 
 }
 function hitunggaji(){
+  $id=$this->uri->segment(3);
   $data['com']=$this->db->get('company')->row();
+  $this->db->select_sum('telat');
+  $data['hitung']=$this->db->get_where('absensi_view',array('nip'=>$id,'status'=>'HADIR'))->result();
+
+    $data['absen']=$this->db->get_where('absensi_view',array('nip'=>$id,'status'=>'HADIR'));
+$data['ijin']=$this->db->get_where('absensi_view', array('nip'=>$id,'status'=>'IZIN'));
+$data['alpha']=$this->db->get_where('absensi_view', array('nip'=>$id,'status'=>'ALPHA'));
+$data['cuti']=$this->db->get_where('absensi_view', array('nip'=>$id,'status'=>'CUTI'));
+ $data['all']=$this->db->get_where('all_view_1', array('nip'=>$id));
+ $data['kasbon']=$this->db->get_where('kasbon_view', array('nip'=>$id,'status_aju'=>'APPROVE','status_kasbon'=>'BELUM BAYAR')); 
+
   $this->load->view('atas',$data);
   $this->load->view('hitung/hitunggaji',$data);
   $this->load->view('bawah',$data);

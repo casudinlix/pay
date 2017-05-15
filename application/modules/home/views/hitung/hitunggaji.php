@@ -18,15 +18,23 @@
                                 </div>
                                 <div class="panel-body">
   <form class="form-group" action="" method="">
-<input type="text" name="nip" id="cari" placeholder="NIP" required="" class="form-control cari">
+  <input type="text" name="tgl" placeholder="Tanggal Gaji" required="" class="form-control datepicker">
+
+<input type="text" name="nip" id="cari" placeholder="NIP" required="" class="form-control cari hutang">
 <br>
-<input type="text" name="nama" id="nama_lengkap" placeholder="" required="" class="form-control cari" readonly="">
 <br>
-<input type="text" name="jabatan" id="nama_jabatan" placeholder="" required="" class="form-control cari" readonly="">
+<select name="insentif" class="form-control">
+    <option value=""></option>
+    <option value="">1</option>
+    <option value="">2</option>
+    <option value="">3</option>
+    <option value="">4</option>
+    
+</select>
 <br>
+<input type="submit" name="" value="Submit" placeholder="" class="btn btn-success">
 
 <br>
-<input type="text" name="nom" id="nominal" placeholder="" required="" class="form-control cari" readonly="">
 <br>
 
                                                             
@@ -42,39 +50,37 @@
                             <!-- START STRIPED TABLE SAMPLE -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Data</h3>
+                                    <h3 class="panel-title">Data Deatail</h3>
                                 </div>
                                 <div class="panel-body">
                                     <table class="table table-striped">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Username</th>
+                                                
+                                                <th>Nama Lengkap</th>
+                                                <th>Jabatan</th>
+                                                <th>Golongan</th>
+                                                <th>Gaji Pokok</th>
+                                                <th>Total Hari Kerja</th>
+                                                <th colspan="" rowspan="" headers="" scope="">Kasbon</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>1</td>
-                                                <td><input type="text" name="gol" id="gol_jabatan" placeholder="" required="" class="form-control cari" readonly=""></td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
+                                                
+ <td><input type="text" name="nama" id="nama_lengkap" placeholder="" required="" class="form-control cari" readonly="">
+</td>
+  <td><input type="text" name="jabatan" id="nama_jabatan" placeholder="" required="" class="form-control cari" readonly="">
+</td>
+  <td><input type="text" name="gol" id="gol_jabatan" placeholder="" required="" class="form-control cari" readonly=""></td>
+                                            
+<td colspan="" rowspan="" headers=""><input type="text" name="nom" id="nominal" placeholder="" required="" class="form-control cari" readonly="">
+</td>
+<td colspan="" rowspan="" headers=""><?php echo $absen->num_rows()?></td>
+<td colspan="" rowspan="" headers=""> <input type="text" name="kas" id="kasbon" placeholder="" required="" class="form-control cari" readonly="">   </td>
+</tr>                                            
                                         </tbody>
-                                    </table>                                
+                                </table>                                
                                 </div>
                             </div>
                             <!-- END STRIPED TABLE SAMPLE -->
@@ -92,7 +98,7 @@
                             <div class="panel panel-default">
 
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Responsive tables</h3>
+                                    <h3 class="panel-title">Rekap Semua Data</h3>
                                 </div>
 
                                 <div class="panel-body panel-body-table">
@@ -101,48 +107,36 @@
                                         <table class="table table-bordered table-striped table-actions">
                                             <thead>
                                                 <tr>
-                                                    <th width="50">id</th>
-                                                    <th>name</th>
-                                                    <th width="100">status</th>
-                                                    <th width="100">amount</th>
-                                                    <th width="100">date</th>
-                                                    <th width="100">actions</th>
+                                                    <th width="100">Nama Lengkap</th>
+                                                    <th width="100">Jabatan</th>
+                                                    <th width="100">Golongan</th>
+                                                    <th width="100">Gaji Pokok</th>
+                                                    <th width="100">Tl Hari Kerja</th>
+                                                    <th width="100">Ijin</th>
+                                                    <th width="100">Mangkir</th>
+                                                    
+                                                    <th width="100">Cuti</th>
+                                                     <th width="100">Telat</th>
+                                                      <th width="100">Lembur</th>
                                                 </tr>
                                             </thead>
                                             <tbody>                                            
                                                 <tr id="trow_1">
-                                                    <td class="text-center">1</td>
-                                                    <td><strong>John Doe</strong></td>
-                                                    <td><span class="label label-success">New</span></td>
-                                                    <td>$430.20</td>
-                                                    <td>24/09/2014</td>
-                                                    <td>
-                                                        <button class="btn btn-default btn-rounded btn-sm"><span class="fa fa-pencil"></span></button>
-                                                        <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_1');"><span class="fa fa-times"></span></button>
-                                                    </td>
-                                                </tr>
-                                                <tr id="trow_2">
-                                                    <td class="text-center">2</td>
-                                                    <td><strong>Dmitry Ivaniuk</strong></td>
-                                                    <td><span class="label label-warning">Pending</span></td>
-                                                    <td>$1,351.00</td>
-                                                    <td>23/09/2014</td>
-                                                    <td>
-                                                        <button class="btn btn-default btn-rounded btn-sm"><span class="fa fa-pencil"></span></button>
-                                                        <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_2');"><span class="fa fa-times"></span></button>
-                                                    </td>
-                                                </tr>
-                                                <tr id="trow_3">
-                                                    <td class="text-center">3</td>
-                                                    <td><strong>Nadia Ali</strong></td>
-                                                    <td><span class="label label-info">In Queue</span></td>
-                                                    <td>$2,621.00</td>
-                                                    <td>22/09/2014</td>
-                                                    <td>
-                                                        <button class="btn btn-default btn-rounded btn-sm"><span class="fa fa-pencil"></span></button>
-                                                        <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_3');"><span class="fa fa-times"></span></button>
-                                                    </td>
-                                                </tr>
+                                                <?php foreach($all->result() as $key):?>
+<td colspan="" rowspan="" headers=""><?php echo $key->nama_lengkap?></td>                                                    
+<td colspan="" rowspan="" headers=""><?php echo $key->nama_jabatan?></td>                                                    
+<td colspan="" rowspan="" headers=""><?php echo $key->gol_jabatan?></td>                                                    
+<td colspan="" rowspan="" headers="">Rp.<?php echo number_format($key->nominal)?></td>                                                    
+<td colspan="" rowspan="" headers=""><?php echo $absen->num_rows()?> Hari</td>                                                    
+<td colspan="" rowspan="" headers=""><?php echo $ijin->num_rows()?> Hari</td>                                                    
+<td colspan="" rowspan="" headers=""><?php echo $alpha->num_rows()?> Hari</td>
+<td colspan="" rowspan="" headers=""><?php echo $cuti->num_rows()?> Hari</td>
+<td colspan="" rowspan="" headers="">
+<?php foreach($hitung as $key):?>
+<?php echo $key->telat?>
+<?php endforeach;?>
+</td>                                                    
+<?php endforeach;?>                                                 </tr> 
                                             </tbody>
                                         </table>
                                     </div>                                

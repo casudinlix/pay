@@ -194,6 +194,23 @@
             });
         });
     </script>
+
+     <script type='text/javascript'>
+        var site = "<?php echo site_url();?>";
+        $(function(){
+            $('.hutang').autocomplete({
+                // serviceUrl berisi URL ke controller/fungsi yang menangani request kita
+                serviceUrl: site+'ajax/hutang',
+                // fungsi ini akan dijalankan ketika user memilih salah satu hasil request
+                onSelect: function (suggestion) {
+                    $('#nip').val(''+suggestion.hutang); 
+                    $('#kasbon').val(''+suggestion.nominal_kasbon); 
+
+                    
+                }
+            });
+        });
+    </script>
         <!-- END Untuk kalender-->
         <script>
            $(function(){
