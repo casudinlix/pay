@@ -53,8 +53,8 @@
 <td colspan="" rowspan="" headers="">Rp.<?php echo number_format($key->nominal)?></td>
 
 <td colspan="" rowspan="" headers="">
-    
-    <a title="Tambah Transaksi" href="<?php echo site_url('home/hitunggaji/'.$key->nip)?>" class='btn btn-info'><i class="fa fa-plus"></i></a>
+   
+    <a title="Tambah Transaksi" href="<?php echo site_url('home/hitunggaji/'.$key->nip."/".$key->gol_jabatan)?>" class='btn btn-info'><i class="fa fa-plus"></i></a>
 </td>
 </tr>
 

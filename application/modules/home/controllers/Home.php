@@ -458,9 +458,11 @@ function hitung(){
 }
 function hitunggaji(){
   $id=$this->uri->segment(3);
+  $gol=$this->uri->segment(4);
   $data['com']=$this->db->get('company')->row();
   $this->db->select_sum('telat');
   $data['hitung']=$this->db->get_where('absensi_view',array('nip'=>$id,'status'=>'HADIR'))->result();
+$data['query']="SELECT month($id) FROM absensi_view";
 
     $data['absen']=$this->db->get_where('absensi_view',array('nip'=>$id,'status'=>'HADIR'));
 $data['ijin']=$this->db->get_where('absensi_view', array('nip'=>$id,'status'=>'IZIN'));
@@ -468,6 +470,9 @@ $data['alpha']=$this->db->get_where('absensi_view', array('nip'=>$id,'status'=>'
 $data['cuti']=$this->db->get_where('absensi_view', array('nip'=>$id,'status'=>'CUTI'));
  $data['all']=$this->db->get_where('all_view_1', array('nip'=>$id));
  $data['kasbon']=$this->db->get_where('kasbon_view', array('nip'=>$id,'status_aju'=>'APPROVE','status_kasbon'=>'BELUM BAYAR')); 
+ $data['insentif']=$this->db->get_where('insentif', array('gol_jabatan'=>$gol))->result();
+$this->load->model('m_list');
+$data['idgaji']=$this->m_list->idgaji();
 
   $this->load->view('atas',$data);
   $this->load->view('hitung/hitunggaji',$data);
