@@ -47,7 +47,7 @@
 <td colspan="" rowspan="" headers=""><?php echo $no?></td>
 <td colspan="" rowspan="" headers=""><?php echo $key->nip?></td>
 
-<td colspan="" rowspan="" headers=""><?php echo $key->nama_jabatan?></td>
+<td colspan="" rowspan="" headers=""><?php echo $key->nama_lengkap?></td>
 <td colspan="" rowspan="" headers=""><?php echo $key->nama_jabatan?></td>
 <td colspan="" rowspan="" headers=""><?php echo $key->gol_jabatan?></td>
 <td colspan="" rowspan="" headers="">Rp.<?php echo number_format($key->nominal)?></td>
