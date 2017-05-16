@@ -96,10 +96,11 @@ function approve(){
   $w=array('id_cuti'=>$id,'tgl_awal_cuti'=>$date,'nip'=>$nip);
 
   $data=array('tgl_approve'=>$tgl,'disetujui_oleh'=>$user,'status_cuti'=>'APPROVE');
+  $data1=array('tgl_approve'=>$tgl,'disetujui_oleh'=>$user,'status_cuti'=>'REJECT');
 
   if ($s=="REJECT") {
     $this->db->where($w);
-    $this->db->update('aju_cuti',$data);
+    $this->db->update('aju_cuti',$data1);
     echo "OK";
   }else{
     $this->db->where($w);

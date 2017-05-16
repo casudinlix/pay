@@ -68,7 +68,7 @@ $total=$dari->diff($sampai);
 
 <?php else: ?>
   <button class="btn btn-warning btn-rounded btn-sm" onClick="approve('<?php echo $key->nip?>/<?php echo $key->tgl_awal_cuti?>/APPROVE/<?php echo $key->id_cuti?> ');">APPROVE</button>
-  <button class="btn btn-danger btn-rounded btn-sm" onClick="approve('<?php echo $key->nip?>/<?php echo $key->tgl_awal_cuti?>/REJECT');">REJECT</button>
+  <button class="btn btn-danger btn-rounded btn-sm" onClick="approve('<?php echo $key->nip?>/<?php echo $key->tgl_awal_cuti?>/REJECT/<?php echo $key->id_cuti?>');">REJECT</button>
 
 <?php endif; ?>
 

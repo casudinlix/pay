@@ -5,7 +5,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" action="<?php echo "" ?>" method="post">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h3 class="panel-title"><strong>Hitung </strong> Gaji</h3>
@@ -140,19 +140,7 @@
                                                      
                                                 </div>
                                             </div>        
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Select</label>
-                                                <div class="col-md-9">                                                                                            
-                                                    <select class="form-control select">
-                                                        <option>Option 1</option>
-                                                        <option>Option 2</option>
-                                                        <option>Option 3</option>
-                                                        <option>Option 4</option>
-                                                        <option>Option 5</option>
-                                                    </select>
-                                                    <span class="help-block">Select box example</span>
-                                                </div>
-                                            </div>
+                                            
                                             
                                         </div>
                                         
