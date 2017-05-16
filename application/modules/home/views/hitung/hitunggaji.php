@@ -5,7 +5,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             
-                            <form class="form-horizontal" action="<?php echo "" ?>" method="post">
+                            <form class="form-horizontal" action="<?php echo site_url('aksi_1/hitunggaji') ?>" method="post">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h3 class="panel-title"><strong>Hitung </strong> Gaji</h3>
@@ -50,7 +50,7 @@
                                                 <div class="col-md-9 col-xs-12">
                                                     <div class="input-group">
              <span class="input-group-addon"><span class="fa fa-user-md"></span></span>
-<input type="text" name="nip" id="cari" placeholder="NIP" required="" class="form-control cari">
+<input type="text" name="nip" id="cari" placeholder="NIP" required="" class="form-control cari" value="<?php echo $all->nip?>" readonly>
 
                                                     </div>            
                                                      
@@ -61,7 +61,7 @@
                                                 <div class="col-md-9 col-xs-12">
                                                     <div class="input-group">
              <span class="input-group-addon"><span class="fa fa-user"></span></span>
-<input type="text" name="nama" id="nama_lengkap" placeholder="" required="" class="form-control cari" readonly="">
+<input type="text" name="nama" id="nama_lengkap" placeholder="" required="" class="form-control cari" readonly="" value="<?php echo $all->nama_lengkap?>">
 
                                                     </div>            
                                                      
@@ -72,7 +72,7 @@
                                                 <div class="col-md-9 col-xs-12">
                                                     <div class="input-group">
              <span class="input-group-addon"><span class="fa fa-check-square-o"></span></span>
-<input type="text" name="jabatan" id="nama_jabatan" placeholder="" required="" class="form-control cari" readonly="">
+<input type="text" name="jab" id="nama_jabatan" placeholder="" required="" class="form-control cari" readonly="" value="<?php echo $all->nama_jabatan?>">
                                                     </div>            
                                                      
                                                 </div>
@@ -82,7 +82,7 @@
                                                 <div class="col-md-9 col-xs-12">
                                                     <div class="input-group">
              <span class="input-group-addon"><span class="fa fa-users"></span></span>
-<input type="text" name="gol" id="gol_jabatan" placeholder="" required="" class="form-control cari" readonly="">
+<input type="text" name="gol" id="gol_jabatan" placeholder="" required="" class="form-control cari" readonly="" value="<?php echo $all->gol_jabatan?>">
 
                                                     </div>            
                                                      
@@ -93,7 +93,7 @@
                                                 <div class="col-md-9 col-xs-12">
                                                     <div class="input-group">
              <span class="input-group-addon"><span class="fa fa-money"></span></span>
-<input type="text" name="nom" id="nominal" placeholder="" required="" class="form-control cari" readonly="">
+<input type="text" name="nom" id="nominal" placeholder="" required="" class="form-control cari" readonly="" value="<?php echo $all->nominal?>">
 
                                                     </div>            
                                                      

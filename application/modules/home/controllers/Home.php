@@ -473,7 +473,7 @@ $data['cuti']=$this->db->get_where('absensi_view', array('nip'=>$id,'status'=>'C
  $data['insentif']=$this->db->get_where('insentif', array('gol_jabatan'=>$gol))->result();
 $this->load->model('m_list');
 $data['idgaji']=$this->m_list->idgaji();
-
+$data['all']=$this->db->get_where('all_view_1',array('nip'=>$id))->row();
   $this->load->view('atas',$data);
   $this->load->view('hitung/hitunggaji',$data);
   $this->load->view('bawah',$data);
