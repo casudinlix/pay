@@ -510,4 +510,13 @@ function listkasbon(){
     $this->load->view('approve/kasbon',$data);
     $this->load->view('bawah',$data);
 }
+//Untuk report
+function lapkaryawan(){
+    $data['com']=$this->db->get('company')->row();
+    $data['all']=$this->db->get('karyawan_view')->result();
+ $this->load->view('atas',$data);
+    $this->load->view('laporan/karyawan',$data);
+    $this->load->view('bawah',$data);
+
+}
 }

@@ -133,11 +133,13 @@ body{
                         <ul class="animated zoomIn">
 
 
-                            <li><a href="<?php echo site_url('home/hitung')?>"><span class="fa fa-archive"></span>Calculate salary</a></li>
+                            <li><a href="<?php echo site_url('home/lapkaryawan')?>"><span class="fa fa-archive"></span>Data Karyawan</a></li>
                             <li><a href="<?php echo site_url('home/hitung')?>"><span class="fa fa-money"></span>E-salary Slip</a></li>
-                            <li><a href="<?php echo site_url('home/hitung')?>"><span class="fa fa-archive"></span>Calculate salary</a></li>
-                            <li><a href="<?php echo site_url('home/hitung')?>"><span class="fa fa-archive"></span>Calculate salary</a></li>
-                            <li><a href="<?php echo site_url('home/hitung')?>"><span class="fa fa-archive"></span>Calculate salary</a></li>
+                            <li><a href="<?php echo site_url('home/hitung')?>"><span class="fa fa-book"></span>Kasbon</a></li>
+                            <li><a href="<?php echo site_url('home/hitung')?>"><span class="fa fa-users"></span>Pengguna</a></li>
+                            <li><a href="<?php echo site_url('home/hitung')?>"><span class="fa fa-clock-o"></span>Absensi</a></li>
+<li><a href="<?php echo site_url('home/hitung')?>"><span class="fa fa-dollar"></span>Penggajian</a></li>
+
 
                         </ul>
                     </li>
