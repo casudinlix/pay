@@ -521,14 +521,21 @@ function lapkaryawan(){
 }
 function lapkasbon(){
   $data['com']=$this->db->get('company')->row();
+  $arr=array('status_aju'=>'APPROVE','status_kasbon'=>'BELUM BAYAR');
   $this->db->select_sum('nominal_kasbon');
-  $this->db->where('status_aju','APPROVE');
-  //$this->db->or_where('status_aju!=','REJECT');
-  $data['sum']=$this->db->get('kasbon_view')->row();
-  $this->db->where('status_aju','APPROVE');
+  $this->db->where($arr);
+    $data['sum']=$this->db->get('kasbon_view')->row();
+  $this->db->where($arr);
   $data['all']=$this->db->get('kasbon_view')->result();
     $this->load->view('atas',$data);
     $this->load->view('laporan/kasbon',$data);
+    $this->load->view('bawah',$data);
+}
+function lappengguna(){
+  $data['com']=$this->db->get('company')->row();
+  $data['all']=$this->db->get('users')->result();
+    $this->load->view('atas',$data);
+    $this->load->view('pengguna/pengguna',$data);
     $this->load->view('bawah',$data);
 }
 }
