@@ -519,4 +519,16 @@ function lapkaryawan(){
     $this->load->view('bawah',$data);
 
 }
+function lapkasbon(){
+  $data['com']=$this->db->get('company')->row();
+  $this->db->select_sum('nominal_kasbon');
+  $this->db->where('status_aju','APPROVE');
+  //$this->db->or_where('status_aju!=','REJECT');
+  $data['sum']=$this->db->get('kasbon_view')->row();
+  $this->db->where('status_aju','APPROVE');
+  $data['all']=$this->db->get('kasbon_view')->result();
+    $this->load->view('atas',$data);
+    $this->load->view('laporan/kasbon',$data);
+    $this->load->view('bawah',$data);
+}
 }
