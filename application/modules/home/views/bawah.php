@@ -652,6 +652,11 @@ $(".table1").on('page.dt',function () {
 
 });
 </script>
+
+<script type="text/javascript" charset="utf-8" async defer>
+  
+  
+</script>
     <!-- Select2 -->
     <script>
       $(document).ready(function() {
@@ -659,10 +664,15 @@ $(".table1").on('page.dt',function () {
           placeholder: "Select a Religion",
           allowClear: true
         });
+$(".insentif").select2({
+          placeholder: "Pilih Insentif",
+          allowClear: true
+        });
         $(".bank").select2({
           placeholder: "Select a bank",
           allowClear: true
         });
+        
         $(".jabatan1").select2({
           placeholder: "Select a Jobs",
           allowClear: true
@@ -700,6 +710,7 @@ $(".table1").on('page.dt',function () {
           allowClear: true
         });
         $(".select2_group").select2({});
+
         $(".select2_multiple").select2({
           maximumSelectionLength: 4,
           placeholder: "With Max Selection limit 4",

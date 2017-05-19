@@ -380,21 +380,16 @@ $this->db->insert('kasbon', $data);
 redirect('home/kasbon/'.$id);
 }
 function hitunggaji(){
-  $idgaji=$this->input->post('code', TRUE);
-  $tgl=$this->input->post('tgl', TRUE);
-  $nip=$this->input->post('nip', TRUE);
-  $nama=$this->input->post('nama', TRUE);
-  $jab=$this->input->post('jab', TRUE);
-  $gol=$this->input->post('gol', TRUE);
-  $gp=$this->input->post('nom', TRUE);
-  $hr=$this->input->post('hr', TRUE);
-  $pot=$this->input->post('potongan', TRUE);
-  $in=$this->input->post('insentif', TRUE);
-
-  $data=array('id_gaji'=>$idgaji,'bulan_gaji'=>$tgl,'nip'=>$nip,'nama_lengkap'=>$nama,
-    'nama_jabatan'=>$jab,'gol_jabatan'=>$gol,'total_hari'=>$hr,'potongan'=>$pot,'gaji_pokok'=>$gp,'total_insentif'=>$in,'total_gaji'=>$in -$pot + $gp);
-  $this->db->insert('tmp_gaji', $data);
-  redirect('home/hitung');
+  $code=$this->input->post('code', TRUE);
+   $in=$this->input->post('in', TRUE);
+  $user=$this->session->userdata('nama');
+  $tgl=date('Y-m-d');
+   $jam=date("Y-m-d H:m:s");
+$nip=$this->input->post('nip', TRUE);
+$gol=$this->input->post('gol', TRUE);
+$data=array('id_gaji'=>$code,'bulan_gaji'=>$tgl,'nip'=>$nip,'id_insentif'=>$in,'tgl_input'=>$jam,'user'=>$user);
+$this->db->insert('gaji_detail', $data);
+redirect('home/hitunggaji/'.$nip.'/'.$gol);
 
 }
 }

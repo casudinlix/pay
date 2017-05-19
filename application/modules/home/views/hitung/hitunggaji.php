@@ -32,110 +32,49 @@
                                                    
                                                 </div>
                                             </div>
-                                            
-                                            <div class="form-group">                                        
-                                                <label class="col-md-3 control-label">Tanggal Gaji</label>
-                                                <div class="col-md-9 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Insentif</label>
+                                                <div class="col-md-9">                                            
                                                     <div class="input-group">
-             <span class="input-group-addon"><span class="fa fa-calendar-o"></span></span>
-      <input type="text" name="tgl" placeholder="Tanggal Gaji" required="" class="form-control datepicker">
+    <span class="input-group-addon"><span class="fa fa-dollar"></span></span>
+  <select name="in" class="insentif form-control"  required="">
+      <option></option>
+      <?php foreach($insentif as $key):?>
+      
+<option value="<?php echo $key->id_insentif?>"><?php echo $key->id_insentif." - ".$key->jenis_insentif."(".$key->gol_jabatan.")"?></option>
 
-                                                    </div>            
-                                                     
+      <?php endforeach;?>
+  </select>
+
+                                                    </div>                                            
+                                                   
                                                 </div>
                                             </div>
                                             
-    <div class="form-group">                                        
-                                                <label class="col-md-3 control-label">NIP</label>
-                                                <div class="col-md-9 col-xs-12">
-                                                    <div class="input-group">
-             <span class="input-group-addon"><span class="fa fa-user-md"></span></span>
-<input type="text" name="nip" id="cari" placeholder="NIP" required="" class="form-control cari" value="<?php echo $all->nip?>" readonly>
-
-                                                    </div>            
-                                                     
-                                                </div>
-                                            </div>
- <div class="form-group">                                        
-                                                <label class="col-md-3 control-label">Nama Lengkap</label>
-                                                <div class="col-md-9 col-xs-12">
-                                                    <div class="input-group">
-             <span class="input-group-addon"><span class="fa fa-user"></span></span>
-<input type="text" name="nama" id="nama_lengkap" placeholder="" required="" class="form-control cari" readonly="" value="<?php echo $all->nama_lengkap?>">
-
-                                                    </div>            
-                                                     
-                                                </div>
-                                            </div>                                                                                 
- <div class="form-group">                                        
-                                                <label class="col-md-3 control-label">Jabatan</label>
-                                                <div class="col-md-9 col-xs-12">
-                                                    <div class="input-group">
-             <span class="input-group-addon"><span class="fa fa-check-square-o"></span></span>
-<input type="text" name="jab" id="nama_jabatan" placeholder="" required="" class="form-control cari" readonly="" value="<?php echo $all->nama_jabatan?>">
-                                                    </div>            
-                                                     
-                                                </div>
-                                            </div>                                            
- <div class="form-group">                                        
-                                                <label class="col-md-3 control-label">Golongan</label>
-                                                <div class="col-md-9 col-xs-12">
-                                                    <div class="input-group">
-             <span class="input-group-addon"><span class="fa fa-users"></span></span>
-<input type="text" name="gol" id="gol_jabatan" placeholder="" required="" class="form-control cari" readonly="" value="<?php echo $all->gol_jabatan?>">
-
-                                                    </div>            
-                                                     
-                                                </div>
-                                            </div> 
- <div class="form-group">                                        
-                                                <label class="col-md-3 control-label">Gaji Pokok</label>
-                                                <div class="col-md-9 col-xs-12">
-                                                    <div class="input-group">
-             <span class="input-group-addon"><span class="fa fa-money"></span></span>
-<input type="text" name="nom" id="nominal" placeholder="" required="" class="form-control cari" readonly="" value="<?php echo $all->nominal?>">
-
-                                                    </div>            
-                                                     
-                                                </div>
-                                            </div> 
- 
-    <div class="form-group">                                        
-     <label class="col-md-3 control-label">Total Hari Kerja</label>
-                                                <div class="col-md-9 col-xs-12">
-                                                    <div class="input-group">
-             <span class="input-group-addon"><span class="fa fa-clock-o"></span></span>
-<input type="number" name="hr"  placeholder="" required="" class="form-control">
-
-                                                    </div>            
-                                                     
-                                                </div>
-                                            </div>                                                                                                                                                                              
+                                                                                                                                                                                                               
                                             
                                             
                                         </div>
                                         <div class="col-md-6">
                                             
-                                            
-                                            <div class="form-group">                                        
-     <label class="col-md-3 control-label">Total Potongan</label>
-                                                <div class="col-md-9 col-xs-12">
-                                                    <div class="input-group">
-             <span class="input-group-addon"><span class="fa fa-dollar"></span></span>
-<input type="number" name="potongan"  placeholder="" required="" class="form-control">
+<input type="hidden" class="form-control" name="nip" value="<?php echo $this->uri->segment(3)?>" placeholder="">
+<input type="hidden" class="form-control" name="gol" value="<?php echo $this->uri->segment(4)?>" placeholder="">
 
+                                            <div class="form-group">                                        
+                                                 <div class="col-md-9 col-xs-12">
+                                                    <div class="input-group">
+  
                                                     </div>            
                                                      
                                                 </div>
                                             </div>        
                                             
                                             <div class="form-group">                                        
-     <label class="col-md-3 control-label">Total Insentif</label>
-                                                <div class="col-md-9 col-xs-12">
+                                                 <div class="col-md-9 col-xs-12">
                                                     <div class="input-group">
-             <span class="input-group-addon"><span class="fa fa-money"></span></span>
-<input type="number" name="insentif"  placeholder="" required="" class="form-control">
-
+ <?php 
+     echo $all->nama_lengkap;
+ ?>
                                                     </div>            
                                                      
                                                 </div>
@@ -158,7 +97,43 @@
                     </div>                    
                     
                 </div>
-                <!-- END PAGE CONTENT WRAPPER -->                                                
+                <!-- END PAGE CONTENT WRAPPER -->     
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Data</h3>
+                                </div>
+
+                                <div class="panel-body panel-body-table">
+
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-striped table-actions">
+                                            <thead>
+                                                <tr>
+                                                   
+                                                    <th>ID Gaji</th>
+                                                    <th width="100">NIP</th>
+                                                    <th width="100">ID INSENTIF</th>
+                                                    <th width="100">date</th>
+                                                    <th width="100">actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>                                            
+                                                <tr id="trow_1">
+                                                    
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>                                
+
+                                </div>
+                            </div>                                                
+
+                        </div>
+                    </div>
+                    <!-- END RESPONSIVE TABLES -->                                           
             </div>            
             <!-- END PAGE CONTENT -->
         </div>
