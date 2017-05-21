@@ -55,7 +55,7 @@
     </div>
     <div class="widget-data">
         <div class="widget-int num-count"><?php echo $kasbon ?></div>
-        <div class="widget-title">Permintaan Kasbon</div>
+        <div class="widget-title">Permintaan Pinjaman</div>
         <div class="widget-subtitle">Perlu Persetujuan</div>
     </div>
     <div class="widget-controls">

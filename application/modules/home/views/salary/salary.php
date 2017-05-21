@@ -42,7 +42,7 @@ $no=1;
                                                 foreach ($gaji as $key): ?>
                                                   <td><?php echo $no ?></td>
 
-                                                  <td>Rp.<?php echo number_format( $key->nominal)?></td>
+                                                  <td>Rp.<?php echo number_format( $key->gapok)?></td>
                                                   <td><?php echo  $key->nama_jabatan?></td>
                                                   <td><?php echo $key->gol_jabatan ?></td>
                                                   <td><a href="<?php echo site_url('home/editsalary/'.$key->id)?>" class="fa fa-pencil fa-lg btn btn-info"></a>

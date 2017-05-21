@@ -35,9 +35,9 @@ function no(){
   $b=date('m');
   $y=date('y');
   $create = strtoupper(uniqid(rand(),true));
-  $s='KAS.';
+  $s='KS.';
 
-  $style = substr($y.$b.$h."-".$create,0,9);
+  $style = substr($s.$y.$b.$h."-".$create,0,13);
   return $style;
 }
 function cuti(){
@@ -51,6 +51,9 @@ function cuti(){
   return $style;
 }
 function idgaji(){
+  $y=date('Y');
+  $b=date("m");
+  $t=date('d');
  $this->db->select('RIGHT(gaji.id_gaji,2) as kode', FALSE);
   $this->db->order_by('id_gaji','DESC');    
   $this->db->limit(1);     
@@ -65,7 +68,7 @@ function idgaji(){
    $kode = 1;     
   }
   $kodemax = str_pad($kode, 2, "0", STR_PAD_LEFT);    
-  $kodejadi = "GJ-".$kodemax;     
+  $kodejadi = "GJ-".$y.$b.$t.$kodemax;     
   return $kodejadi;  
 }
 function jabatan(){

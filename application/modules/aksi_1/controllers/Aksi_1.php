@@ -160,7 +160,7 @@ function addsalary(){
   $gol=$this->input->post('gol',TRUE);
   $salary=$this->input->post('salary',TRUE);
   $jabatan=$this->input->post('jabatan',TRUE);
-  $data=array('nominal'=>$salary,'id_jabatan'=>$jabatan,'gol_jabatan'=>$gol);
+  $data=array('gapok'=>$salary,'id_jabatan'=>$jabatan,'gol_jabatan'=>$gol);
   $this->db->insert('m_gaji', $data);
   redirect('home/salary');
 }
@@ -207,7 +207,7 @@ function editsalary(){
   $salary=$this->input->post('salary',TRUE);
   $jabatan=$this->input->post('jabatan',TRUE);
   $gol=$this->input->post('gol');
-  $data=array('nominal'=>$salary,'id_jabatan'=>$jabatan,'gol_jabatan'=>$gol);
+  $data=array('gapok'=>$salary,'id_jabatan'=>$jabatan,'gol_jabatan'=>$gol);
   $this->db->where('id', $id);
   $this->db->update('m_gaji', $data);
   redirect('home/salary');
@@ -375,11 +375,13 @@ function kasbon(){
 $nominal=$this->input->post('nominal');
 $tgl=$this->input->post('tgl');
 $ket=$this->input->post('ket', TRUE);
-$data=array('no_transaksi'=>$no,'nip'=>$id,'nominal_kasbon'=>$nominal,'ket_kasbon'=>$ket,'tgl_aju_kasbon'=>$tgl,'disetujui_oleh'=>'','status_aju'=>'PENDING','status_kasbon'=>'BELUM BAYAR');
-$this->db->insert('kasbon', $data);
+$data=array('no_transaksi'=>$no,'nip'=>$id,'nominal_pinjaman'=>$nominal,'ket_pinjaman'=>$ket,'tgl_aju_pinjaman'=>$tgl,'disetujui_oleh'=>'','status_aju'=>'PENDING','status_pinjaman'=>'BELUM BAYAR');
+$this->db->insert('pinjaman', $data);
 redirect('home/kasbon/'.$id);
 }
 function hitunggaji(){
+  if (isset($_POST['tambah'])) {
+    
   $code=$this->input->post('code', TRUE);
    $in=$this->input->post('in', TRUE);
   $user=$this->session->userdata('nama');
@@ -390,8 +392,13 @@ $gol=$this->input->post('gol', TRUE);
 $data=array('id_gaji'=>$code,'bulan_gaji'=>$tgl,'nip'=>$nip,'id_insentif'=>$in,'tgl_input'=>$jam,'user'=>$user);
 $this->db->insert('gaji_detail', $data);
 redirect('home/hitunggaji/'.$nip.'/'.$gol);
+  }
+  if (isset($_POST['posting'])) {
+    echo "Posting";
+  }
 
 }
+
 }
 
 

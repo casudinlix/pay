@@ -27,7 +27,7 @@
                                                 <div class="col-md-9">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-money"></span></span>
-                 <input type="number" name="salary" class="form-control" required="" autocomplete="off" value="<?php echo $sal->nominal ?>"/>
+                 <input type="number" name="salary" class="form-control" required="" autocomplete="off" value="<?php echo $sal->gapok ?>"/>
                                                     </div>
                                                     <span class="help-block">This is sample of text field</span>
                                                 </div>

@@ -24,7 +24,7 @@ $this->load->library(array('PHPExcel','PHPExcel/IOFactory'));
 $data['com']=$this->db->get('company')->row();
 $data['jumlah']=$this->db->get('karyawan')->num_rows();
 $data['cuti']=$this->db->get_where('aju_cuti',array('status_cuti'=>'POSTING','status_cuti !='=>'REJECT'))->num_rows();
-$data['kasbon']=$this->db->get_where('kasbon',array('status_aju'=>'PENDING','status_aju !='=>'REJECT'))->num_rows();
+$data['kasbon']=$this->db->get_where('pinjaman',array('status_aju'=>'PENDING','status_aju !='=>'REJECT'))->num_rows();
 $this->load->view('atas', $data);
 $this->load->view('home', $data);
 $this->load->view('bawah', $data);
@@ -463,11 +463,14 @@ function hitunggaji(){
   $gol=$this->uri->segment(4);
   $this->load->model('m_list');
   $idgaji=$this->m_list->idgaji();
-$data['idgaji']=$this->m_list->idgaji();
-$data['all']=$this->db->get('all_view_1',array('nip'=>$id))->row();
+  $data['idgaji']=$this->m_list->idgaji();
+  $data['all']=$this->db->get('all_view_1',array('nip'=>$id))->row();
   $data['com']=$this->db->get('company')->row();
   $data['insentif']=$this->db->get_where('insentif',Array('gol_jabatan'=>$gol))->result();
-$data['cek']=$this->db->get_where('gaji_detail',array('id_gaji'=>$idgaji))->result();
+  $data['cek']=$this->db->get_where('gaji_detail',array('id_gaji'=>$idgaji))->result();
+$data['cekgaji']=$this->db->get_where('gaji_detail_view',array('id_gaji'=>$idgaji))->result();
+$this->db->select_sum('nominal_insentif');
+$data['sum']=$this->db->get_where('sum_insentif_gaji_view',array('id_gaji'=>$id))->row();
 
   $this->load->view('atas',$data);
   $this->load->view('hitung/hitunggaji',$data);
@@ -476,10 +479,10 @@ $data['cek']=$this->db->get_where('gaji_detail',array('id_gaji'=>$idgaji))->resu
 function kasbon(){
   $id=$this->session->userdata('nip');
 
-  $this->db->select_sum('nominal_kasbon');
-  $data['sum']=$this->db->get_where('kasbon_view',array('nip'=>$id,'status_aju'=>"APPROVE",'status_kasbon'=>"BELUM BAYAR"))->row();
+  $this->db->select_sum('nominal_pinjaman');
+  $data['sum']=$this->db->get_where('pinjaman_view',array('nip'=>$id,'status_aju'=>"APPROVE",'status_pinjaman'=>"BELUM BAYAR"))->row();
    $data['com']=$this->db->get('company')->row();
-$data['all']=$this->db->get_where('kasbon_view',array('nip'=>$id))->result();
+$data['all']=$this->db->get_where('pinjaman_view',array('nip'=>$id))->result();
   $this->load->view('atas',$data);
   $this->load->view('kasbon/kasbon',$data);
   $this->load->view('bawah',$data);
@@ -496,11 +499,11 @@ $this->load->view('bawah',$data);
 }
 function listkasbon(){
   $data['com']=$this->db->get('company')->row();
-  $this->db->select_sum('nominal_kasbon');
+  $this->db->select_sum('nominal_pinjaman');
   $this->db->where_in('status_aju','PENDING');
   $this->db->or_where_in('status_aju','APPROVE');
-  $data['sum']=$this->db->get('kasbon_view')->row();
-  $data['all']=$this->db->get('kasbon_view')->result();
+  $data['sum']=$this->db->get('pinjaman_view')->row();
+  $data['all']=$this->db->get('pinjaman_view')->result();
     $this->load->view('atas',$data);
     $this->load->view('approve/kasbon',$data);
     $this->load->view('bawah',$data);

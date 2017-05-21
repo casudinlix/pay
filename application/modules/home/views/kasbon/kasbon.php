@@ -16,7 +16,7 @@
                                 <div class="panel-heading">
 
                                     <div class="col-md-4">
-  <a href="<?php echo site_url('home/addkasbon/'.$this->session->userdata('nip'))?>"  <button class="btn btn-success btn-block"><span class="fa fa-plus"></span> Tambah Kasbon</button></a>
+  <a href="<?php echo site_url('home/addkasbon/'.$this->session->userdata('nip'))?>"  <button class="btn btn-success btn-block"><span class="fa fa-plus"></span> Tambah Pinjaman</button></a>
                                     </div>
                                     <ul class="panel-controls">
                                         <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
@@ -24,7 +24,7 @@
                                     </ul>
                                 </div>
                                 <div class="panel-body">
-                                <strong>  Jumlah Kasbon Anda Sebesar <?php foreach ($sum as $key ): ?>
+                                <strong>  Jumlah Pinjaman Anda Sebesar <?php foreach ($sum as $key ): ?>
                                   Rp. <?php echo number_format($key) ?>
                                 <?php endforeach; ?></strong>
                                     <table class="table datatable">
@@ -50,9 +50,9 @@ $no=1;
                                                   <td><?php echo $no ?></td>
 <td colspan="" rowspan="" headers=""><?php echo $key->no_transaksi ?></td>
 
-<td colspan="" rowspan="" headers="">Rp.<?php echo number_format($key->nominal_kasbon )?></td>
-<td colspan="" rowspan="" headers=""><?php echo $key->ket_kasbon?></td>
-<td colspan="" rowspan="" headers=""><?php echo tgl_indo($key->tgl_aju_kasbon) ?></td>
+<td colspan="" rowspan="" headers="">Rp.<?php echo number_format($key->nominal_pinjaman )?></td>
+<td colspan="" rowspan="" headers=""><?php echo $key->ket_pinjaman?></td>
+<td colspan="" rowspan="" headers=""><?php echo tgl_indo($key->tgl_aju_pinjaman) ?></td>
 <td colspan="" rowspan="" headers=""><?php echo $key->disetujui_oleh ?></td>
 <td colspan="" rowspan="" headers="">
 <?php if ($key->status_aju=="PENDING" || $key->status_aju=="REJECT"): ?>
@@ -61,10 +61,10 @@ $no=1;
   <span class="label label-success"><strong> <?php echo $key->status_aju ?></strong></span>
 <?php endif; ?>
 </td>
-<td colspan="" rowspan="" headers=""><?php if ($key->status_kasbon=="BELUM BAYAR" ): ?>
-      <span class="label label-danger"><strong> <?php echo $key->status_kasbon ?></strong></span>
+<td colspan="" rowspan="" headers=""><?php if ($key->status_pinjaman=="BELUM BAYAR" ): ?>
+      <span class="label label-danger"><strong> <?php echo $key->status_pinjaman ?></strong></span>
 <?php else: ?>
-      <span class="label label-success"><strong> <?php echo $key->status_kasbon ?></strong></span>
+      <span class="label label-success"><strong> <?php echo $key->status_pinjaman ?></strong></span>
 <?php endif; ?></td>
 <td colspan="" rowspan="" headers="">
   <?php if ($key->status_aju=="PENDING"): ?>

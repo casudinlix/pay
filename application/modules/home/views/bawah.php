@@ -3,15 +3,15 @@
         <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
             <div class="mb-container">
                 <div class="mb-middle">
-                    <div class="mb-title"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
+                    <div class="mb-title"><span class="fa fa-sign-out"></span> Ke <strong>luar</strong> ?</div>
                     <div class="mb-content">
-                        <p>Are you sure you want to log out?</p>
-                        <p>Press No if youwant to continue work. Press Yes to logout current user.</p>
+                        <p>Anda yakin ingin keluar?</p>
+                        <p>Tekan Tidak jika Anda ingin terus bekerja. Tekan Ya untuk logout pengguna saat ini.</p>
                     </div>
                     <div class="mb-footer">
                         <div class="pull-right">
-                            <a href="<?php echo base_url('home/out')?>" class="btn btn-success btn-lg">Yes</a>
-                            <button class="btn btn-default btn-lg mb-control-close">No</button>
+                            <a href="<?php echo base_url('home/out')?>" class="btn btn-success btn-lg">YA</a>
+                            <button class="btn btn-default btn-lg mb-control-close">TIDAK</button>
                         </div>
                     </div>
                 </div>
@@ -349,6 +349,49 @@ showLoaderOnConfirm: true
 
 
     var url1= "<?php echo site_url('home/deletpoto/') ?>";
+
+      if (!isConfirm) return;
+      $.ajax({
+          url: url1+id,
+          type: "POST",
+
+          dataType: "HTML",
+          success: function () {
+              setTimeout(function () {
+                  swal(" request finished!");
+                  window.location.reload();
+        }, 4000);
+
+
+          },
+          error: function (xhr, ajaxOptions, thrownError) {
+              swal("Error deleting!", "Please try again", "error");
+          }
+
+      });
+
+});
+}
+
+</script>
+<script type="text/javascript">
+function hapusinsentif($d) {
+var id = $d;
+  swal({
+title: "Are you sure?",
+text: "You will not be able to recover this Dta!"+id,
+type: "warning",
+showCancelButton: true,
+closeOnConfirm: false,
+showLoaderOnConfirm: true
+},
+
+
+ function (isConfirm) {
+
+
+
+    var url1= "<?php echo site_url('ajax/hapusinsentif/') ?>";
 
       if (!isConfirm) return;
       $.ajax({

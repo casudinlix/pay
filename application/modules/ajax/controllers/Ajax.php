@@ -112,7 +112,7 @@ function approve(){
 function kasbon(){
   $no=$this->uri->segment(3);
   $this->db->where('no_transaksi', $no);
-$this->db->delete('kasbon');
+$this->db->delete('pinjaman');
   echo "OK";
 }
 function approvekasbon(){
@@ -124,7 +124,7 @@ function approvekasbon(){
 
 if ($st=="APPROVE") {
   $this->db->where('no_transaksi', $no);
-  $this->db->update('kasbon', $data);
+  $this->db->update('pinjaman', $data);
   echo "ok approve";
 }else{
   $this->db->where('no_transaksi', $no);
@@ -154,6 +154,11 @@ $data1=array('status_cuti'=>$status);
   $this->db->update('aju_cuti', $data1);
 
 
+}
+function hapusinsentif(){
+  $arr=array('id_gaji'=>$this->uri->segment(3),'id_insentif'=>$this->uri->segment(4));
+  $this->db->where($arr);
+  $this->db->delete('gaji_detail');
 }
 }
 
