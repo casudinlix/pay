@@ -385,16 +385,63 @@ function hitunggaji(){
   $code=$this->input->post('code', TRUE);
    $in=$this->input->post('in', TRUE);
   $user=$this->session->userdata('nama');
+  $idgaji=$this->uri->segment(5);
   $tgl=date('Y-m-d');
    $jam=date("Y-m-d H:m:s");
 $nip=$this->input->post('nip', TRUE);
 $gol=$this->input->post('gol', TRUE);
 $data=array('id_gaji'=>$code,'bulan_gaji'=>$tgl,'nip'=>$nip,'id_insentif'=>$in,'tgl_input'=>$jam,'user'=>$user);
 $this->db->insert('gaji_detail', $data);
-redirect('home/hitunggaji/'.$nip.'/'.$gol);
+//redirect('home/hitunggaji/'.$nip.'/'.$gol.'/'.$idgaji);
+redirect($_SERVER['HTTP_REFERER']);
   }
   if (isset($_POST['posting'])) {
     echo "Posting";
+    $id=$this->input->post('idgaji', TRUE);
+    $nip=$this->input->post('nip', TRUE);
+$hari=$this->input->post('hari', TRUE);
+$ijin=$this->input->post('ijin', TRUE);
+$lembur=$this->input->post('lembur', TRUE);
+$mangkir=$this->input->post('alpa', TRUE);
+$cuti=$this->input->post('cuti', TRUE);
+$telat=$this->input->post('telat', TRUE);
+$this->db->select_sum('nominal_insentif');
+$jml=$this->db->get_where('gaji_detail_view',array('id_gaji'=>$id))->row();
+foreach ($jml as $value) {
+   $insentif=$value;
+}
+
+$jml1=$this->db->get_where('all_view_1',array('nip'=>$nip))->result();
+foreach ($jml1 as $value) {
+  echo $gapok=$value->gapok;
+
+}
+
+$jml2=$this->db->get_where('pinjaman',array('nip'=>$nip,'status_aju'=>'APPROVE','status_pinjaman'=>'BELUM BAYAR'))->result();
+foreach ($jml2 as $value) {
+  echo $pinjaman=$value->nominal_pinjaman;
+
+}
+$data= array('id_gaji' =>$id,'total_potongan'=>$pinjaman,'total_insentif'=>$insentif,
+'total_hari'=>$hari,'total_alpa'=>$mangkir,'total_telat'=>$telat,'total_ijin'=>$ijin,'total_lembur'=>$lembur,'total_ijin'=>$ijin,'gapok'=>$gapok,'total_gaji'=>$gapok-$pinjaman+$insentif,'status_gaji'=>'POSTING');
+$this->db->insert('gaji', $data);
+$this->db->where('id_gaji', $id);
+$this->db->update('gaji_detail', array('status'=>'POSTING'));
+$this->session->set_flashdata('gaji', 'value');
+redirect('home/hitung');
+
+
+
+  }
+  if (isset($_POST['tambahpinjaman'])) {
+    $pin=$this->input->post('pin', TRUE);
+  $arr=array('id_gaji'=>$this->input->post('id', TRUE));
+$data=array('no_transaksi'=>$pin);
+$this->db->where($arr);
+  $this->db->update('gaji_detail',$data);
+
+redirect($_SERVER['HTTP_REFERER']);
+
   }
 
 }

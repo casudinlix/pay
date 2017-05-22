@@ -461,8 +461,9 @@ $data['idgaji']=$this->m_list->idgaji();
 function hitunggaji(){
   $id=$this->uri->segment(3);
   $gol=$this->uri->segment(4);
+  $idgaji=$this->uri->segment(5);
   $this->load->model('m_list');
-  $idgaji=$this->m_list->idgaji();
+  $this->m_list->idgaji();
   $data['idgaji']=$this->m_list->idgaji();
   $data['all']=$this->db->get('all_view_1',array('nip'=>$id))->row();
   $data['com']=$this->db->get('company')->row();
@@ -471,7 +472,7 @@ function hitunggaji(){
 $data['cekgaji']=$this->db->get_where('gaji_detail_view',array('id_gaji'=>$idgaji))->result();
 $this->db->select_sum('nominal_insentif');
 $data['sum']=$this->db->get_where('sum_insentif_gaji_view',array('id_gaji'=>$id))->row();
-
+$data['pinjaman']=$this->db->get_where('pinjaman', array('nip'=>$id,'status_aju'=>'APPROVE','status_pinjaman'=>'BELUM BAYAR'))->result();
   $this->load->view('atas',$data);
   $this->load->view('hitung/hitunggaji',$data);
   $this->load->view('bawah',$data);
@@ -519,8 +520,8 @@ function lapkaryawan(){
 }
 function lapkasbon(){
   $data['com']=$this->db->get('company')->row();
-  $arr=array('status_aju'=>'APPROVE','status_kasbon'=>'BELUM BAYAR');
-  $this->db->select_sum('nominal_kasbon');
+  $arr=array('status_aju'=>'APPROVE','status_pinjaman'=>'BELUM BAYAR');
+  $this->db->select_sum('nominal_pinjaman');
   $this->db->where($arr);
     $data['sum']=$this->db->get('kasbon_view')->row();
   $this->db->where($arr);
@@ -535,5 +536,8 @@ function lappengguna(){
     $this->load->view('atas',$data);
     $this->load->view('pengguna/pengguna',$data);
     $this->load->view('bawah',$data);
+}
+function slip(){
+  $this->load->view('slip/slip');
 }
 }

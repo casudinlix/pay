@@ -260,6 +260,12 @@
        </script>
    <!-- END SCRIPTS -->
 <!--Untuk alert-->
+<?php if ($this->session->flashdata('gaji')): ?>
+  <script type="text/javascript">
+    swal("Gaji Sudah Terposting!", "", "success")
+  </script>
+
+<?php endif; ?>
 <?php if ($this->session->flashdata('jadwal')): ?>
   <script type="text/javascript">
     swal("Schedule Exis", "You clicked the button!", "error")

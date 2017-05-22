@@ -61,9 +61,9 @@ $no=1;
                                                   <td><?php echo $no ?></td>
 <td colspan="" rowspan="" headers=""><?php echo $key->no_transaksi ?></td>
 
-<td colspan="" rowspan="" headers="">Rp.<?php echo number_format($key->nominal_kasbon )?></td>
-<td colspan="" rowspan="" headers=""><?php echo $key->ket_kasbon ?></td>
-<td colspan="" rowspan="" headers=""><?php echo tgl_indo($key->tgl_aju_kasbon) ?></td>
+<td colspan="" rowspan="" headers="">Rp.<?php echo number_format($key->nominal_pinjaman )?></td>
+<td colspan="" rowspan="" headers=""><?php echo $key->ket_pinjaman ?></td>
+<td colspan="" rowspan="" headers=""><?php echo tgl_indo($key->tgl_aju_pinjaman) ?></td>
 <td colspan="" rowspan="" headers=""><?php echo tgl_indo($key->tgl_approve) ?></td>
 <td colspan="" rowspan="" headers=""><?php echo $key->disetujui_oleh ?></td>
 <td colspan="" rowspan="" headers="">
@@ -73,10 +73,10 @@ $no=1;
    
  
 </td>
-<td colspan="" rowspan="" headers=""><?php if ($key->status_kasbon=="BELUM BAYAR" ): ?>
-      <span class="label label-danger"><strong> <?php echo $key->status_kasbon ?></strong></span>
+<td colspan="" rowspan="" headers=""><?php if ($key->status_pinjaman=="BELUM BAYAR" ): ?>
+      <span class="label label-danger"><strong> <?php echo $key->status_pinjaman ?></strong></span>
 <?php else: ?>
-      <span class="label label-success"><strong> <?php echo $key->status_kasbon ?></strong></span>
+      <span class="label label-success"><strong> <?php echo $key->status_pinjaman ?></strong></span>
 <?php endif; ?></td>
 
                                                   </tr>
