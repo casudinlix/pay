@@ -540,4 +540,30 @@ function lappengguna(){
 function slip(){
   $this->load->view('slip/slip');
 }
+function potongan(){
+$data['com']=$this->db->get('company')->row();
+$data['all']=$this->db->get('potongan')->result();
+    $this->load->view('atas',$data);
+    $this->load->view('potongan/potongan',$data);
+    $this->load->view('bawah',$data);
+
+}
+function addpotongan(){
+  $data['com']=$this->db->get('company')->row();
+
+  $this->load->model('m_list');
+  $data['kode']=$this->m_list->potongan();
+ $this->load->view('atas',$data);
+    $this->load->view('potongan/add',$data);
+    $this->load->view('bawah',$data); 
+}
+function editpotongan(){
+  $id=$this->uri->segment(3);
+    $data['com']=$this->db->get('company')->row();
+
+  $data['all']=$this->db->get_where('potongan',array('id_potongan'=>$id))->row();
+  $this->load->view('atas',$data);
+    $this->load->view('potongan/edit',$data);
+    $this->load->view('bawah',$data);
+}
 }

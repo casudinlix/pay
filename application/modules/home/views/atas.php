@@ -62,7 +62,8 @@ body{
                                                             <ul>
                                                               <li><a href="<?php echo site_url('home/salary')?>"><span class="fa fa-money"></span> Gaji</a></li>
 
-                                                                <li><a href="<?php echo site_url('home/insentif')?>"><span class="fa fa-dollar"></span>Insentif</a></li>
+ <li><a href="<?php echo site_url('home/insentif')?>"><span class="fa fa-dollar"></span>Insentif</a></li>
+ <li><a href="<?php echo site_url('home/potongan')?>"><span class="fa fa-minus-circle"></span>Potongan</a></li>
 
                                                              </ul>
                                                         </li>

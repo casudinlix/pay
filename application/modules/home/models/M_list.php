@@ -81,6 +81,16 @@ function jabatan(){
   $style = substr($s."0"."-".$create,0,5);
   return $style;
 }
+function potongan(){
+ $h=date('d');
+  $b=date('m');
+  $y=date('y');
+  $create = strtoupper(uniqid(rand(),true));
+  $s='P';
+
+  $style = substr($s."0"."-".$create,0,5);
+  return $style; 
+}
 function insentif(){
   $h=date('d');
   $b=date('m');

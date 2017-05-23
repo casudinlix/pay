@@ -83,7 +83,27 @@ $this->db->where('nip', $nip);
   redirect('home/employe');
 
       }
+function addpotongan(){
+  $id=$this->input->post('id', TRUE);
+  $jenis=$this->input->post('jenis', TRUE);
+$nom=$this->input->post('nom', TRUE);
+$data=array('id_potongan'=>$id,'jenis_potongan'=>$jenis,'nominal_potongan'=>$nom);
+$this->db->insert('potongan', $data);
 
+  redirect('home/potongan');
+
+}
+function editpotongan(){
+  $id=$this->input->post('id', TRUE);
+$jenis=$this->input->post('jenis', TRUE);
+$nom=$this->input->post('nom', TRUE);
+$data=array('jenis_potongan'=>$jenis,'nominal_potongan'=>$nom);
+$this->db->where('id_potongan', $id);
+$this->db->update('potongan', $data);
+
+  redirect('home/potongan');
+
+}
 
 
 function company(){
