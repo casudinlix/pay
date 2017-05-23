@@ -440,13 +440,17 @@ foreach ($jml1 as $value) {
 $jml2=$this->db->get_where('pinjaman',array('nip'=>$nip,'status_aju'=>'APPROVE','status_pinjaman'=>'BELUM BAYAR'))->result();
 foreach ($jml2 as $value) {
   echo $pinjaman=$value->nominal_pinjaman;
+  $idpinjaman=$value->no_transaksi;
 
 }
+
 $data= array('id_gaji' =>$id,'total_potongan'=>$pinjaman,'total_insentif'=>$insentif,
 'total_hari'=>$hari,'total_alpa'=>$mangkir,'total_telat'=>$telat,'total_ijin'=>$ijin,'total_lembur'=>$lembur,'total_ijin'=>$ijin,'gapok'=>$gapok,'total_gaji'=>$gapok-$pinjaman+$insentif,'status_gaji'=>'POSTING');
 $this->db->insert('gaji', $data);
 $this->db->where('id_gaji', $id);
 $this->db->update('gaji_detail', array('status'=>'POSTING'));
+$this->db->where('no_transaksi', $idpinjaman);
+$this->db->update('pinjaman', array('status_pinjaman'=>'LUNAS'));
 $this->session->set_flashdata('gaji', 'value');
 redirect('home/hitung');
 
