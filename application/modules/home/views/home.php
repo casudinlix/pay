@@ -75,7 +75,7 @@
     </div>
     <div class="widget-data">
         <div class="widget-int num-count"><?php echo $jumlah ?></div>
-        <div class="widget-title">Employe</div>
+        <div class="widget-title">Total Karyawan</div>
         <div class="widget-subtitle">Total On your Company</div>
     </div>
     <div class="widget-controls">

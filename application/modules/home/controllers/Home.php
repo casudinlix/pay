@@ -566,4 +566,24 @@ function editpotongan(){
     $this->load->view('potongan/edit',$data);
     $this->load->view('bawah',$data);
 }
+function slipgaji(){
+      $data['com']=$this->db->get('company')->row();
+
+    $data['gaji']=$this->db->get('all_view_1')->result();
+    $this->load->model('m_list');
+$data['idgaji']=$this->m_list->idgaji();
+     $this->load->view('atas',$data);
+  $this->load->view('slip/slipgaji',$data);
+  $this->load->view('bawah',$data);
+
+}
+function ditelslip(){
+        $data['com']=$this->db->get('company')->row();
+        $id=$this->uri->segment(3);
+        $data['gaji']=$this->db->get_where('gaji_detail',array('nip'=>$id))->result();
+   $this->load->view('atas',$data);
+  $this->load->view('slip/ditel',$data);
+  $this->load->view('bawah',$data);
+
+}
 }

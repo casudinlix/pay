@@ -135,7 +135,7 @@ body{
 
 
                             <li><a href="<?php echo site_url('home/lapkaryawan')?>"><span class="fa fa-archive"></span>Data Karyawan</a></li>
-                            <li><a href="<?php echo site_url('home/slip')?>"><span class="fa fa-money"></span>E-salary Slip</a></li>
+                            <li><a href="<?php echo site_url('home/slipgaji')?>"><span class="fa fa-money"></span>E-salary Slip</a></li>
                             <li><a href="<?php echo site_url('home/lapkasbon')?>"><span class="fa fa-book"></span>Pinjaman</a></li>
                             <li><a href="<?php echo site_url('home/lappengguna')?>"><span class="fa fa-users"></span>Pengguna</a></li>
                             <li><a href="<?php echo site_url('home/hitung')?>"><span class="fa fa-clock-o"></span>Absensi</a></li>
@@ -148,10 +148,8 @@ body{
                         <a href="#"><span class="fa fa-user-md"></span> <span class="xn-text"><?php echo $this->session->userdata('nama'); ?></span></a>
                         <ul class="animated zoomIn">
 
-                            <li>
-
-                            </li>
-                            <li><a href="<?php echo site_url('home/myschedule/'.$this->session->userdata('nip'))?>"><span class="fa fa-desktop"></span> My Schedule</a></li>
+                            
+                           
                             <li>  <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span>Keluar</a>
 </li>
                         </ul>
