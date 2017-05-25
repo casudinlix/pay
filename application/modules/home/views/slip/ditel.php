@@ -4,7 +4,7 @@
                             <div class="panel panel-default">
 
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Slip Gaji</h3>
+                                    <h3 class="panel-title">Slip Gaji <b><?php echo $nama->nama_lengkap?></b>--<?php echo $nama->nip?></h3>
                                 </div>
 
                                 <div class="panel-body panel-body-table">
