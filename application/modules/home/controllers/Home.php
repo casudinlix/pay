@@ -590,4 +590,21 @@ function ditelslip(){
   $this->load->view('bawah',$data);
 
 }
+function lappenggajian(){
+          $data['com']=$this->db->get('company')->row();
+            $this->db->distinct();
+          $this->db->select('gaji_view.id_gaji,gaji_view.nip,karyawan.nama_lengkap,gaji_view.bulan_gaji,gaji_view.total_potongan,gaji_view. total_insentif,gaji_view.gapok,gaji_view.total_gaji');
+          $this->db->from('gaji_view');
+          $this->db->join('karyawan', 'karyawan.nip = gaji_view.nip', 'inner');
+         $data['gaji']=$this->db->get()->result();
+   
+         $this->db->select_sum('total_insentif');
+         
+         $data['sum']=$this->db->get('gaji')->row();
+         $this->db->select_sum('total_gaji');
+         $data['gajip']=$this->db->get('gaji')->row();
+ $this->load->view('atas',$data);
+    $this->load->view('laporan/penggajian',$data);
+    $this->load->view('bawah',$data);
+}
 }

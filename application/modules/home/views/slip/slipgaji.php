@@ -54,7 +54,7 @@
 
 <td colspan="" rowspan="" headers="">
    
-    <a title="Tambah Transaksi" href="<?php echo site_url('home/ditelslip/'.$key->nip)?>" class='btn btn-info'><i class="fa fa-plus"></i></a>
+    <a title="Tambah Transaksi" href="<?php echo site_url('home/ditelslip/'.$key->nip)?>" class='btn btn-info'><i class="fa fa-check"></i></a>
 </td>
 </tr>
 

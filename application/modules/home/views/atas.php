@@ -139,7 +139,7 @@ body{
                             <li><a href="<?php echo site_url('home/lapkasbon')?>"><span class="fa fa-book"></span>Pinjaman</a></li>
                             <li><a href="<?php echo site_url('home/lappengguna')?>"><span class="fa fa-users"></span>Pengguna</a></li>
                             <li><a href="<?php echo site_url('home/hitung')?>"><span class="fa fa-clock-o"></span>Absensi</a></li>
-<li><a href="<?php echo site_url('home/hitung')?>"><span class="fa fa-dollar"></span>Penggajian</a></li>
+<li><a href="<?php echo site_url('home/lappenggajian')?>"><span class="fa fa-dollar"></span>Penggajian</a></li>
 
 
                         </ul>
