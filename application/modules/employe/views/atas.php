@@ -56,28 +56,19 @@ body{
                     
 
                     
-                    
                     <li class="xn-openable">
-                        <a href="#"><span class="fa fa-calendar"></span> <span class="xn-text">Ijin & Absen</span></a>
+                        <a href="#"><span class="fa fa-book"></span> <span class="xn-text">Data Saya</span></a>
                         <ul class="animated zoomIn">
                             <li>
-                                <a href="<?php echo site_url('employe/absen/'.$this->session->userdata('nip'))?>"><span class="fa fa-clock-o"></span> Absensi Saya</a>
-<a href="<?php echo site_url('employe/leave/'.$this->session->userdata('nip')) ?>"><span class="fa fa-calendar-o"></span>Cuti / Ijin</a>
-
+                                <a href="<?php echo site_url('employe/absen/'.$this->session->userdata('nip'))?>"><span class="fa fa-clock-o"></span>Absensi Saya</a>
+                            <a href="<?php echo site_url('employe/leave/'.$this->session->userdata('nip')) ?>"><span class="fa fa-calendar-o"></span>Aju Cuti</a>
+                            <li><a href="<?php echo site_url('employe/kasbon/'.$this->session->userdata('nip'))?>"><span class="fa fa-money"></span>Aju Pinjaman</a></li>
                             </li>
 
                         </ul>
                     </li>
-                    <li class="xn-openable">
-                        <a href="#"><span class="fa fa-shopping-cart"></span> <span class="xn-text">Transaksi</span></a>
-                        <ul class="animated zoomIn">
 
-
-                            
-                            <li><a href="<?php echo site_url('employe/kasbon/'.$this->session->userdata('nip'))?>"><span class="fa fa-archive"></span>Pinjaman</a></li>
-
-                        </ul>
-                    </li>
+                     
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-file-o"></span> <span class="xn-text">Laporan</span></a>
                         <ul class="animated zoomIn">
@@ -91,6 +82,7 @@ body{
                     </li>
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-user-md"></span> <span class="xn-text"><?php echo $this->session->userdata('nama'); ?></span></a>
+
                         <ul class="animated zoomIn">
 
                             
