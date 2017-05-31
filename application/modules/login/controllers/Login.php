@@ -49,14 +49,14 @@ $this->load->model('m_login');
       $this->session->set_userdata($sess_data);
 
     }
-    if($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='Admin')
+    if($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='ADMIN')
     {
       redirect('home');
     }elseif ($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='HRD') {
       redirect('hrd');
-    }elseif ($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='Payroll') {
+    }elseif ($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='ACCOUNTING') {
       redirect('payroll');
-    }elseif ($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='Employe') {
+    }elseif ($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='KARYAWAN') {
       redirect('employe');
     }
 
@@ -68,7 +68,7 @@ $this->session->set_flashdata('gagal', 'value');
 
 }
 function keluar(){
-  $semua=$this->session->all_userdata(array('login','nama','level'));
+  $semua=$this->session->all_userdata(array('login','nip','nama','level'));
 $this->session->unset_userdata($semua);
     $this->session->sess_destroy($semua);
 

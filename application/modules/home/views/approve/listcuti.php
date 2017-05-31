@@ -46,6 +46,7 @@ $total=$dari->diff($sampai);
 <td><?php echo tgl_indo($key->tgl_awal_cuti) ?></td>
 <td><?php echo tgl_indo($key->tgl_akhir_cuti) ?></td>
 <td><?php echo $total->d+1 ?> Hari</td>
+<input type="hidden" name="lama" value="<?php echo $lama=$total->d+1;?>">
 <td><?php echo $key->ket_cuti ?></td>
 <td><?php echo $key->disetujui_oleh ?></td>
 <td><?php echo $key->tgl_approve ?></td>
@@ -67,8 +68,8 @@ $total=$dari->diff($sampai);
 <?php if ($key->status_cuti=="REJECT" || $key->status_cuti=="APPROVE"): ?>
 
 <?php else: ?>
-  <button class="btn btn-warning btn-rounded btn-sm" onClick="approve('<?php echo $key->nip?>/<?php echo $key->tgl_awal_cuti?>/APPROVE/<?php echo $key->id_cuti?> ');">APPROVE</button>
-  <button class="btn btn-danger btn-rounded btn-sm" onClick="approve('<?php echo $key->nip?>/<?php echo $key->tgl_awal_cuti?>/REJECT/<?php echo $key->id_cuti?>');">REJECT</button>
+  <button class="btn btn-warning btn-rounded btn-sm" onClick="approve('<?php echo $key->nip?>/<?php echo $key->tgl_awal_cuti?>/APPROVE/<?php echo $key->id_cuti?>/<?php echo $key->id ?> ');">APPROVE</button>
+  <button class="btn btn-danger btn-rounded btn-sm" onClick="approve('<?php echo $key->nip?>/<?php echo $key->tgl_awal_cuti?>/REJECT/<?php echo $key->id_cuti?>/<?php echo $lama ?>/<?php echo $key->id ?>');">REJECT</button>
 
 <?php endif; ?>
 

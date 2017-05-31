@@ -19,7 +19,7 @@
                                         <ul class="dropdown-menu">
                                              <li><a href="#" onClick ="$('#gaji').tableExport({type:'excel',escape:'false'});"><img src='<?php echo export()?>xls.png' width="24"/> XLS</a></li>
                                         <li class="divider"></li>
-
+b
                                         <li><a href="#" onClick ="$('#gaji').tableExport({type:'doc',escape:'false'});"><img src='<?php echo export()?>word.png' width="24"/> Word</a></li>
                                          <li class="divider"></li>
                                          <li><a href="#" onClick ="$('#gaji').tableExport({type:'pdf',escape:'false'});"><img src='<?php echo export()?>pdf.png' width="24"/> PDF</a></li>

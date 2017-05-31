@@ -9,7 +9,7 @@
 
 <!-- PAGE TITLE -->
 <div class="page-title">
-    <h2><span class="fa fa-users"></span> Address Book <small>139 contacts</small></h2>
+    <h2><span class="fa fa-users"></span> Address Book <small><?php echo $this->session->userdata('login')."".$this->session->userdata('level')?></small></h2>
 </div>
 <!-- END PAGE TITLE -->
 
@@ -21,7 +21,10 @@
 
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <p>Use search to find contacts. You can search by: name, address, phone. Or use the advanced search.</p>
+                    <p>Use search to find contacts. You can search by: name, address, phone. Or use the advanced search.
+<?php echo var_dump($this->session->all_userdata())?>
+ 
+                    </p>
                     <form class="form-horizontal">
                         <div class="form-group">
                             <div class="col-md-8">

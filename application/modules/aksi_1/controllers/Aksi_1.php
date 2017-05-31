@@ -205,7 +205,7 @@ function editjabatan(){
 function adduser(){
 $code=$this->input->post('code', TRUE);
 $nama=$this->input->post('nama', TRUE);
- $pass=base64_decode($this->input->post('pass', TRUE));
+ $pass=base64_encode($this->input->post('pass', TRUE));
 $hak=$this->input->post('hak', TRUE);
 $data=array('nip'=>$code,'nama_lengkap'=>$nama,'pass'=>$pass,'hak_akses'=>$hak);
 $this->db->insert('users', $data);
@@ -397,6 +397,7 @@ $tgl=$this->input->post('tgl');
 $ket=$this->input->post('ket', TRUE);
 $data=array('no_transaksi'=>$no,'nip'=>$id,'nominal_pinjaman'=>$nominal,'ket_pinjaman'=>$ket,'tgl_aju_pinjaman'=>$tgl,'disetujui_oleh'=>'','status_aju'=>'PENDING','status_pinjaman'=>'BELUM BAYAR');
 $this->db->insert('pinjaman', $data);
+
 redirect('home/kasbon/'.$id);
 }
 function hitunggaji(){

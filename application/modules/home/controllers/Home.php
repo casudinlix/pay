@@ -7,11 +7,13 @@ class Home extends CI_Controller{
   {
     parent::__construct();
 $this->load->library(array('PHPExcel','PHPExcel/IOFactory'));
-    //Codeigniter : Write Less Do More
+   
     $this->load->helper('tgl');
-    if(!$this->session->userdata('login') == TRUE AND !$this->session->userdata('level')=='Admin')
+    if($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='ADMIN')
     {
-      $this->session->set_flashdata('error','value');
+      
+      }else {
+        $this->session->set_flashdata('error','value');
             redirect('login');
       }
 
@@ -32,10 +34,10 @@ $this->load->view('bawah', $data);
   }
 
   function out (){
-  $semua=$this->session->all_userdata(array('login','nama','level'));
+  $semua=$this->session->all_userdata(array('login','nip','nama','level'));
 $this->session->unset_userdata($semua);
-    $this->session->sess_destroy($semua);
-
+    $this->session->sess_destroy();
+      session_destroy();
     redirect('login');
   }
   function employe($offset = 0){
@@ -419,6 +421,7 @@ function editleave(){
   $this->load->view('bawah',$data);
 }
 function leave(){
+  
   $id=$this->uri->segment(3);
 
   $data['com']=$this->db->get('company')->row();

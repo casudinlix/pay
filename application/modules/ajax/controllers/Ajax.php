@@ -91,9 +91,12 @@ function approve(){
   $date=$this->uri->segment(4);
   $s=$this->uri->segment(5);
   $id=$this->uri->segment(6);
+  $lama=$this->uri->segment(7);
+  $kunci=$this->uri->segment(8);
   $tgl=date('Y-m-d') ;
   $user=$this->session->userdata('nama');
-  $w=array('id_cuti'=>$id,'tgl_awal_cuti'=>$date,'nip'=>$nip);
+  $w=array('id'=>$kunci,'id_cuti'=>$id,'tgl_awal_cuti'=>$date,'nip'=>$nip);
+
 
   $data=array('tgl_approve'=>$tgl,'disetujui_oleh'=>$user,'status_cuti'=>'APPROVE');
   $data1=array('tgl_approve'=>$tgl,'disetujui_oleh'=>$user,'status_cuti'=>'REJECT');
@@ -101,13 +104,22 @@ function approve(){
   if ($s=="REJECT") {
     $this->db->where($w);
     $this->db->update('aju_cuti',$data1);
-    echo "OK";
-  }else{
-    $this->db->where($w);
-    $this->db->update('aju_cuti',$data);
-  
-  echo "OK";
+
+$cek=$this->db->get_where('jatah_cuti',array('id_jc'=>$id));
+foreach ($cek->result() as $key) {
+  $sisa=$key->sisa_cuti;
 }
+$data2=array('sisa_cuti'=>$sisa+$lama,'terpakai'=>$lama-$lama);
+$this->db->where('id_jc', $id);
+$this->db->update('jatah_cuti', $data2);
+    echo "OK";
+  } else{
+    $this->db->where('id',$kunci);
+    $this->db->update('aju_cuti',$data);
+    echo "OK";
+}
+
+
 }
 function kasbon(){
   $no=$this->uri->segment(3);
@@ -138,6 +150,7 @@ function postingajucuti(){
   $nip=$this->uri->segment(4);
   $lama=$this->uri->segment(5);
   $status=$this->uri->segment(6);
+  $kunci=$this->uri->segment(7);
 $cek=$this->db->get_where('jatah_cuti', array('id_jc'=>$id))->result();
 foreach ($cek as $key) {
   $sisa=$key->sisa_cuti;
@@ -149,8 +162,7 @@ $data=array('terpakai'=>$digunakan,'sisa_cuti'=>$sisacuti);
 $data1=array('status_cuti'=>$status);
   $this->db->where('id_jc',$id);
   $this->db->update('jatah_cuti', $data);
-
-  $this->db->where('id_cuti', $id);
+  $this->db->where('id', $kunci);
   $this->db->update('aju_cuti', $data1);
 
 
