@@ -10,7 +10,7 @@
                     </div>
                     <div class="mb-footer">
                         <div class="pull-right">
-                            <a href="<?php echo base_url('hrd/out')?>" class="btn btn-success btn-lg">YA</a>
+                            <a href="<?php echo base_url('home/out')?>" class="btn btn-success btn-lg">YA</a>
                             <button class="btn btn-default btn-lg mb-control-close">TIDAK</button>
                         </div>
                     </div>
@@ -296,7 +296,7 @@
 Dropzone.autoDiscover = false;
 
 var foto_upload= new Dropzone(".dropzone",{
-url: "<?php echo site_url('home/uploadphoto') ?>",
+url: "<?php echo site_url('hrd/uploadphoto') ?>",
 
 maxFilesize: 2,
 method:"post",
