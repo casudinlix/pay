@@ -17,7 +17,7 @@
         </div>
          <div>
             <div class="widget-title">Perlu Persetujuan</div>
-            <div class="widget-subtitle"></div>
+            <div class="widget-subtitle">Total Karyawan Mengajukan Cuti</div>
             <div class="widget-int"><?php echo $cuti  ?></div>
         </div>
         <div>
@@ -27,9 +27,7 @@
         </div>
          
     </div>
-    <div class="widget-controls">
-        <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
-    </div>
+    
 </div>
 <!-- END WIDGET SLIDER -->
 

@@ -56,15 +56,12 @@ body{
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-cogs fa-spin"></span> <span class="xn-text">Master</span></a>
                         <ul class="animated zoomIn">
-                            <li><a href="<?php echo site_url('hrd/employe')?>"><span class="fa fa-users"></span>Karyawan</a></li>
-                            <li><a href="<?php echo site_url('hrd/jabatan')?>"><span class="fa fa-group"></span>Jabatan</a></li>
-                            
-                            <li><a href="<?php echo site_url('hrd/company/1')?>"><span class="fa fa-building-o"></span>Company Profile</a></li>
-
-
-
-
-
+                            <li><a href="<?php echo site_url('accounting/employe')?>"><span class="fa fa-users"></span>Karyawan</a></li>
+                            <li><a href="<?php echo site_url('accounting/jabatan')?>"><span class="fa fa-group"></span>Jabatan</a></li>
+                            <li><a href="<?php echo site_url('accounting/insentif')?>"><span class="fa fa-dollar"></span>Insentif</a></li>                                                        
+                            <li><a href="<?php echo site_url('accounting/salary')?>"><span class="fa fa-money"></span>Gaji Pokok</a></li>
+                            <li><a href="<?php echo site_url('accounting/potongan')?>"><span class="fa fa-minus-circle"></span>Potongan</a></li>                            
+                           
                         </ul>
                     </li>
 
@@ -72,8 +69,8 @@ body{
                         <a href="#"><span class="fa fa-clock-o"></span> <span class="xn-text">Time Management</span></a>
                         <ul class="animated zoomIn">
                           <li class="">
-<li> <a href="<?php echo site_url('hrd/attendance')?>"><span class="fa fa-clock-o"></span>Absensi Karyawan</a></li>
-<li> <a href="<?php echo site_url('hrd/listleave')?>"><span class="glyphicon glyphicon-new-window"></span>Jatah Cuti</a></li>
+<li> <a href="<?php echo site_url('accounting/attendance')?>"><span class="fa fa-clock-o"></span>Absensi Karyawan</a></li>
+<li> <a href="<?php echo site_url('accounting/listleave')?>"><span class="glyphicon glyphicon-new-window"></span>Jatah Cuti</a></li>
 
                         </ul>
                     </li>
@@ -82,25 +79,28 @@ body{
                         <a href="#"><span class="fa fa-check"></span> <span class="xn-text">Approval</span></a>
                         <ul class="animated zoomIn">
 
-                            <li> <a href="<?php echo site_url('hrd/approvecuti')?>"><span class="fa fa-calendar-o"></span>Cuti</a></li>
-                            <li> <a href="<?php echo site_url('hrd/listkasbon')?>"><span class="fa fa-money"></span>Pinjaman</a></li>                            
+                            <li> <a href="<?php echo site_url('accounting/approvecuti')?>"><span class="fa fa-calendar-o"></span>Cuti</a></li>
+                            <li> <a href="<?php echo site_url('accounting/listkasbon')?>"><span class="fa fa-money"></span>Pinjaman</a></li>                            
 
 
                         </ul>
                     </li>
 
-                    
+                    <li class="xn-openable">
+                        <a href="<?php echo site_url('accounting/hitung')?>"><span class="fa fa-dollar"></span> <span class="xn-text">Hitung Gaji</span></a>
+                    </li>
+
 
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-file-o"></span> <span class="xn-text">Laporan</span></a>
                         <ul class="animated zoomIn">
 
 
-                            <li><a href="<?php echo site_url('hrd/lapkaryawan')?>"><span class="fa fa-archive"></span>Data Karyawan</a></li>
-                            <li><a href="<?php echo site_url('hrd/lapabsensi')?>"><span class="fa fa-clock-o"></span>Absensi</a></li>  
-                                                                                
-                            <li><a href="<?php echo site_url('hrd/ditelslip/'.$this->session->userdata('nip'))?>"><span class="fa fa-file-o"></span>Slip Gaji</a></li>
-                          
+                            <li><a href="<?php echo site_url('accounting/lapkaryawan')?>"><span class="fa fa-archive"></span>Data Karyawan</a></li>
+                            <li><a href="<?php echo site_url('accounting/lapabsensi')?>"><span class="fa fa-clock-o"></span>Absensi</a></li>  
+                            <li><a href="<?php echo site_url('accounting/lapkasbon')?>"><span class="fa fa-money"></span>Pinjaman</a></li>                                                      
+                            <li><a href="<?php echo site_url('accounting/slipgaji')?>"><span class="fa fa-file-o"></span>Slip Gaji</a></li>
+                            <li><a href="<?php echo site_url('accounting/lappenggajian')?>"><span class="fa fa-dollar"></span>Penggajian</a></li>
 
 
                         </ul>
@@ -110,10 +110,10 @@ body{
                         <a href="#"><span class="fa fa-book"></span> <span class="xn-text">Data Saya</span></a>
                         <ul class="animated zoomIn">
                             <li>
- <a href="<?php echo site_url('hrd/absen/'.$this->session->userdata('nip'))?>"><span class="fa fa-clock-o"></span>Absensi Saya</a>
- <a href="<?php echo site_url('hrd/profil/'.$this->session->userdata('nip'))?>"><span class="fa fa-user-md"></span>Profil Saya</a>
-                            <a href="<?php echo site_url('hrd/leave/'.$this->session->userdata('nip')) ?>"><span class="fa fa-calendar-o"></span>Aju Cuti</a>
-                            <li><a href="<?php echo site_url('hrd/kasbon/'.$this->session->userdata('nip'))?>"><span class="fa fa-money"></span>Aju Pinjaman</a></li>
+                                <a href="<?php echo site_url('accounting/absen/'.$this->session->userdata('nip'))?>"><span class="fa fa-clock-o"></span>Absensi Saya</a>
+                                <a href="<?php echo site_url('accounting/profil/'.$this->session->userdata('nip'))?>"><span class="fa fa-user-md"></span>Profil Saya</a>
+                            <a href="<?php echo site_url('accounting/leave/'.$this->session->userdata('nip')) ?>"><span class="fa fa-calendar-o"></span>Aju Cuti</a>
+                            <li><a href="<?php echo site_url('accounting/kasbon/'.$this->session->userdata('nip'))?>"><span class="fa fa-money"></span>Aju Pinjaman</a></li>
                             </li>
 
                         </ul>

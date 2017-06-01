@@ -10,7 +10,7 @@
                     </div>
                     <div class="mb-footer">
                         <div class="pull-right">
-                            <a href="<?php echo base_url('hrd/out')?>" class="btn btn-success btn-lg">YA</a>
+                            <a href="<?php echo base_url('accounting/out')?>" class="btn btn-success btn-lg">YA</a>
                             <button class="btn btn-default btn-lg mb-control-close">TIDAK</button>
                         </div>
                     </div>

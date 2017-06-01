@@ -1,10 +1,3 @@
-<!-- START BREADCRUMB -->
-<ul class="breadcrumb">
-    <li><a href="<?php echo site_url('home')?>"><i class="fa fa-home"></i>Home</a></li>
-
-</ul>
-<!-- END BREADCRUMB -->
-
 
 
 <!-- PAGE CONTENT WRAPPER -->
@@ -18,24 +11,23 @@
 <div class="widget widget-default widget-carousel">
     <div class="owl-carousel" id="owl-example">
         <div>
-            <div class="widget-title">Total Visitors</div>
-            <div class="widget-subtitle">27/08/2014 15:23</div>
-            <div class="widget-int">3,548</div>
+            <div class="widget-title">Total Karyawan</div>
+            <div class="widget-subtitle"></div>
+            <div class="widget-int"><?php echo $jumlah ?></div>
+        </div>
+         <div>
+            <div class="widget-title">Perlu Persetujuan</div>
+            <div class="widget-subtitle">Total Karyawan Mengajukan Cuti</div>
+            <div class="widget-int"><?php echo $cuti  ?></div>
         </div>
         <div>
-            <div class="widget-title">Returned</div>
-            <div class="widget-subtitle">Visitors</div>
-            <div class="widget-int">1,695</div>
+            <div class="widget-title">Total Karyawan</div>
+            <div class="widget-subtitle"></div>
+            <div class="widget-int"><?php echo $jumlah ?></div>
         </div>
-        <div>
-            <div class="widget-title">New</div>
-            <div class="widget-subtitle">Visitors</div>
-            <div class="widget-int">1,977</div>
-        </div>
+         
     </div>
-    <div class="widget-controls">
-        <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
-    </div>
+    
 </div>
 <!-- END WIDGET SLIDER -->
 
@@ -43,40 +35,54 @@
 <div class="col-md-3">
 
 <!-- START WIDGET MESSAGES -->
-<div class="widget widget-default widget-item-icon" onclick="location.href='pages-messages.html';">
+<div class="widget widget-default widget-item-icon" onclick="location.href='<?php echo site_url('hrd/approvecuti/')?>';">
     <div class="widget-item-left">
-        <span class="fa fa-envelope"></span>
+        <span class="fa fa-check"></span>
     </div>
     <div class="widget-data">
-        <div class="widget-int num-count">48</div>
-        <div class="widget-title">New messages</div>
-        <div class="widget-subtitle">In your mailbox</div>
+        <div class="widget-int num-count"><?php echo $cuti ?></div>
+        <div class="widget-title">Perlu Persetujuan</div>
+        <div class="widget-subtitle">Total Karyawan Mengajukan Cuti</div>
     </div>
     <div class="widget-controls">
         <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
     </div>
 </div>
+<div class="widget widget-default widget-item-icon" onclick="location.href='<?php echo site_url("hrd/listkasbon")?>';">
+    <div class="widget-item-left">
+        <span class="fa fa-money"></span>
+    </div>
+    <div class="widget-data">
+        <div class="widget-int num-count"><?php echo $kasbon ?></div>
+        <div class="widget-title">Permintaan Pinjaman</div>
+        <div class="widget-subtitle">Perlu Persetujuan</div>
+    </div>
+    <div class="widget-controls">
+        <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
+    </div>
+</div>
+
 <!-- END WIDGET MESSAGES -->
 
 </div>
 <div class="col-md-3">
 
 <!-- START WIDGET REGISTRED -->
-<div class="widget widget-default widget-item-icon" onclick="location.href='<?php echo site_url('home/employe')?>';">
+<div class="widget widget-default widget-item-icon" onclick="location.href='<?php echo site_url('hrd/employe')?>';">
     <div class="widget-item-left">
         <span class="fa fa-user"></span>
     </div>
     <div class="widget-data">
         <div class="widget-int num-count"><?php echo $jumlah ?></div>
-        <div class="widget-title">Employe</div>
-        <div class="widget-subtitle">Total On your website</div>
+        <div class="widget-title">Total Karyawan</div>
+        <div class="widget-subtitle">Total On your Company</div>
     </div>
     <div class="widget-controls">
         <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
     </div>
 </div>
 <!-- END WIDGET REGISTRED -->
-
+ 
 </div>
 <div class="col-md-3">
 

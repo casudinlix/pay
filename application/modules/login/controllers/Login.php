@@ -13,7 +13,7 @@ class Login extends CI_Controller{
     }elseif ($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='HRD') {
       redirect('hrd');
     }elseif ($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='ACCOUNTING') {
-      redirect('payroll');
+      redirect('accounting');
     }elseif ($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='KARYAWAN') {
       redirect('employe');
     }
@@ -55,7 +55,7 @@ $this->load->model('m_login');
     }elseif ($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='HRD') {
       redirect('hrd');
     }elseif ($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='ACCOUNTING') {
-      redirect('payroll');
+      redirect('accounting');
     }elseif ($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='KARYAWAN') {
       redirect('employe');
     }

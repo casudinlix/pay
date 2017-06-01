@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Hrd extends CI_Controller{
+class Accounting extends CI_Controller{
 
   public function __construct()
   {
@@ -9,7 +9,7 @@ class Hrd extends CI_Controller{
 $this->load->library(array('PHPExcel','PHPExcel/IOFactory'));
    
     $this->load->helper('tgl');
-    if($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='HRD')
+    if($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='ACCOUNTING')
     {
       
       }else {
@@ -48,7 +48,7 @@ $this->session->unset_userdata($semua);
 
     $jml = $this->db->get('karyawan');
 		$search= $this->input->post('search');
-		$config['base_url'] = site_url().'/hrd/employe/';
+		$config['base_url'] = site_url().'/accounting/employe/';
 		$config['total_rows']  = $jml->num_rows();
 		$config['per_page']    = 8;/*Jumlah data yang dipanggil perhalaman*/
 		$config['uri_segment'] = 3;/*data selanjutnya di parse diurisegmen 3*/
