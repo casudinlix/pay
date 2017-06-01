@@ -52,11 +52,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				 			<div class="col-md-7 ab-text">
 				 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu erat lacus, vel congue mauris. Fusce velit justo, faucibus eu sagittis ac, gravida quis tortor. Suspendisse non urna mi, quis tincidunt eros. Nullam tellus turpis, fringilla sit amet congue ut, luctus a nulla. Donec sit amet sapien neque, id ullamcorper diam. Nulla facilisi. Pellentesque pellentesque arcu a elit congue lacinia.</p>
 								<ul class="ab">
-									<li><a href="single.html">Lorem ipsum dolor sit amet,consectetur adipiscing elit</a></li>
-									<li><a href="single.html">Pellentesque eu erat lacus,consectetur adipiscing elit</a></li>
-									<li><a href="single.html">Lorem ipsum dolor sit amet,consectetur adipiscing elit</a></li>
-									<li><a href="single.html">Lorem ipsum dolor sit amet,consectetur adipiscing elit</a></li>
-									<li><a href="single.html">Pellentesque eu erat lacus,consectetur adipiscing elit</a></li>
+									<li><a href="<?php echo site_url('awal/single') ?>">Lorem ipsum dolor sit amet,consectetur adipiscing elit</a></li>
+									<li><a href="<?php echo site_url('awal/single') ?>">Pellentesque eu erat lacus,consectetur adipiscing elit</a></li>
+									<li><a href="<?php echo site_url('awal/single') ?>">Lorem ipsum dolor sit amet,consectetur adipiscing elit</a></li>
+									<li><a href="<?php echo site_url('awal/single') ?>">Lorem ipsum dolor sit amet,consectetur adipiscing elit</a></li>
+									<li><a href="<?php echo site_url('awal/single') ?>">Pellentesque eu erat lacus,consectetur adipiscing elit</a></li>
 								</ul>
 				 			</div>
 				 			<div class="clearfix"> </div>
@@ -65,11 +65,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					 					<h4>Mission <span>Statement</span></h4>
 					 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu erat lacus, vel congue mauris. Fusce velit justo, faucibus eu sagittis ac, gravida quis tortor. Suspendisse non urna mi, quis tincidunt eros. Nullam tellus turpis, fringilla sit amet congue ut, luctus a nulla. Donec sit amet sapien neque, id ullamcorper diam. Nulla facilisi. Pellentesque pellentesque arcu a elit congue lacinia.</p>
 										<ul class="ab">
-												<li><a href="single.html">Lorem ipsum dolor sit amet,consectetur adipiscing elit</a></li>
-												<li><a href="single.html">Pellentesque eu erat lacus,consectetur adipiscing elit</a></li>
-												<li><a href="single.html">Lorem ipsum dolor sit amet,consectetur adipiscing elit</a></li>
-												<li><a href="single.html">Lorem ipsum dolor sit amet,consectetur adipiscing elit</a></li>
-												<li><a href="single.html">Pellentesque eu erat lacus,consectetur adipiscing elit</a></li>
+												<li><a href="<?php echo site_url('awal/single') ?>">Lorem ipsum dolor sit amet,consectetur adipiscing elit</a></li>
+												<li><a href="<?php echo site_url('awal/single') ?>">Pellentesque eu erat lacus,consectetur adipiscing elit</a></li>
+												<li><a href="<?php echo site_url('awal/single') ?>">Lorem ipsum dolor sit amet,consectetur adipiscing elit</a></li>
+												<li><a href="<?php echo site_url('awal/single') ?>">Lorem ipsum dolor sit amet,consectetur adipiscing elit</a></li>
+												<li><a href="<?php echo site_url('awal/single') ?>">Pellentesque eu erat lacus,consectetur adipiscing elit</a></li>
 											</ul>
 					 			</div>
 					 			<div class="col-md-5 facts">
@@ -207,7 +207,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    	  <div class="box_1 one">
    	 	<div class="col-md-6">
    	 	       <div class="col_1_of_2 span_1_of_2 multi-gd-text">
-				   <a href="single.html"><img src="<?php echo tema();?>images/n1.jpg" class="img-responsive" alt=""></a>
+				   <a href="<?php echo site_url('awal/single') ?>"><img src="<?php echo tema();?>images/n1.jpg" class="img-responsive" alt=""></a>
 				   <div class="story_desc">
 				   	  <h3>Mark McRoberts</h3>
 				   	  <p>New York</p>
@@ -221,7 +221,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
    	 	<div class="col-md-6">
    	 	      <div class="col_1_of_2 span_1_of_2 multi-gd-text">
-				   <a href="single.html"><img src="<?php echo tema();?>images/n5.jpg" class="img-responsive" alt=""></a>
+				   <a href="<?php echo site_url('awal/single') ?>"><img src="<?php echo tema();?>images/n5.jpg" class="img-responsive" alt=""></a>
 				   <div class="story_desc">
 				   	  <h3>Mark McRoberts</h3>
 				   	  <p>New York</p>
@@ -238,7 +238,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    	  <div class="box_2">
    	 	<div class="col-md-6">
    	 	       <div class="col_1_of_2 span_1_of_2 multi-gd-text">
-				   <a href="single.html"><img src="<?php echo tema();?>images/n3.jpg" class="img-responsive" alt=""></a>
+				   <a href="#"><img src="<?php echo tema();?>images/n3.jpg" class="img-responsive" alt=""></a>
 				   <div class="story_desc">
 				   	  <h3>Mark McRoberts</h3>
 				   	  <p>New York</p>
@@ -252,7 +252,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
    	 	<div class="col-md-6">
    	 	      <div class="col_1_of_2 span_1_of_2 multi-gd-text">
-				   <a href="single.html"><img src="<?php echo tema();?>images/n4.jpg" class="img-responsive" alt=""></a>
+				   <a href="#"><img src="<?php echo tema();?>images/n4.jpg" class="img-responsive" alt=""></a>
 				   <div class="story_desc">
 				   	  <h3>Mark McRoberts</h3>
 				   	  <p>New York</p>
