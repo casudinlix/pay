@@ -47,6 +47,7 @@
                 <div class="login-footer">
                     <div class="pull-left">
                         &copy; 2017 <?php echo $com->title ?>
+                        <i class="fa fa-home"></i>   <a href="<?php echo site_url()?>" title="">Back To Home</a>
                     </div>
 
                 </div>

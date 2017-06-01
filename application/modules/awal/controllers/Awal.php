@@ -34,6 +34,11 @@ function galery(){
 		$this->load->view('galery');
 		$this->load->view('bawah');
 }
+function contact(){
+	$this->load->view('atas');
+		$this->load->view('contact');
+		$this->load->view('bawah');
+}
 }
 
 /* End of file Awal.php */

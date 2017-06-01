@@ -62,20 +62,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			  <div class="header-search">
 			   <form action="#" method="post">
 				<div class="search">
-					<input type="search" value="Search" name="search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}" required="">
+					 
 				</div>
 				<div class="section_room">
-					<select id="country" onchange="change_country(this.value)" class="frm-field required">
-						<option value="null">All Tests</option>
-						<option value="null">Blood Test</option>     
-						<option value="AX">Urine Test </option>
-						<option value="AX">Blood Volume Test</option>
-						<option value="AX">Normal Test</option>
-						<option value="AX">Body Scanning</option>
-					</select>
+					 
 				</div>
 				<div class="sear-sub">
-					<input type="submit" value=" ">
+					 
 				</div>
 				<div class="clearfix"></div>
 			</form>
@@ -105,9 +98,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<ul class="nav navbar-nav menu__list">
 										<li class="menu__item"><a href="<?php echo site_url()?>" class="menu__link"><span class="menu__helper">Home</span></a></li>
 										<li class=""><a href="<?php echo site_url('awal/about')?>" class="menu__link"><span class="menu__helper">About Us</span></a></li>
-										<li class="menu__item"><a href="<?php echo site_url('awal/typo')?>" class="menu__link"><span class="menu__helper">Short Codes</span></a></li>
+										
 										<li class="menu__item"><a href="<?php echo site_url('awal/galery')?>" class="menu__link"><span class="menu__helper">Departments</span></a></li>
-										<li class="menu__item"><a href="contact.html" class="menu__link"><span class="menu__helper">Contact Us</span></a></li>
+										<li class="menu__item"><a href="<?php echo site_url('awal/contact')?>" class="menu__link"><span class="menu__helper">Contact Us</span></a></li>
+										<li class="menu__item"><a href="<?php echo site_url('login')?>" class="menu__link"><span class="menu__helper">Officer Login</span></a></li>
 									</ul>
 								</nav>
 							</div>
