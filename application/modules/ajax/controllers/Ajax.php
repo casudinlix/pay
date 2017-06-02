@@ -140,7 +140,7 @@ if ($st=="APPROVE") {
   echo "ok approve";
 }else{
   $this->db->where('no_transaksi', $no);
-  $this->db->update('kasbon', $data);
+  $this->db->update('pinjaman', $data);
   echo "ok reject";
 }
 

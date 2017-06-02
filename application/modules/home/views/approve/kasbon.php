@@ -31,7 +31,8 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-
+<th>NIP</th>
+<th>Nama Karyawan</th>
                                                 <th> No Transaksi</th>
                                                 <th> Nominal</th>
                                                 <th> Keterangan</th>
@@ -49,6 +50,8 @@
 $no=1;
                                                 foreach ($all as $key): ?>
                                                   <td><?php echo $no ?></td>
+                                                  <td><?php echo $key->nip ?></td>
+                                                  <td><?php echo $key->nama_lengkap ?></td>
 <td colspan="" rowspan="" headers=""><?php echo $key->no_transaksi ?></td>
 
 <td colspan="" rowspan="" headers="">Rp.<?php echo number_format($key->nominal_pinjaman )?></td>

@@ -504,8 +504,10 @@ $this->load->view('bawah',$data);
 function listkasbon(){
   $data['com']=$this->db->get('company')->row();
   $this->db->select_sum('nominal_pinjaman');
-  $this->db->where_in('status_aju','PENDING');
+  $this->db->where_in('status_aju','!=PENDING');
+  //$this->db->where_in('status_pinjaman','!=LUNAS');
   $this->db->or_where_in('status_aju','APPROVE');
+
   $data['sum']=$this->db->get('pinjaman_view')->row();
   $data['all']=$this->db->get('pinjaman_view')->result();
     $this->load->view('atas',$data);
