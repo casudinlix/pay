@@ -6,6 +6,16 @@ class Awal extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		if($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='ADMIN')
+    {
+      redirect('home');
+    }elseif ($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='HRD') {
+      redirect('hrd');
+    }elseif ($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='ACCOUNTING') {
+      redirect('accounting');
+    }elseif ($this->session->userdata('login') == TRUE AND $this->session->userdata('level')=='KARYAWAN') {
+      redirect('employe');
+    }
 	}
 
 	public function index()
