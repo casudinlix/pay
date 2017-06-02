@@ -103,7 +103,7 @@ body{
 
 
                             <li><a href="<?php echo site_url('home/lapkaryawan')?>"><span class="fa fa-archive"></span>Data Karyawan</a></li>
-                            <li><a href="<?php echo site_url('home/hitung')?>"><span class="fa fa-clock-o"></span>Absensi</a></li>  
+                            <li><a href="<?php echo site_url('home/lapabsensi')?>"><span class="fa fa-clock-o"></span>Absensi</a></li>  
                             <li><a href="<?php echo site_url('home/lapkasbon')?>"><span class="fa fa-money"></span>Pinjaman</a></li>                                                      
                             <li><a href="<?php echo site_url('home/slipgaji')?>"><span class="fa fa-file-o"></span>Slip Gaji</a></li>
                             <li><a href="<?php echo site_url('home/lappenggajian')?>"><span class="fa fa-dollar"></span>Penggajian</a></li>
@@ -117,6 +117,7 @@ body{
                         <ul class="animated zoomIn">
                             <li>
                                 <a href="<?php echo site_url('home/absen/'.$this->session->userdata('nip'))?>"><span class="fa fa-clock-o"></span>Absensi Saya</a>
+                                <a href="<?php echo site_url('home/profil/'.$this->session->userdata('nip'))?>"><span class="fa fa-user-md"></span>Profil Saya</a>
                             <a href="<?php echo site_url('home/leave/'.$this->session->userdata('nip')) ?>"><span class="fa fa-calendar-o"></span>Aju Cuti</a>
                             <li><a href="<?php echo site_url('home/kasbon/'.$this->session->userdata('nip'))?>"><span class="fa fa-money"></span>Aju Pinjaman</a></li>
                             </li>

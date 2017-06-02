@@ -610,4 +610,23 @@ function lappenggajian(){
     $this->load->view('laporan/penggajian',$data);
     $this->load->view('bawah',$data);
 }
+function lapabsensi(){
+  $data['com']=$this->db->get('company')->row();
+$data['all']=$this->db->get('absensi_view')->result();
+
+
+  $this->load->view('atas',$data);
+  $this->load->view('laporan/absensi',$data);
+  $this->load->view('bawah',$data);
+}
+function profil(){
+  $data['com']=$this->db->get('company')->row();
+  $id=$this->uri->segment(3);
+$data['user']=$this->db->get_where('karyawan_view',array('nip'=>$id))->row();
+
+
+  $this->load->view('atas',$data);
+  $this->load->view('profil/profil',$data);
+  $this->load->view('bawah',$data);
+}
 }
