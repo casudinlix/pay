@@ -504,11 +504,13 @@ $this->load->view('bawah',$data);
 function listkasbon(){
   $data['com']=$this->db->get('company')->row();
   $this->db->select_sum('nominal_pinjaman');
-  $this->db->where_in('status_aju','!=PENDING');
-  //$this->db->where_in('status_pinjaman','!=LUNAS');
-  $this->db->or_where_in('status_aju','APPROVE');
+  $this->db->where(array('status_aju'=>'APPROVE','status_pinjaman'=>'BELUM BAYAR'));
+  //$this->db->or_where_in('status_pinjaman','BELUM BAYAR');
 
   $data['sum']=$this->db->get('pinjaman_view')->row();
+  $this->db->select_sum('nominal_pinjaman');
+  $this->db->where_in('status_pinjaman','LUNAS');
+    $data['lunas']=$this->db->get('pinjaman_view')->row();
   $data['all']=$this->db->get('pinjaman_view')->result();
     $this->load->view('atas',$data);
     $this->load->view('approve/kasbon',$data);

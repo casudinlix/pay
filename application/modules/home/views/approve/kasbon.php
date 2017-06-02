@@ -27,6 +27,10 @@
                                 <?php foreach ($sum as $key): ?>
                                   Rp.<?php echo number_format($key) ?>
                                 <?php endforeach; ?>
+ <strong>Total Semua Pinjaman Karyawan Lunas</strong>
+                                <?php foreach ($lunas as $key): ?>
+                                  Rp.<?php echo number_format($key) ?>
+                                <?php endforeach; ?>                                
                                     <table class="table datatable">
                                         <thead>
                                             <tr>
