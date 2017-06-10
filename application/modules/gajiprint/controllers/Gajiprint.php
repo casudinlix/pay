@@ -23,10 +23,18 @@ function print(){
 		foreach ($jml->result() as $key) {
 			$data['jm']=$key->jml_insentif;
 			$key->nominal_insentif;
+
 		}
 		$data['gaji1']=$this->db->get_where('gaji_view', array('id_gaji'=>$id))->row();
-		$data['gaji2']=$this->db->get_where('gaji', array('id_gaji'=>$id))->row();
 
+		$data['gaji2']=$this->db->get_where('gaji', array('id_gaji'=>$id))->row();
+		$gaji=$this->db->get_where('gaji_detail_view', array('id_gaji'=>$id,'nip'=>$nip));
+$total=0;
+foreach ($gaji->result() as $value) {
+	$total+=$value->nominal_insentif*$value->jml_insentif;
+	$data['jml']=$total;
+	
+}
 		$this->db->select_sum('nominal_insentif');
 		$insenti=$this->db->get_where('gaji_detail_view', array('id_gaji'=>$id,'nip'=>$nip))->row();
 foreach ($insenti as $key) {

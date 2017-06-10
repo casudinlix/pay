@@ -1762,7 +1762,7 @@
   <td class=xl6331180></td>
   <td class=xl6331180></td>
   <td class=xl6331180>Rp</td>
-  <td colspan=3 class=xl10731180><?php echo $gaji1->total_potongan?> </td>
+  <td colspan=3 class=xl10731180><?php echo number_format($gaji1->total_potongan)?> </td>
   <td class=xl8931180>&nbsp;</td>
   <td class=xl6331180></td>
   <td class=xl6331180></td>
@@ -1783,7 +1783,7 @@
   <td class=xl9031180>hari</td>
   <td class=xl9031180></td>
   <td class=xl6331180></td>
-  <td class=xl6331180 colspan=5>Uang Transport</td>
+  <td class=xl6331180 colspan=5>Uang Transport Tetap</td>
   <td class=xl6331180></td>
   <td class=xl6331180>Rp</td>
   <td colspan=4 class=xl10631180>200.000 </td>
@@ -1856,7 +1856,7 @@
   <td class=xl6331180></td>
   <td class=xl6331180></td>
   <td class=xl6331180>Rp</td>
-  <td colspan=4 class=xl10631180><?php echo number_format($gaji2->total_insentif)?></td>
+  <td colspan=4 class=xl10631180><?php echo number_format($jml)?></td>
   <td class=xl6331180></td>
   <td class=xl6331180></td>
   <td class=xl6331180></td>
@@ -1975,7 +1975,7 @@
   <td class=xl6531180 colspan=5>Total Pendapatan</td>
   <td class=xl6331180></td>
   <td class=xl6531180>Rp</td>
-  <td colspan=4 class=xl10631180><?php echo number_format($gaji2->total_gaji)?> </td>
+  <td colspan=4 class=xl10631180><?php echo number_format($gaji2->gapok+$jml)?> </td>
   <td class=xl6331180></td>
   <td class=xl6331180></td>
   <td class=xl6531180 colspan=5>Total Potongan</td>
@@ -2086,7 +2086,7 @@
   <td class=xl8231180>&nbsp;</td>
   <td class=xl8231180>&nbsp;</td>
   <td class=xl8231180 colspan=2>Rp</td>
-  <td colspan=5 class=xl9831180><?php echo number_format($gaji2->total_gaji)?> </td>
+  <td colspan=5 class=xl9831180><?php echo number_format($gaji2->gapok+$jml-$gaji2->total_potongan)?> </td>
   <td class=xl8431180>&nbsp;</td>
   <td class=xl8931180>&nbsp;</td>
   <td class=xl6331180></td>
