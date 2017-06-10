@@ -27,6 +27,16 @@ $data['com']=$this->db->get('company')->row();
 $data['jumlah']=$this->db->get('karyawan')->num_rows();
 $data['cuti']=$this->db->get_where('aju_cuti',array('status_cuti'=>'POSTING','status_cuti !='=>'REJECT'))->num_rows();
 $data['kasbon']=$this->db->get_where('pinjaman',array('status_aju'=>'PENDING','status_aju !='=>'REJECT'))->num_rows();
+$data['com']=$this->db->get('company')->row();
+  $this->db->select_sum('nominal_pinjaman');
+  $this->db->where(array('status_aju'=>'APPROVE','status_pinjaman'=>'BELUM BAYAR'));
+  //$this->db->or_where_in('status_pinjaman','BELUM BAYAR');
+  $data['sum']=$this->db->get('pinjaman_view')->row();
+  $this->db->select_sum('nominal_pinjaman');
+  $this->db->where_in('status_pinjaman','LUNAS');
+    $data['lunas']=$this->db->get('pinjaman_view')->row();
+  $data['all']=$this->db->get('pinjaman_view')->result();
+  
 $this->load->view('atas', $data);
 $this->load->view('home', $data);
 $this->load->view('bawah', $data);
@@ -506,7 +516,6 @@ function listkasbon(){
   $this->db->select_sum('nominal_pinjaman');
   $this->db->where(array('status_aju'=>'APPROVE','status_pinjaman'=>'BELUM BAYAR'));
   //$this->db->or_where_in('status_pinjaman','BELUM BAYAR');
-
   $data['sum']=$this->db->get('pinjaman_view')->row();
   $this->db->select_sum('nominal_pinjaman');
   $this->db->where_in('status_pinjaman','LUNAS');

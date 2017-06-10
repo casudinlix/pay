@@ -717,6 +717,10 @@ $(".insentif").select2({
           placeholder: "Pilih Insentif",
           allowClear: true
         });
+$(".pot").select2({
+          placeholder: "Pinjaman",
+          allowClear: true
+        });
         $(".bank").select2({
           placeholder: "Select a bank",
           allowClear: true

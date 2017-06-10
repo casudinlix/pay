@@ -76,9 +76,9 @@ function jabatan(){
   $b=date('m');
   $y=date('y');
   $create = strtoupper(uniqid(rand(),true));
-  $s='A';
+  $s='JBT';
 
-  $style = substr($s."0"."-".$create,0,5);
+  $style = substr($s."0"."-".$create,0,7);
   return $style;
 }
 function potongan(){
@@ -86,7 +86,7 @@ function potongan(){
   $b=date('m');
   $y=date('y');
   $create = strtoupper(uniqid(rand(),true));
-  $s='P';
+  $s='PT';
 
   $style = substr($s."0"."-".$create,0,5);
   return $style; 
@@ -96,9 +96,9 @@ function insentif(){
   $b=date('m');
   $y=date('y');
   $create = strtoupper(uniqid(rand(),true));
-  $s='I';
+  $s='INS';
 
-  $style = substr($s."0"."-".$create,0,6);
+  $style = substr($s."0"."-".$create,0,7);
   return $style;
 }
 }

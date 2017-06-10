@@ -45,6 +45,7 @@
 
       <?php endforeach;?>
   </select>
+<input type="number" name="banyak" class="form-control" value="1" placeholder="Insentif 1x">
 
                                                     </div>                                            
                                                    
@@ -153,7 +154,9 @@
                                                    
                                                     
                                                     <th width="100">Nama Insentif</th>
+                                                    <th width="100">Jumlah</th>
                                                     <th width="100">Nominal</th>
+                                                    
                                                     <th width="100">No Transaksi Pinjaman</th>
                                                     <th width="100">actions</th>
                                                 </tr>
@@ -166,9 +169,10 @@
                                               <?php foreach($cekgaji as $key):?>
                                                 <?php  $data=$key->id_gaji."/".$key->id_insentif?>
 <td colspan="" rowspan="" headers=""><?php echo $key->jenis_insentif?></td> 
-<td colspan="" rowspan="" headers="">Rp.<?php echo number_format($key->nominal_insentif)?></td> 
+<td colspan="" rowspan="" headers=""><?php echo number_format($key->jml_insentif)?></td> 
+<td colspan="" rowspan="" headers="">Rp.<?php echo number_format($key->nominal_insentif*$key->jml_insentif)?></td> 
 <td colspan="" rowspan="" headers=""><?php echo $key->no_transaksi?></td>
-<td colspan="" rowspan="" headers=""><a  href="#" onclick="hapusinsentif('<?php echo $data ?>')">xxx</a></td>                                                   
+<td colspan="" rowspan="" headers=""><a  href="#" onclick="hapusinsentif('<?php echo $data ?>')"><i class=" btn btn-danger fa fa-trash-o"></i></a></td>                                                   
                                                 </tr>
                                             <?php endforeach;?>
                                             </tbody>
@@ -201,7 +205,7 @@
                                                 <div class="col-md-9">                                            
                                                     <div class="input-group">
     <span class="input-group-addon"><span class="fa fa-dollar"></span></span>
-  <select name="pin" class="insentif form-control"  required="">
+  <select name="pin" class="pot form-control"  required="">
       <option></option>
       <?php foreach($pinjaman as $key):?>
       

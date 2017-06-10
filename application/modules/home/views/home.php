@@ -15,7 +15,16 @@
             <div class="widget-subtitle"></div>
             <div class="widget-int"><?php echo $jumlah ?></div>
         </div>
-         
+         <div>
+            <div class="widget-title">Total Pengajuan Cuti Karyawan</div>
+            <div class="widget-subtitle"></div>
+            <div class="widget-int"><?php echo $cuti ?></div>
+        </div>
+        <div>
+            <div class="widget-title">Total Pengajuan Pinjaman Karyawan</div>
+            <div class="widget-subtitle"></div>
+            <div class="widget-int"><?php echo $kasbon ?></div>
+        </div>
          
     </div>
     <div class="widget-controls">

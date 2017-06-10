@@ -62,8 +62,7 @@
 $no++;
 endforeach;
 ?>       
-<button class="btn btn-success" onclick="printgajih('')"><i class="fa fa-print"></i></button>                                 </tbody>
-                                    </table>
+
                                 </div>
                             </div>
                             <!-- END DEFAULT DATATABLE -->

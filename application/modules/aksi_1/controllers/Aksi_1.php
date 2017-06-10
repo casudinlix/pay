@@ -407,11 +407,12 @@ function hitunggaji(){
    $in=$this->input->post('in', TRUE);
   $user=$this->session->userdata('nama');
   $idgaji=$this->uri->segment(5);
+  $banyak=$this->input->post('banyak', TRUE);
   $tgl=date('Y-m-d');
    $jam=date("Y-m-d H:m:s");
 $nip=$this->input->post('nip', TRUE);
 $gol=$this->input->post('gol', TRUE);
-$data=array('id_gaji'=>$code,'bulan_gaji'=>$tgl,'nip'=>$nip,'id_insentif'=>$in,'tgl_input'=>$jam,'user'=>$user);
+$data=array('id_gaji'=>$code,'bulan_gaji'=>$tgl,'nip'=>$nip,'id_insentif'=>$in,'jml_insentif'=>$banyak,'tgl_input'=>$jam,'user'=>$user);
 $this->db->insert('gaji_detail', $data);
 //redirect('home/hitunggaji/'.$nip.'/'.$gol.'/'.$idgaji);
 redirect($_SERVER['HTTP_REFERER']);

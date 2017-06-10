@@ -2279,6 +2279,7 @@
  
  <tr height=17 style='height:12.75pt'>
  <?php 
+ $total=0;
 $no=1;
  foreach($all->result() as $key):?>
   <td height=17 class=xl8831180 style='height:12.75pt'>&nbsp;</td>
@@ -2292,14 +2293,20 @@ $no=1;
   <td class=xl6731180 style='border-top:none'>&nbsp;</td>
   <td class=xl6631180 style='border-top:none'>&nbsp;</td>
   <td class=xl6731180 style='border-top:none'>Rp</td>
-  <td colspan=3 class=xl10231180><?php echo $key->nominal_insentif?></td>
+  <td colspan=3 class=xl10231180><?php echo number_format($key->nominal_insentif)?></td>
   <td class=xl6831180 style='border-top:none'>&nbsp;</td>
   <td class=xl6631180 style='border-top:none;border-left:none'>&nbsp;</td>
-  <td class=xl6931180 style='border-top:none'>1</td>
+  <td class=xl6931180 style='border-top:none'><?php echo $key->jml_insentif?>x</td>
   <td class=xl6831180 style='border-top:none'>&nbsp;</td>
   <td class=xl6631180 style='border-top:none;border-left:none'>&nbsp;</td>
   <td class=xl6731180 style='border-top:none'>Rp</td>
-  <td colspan=3 class=xl10231180><?php echo number_format($key->nominal_insentif)?></td>
+  <td colspan=3 class=xl10231180><?php echo number_format($sub=$key->nominal_insentif*$key->jml_insentif)?></td>
+<?php 
+
+
+ $total+=$key->nominal_insentif*$key->jml_insentif;
+   
+ ?>
   <td class=xl6831180 style='border-top:none'>&nbsp;</td>
   <td class=xl6331180></td>
   <td class=xl6331180></td>
@@ -2331,13 +2338,12 @@ endforeach;?>
   <td class=xl7431180 style='border-top:none'>&nbsp;</td>
   <td class=xl7531180 style='border-top:none'>&nbsp;</td>
   <td class=xl7331180 style='border-top:none;border-left:none'>&nbsp;</td>
-  <td class=xl7431180 align=right style='border-top:none'><?php echo $banyak?></td>
+  <?php ?>
+  <td class=xl7431180 align=right style='border-top:none'><?php echo $banyak?>x</td>
   <td class=xl7531180 style='border-top:none'>&nbsp;</td>
   <td class=xl7331180 style='border-top:none;border-left:none'>&nbsp;</td>
   <td class=xl7431180 style='border-top:none'>Rp</td>
-  <td colspan=3 class=xl9931180><?php foreach($total as $key){
-  	echo number_format($key);
-  	}?> </td>
+  <td colspan=3 class=xl9931180><?php echo number_format($total)?> </td>
   <td class=xl7631180 style='border-top:none'>&nbsp;</td>
   <td class=xl6331180></td>
   <td class=xl6331180></td>

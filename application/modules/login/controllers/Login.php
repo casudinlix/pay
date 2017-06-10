@@ -35,8 +35,8 @@ if (empty($_POST)) {
   $this->session->set_flashdata('error','value');
   redirect('login');
 }else{
-$nip=$this->input->post('nip');
-$pass=base64_encode($this->input->post('pass'));
+$nip=$this->input->post('nip',TRUE);
+$pass=base64_encode($this->input->post('pass',TRUE));
 $this->load->model('m_login');
 	$cek = $this->m_login->chek($nip, $pass);
   if($cek->num_rows() == 1)

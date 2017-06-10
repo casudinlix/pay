@@ -19,11 +19,28 @@ function print(){
 		$data['kar1']=$this->db->get_where('karyawan_view',array('nip'=>$nip))->row();
 
 		$data['all']=$this->db->get_where('gaji_detail_view', array('id_gaji'=>$id,'nip'=>$nip));
-		$data['banyak']=$this->db->get_where('gaji_detail_view', array('id_gaji'=>$id,'nip'=>$nip))->num_rows();
+		$jml=$this->db->get_where('gaji_detail_view', array('id_gaji'=>$id,'nip'=>$nip));
+		foreach ($jml->result() as $key) {
+			$data['jm']=$key->jml_insentif;
+			$key->nominal_insentif;
+		}
 		$data['gaji1']=$this->db->get_where('gaji_view', array('id_gaji'=>$id))->row();
 		$data['gaji2']=$this->db->get_where('gaji', array('id_gaji'=>$id))->row();
+
 		$this->db->select_sum('nominal_insentif');
-		$data['total']=$this->db->get_where('gaji_detail_view', array('id_gaji'=>$id,'nip'=>$nip))->row();
+		$insenti=$this->db->get_where('gaji_detail_view', array('id_gaji'=>$id,'nip'=>$nip))->row();
+foreach ($insenti as $key) {
+
+	$data['nominal']=$key;
+}
+
+		$this->db->select_sum('jml_insentif');
+		$ban=$this->db->get_where('gaji_detail_view', array('id_gaji'=>$id,'nip'=>$nip))->row();
+
+		foreach ($ban as $key) {
+			$data['banyak']=$key;
+			
+		}
 
 		$this->load->view('print', $data);
 }

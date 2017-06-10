@@ -21,8 +21,12 @@
 
             <div class="login-box animated fadeInDown">
                 <div class="login-logo"></div>
+              
+
+
                 <div class="login-body">
-                    <div class="login-title"><strong>Welcome</strong>, Please login</div>
+                <center><img src="<?php echo img()?>gz.png"  class="img-circle" width="200px" height="150px" >
+                    <div class="login-title"><strong>RSIA GIZAR</strong> Program Penggajian</div></center>
                     <form action="<?php echo site_url('login/cek')?>" class="form-horizontal" method="post">
                     <div class="form-group">
                         <div class="col-md-12">
