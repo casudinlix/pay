@@ -1396,8 +1396,8 @@
  <tr height=20 style='mso-height-source:userset;height:15.0pt'>
   <td height=20 class=xl8831180 style='height:15.0pt'>&nbsp;</td>
   <td colspan=16 rowspan=3 class=xl11131180 width=304 style='border-right:1.0pt solid black;
-  border-bottom:1.0pt solid black;width:224pt'>LOGO RSIA GIZAR<br>
-    alamat RSIA Gizar</td>
+  border-bottom:1.0pt solid black;width:224pt'><img src="<?php echo img()?>gz.png"  class="img-circle" width="200px" height="150px" ><br>
+    Jl. Cikarang Cibarusah Cifest No 4A Cikarang Selatan Kab. Bekasi 17550</td>
   <td class=xl6331180></td>
   <td colspan=14 rowspan=2 class=xl12031180 style='border-bottom:1.0pt solid black'>SLIP
   GAJI KARYAWAN</td>
