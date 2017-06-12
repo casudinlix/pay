@@ -25,6 +25,10 @@ function print(){
 			$key->nominal_insentif;
 
 		}
+		
+		$data['bulan']=$this->db->get_where('gaji_detail_view', array('id_gaji'=>$id))->row();
+
+
 		$data['gaji1']=$this->db->get_where('gaji_view', array('id_gaji'=>$id))->row();
 
 		$data['gaji2']=$this->db->get_where('gaji', array('id_gaji'=>$id))->row();
@@ -33,7 +37,7 @@ $total=0;
 foreach ($gaji->result() as $value) {
 	$total+=$value->nominal_insentif*$value->jml_insentif;
 	$data['jml']=$total;
-	
+
 }
 		$this->db->select_sum('nominal_insentif');
 		$insenti=$this->db->get_where('gaji_detail_view', array('id_gaji'=>$id,'nip'=>$nip))->row();

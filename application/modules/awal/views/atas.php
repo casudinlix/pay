@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>RSIA Gizar Cikarang</title>
+<title>RSIA Gizar</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Medicinal Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -16,6 +16,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="applisalonion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="<?php echo tema();?>css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
+<link rel="icon" href="<?php echo img()?>gz.png" type="image/x-icon" />
 <link href="<?php echo tema();?>css/style.css" rel='stylesheet' type='text/css' />	
 <link rel="stylesheet" href="<?php echo tema();?>css/swipebox.css">
 <link rel="stylesheet" href="<?php echo tema();?>css/slider.css">
@@ -46,7 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header-strip">
 			   <div class="container">
 				<p class="location"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <a href="mailto:info@example.com">info@gizar.com</a></p>
-				<p class="phonenum"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> + 021 8858 54892</p>
+				<p class="phonenum"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> (021) 896 77239 / 40</p>
 				<div class="social-icons">
 					<ul>					
 						<li><a href="#"><i class="facebook"> </i></a></li>
@@ -86,8 +87,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					  </button>
+
+					 
+
 						<div class="logo">
-							<h1><a class="navbar-brand" href="<?php echo site_url()?>"><span>RS</span>Gizar  <img src="<?php echo tema();?>images/logo.png" alt=" " /></a></h1>
+							<h1><img src="<?php echo tema();?>images/logo.png" alt=" " /><a class="navbar-brand" href="<?php echo site_url()?>"><span> RSIA</span>Gizar </a> </h1>
+
 						</div>
 					</div>
 
@@ -98,8 +103,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<ul class="nav navbar-nav menu__list">
 										<li class="menu__item"><a href="<?php echo site_url()?>" class="menu__link"><span class="menu__helper">Home</span></a></li>
 										<li class=""><a href="<?php echo site_url('awal/about')?>" class="menu__link"><span class="menu__helper">About Us</span></a></li>
-										
-										<li class="menu__item"><a href="<?php echo site_url('awal/galery')?>" class="menu__link"><span class="menu__helper">Departments</span></a></li>
 										<li class="menu__item"><a href="<?php echo site_url('awal/contact')?>" class="menu__link"><span class="menu__helper">Contact Us</span></a></li>
 										<li class="menu__item"><a href="<?php echo site_url('login')?>" class="menu__link"><span class="menu__helper">Officer Login</span></a></li>
 									</ul>

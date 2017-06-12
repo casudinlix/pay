@@ -50,27 +50,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				 			</div>
 				 			<div class="col-md-7 ab-text">
-				 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu erat lacus, vel congue mauris. Fusce velit justo, faucibus eu sagittis ac, gravida quis tortor. Suspendisse non urna mi, quis tincidunt eros. Nullam tellus turpis, fringilla sit amet congue ut, luctus a nulla. Donec sit amet sapien neque, id ullamcorper diam. Nulla facilisi. Pellentesque pellentesque arcu a elit congue lacinia.</p>
-								<ul class="ab">
-									<li><a href="<?php echo site_url('awal/single') ?>">Lorem ipsum dolor sit amet,consectetur adipiscing elit</a></li>
-									<li><a href="<?php echo site_url('awal/single') ?>">Pellentesque eu erat lacus,consectetur adipiscing elit</a></li>
-									<li><a href="<?php echo site_url('awal/single') ?>">Lorem ipsum dolor sit amet,consectetur adipiscing elit</a></li>
-									<li><a href="<?php echo site_url('awal/single') ?>">Lorem ipsum dolor sit amet,consectetur adipiscing elit</a></li>
-									<li><a href="<?php echo site_url('awal/single') ?>">Pellentesque eu erat lacus,consectetur adipiscing elit</a></li>
-								</ul>
+				 				<p>Awalnya Gizar adalah nama sebuah klinik di daerah Cikarang Selatan yang diambil dari nama anak ketiga sang pemilik, dr. H. S. Susanto, SpOG. Berawal dari sebuah klinik, Gizar pun mulai membuka sebuah rumah sakit dengan nama “Rumah Sakit Ibu dan Anak Gizar” (RSIA Gizar) pada Januari 2012. Rumah sakit yang berlokasi di Ciffest - Cikarang Selatan ini didirikan dengan tujuan agar dapat meningkatkan pelayanan kesehatan. <br> <br>
+				 				Hingga saat ini RSIA Gizar yang berdiri dengan badan hukum PT Dawa Medika telah mempunyai 3 anak perusahaan berupa klinik, yaitu: (1) Rumah Bersalin dan Klinik 24 jam Gizar di Jl. Raya Cibarusah Lippo No. 18, Sukaresmi - Cikarang Selatan; (2) “Klinik Gizar 2” di Cibitung; dan (3) Klinik Gizar 3 yang berlokasi di Perumahan Mega Regency - Serang. Rumah Bersalin dan Klinik 24 Jam Gizar adalah klinik yang mengawali berdirinya RSIA Gizar.</p>
+
 				 			</div>
 				 			<div class="clearfix"> </div>
 				 			<div class="statements">
 					 			<div class="col-md-7 mission">
-					 					<h4>Mission <span>Statement</span></h4>
-					 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu erat lacus, vel congue mauris. Fusce velit justo, faucibus eu sagittis ac, gravida quis tortor. Suspendisse non urna mi, quis tincidunt eros. Nullam tellus turpis, fringilla sit amet congue ut, luctus a nulla. Donec sit amet sapien neque, id ullamcorper diam. Nulla facilisi. Pellentesque pellentesque arcu a elit congue lacinia.</p>
-										<ul class="ab">
-												<li><a href="<?php echo site_url('awal/single') ?>">Lorem ipsum dolor sit amet,consectetur adipiscing elit</a></li>
-												<li><a href="<?php echo site_url('awal/single') ?>">Pellentesque eu erat lacus,consectetur adipiscing elit</a></li>
-												<li><a href="<?php echo site_url('awal/single') ?>">Lorem ipsum dolor sit amet,consectetur adipiscing elit</a></li>
-												<li><a href="<?php echo site_url('awal/single') ?>">Lorem ipsum dolor sit amet,consectetur adipiscing elit</a></li>
-												<li><a href="<?php echo site_url('awal/single') ?>">Pellentesque eu erat lacus,consectetur adipiscing elit</a></li>
-											</ul>
+					 					<h4>Fasilitas <span>RSIA Gizar</span></h4>
+					 					<p>Fasilitas-fasilitas yang tersedia di RSIA Gizar yaitu:</p>
+								<ul class="ab">
+									<li><a href="<?php echo site_url('awal/single') ?>">Instalasi Gawat Darurat (IGD) 24 jam</a></li>
+									<li><a href="<?php echo site_url('awal/single') ?>">Apotek 24 jam</a></li>
+									<li><a href="<?php echo site_url('awal/single') ?>">Praktek Dokter Umum, Bidan, Dokter Gigi, dan Dokter Spesialis (Kandungan, Anak, Kulit, Bedah) </a></li>
+									<li><a href="<?php echo site_url('awal/single') ?>">USG 2 Dimensi dan 4 Dimensi</a></li>
+									<li><a href="<?php echo site_url('awal/single') ?>">Ruang Operasi </a></li>
+									<li><a href="<?php echo site_url('awal/single') ?>">Khitan Laser </a></li>
+								</ul>
 					 			</div>
 					 			<div class="col-md-5 facts">
 					 					<img src="<?php echo tema();?>images/ab1.jpg" alt=" " />
@@ -81,334 +77,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					 		</div>
 				 		</div>
 				 </div>
-<!--//team-->
-<div class="team_agile">
-	<div class="container">
-		   <div class="sub-hd two">
-						<h3 class="tittle two">MEET THE <span class="two">SPECIALISTS</span></h3>
-					</div>
-		<div class="col-md-4 team_bottom-grid">
-			<div class="btm-right">
-				<img src="<?php echo tema();?>images/10.jpg" alt=" ">
-					<div class="captn-icon">
-						<ul>
-							<li><a class="fb" href="#"></a></li>
-							<li><a class="twit" href="#"></a></li>
-							<li><a class="goog" href="#"></a></li>
-						</ul>
-					</div>
-					<div class="captn">
-						<h4>Michael Carl</h4>	
-					</div>
-			</div>
-		</div>
-		<div class="col-md-4 team_bottom-grid our_marg">
-			<div class="btm-right">
-				<img src="<?php echo tema();?>images/9.jpg" alt=" " />
-					<div class="captn-icon">
-						<ul>
-							<li><a class="fb" href="#"></a></li>
-							<li><a class="twit" href="#"></a></li>
-							<li><a class="goog" href="#"></a></li>
-						</ul>
-					</div>
-					<div class="captn">
-						<h4>Joy Allen</h4>	
-					</div>
-			</div>
-		</div>
-		<div class="col-md-4 team_bottom-grid">
-			<div class="btm-right">
-				<img src="<?php echo tema();?>images/11.jpg" alt=" ">
-					<div class="captn-icon">
-						<ul>
-							<li><a class="fb" href="#"></a></li>
-							<li><a class="twit" href="#"></a></li><li>
-							<a class="goog" href="#"></a></li>
-						</ul>
-					</div>
-					<div class="captn">
-						<h4>Williams Allen</h4>	
-					</div>
-			</div>
-		</div>
-		<div class="clearfix"></div>
-	</div>
-</div>			
-<!--//team-->
-		<!--medicinal-->
-			<div class="medicinal-w3">
-				<div class="container">
-				    <div class="sub-hd">
-						<h3 class="tittle two">OUR <span>SERVICES</span></h3>
-					</div>
-					<div class="medicinal-w3-grids one">
-						<div class="col-md-6 medicinal-w3-grid">
-							<div class="col-md-8 medicinal-w3-left">
-								<h4>LOREM IPSUM DOLOR</h4>
-								<p>sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi. </p>
-							</div>
-							<div class="col-md-4 medicinal-w3-right">
-								<div class="hi-icon-wrap hi-icon-effect-7 hi-icon-effect-7b">
-									<a href="#" class="hi-icon icon1"></a>
-								</div>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<div class="col-md-6 medicinal-w3-grid">
-							<div class="col-md-4 medicinal-w3-right">
-								<div class="hi-icon-wrap hi-icon-effect-7 hi-icon-effect-7b">
-									<a href="#" class="hi-icon icon2"></a>
-								</div>
-							</div>
-							<div class="col-md-8 medicinal-w3-left1">
-								<h4>LOREM IPSUM DOLOR</h4>
-								<p>sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi. </p>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-					<div class="medicinal-w3-grids">
-						<div class="col-md-6 medicinal-w3-grid">
-							<div class="col-md-8 medicinal-w3-left">
-								<h4>LOREM IPSUM DOLOR</h4>
-								<p>sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi. </p>
-							</div>
-							<div class="col-md-4 medicinal-w3-right">
-								<div class="hi-icon-wrap hi-icon-effect-7 hi-icon-effect-7b">
-									<a href="#" class="hi-icon icon3"></a>
-								</div>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<div class="col-md-6 medicinal-w3-grid">
-							<div class="col-md-4 medicinal-w3-right">
-								<div class="hi-icon-wrap hi-icon-effect-7 hi-icon-effect-7b">
-									<a href="#" class="hi-icon icon4"></a>
-								</div>
-							</div>
-							<div class="col-md-8 medicinal-w3-left1">
-								<h4>LOREM IPSUM DOLOR</h4>
-								<p>sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi. </p>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-				</div>
-			</div>
-			<!--medicinal-->
-			<div class="grid_2" id="tender">
-   	 <div class="container">
-	       <div class="sub-hd">
-						<h3 class="tittle">SUCCESSFUL <span>STORIES</span></h3>
-					</div>
-   	  <div class="box_1 one">
-   	 	<div class="col-md-6">
-   	 	       <div class="col_1_of_2 span_1_of_2 multi-gd-text">
-				   <a href="<?php echo site_url('awal/single') ?>"><img src="<?php echo tema();?>images/n1.jpg" class="img-responsive" alt=""></a>
-				   <div class="story_desc">
-				   	  <h3>Mark McRoberts</h3>
-				   	  <p>New York</p>
-				   </div>
- 				</div>
-				<div class="col_1_of_2 span_1_of_2">
-				   <h4>Volunteer Firefighter Threatened By Tongue Tumor</h4>
-				   <p class="p1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim venia.</p>
- 				</div>
-				<div class="clearfix"></div>
-		</div>
-   	 	<div class="col-md-6">
-   	 	      <div class="col_1_of_2 span_1_of_2 multi-gd-text">
-				   <a href="<?php echo site_url('awal/single') ?>"><img src="<?php echo tema();?>images/n5.jpg" class="img-responsive" alt=""></a>
-				   <div class="story_desc">
-				   	  <h3>Mark McRoberts</h3>
-				   	  <p>New York</p>
-				   </div>
- 				</div>
-				<div class="col_1_of_2 span_1_of_2">
-				   <h4>Volunteer Firefighter Threatened By Tongue Tumor</h4>
-				   <p class="p1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim venia.</p>
- 				</div>
-				<div class="clearfix"></div>
-		</div>
-		<div class="clearfix"></div>
-   	  </div>
-   	  <div class="box_2">
-   	 	<div class="col-md-6">
-   	 	       <div class="col_1_of_2 span_1_of_2 multi-gd-text">
-				   <a href="#"><img src="<?php echo tema();?>images/n3.jpg" class="img-responsive" alt=""></a>
-				   <div class="story_desc">
-				   	  <h3>Mark McRoberts</h3>
-				   	  <p>New York</p>
-				   </div>
- 				</div>
-				<div class="col_1_of_2 span_1_of_2">
-				   <h4>Volunteer Firefighter Threatened By Tongue Tumor</h4>
-				   <p class="p1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim venia.</p>
- 				</div>
-				<div class="clearfix"></div>
-		</div>
-   	 	<div class="col-md-6">
-   	 	      <div class="col_1_of_2 span_1_of_2 multi-gd-text">
-				   <a href="#"><img src="<?php echo tema();?>images/n4.jpg" class="img-responsive" alt=""></a>
-				   <div class="story_desc">
-				   	  <h3>Mark McRoberts</h3>
-				   	  <p>New York</p>
-				   </div>
- 				</div>
-				<div class="col_1_of_2 span_1_of_2">
-				   <h4>Volunteer Firefighter Threatened By Tongue Tumor</h4>
-				   <p class="p1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim venia.</p>
- 				</div>
-				<div class="clearfix"></div>
-		</div>
-		<div class="clearfix"></div>
-   	  </div>
-   	 </div>
-   </div>
+
+
+
+
    <!--//news-->
    <div class="bottom">
 		<div class="container">
 			<div class="bottom-top">
-				<h3>Opening Hours of <span class="opening">Medicinal</span></h3>
-				<p>Phasellus tempor erat id erat gravida pulvinar. Aenean est felis, ullamcorper et volutpat sed, cursus at enim. Vestibulum vel finibus neque. In sed magna tellus.</p>
+				<h3>Jadwal Praktek<span class="opening"> Dokter</span></h3>
+				<p>Informasi tentang jadwal praktek ini sewaktu-waktu dapat berubah. Silahkan hubungi kami untuk memastikan. Dokter Umum dan Bidan standby setiap hari selama 24 jam.</p>
 				<div class="opening_hours">
 						 <ul class="times">
-							<h4>Opening <span class="opening">Hours</span></h4>
-							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Monday</span><div class="hours">9:30 am – 3:30 pm</div>  <div class="clearfix"></div></li>
-							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Tuesday</span><div class="hours">10:30 am – 5:30 pm</div>  <div class="clearfix"></div></li>
-							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Wednesday</span><div class="hours">8:30 am – 1:30 pm</div>  <div class="clearfix"></div></li>
-							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Thrusday</span><div class="hours">11:30 am – 2:30 pm</div>  <div class="clearfix"></div></li>
-							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Friday</span><div class="hours">10:00 am – 2:00 pm</div>  <div class="clearfix"></div></li>
-							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Saturday</span><div class="hours">11:30 am – 2:30 pm</div>  <div class="clearfix"></div></li>
-							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Sunday</span><div class="hours">Family Doctor</div>  <div class="clearfix"></div></li>
+							<h4>Jadwal <span class="opening">Praktek</span></h4>
+							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Senin</span><div class="hours">Dokter Anak</div>  <div class="clearfix"></div></li>
+							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Selasa</span><div class="hours">Dokter Kandungan</div>  <div class="clearfix"></div></li>
+							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Rabu</span><div class="hours"> Dokter Kulit</div>  <div class="clearfix"></div></li>
+							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Kamis</span><div class="hours">Dokter Gigi</div>  <div class="clearfix"></div></li>
+							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Jum'at</span><div class="hours">Dokter Anak</div>  <div class="clearfix"></div></li>
+							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Sabtu</span><div class="hours">Dokter Gigi</div>  <div class="clearfix"></div></li>
+							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Minggu</span><div class="hours">Dokter Kandungan</div>  <div class="clearfix"></div></li>
 	
 						 </ul>
 					</div>
 			</div>
 		</div>
 </div>
-   <!--/reviews-->
-	<div id="review" class="testimonials-review">
-		<div class="container">
-		<div class="sub-hd">
-						<h3 class="tittle lost">WHAT PATIENTS ARE SAYING <span>ABOUT US</span></h3>
-					</div>
-				<div class="testimonials">
-				  <div class="monials">
-				      <!--//screen-gallery-->
-						<div class="sreen-gallery-cursual">
-							 <!-- required-js-files-->
-							<link href="css/owl.carousel.css" rel="stylesheet">
-							    <script src="js/owl.carousel.js"></script>
-							        <script>
-							    $(document).ready(function() {
-							      $("#owl-demo").owlCarousel({
-							        items : 1,
-							        lazyLoad : true,
-							        autoPlay : true,
-							        navigation : false,
-							        navigationText :  false,
-							        pagination : true,
-							      });
-							    });
-							    </script>
-								 <!--//required-js-files-->
-						       <div id="owl-demo" class="owl-carousel">
-					                   <div class="item-owl">
 
-                                            <p class="speech">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id arcu neque, at convallis est felis.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id arcu neque, at convallis est felis.</p>
-                                            <div class="client-info">
-                                                <img src="<?php echo tema();?>images/t1.jpg" alt=" " />
-                                                <h4>John Allen</h4>
-                                                <span>Lorem ipsum dolor</span>
-                                            </div>
-                                        </div><!-- /.item -->
-					                     <div class="item-owl">
 
-                                            <p class="speech">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id arcu neque, at convallis est felis.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id arcu neque, at convallis est felis.</p>
-                                            <div class="client-info">
-                                                <img src="<?php echo tema();?>images/t2.jpg" alt=" " />
-                                                <h4>John Doe</h4>
-                                                <span>Lorem ipsum dolor</span>
-                                            </div>
-                                        </div><!-- /.item -->
-					                      <div class="item-owl">
-										  <p class="speech">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id arcu neque, at convallis est felis.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id arcu neque, at convallis est felis.</p>
-                                            <div class="client-info">
-                                                <img src="<?php echo tema();?>images/t3.jpg" alt=" " />
-                                                <h4>John Leo</h4>
-                                                <span>Lorem ipsum dolor</span>
-                                            </div>
-                                        </div><!-- /.item -->
-				              </div>
-						<!--//screen-gallery-->
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>	
-	<!--//reviews-->
-	<!--/start-footer-section-->
-			<div class="footer-section">
-				<div class="container">
-					<div class="footer-grids wow bounceIn animated" data-wow-delay="0.4s">
-						<div class="col-md-3 footer-grid">
-						<h4>About <span>Medicinal</span></h4>
-						<div class="border2"></div>
-						  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id arcu neque, at convallis est felis.</p>
-						  <p class="sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id arcu neque, at convallis est felis.</p>
-						</div>
-						<div class="col-md-3 footer-grid tags">
-								<h4>The <span>Tags</span></h4>
-								<div class="border2"></div>
-							<ul class="tag">
-								<li><a href="#">Awesome</a></li>
-								<li><a href="#">Strategy</a></li>
-								<li><a href="#">Photography</a></li>
-								<li><a href="#">Development</a></li>
-								<li><a href="#">Css</a></li>
-								<li><a href="#">photoshop</a></li>
-								<li><a href="#">Html</a></li>
-								<li><a href="#">Awesome</a></li>
-								<li><a href="#">Strategy</a></li>
-								<li><a href="#">Photoshop</a></li>
-								<li><a href="#">Html</a></li>
-							</ul>
-						</div>
-						<div class="col-md-3 footer-grid tweet">
-								<h4>Latest <span>Tweets</span></h4>
-								<div class="border2"></div>
-								<div class="icon-3-square">
-										<a href="#"><i class="square-3"></i></a>
-									</div>
-							<div class="icon-text">
-								<p>I like this awesome freebie. Check it out By <a href="#"> Admin </a></p>
-								<h5>15 mins ago</h5>
-							</div>
-								<div class="clearfix"></div>
-								<div class="icon-3-square">
-										<a href="#"><i class="square-3"></i></a>
-								</div>
-								<div class="icon-text">
-								    <p>I like this awesome freebie. Check it out  By <a href="#"> Admin </a> </p>
-									<h5>15 mins ago</h5>
-								</div>
-								<div class="clearfix"></div>
-						</div>
-						
-						<div class="clearfix"></div>
-					</div>
-			</div>
-		</div>
 	<!--//end-footer-section-->
 	<!--//footer-->
 	<div class="footer-bottom">
 		<div class="container">
-			<p>© 2017 Gizar. All rights reserved</p>
+			<p>Copyright © 2017 RSIA Gizar | Develop by ATOM</p>
 		</div>
 	</div>
 		<!--start-smooth-scrolling-->

@@ -189,22 +189,8 @@
                                               Kosong
   <?php else: ?> 
  
-  <form class="form-horizontal" action="<?php echo site_url('aksi_1/hitunggaji') ?>" method="post">
-                            <div class="panel panel-default">
-                                 
-                                 
-                                <div class="panel-body">                                                                        
-                                    
-                                    <div class="row">
-                                        
-                                        <div class="col-md-6">
-                                            
-                                         
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Pinjaman</label>
-                                                <div class="col-md-9">                                            
-                                                    <div class="input-group">
-    <span class="input-group-addon"><span class="fa fa-dollar"></span></span>
+  <form class="form-horizontal" action="<?php echo site_url('aksi_1/hitunggaji') ?>" method="post" class="form-group">
+   
   <select name="pin" class="pot form-control"  required="">
       <option></option>
       <?php foreach($pinjaman as $key):?>
@@ -215,56 +201,29 @@
   </select>
   <input type="hidden" class="form-control" name="id" value="<?php echo $this->uri->segment(5)?>" placeholder="">
 
-                                                    </div>                                            
-                                                   
-                                                </div>
-                                            </div>
+                                                  
  <input type="submit" class="btn btn-primary pull-right" value="tambahpinjaman" name="tambahpinjaman">
                                                                                                                                                                                                       
                                             
                                             
-                                        </div>
-                                        <div class="col-md-6">
+                                        
                                             
 <input type="hidden" class="form-control" name="nip" value="<?php echo $this->uri->segment(3)?>" placeholder="">
 <input type="hidden" class="form-control" name="gol" value="<?php echo $this->uri->segment(4)?>" placeholder="">
 <input type="hidden" class="form-control" name="idgaji" value="<?php echo $this->uri->segment(5)?>" placeholder="">
-
-                                            <div class="form-group">                                        
-                                                 <div class="col-md-9 col-xs-12">
-                                                    <div class="input-group">
-  
-                                                    </div>            
-                                                     
-                                                </div>
-                                            </div>        
-                                            
-                                            <div class="form-group">                                        
-                                                 <div class="col-md-9 col-xs-12">
-
  
-           
- 
-                                                </div>
-                                            </div>        
-                                            
-                                            <div class="panel-footer">
-                                                                     
-                                    
-                                        </div>
-                                        
-                                    </div>
-
                             
 
                          </form>       
-                         <form action="<?php echo site_url('aksi_1/hitunggaji') ?>" method="post">
-                         <input type="number" name="hari" value="" placeholder="Total Hari kerja" required="">
-                         <input type="number" name="ijin" value="" placeholder="Total ijin" required="">
-                         <input type="number" name="cuti" value="" placeholder="Total Cuti" required="">
-<input type="number" name="lembur" value="" placeholder="Lembur / Menit" required="">
-<input type="number" name="telat" value="" placeholder="Telat / Menit" required="">
-<input type="number" name="alpa" value="" placeholder="Alpa / Mangkir" required="">
+  <form action="<?php echo site_url('aksi_1/hitunggaji') ?>" method="post" class="form-group">
+  <input type="number" name="hari" value="" placeholder="Total Hari kerja" required="" class="form-control">
+  <input type="number" name="ijin" value="" placeholder="Total ijin" required="" class="form-control">
+   <input type="number" name="potongan" value="" placeholder="Total Potongan" required="" class="form-control">
+   <input type="number" name="cuti" value="" placeholder="Total Cuti" required="" class="form-control">
+  <input type="number" name="tunjangan" value="" placeholder="Tunjangan" required="" class="form-control">     
+<input type="number" name="lembur" value="" placeholder="Lembur / Menit" required="" class="form-control">
+<input type="number" name="telat" value="" placeholder="Telat / Menit" required="" class="form-control">
+<input type="number" name="alpa" value="" placeholder="Alpa / Mangkir" required="" class="form-control">
 
 <input type="hidden" class="form-control" name="idgaji" value="<?php echo $this->uri->segment(5)?>" placeholder="">
 <input type="hidden" class="form-control" name="nip" value="<?php echo $this->uri->segment(3)?>" placeholder="">

@@ -13,8 +13,8 @@
 				  <div class="contact-text">
 				    <div class="con-text">
 					  <p><a href="mailto:contact@gizar.com"> contact@gizar.com</a></p>
-				     <p> 021-0988221</p>
-					 <h6> Jl. Cikarang Cibarusah Cifest Ruko A4 Kab. Bekasi 17550</h6>
+				     <p> (021) 896 77239 / 40</p>
+					 <p> Jl. Cikarang Cibarusah <br> Cifest Ruko A4 Kab. Bekasi 17550</p>
 				  </div>
 				 </div>
 				<div class="contact-form">

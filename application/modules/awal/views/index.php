@@ -49,7 +49,7 @@
 			<div class="slide bg-5">
 				<div class="slide-container">
 					<div class="slide-content">
-					<p>Welcome to <span class="s-p">Gizar</span>!</p>	
+					<p>Welcome to <span class="s-p">Gizar</span>! </p>	
 
 					</div>
 				</div>				
@@ -112,65 +112,14 @@
 
 				<div class="inner-w3">
 					    <div class="sub-hd">
-						<h3 class="tittle">ABOUT <span>US</span></h3>
+						<h3 class="tittle">RSIA <span>GIZAR</span></h3>
 					</div>
 					</div>
 				 
 				<div class="inner_tabs">
-				    <h2 class="tittle">Welcome to Gizar</h2>
-					<p class="sub-para">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem  </p>
-					<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-						<ul id="myTab" class="nav nav-tabs" role="tablist">
-							<li role="presentation" class="active"><a href="#expeditions" id="expeditions-tab" role="tab" data-toggle="tab" aria-controls="expeditions" aria-expanded="true">Gizar Surgery</a></li>
-							<li role="presentation"><a href="#tours" role="tab" id="tours-tab" data-toggle="tab" aria-controls="tours">Departments</a></li>
-							<li role="presentation"><a href="#tree" role="tab" id="tree-tab" data-toggle="tab" aria-controls="tree">Patient life</a></li>
-							<li role="presentation"><a href="#safari" role="tab" id="safari-tab" data-toggle="tab" aria-controls="safari">Baby Birth</a></li>
-							<li role="presentation"><a href="#trekking" role="tab" id="trekking-tab" data-toggle="tab" aria-controls="trekking">Lab Testing</a></li>
-						</ul>
-						<div id="myTabContent" class="tab-content">
-							<div role="tabpanel" class="tab-pane fade in active" id="expeditions" aria-labelledby="expeditions-tab">
-								<div class="col-md-5 col-sm-5 tab-image">
-									<img src="<?php echo tema();?>images/4.jpg" alt="Medicinal">
-								</div>
-								<div class="col-md-7 col-sm-7 tab-info">
-									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div role="tabpanel" class="tab-pane fade" id="tours" aria-labelledby="tours-tab">
-								<div class="col-md-5 col-sm-5 tab-image">
-									<img src="<?php echo tema();?>images/8.jpg" alt="Medicinal">
-								</div>
-								<div class="col-md-7 col-sm-7 tab-info">
-									<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC.</p>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div role="tabpanel" class="tab-pane fade" id="tree" aria-labelledby="tree-tab">
-								<div class="col-md-5 col-sm-5 tab-image">
-									<img src="<?php echo tema();?>images/5.jpg" alt="Medicinal">
-								</div>
-								<div class="col-md-7 col-sm-7 tab-info">
-									<p> This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact form, accompanied by English versions from the 1914 translation by H. Rackham. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div role="tabpanel" class="tab-pane fade" id="safari" aria-labelledby="safari-tab">
-								<div class="col-md-5 col-sm-5 tab-image">
-									<img src="<?php echo tema();?>images/6.jpg" alt="Medicinal">
-								</div>
-								<div class="col-md-7 col-sm-7 tab-info">
-									<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose.</p>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div role="tabpanel" class="tab-pane fade" id="trekking" aria-labelledby="trekking-tab">
-								<div class="col-md-5 col-sm-5 tab-image">
-									<img src="<?php echo tema();?>images/7.jpg" alt="Medicinal">
-								</div>
-								<div class="col-md-7 col-sm-7 tab-info">
-									<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures.</p>
-								</div>
+				    <h2 class="tittle">Welcome to RSIA Gizar Information System</h2>
+					<p class="sub-para">Website ini adalah sarana Sistem Informasi  bagi para karyawan Rumah Sakit Ibu dan Anak Gizar untuk mengetahui informasi-informasi terkait absensi, pengajuan cuti, pengajuan pinjaman dan slip gaji. </p>
+
 								<div class="clearfix"></div>
 							</div>
 						</div>
@@ -190,8 +139,8 @@
 					<div class="medicinal-w3-grids one">
 						<div class="col-md-6 medicinal-w3-grid">
 							<div class="col-md-8 medicinal-w3-left">
-								<h4>LOREM IPSUM DOLOR</h4>
-								<p>sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi. </p>
+								<h4>IGD 24 JAM</h4>
+								<p>IGD (Instalasi Gawat Darurat) RSIA Gizar dilengkapi dengan peralatan medis berstandar nasional dan ditangani oleh tenaga medis yang selalu siap siaga selama 24 jam.</p>
 							</div>
 							<div class="col-md-4 medicinal-w3-right">
 								<div class="hi-icon-wrap hi-icon-effect-7 hi-icon-effect-7b">
@@ -207,8 +156,8 @@
 								</div>
 							</div>
 							<div class="col-md-8 medicinal-w3-left1">
-								<h4>LOREM IPSUM DOLOR</h4>
-								<p>sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi. </p>
+								<h4>APOTEK 24 JAM</h4>
+								<p>Tersedia Apotek yang melayani selama 24 jam untuk memenuhi kebutuhan obat para pasien dan customer.</p>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -217,8 +166,8 @@
 					<div class="medicinal-w3-grids">
 						<div class="col-md-6 medicinal-w3-grid">
 							<div class="col-md-8 medicinal-w3-left">
-								<h4>LOREM IPSUM DOLOR</h4>
-								<p>sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi. </p>
+								<h4>USG, KHITAN LASER, RUANG OPERASI</h4>
+								<p>Melayani USG 2 Dimensi dan 4 Dimensi serta khitan laser. Selain itu di RSIA Gizar juga tersedia ruang operasi.</p>
 							</div>
 							<div class="col-md-4 medicinal-w3-right">
 								<div class="hi-icon-wrap hi-icon-effect-7 hi-icon-effect-7b">
@@ -234,8 +183,8 @@
 								</div>
 							</div>
 							<div class="col-md-8 medicinal-w3-left1">
-								<h4>LOREM IPSUM DOLOR</h4>
-								<p>sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi. </p>
+								<h4>PRAKTEK DOKTER SPESIALIS</h4>
+								<p>Selain Dokter Umum, Bidan dan Dokter Gigi, RSIA Gizar juga membuka praktek Dokter Spesialis seperti: Spesialis Anak, Spesialis Kandungan, Spesialis Kulit dan Spesialis Bedah.</p>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -244,293 +193,27 @@
 				</div>
 			</div>
 			<!--medicinal-->
-			<div class="grid_2" id="tender">
-   	 <div class="container">
-	       <div class="sub-hd">
-						<h3 class="tittle">SUCCESSFUL <span>STORIES</span></h3>
-					</div>
-   	  <div class="box_1 one">
-   	 	<div class="col-md-6">
-   	 	       <div class="col_1_of_2 span_1_of_2 multi-gd-text">
-				   <a href="<?php echo site_url('awal/single')?>"><img src="<?php echo tema();?>images/n1.jpg" class="img-responsive" alt=""></a>
-				   <div class="story_desc">
-				   	  <h3>Mark McRoberts</h3>
-				   	  <p>New York</p>
-				   </div>
- 				</div>
-				<div class="col_1_of_2 span_1_of_2">
-				   <h4>Volunteer Firefighter Threatened By Tongue Tumor</h4>
-				   <p class="p1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim venia.</p>
- 				</div>
-				<div class="clearfix"></div>
-		</div>
-   	 	<div class="col-md-6">
-   	 	      <div class="col_1_of_2 span_1_of_2 multi-gd-text">
-				   <a href="<?php echo site_url('awal/single')?>"><img src="<?php echo tema();?>images/n5.jpg" class="img-responsive" alt=""></a>
-				   <div class="story_desc">
-				   	  <h3>Mark McRoberts</h3>
-				   	  <p>New York</p>
-				   </div>
- 				</div>
-				<div class="col_1_of_2 span_1_of_2">
-				   <h4>Volunteer Firefighter Threatened By Tongue Tumor</h4>
-				   <p class="p1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim venia.</p>
- 				</div>
-				<div class="clearfix"></div>
-		</div>
-		<div class="clearfix"></div>
-   	  </div>
-   	  <div class="box_2">
-   	 	<div class="col-md-6">
-   	 	       <div class="col_1_of_2 span_1_of_2 multi-gd-text">
-				   <a href="<?php echo site_url('awal/single')?>"><img src="<?php echo tema();?>images/n3.jpg" class="img-responsive" alt=""></a>
-				   <div class="story_desc">
-				   	  <h3>Mark McRoberts</h3>
-				   	  <p>New York</p>
-				   </div>
- 				</div>
-				<div class="col_1_of_2 span_1_of_2">
-				   <h4>Volunteer Firefighter Threatened By Tongue Tumor</h4>
-				   <p class="p1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim venia.</p>
- 				</div>
-				<div class="clearfix"></div>
-		</div>
-   	 	<div class="col-md-6">
-   	 	      <div class="col_1_of_2 span_1_of_2 multi-gd-text">
-				   <a href="<?php echo site_url('awal/single')?>"><img src="<?php echo tema();?>images/n4.jpg" class="img-responsive" alt=""></a>
-				   <div class="story_desc">
-				   	  <h3>Mark McRoberts</h3>
-				   	  <p>New York</p>
-				   </div>
- 				</div>
-				<div class="col_1_of_2 span_1_of_2">
-				   <h4>Volunteer Firefighter Threatened By Tongue Tumor</h4>
-				   <p class="p1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim venia.</p>
- 				</div>
-				<div class="clearfix"></div>
-		</div>
-		<div class="clearfix"></div>
-   	  </div>
-   	 </div>
-   </div>
-		<!--//team-->
-			<!---news-->
-						<div class="review-slider">
-		<div class="sub-hd">
-						<h3 class="tittle">OUR LATEST <span>NEWS</span></h3>
-					</div>
-								 <ul id="flexiselDemo1">
-								<li>
-									<a href="s<?php echo site_url('awal/single')?>"><img src="<?php echo tema();?>images/n1.jpg" alt=""/></a>
-									<div class="slide-title"><h4>LOREM IPSUM DOLOR </div>
-									<div class="prom-bottom">
-									<div class="prom-left">
-										<h5>May 22</h5>
-									</div>
-									<div class="prom-right">
-									<h5> 2016 </h5>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-								</li>
-								<li>
-									<a href="s<?php echo site_url('awal/single')?>"><img src="<?php echo tema();?>images/n2.jpg" alt=""/></a>
-									<div class="slide-title"><h4>LOREM IPSUM DOLOR</h4></div>
-									<div class="prom-bottom">
-									<div class="prom-left">
-										<h5>May 28</h5>
-									</div>
-									<div class="prom-right">
-									<h5> 2016 </h5>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-								</li>
-								<li>
-									<a href="<?php echo site_url('awal/single')?>"><img src="<?php echo tema();?>images/n3.jpg" alt=""/></a>
-									<div class="slide-title"><h4>LOREM IPSUM DOLOR</h4></div>
-									<div class="prom-bottom">
-									<div class="prom-left">
-										<h5>June 16</h5>
-									</div>
-									<div class="prom-right">
-									<h5> 2016 </h5>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-									
-								</li>
-								<li>
-									<a href="<?php echo site_url('awal/single')?>"><img src="<?php echo tema();?>images/n4.jpg" alt=""/></a>
-									<div class="slide-title"><h4>LOREM IPSUM DOLOR</h4></div>
-									<div class="prom-bottom">
-									<div class="prom-left">
-										<h5>July 24</h5>
-									</div>
-									<div class="prom-right">
-									<h5> 2016 </h5>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-									
-								</li>
-								<li>
-									<a href="<?php echo site_url('awal/single')?>"><img src="<?php echo tema();?>images/n1.jpg" alt=""/></a>
-									<div class="slide-title"><h4>LOREM IPSUM DOLOR </h4></div>
-									<div class="prom-bottom">
-									<div class="prom-left">
-										<h5>Aug 27</h5>
-									</div>
-									<div class="prom-right">
-									<h5> 2016 </h5>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-									
-								</li>
-								<li>
-									<a href="<?php echo site_url('awal/single')?>"><img src="<?php echo tema();?>images/n5.jpg" alt=""/></a>
-									<div class="slide-title"><h4>LOREM IPSUM DOLOR </h4></div>
-									<div class="prom-bottom">
-									<div class="prom-left">
-										<h5>Aug 25</h5>
-									</div>
-									<div class="prom-right">
-									<h5> 2016 </h5>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-									
-								</li>
-								<li>
-									<a href="<?php echo site_url('awal/single')?>"><img src="<?php echo tema();?>images/n6.jpg" alt=""/></a>
-									<div class="slide-title"><h4>LOREM IPSUM DOLOR </h4></div>
-									<div class="prom-bottom">
-									<div class="prom-left">
-										<h5>Aug 30</h5>
-									</div>
-									<div class="prom-right">
-									<h5> 2016 </h5>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-									
-								</li>
-							</ul>
-							<script type="text/javascript">
-						$(window).load(function() {
-							
-						  $("#flexiselDemo1").flexisel({
-								visibleItems:4,
-								animationSpeed: 1000,
-								autoPlay: true,
-								autoPlaySpeed: 3000,    		
-								pauseOnHover: false,
-								enableResponsiveBreakpoints: true,
-								responsiveBreakpoints: { 
-									portrait: { 
-										changePoint:480,
-										visibleItems: 2
-									}, 
-									landscape: { 
-										changePoint:640,
-										visibleItems: 3
-									},
-									tablet: { 
-										changePoint:800,
-										visibleItems: 4
-									}
-								}
-							});
-							});
-						</script>
-						<script type="text/javascript" src="<?php echo tema();?>js/jquery.flexisel.js"></script>	
-				</div>		
    <!--//news-->
    <div class="bottom">
 		<div class="container">
 			<div class="bottom-top">
-				<h3>Opening Hours of <span class="opening">Gizar</span></h3>
-				<p>Phasellus tempor erat id erat gravida pulvinar. Aenean est felis, ullamcorper et volutpat sed, cursus at enim. Vestibulum vel finibus neque. In sed magna tellus.</p>
+				<h3>Jadwal Praktek<span class="opening"> Dokter</span></h3>
+				<p>Informasi tentang jadwal praktek ini sewaktu-waktu dapat berubah. Silahkan hubungi kami untuk memastikan. Dokter Umum dan Bidan standby setiap hari selama 24 jam.</p>
 				<div class="opening_hours">
 						 <ul class="times">
-							<h4>Opening <span class="opening">Hours</span></h4>
-							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Monday</span><div class="hours">9:30 am – 3:30 pm</div>  <div class="clearfix"></div></li>
-							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Tuesday</span><div class="hours">10:30 am – 5:30 pm</div>  <div class="clearfix"></div></li>
-							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Wednesday</span><div class="hours">8:30 am – 1:30 pm</div>  <div class="clearfix"></div></li>
-							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Thrusday</span><div class="hours">11:30 am – 2:30 pm</div>  <div class="clearfix"></div></li>
-							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Friday</span><div class="hours">10:00 am – 2:00 pm</div>  <div class="clearfix"></div></li>
-							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Saturday</span><div class="hours">11:30 am – 2:30 pm</div>  <div class="clearfix"></div></li>
-							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Sunday</span><div class="hours">Family Doctor</div>  <div class="clearfix"></div></li>
+							<h4>Jadwal <span class="opening">Praktek</span></h4>
+							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Senin</span><div class="hours">Dokter Anak</div>  <div class="clearfix"></div></li>
+							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Selasa</span><div class="hours">Dokter Kandungan</div>  <div class="clearfix"></div></li>
+							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Rabu</span><div class="hours"> Dokter Kulit</div>  <div class="clearfix"></div></li>
+							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Kamis</span><div class="hours">Dokter Gigi</div>  <div class="clearfix"></div></li>
+							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Jum'at</span><div class="hours">Dokter Anak</div>  <div class="clearfix"></div></li>
+							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Sabtu</span><div class="hours">Dokter Gigi</div>  <div class="clearfix"></div></li>
+							<li><i class="glyphicon glyphicon-time"> </i><span class="week">Minggu</span><div class="hours">Dokter Kandungan</div>  <div class="clearfix"></div></li>
 	
 						 </ul>
 					</div>
 			</div>
 		</div>
 </div>
-   <!--/reviews-->
-	<div id="review" class="testimonials-review">
-		<div class="container">
-		<div class="sub-hd">
-						<h3 class="tittle lost">WHAT PATIENTS ARE SAYING <span>ABOUT US</span></h3>
-					</div>
-				<div class="testimonials">
-				  <div class="monials">
-				      <!--//screen-gallery-->
-						<div class="sreen-gallery-cursual">
-							 <!-- required-js-files-->
-							<link href="<?php echo tema();?>css/owl.carousel.css" rel="stylesheet">
-							    <script src="<?php echo tema();?>js/owl.carousel.js"></script>
-							        <script>
-							    $(document).ready(function() {
-							      $("#owl-demo").owlCarousel({
-							        items : 1,
-							        lazyLoad : true,
-							        autoPlay : true,
-							        navigation : false,
-							        navigationText :  false,
-							        pagination : true,
-							      });
-							    });
-							    </script>
-								 <!--//required-js-files-->
-						       <div id="owl-demo" class="owl-carousel">
-					                   <div class="item-owl">
 
-                                            <p class="speech">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id arcu neque, at convallis est felis.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id arcu neque, at convallis est felis.</p>
-                                            <div class="client-info">
-                                                <img src="<?php echo tema();?>images/t1.jpg" alt=" " />
-
-                                                <h4>John Allen</h4>
-                                                <span>Lorem ipsum dolor</span>
-                                            </div>
-                                        </div><!-- /.item -->
-					                     <div class="item-owl">
-
-                                            <p class="speech">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id arcu neque, at convallis est felis.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id arcu neque, at convallis est felis.</p>
-                                            <div class="client-info">
-                                                <img src="<?php echo tema();?>images/t2.jpg" alt=" " />
-
-                                                <h4>John Doe</h4>
-                                                <span>Lorem ipsum dolor</span>
-                                            </div>
-                                        </div><!-- /.item -->
-					                      <div class="item-owl">
-										  <p class="speech">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id arcu neque, at convallis est felis.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id arcu neque, at convallis est felis.</p>
-                                            <div class="client-info">
-                                                <img src="<?php echo tema();?>images/t3.jpg" alt=" " />
-
-                                                <h4>John Leo</h4>
-                                                <span>Lorem ipsum dolor</span>
-                                            </div>
-                                        </div><!-- /.item -->
-				              </div>
-						<!--//screen-gallery-->
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>	
-	<!--//reviews-->
 	
