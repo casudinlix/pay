@@ -80,7 +80,7 @@ $total=$dari->diff($sampai);
 <?php if($key->status_cuti=="POSTING" || $key->status_cuti=="REJECT" || $key->status_cuti=="APPROVE" ):?>
 
     <?php else:?>
-  <a class="btn btn-success fa fa-check-circle" title="" onClick=posting("<?php echo $key->id_cuti.'/'.$this->uri->segment(3).'/'.$lama.'/'.'POSTING'?>")>Posting</a>  
+  <a class="btn btn-success fa fa-check-circle" title="" onClick=posting("<?php echo $key->id_cuti.'/'.$this->uri->segment(3).'/'.$lama.'/'.'POSTING/'.$key->id?>")>Posting</a>  
 <?php endif;?>
 </td>
 </tr>                                        

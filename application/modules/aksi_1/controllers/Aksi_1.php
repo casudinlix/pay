@@ -457,6 +457,7 @@ $this->db->where('id_gaji', $id);
 $this->db->update('gaji_detail', array('status'=>'POSTING'));
 $this->db->where('id_gaji', $id);
 $this->db->update('gaji_detail', $data2);
+
 $this->db->where('no_transaksi', $idpinjaman);
 $this->db->update('pinjaman', array('status_pinjaman'=>'LUNAS'));
 $this->session->set_flashdata('gaji', 'value');

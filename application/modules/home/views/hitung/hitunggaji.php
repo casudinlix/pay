@@ -77,6 +77,7 @@
  <div class="input-group">
  <span class="input-group-addon"><span class="fa fa-user"></span></span>
  <input type="text" class="form-control" name="" value="<?php echo $all->nama_lengkap?>" readonly="" />
+
  </div>            
  
   </div>

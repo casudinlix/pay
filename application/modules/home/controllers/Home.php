@@ -478,7 +478,7 @@ function hitunggaji(){
   $this->load->model('m_list');
   $this->m_list->idgaji();
   $data['idgaji']=$this->m_list->idgaji();
-  $data['all']=$this->db->get('all_view_1',array('nip'=>$id))->row();
+  $data['all']=$this->db->get_where('all_view_1',array('nip'=>$id))->row();
   $data['com']=$this->db->get('company')->row();
   $data['insentif']=$this->db->get_where('insentif',Array('gol_jabatan'=>$gol))->result();
   $data['cek']=$this->db->get_where('gaji_detail',array('id_gaji'=>$idgaji))->result();
@@ -539,9 +539,9 @@ function lapkasbon(){
   $arr=array('status_aju'=>'APPROVE','status_pinjaman'=>'BELUM BAYAR');
   $this->db->select_sum('nominal_pinjaman');
   $this->db->where($arr);
-    $data['sum']=$this->db->get('kasbon_view')->row();
+    $data['sum']=$this->db->get('pinjaman_view')->row();
   $this->db->where($arr);
-  $data['all']=$this->db->get('kasbon_view')->result();
+  $data['all']=$this->db->get('pinjaman_view')->result();
     $this->load->view('atas',$data);
     $this->load->view('laporan/kasbon',$data);
     $this->load->view('bawah',$data);
