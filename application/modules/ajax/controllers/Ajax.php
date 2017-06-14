@@ -5,9 +5,13 @@ class Ajax extends CI_Controller {
   public function __construct()
   {
     parent::__construct();
+       
+        //$this->load->model('model_name', 'model_alias');
+
     if(!$this->input->is_ajax_request()){
 			exit('No direct script access allowed :)');
 		}
+     $this->load->model('m_gaji1','duddin');
   }
 
   public function index()
@@ -171,6 +175,48 @@ function hapusinsentif(){
   $arr=array('id_gaji'=>$this->uri->segment(3),'id_insentif'=>$this->uri->segment(4));
   $this->db->where($arr);
   $this->db->delete('gaji_detail');
+}
+function gaji(){
+
+  $list = $this->duddin->get_datatables();
+    $data = array();
+    $no = $_POST['start'];
+    foreach ($list as $duddin) {
+      $no++;
+      $row = array();
+      $row[] = '<input type="checkbox" class="data-check" value="'.$duddin->id_gaji.'">';
+      $row[] = $duddin->id_gaji;
+      $row[] = tgl_indo($duddin->bulan_gaji);
+      $row[] = $duddin->nip;
+      $row[] = $duddin->nama_lengkap;
+      $row[] = $duddin->nama_jabatan;
+      $row[] = $duddin->gol_jabatan;
+     
+        if ($duddin->status=="POSTING") {
+                 $row[]="<span class='label label-warning'>".$duddin->status."</span>";
+
+        }else{
+       $row[]="<span class='label label-danger'>".$duddin->status."</span>";
+
+        }
+      
+      
+
+      //add html for action
+      $row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_person('."'".$duddin->id_gaji."'".')"><i class="fa fa-pencil"></i> Edit</a>
+          ';
+    
+      $data[] = $row;
+    }
+
+    $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->duddin->count_all(),
+            "recordsFiltered" => $this->duddin->count_filtered(),
+            "data" => $data,
+        );
+    //output to json format
+    echo json_encode($output);
 }
 }
 

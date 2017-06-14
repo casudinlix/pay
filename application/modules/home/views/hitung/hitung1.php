@@ -29,14 +29,17 @@
                                     <table class="table table-bordered" id="table">
                                         <thead>
                                             <tr>
-                                                <th><input type="checkbox" id="check-all"></th>
+                                            <th><input type="checkbox" id="check-all"></th>
+                                                 
 
-                                                <th> Nip</th>
-                                                <th>Nama Lengkap</th>
-                                                <th>Jabatan</th>
-                                                <th>Golongan</th>
-                                                <th>Gaji Pokok</th>
-                                                
+                                                <th> ID Gaji</th>
+                                                <th>Bulan Gaji</th>
+                                                <th>NIP</th>
+                                                <th>Nama Karyawan</th>
+                                                <th> Jabatan</th>
+                                                <th> Golongan</th>
+                                                <th> Status</th>
+
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -46,10 +49,3 @@
 
                                 </div>
                             </div>
-                            <!-- END DEFAULT DATATABLE -->
-<script>
-function printgajih() {
-    var url="<?php echo site_url('home')?>";
-    window.open(url, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=700,height=1000");
-}
-</script>

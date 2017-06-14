@@ -466,8 +466,11 @@ function hitung(){
     $data['gaji']=$this->db->get('all_view_1')->result();
     $this->load->model('m_list');
 $data['idgaji']=$this->m_list->idgaji();
+
+
+
      $this->load->view('atas',$data);
-  $this->load->view('hitung/hitung',$data);
+  $this->load->view('hitung/hitung1',$data);
   $this->load->view('bawah',$data);
 
 }
