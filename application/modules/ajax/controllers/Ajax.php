@@ -14,6 +14,7 @@ class Ajax extends CI_Controller {
      $this->load->model('m_gaji1','duddin');
      $this->load->model('m_insentif','insentif');
      $this->load->model('m_potongan', 'potongan');
+     $this->load->model('m_pinjaman', 'pinjaman');
   }
 
   public function index()
@@ -59,7 +60,24 @@ class Ajax extends CI_Controller {
 
 
   }
-  function caricuti(){
+
+  function caripinjaman(){
+     $id=$this->uri->segment(3);
+      $this->db->select('no_transaksi, nip,nama_lengkap,nominal_pinjaman,status_pinjaman');
+
+       //$this->db->like();
+    $this->db->or_like('nip',$id);
+   
+   $this->db->where('status_aju', 'APPROVE');
+   
+          $data =$this->db->get('pinjaman_view');
+          $rows = array();
+          foreach($data->result() as $row)
+          {
+            $rows[]=$row;
+          }
+          // minimal PHP 5.2
+          echo json_encode($rows);
 
   }
   function hutang(){
@@ -178,6 +196,11 @@ function hapusinsentif(){
   $arr=array('id'=>$this->uri->segment(3));
   $this->db->where($arr);
   $this->db->delete('gaji_insentif');
+}
+function hapuspinjaman(){
+  $arr=array('id'=>$this->uri->segment(3));
+  $this->db->where($arr);
+  $this->db->delete('gaji_pinjaman');
 }
 function hapuspotongan(){
   $arr=array('id'=>$this->uri->segment(3));
@@ -392,6 +415,7 @@ function tambahinsentif(){
   echo json_encode(array("status" => TRUE));
 
 }
+
 function tambahpotongan(){
   $this->_cekpotongan();
   $data=array(
@@ -404,7 +428,87 @@ function tambahpotongan(){
   //reload_table();
   echo json_encode(array("status" => TRUE));
 }
+function pinjamanlist(){
+  $id=$this->uri->segment(3);
+  $list = $this->pinjaman->get_datatables($id);
+    $data = array();
+    $no = $_POST['start'];
+    foreach ($list as $pinjaman) {
+      $no++;
+      $row = array();
+      
+      
+       
+       
+       
+      $row[] = $pinjaman->no_transaksi;
+      $row[] = 'Rp. '.number_format($pinjaman->nominal_pinjaman);
+      
+         
+      
+      
+
+      //add html for action
+      $row[] = '<a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onClick="hapuspinjaman('."'".$pinjaman->id."'".')"><i class="fa fa-trash-o"></i> Hapus</a>
+          ';
+    
+      $data[] = $row;
+    }
+
+    $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->insentif->count_all(),
+            "recordsFiltered" => $this->insentif->count_filtered(),
+            "data" => $data,
+        );
+    //output to json format
+    echo json_encode($output);
 }
+
+function tambahpinjaman(){
+  $this->_cekpinjaman();
+  $data=array(
+    'id_gaji'=>$this->input->post('id', TRUE),
+    'nip'=>$this->input->post('nip1', TRUE),
+    'no_transaksi'=>$this->input->post('no',TRUE),
+
+    );
+  $this->db->insert('gaji_pinjaman', $data);
+  //reload_table();
+  echo json_encode(array("status" => TRUE));
+}
+private function _cekpinjaman()
+  {
+    $data = array();
+    $data['error_string'] = array();
+    $data['inputerror'] = array();
+    $data['status'] = TRUE;
+
+    if($this->input->post('nip1') == '')
+    {
+      $data['inputerror'][] = 'nip';
+      $data['error_string'][] = 'NIP is required';       
+      $data['status'] = FALSE;
+     echo "<script>swal('Gagal Menambahkan!', 'Isi Data Dengan Lengkap', 'error')</script>";
+
+    }
+    if($this->input->post('no') == '')
+    {
+      $data['inputerror'][] = 'NO Transaksi';
+      $data['error_string'][] = 'Kolom Potongan Harus Di Isi';
+      $data['status'] = FALSE;
+      echo "<script>swal('Gagal Menambahkan!', 'Isi Data Dengan Lengkap', 'error')</script>";
+   }
+
+
+    if($data['status'] === FALSE)
+    {
+      echo json_encode($data);
+      exit();
+    }
+  }
+}
+
 
 /* End of file Ajax.php */
 /* Location: ./application/controllers/Ajax.php */

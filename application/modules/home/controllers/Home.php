@@ -463,7 +463,7 @@ $data['cek']=$this->db->get('aju_cuti_view')->result();
 }
 function hitung(){
     $data['com']=$this->db->get('company')->row();
-    $data['gaji']=$this->db->get('all_view_1')->result();
+   
     $this->load->model('m_list');
 $data['idgaji']=$this->m_list->idgaji();
 
@@ -485,7 +485,9 @@ function hitunggaji(){
   
   $data['com']=$this->db->get('company')->row();
   $data['insentif']=$this->db->get('insentif')->result();
+  
    $data['potongan']=$this->db->get('potongan')->result();
+   $data['pinjaman']=
   $this->load->view('atas',$data);
   $this->load->view('hitung/hitunggaji',$data);
   $this->load->view('bawah',$data);

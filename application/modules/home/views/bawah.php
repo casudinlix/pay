@@ -235,6 +235,23 @@
       });
     });
     </script>
+    <script>
+    $(document).ready(function () {
+      var site = "<?php echo site_url();?>";
+      $("#pinjaman").lookupbox({
+        title: 'Cari Pinjaman Karyawan',
+        url: site+'ajax/caripinjaman/',
+        imgLoader: 'Loading...',
+        width: 500,
+        onItemSelected: function(data){
+          $('input[name=no]').val(data.no_transaksi);
+          $('input[name=nip1]').val(data.nip);
+          
+        },
+        tableHeader: ['No Transaksi', 'NIP','Nama','Nominal','Status Pinjaman']
+      });
+    });
+    </script>
      <script type='text/javascript'>
         var site = "<?php echo site_url();?>";
         $(function(){
@@ -428,6 +445,49 @@ showLoaderOnConfirm: true
                
                   swal(" request finished!");
                   reload_insentif();
+         
+
+
+          },
+          error: function (xhr, ajaxOptions, thrownError) {
+              swal("Error deleting!", "Please try again", "error");
+          }
+
+      });
+
+});
+}
+
+</script>
+<script type="text/javascript">
+function hapuspinjaman($d) {
+var id = $d;
+  swal({
+title: "Are you sure?",
+text: "You will not be able to recover this Data!"+id,
+type: "warning",
+showCancelButton: true,
+closeOnConfirm: false,
+showLoaderOnConfirm: true
+},
+
+
+ function (isConfirm) {
+
+
+
+    var url1= "<?php echo site_url('ajax/hapuspinjaman/') ?>";
+
+      if (!isConfirm) return;
+      $.ajax({
+          url: url1+id,
+          type: "POST",
+
+          dataType: "HTML",
+          success: function () {
+               
+                  swal(" request finished!");
+                  reload_pinjaman();
          
 
 
@@ -775,8 +835,8 @@ $(".table1").on('page.dt',function () {
           placeholder: "Select a Religion",
           allowClear: true
         });
-$(".insentif").select2({
-          placeholder: "Pilih Insentif",
+$(".absensi").select2({
+          placeholder: "Jumlah Hari Kerja",
           allowClear: true
         });
 $(".pot").select2({
@@ -899,6 +959,32 @@ insentif1 = $('#insentif1').DataTable({
         ],
 
     });
+pinjaman = $('#tblpinjaman').DataTable({ 
+
+        "processing": true, //Feature control the processing indicator.
+        "serverSide": true, //Feature control DataTables' server-side processing mode.
+        "order": [], //Initial no order.
+
+        // Load data for the table's content from an Ajax source
+        "ajax": {
+            "url": "<?php echo site_url('ajax/pinjamanlist/'.$this->uri->segment(3))?>",
+            "type": "POST"
+        },
+
+        //Set column definition initialisation properties.
+        "columnDefs": [
+            { 
+                "targets": [ 0 ], //first column
+                "orderable": false, //set not orderable
+            },
+            { 
+                "targets": [ -1 ], //last column
+                "orderable": false, //set not orderable
+            },
+
+        ],
+
+    });
 tabelpotongan = $('#tblpotongan').DataTable({ 
 
         "processing": true, //Feature control the processing indicator.
@@ -968,8 +1054,8 @@ function reload_table()
 {
     tabelpotongan.ajax.reload(null,false); //reload datatable ajax 
 }
-function swal_eror(){
-   swal("Gagal Menambahkan!", "Isi Data Dengan Lengkap", "error");
+function reload_pinjaman(){
+pinjaman.ajax.reload(null,false); //reload datatable ajax 
 }
 function save()
 {
@@ -1021,6 +1107,60 @@ $('[name="'+data.inputerror[i]+'"]').next().text(data.error_string[i]);
 
             $('#btnSave').text('Tambah'); //change button text
             $('#btnSave').attr('disabled',false); //set button enable 
+
+        }
+    });
+}
+function savepinjaman()
+{
+    $('#btnSavepinjaman').text('Menyimpan...'); //change button text
+    $('#btnSavepinjaman').attr('disabled',true); //set button disable 
+    var url;
+
+     
+        url = "<?php echo site_url('ajax/tambahpinjaman/')?>";
+    
+        
+     
+
+    // ajax adding data to database
+    var formData = new FormData($('#formpinjaman')[0]);
+    $.ajax({
+        url : url,
+        type: "POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+        dataType: "JSON",
+        success: function(data)
+        {
+
+            if(data.status) //if success close modal and reload ajax table
+            {
+                
+                reload_pinjaman();
+            }
+            else
+            {
+                for (var i = 0; i < data.inputerror.length; i++) 
+                {
+ $('[nip="'+data.inputerror[i]+'"]').parent().parent().addClass('has-error'); 
+$('[name="'+data.inputerror[i]+'"]').next().text(data.error_string[i]);
+                     
+
+                }
+            }
+            $('#btnSavepinjaman').text('Tambah'); //change button text
+            $('#btnSavepinjaman').attr('disabled',false); //set button enable 
+
+
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+            swal("Gagal Menambahkan!", "Isi Data Dengan Lengkap", "error");
+
+            $('#btnSavepinjaman').text('Tambah'); //change button text
+            $('#btnSavepinjaman').attr('disabled',false); //set button enable 
 
         }
     });

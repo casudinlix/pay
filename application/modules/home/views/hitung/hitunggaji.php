@@ -25,7 +25,8 @@
 
                                 <div class="panel-body">
                                      <form action="" method="post" accept-charset="ut-8">
-                                      <button type="button" class="btn btn-warning" id="lookup1">Cari</button>
+                                      <button type="button" class="btn btn-warning" id="lookup1"><i class="fa fa-search"></i>Cari</button>
+
                                      
                                          <input type="text" class="form-control cari" id="" name="nip" required="">
                                         Nama
@@ -54,9 +55,9 @@
                                     <div class="form-group">                                        
                                         <div class="col-md-12">
                                             <select name="hari" class="form-control">
-        <option value="">Pilih</option>
+        <option value="">Pilih Total Hari Kerja</option>
         <?php 
-for ($i=1; $i <30 ; $i++) { ?>
+for ($i=1; $i <32 ; $i++) { ?>
     <option value="<?php echo $i?>" required=""><?php echo $i?></option>
 <?php }?>
         ?>
@@ -65,22 +66,55 @@ for ($i=1; $i <30 ; $i++) { ?>
                                     </div>
                                     <div class="form-group">                                    
                                         <div class="col-md-8">
-                                            <input type="number" placeholder="Hadir" name="hadir" class="form-control"/>
+                                           <select name="hadir" class="form-control">
+        <option value="">Total Hadir</option>
+        <?php 
+for ($i=1; $i <30 ; $i++) { ?>
+    <option value="<?php echo $i?>" required=""><?php echo $i?></option>
+<?php }?>
+        ?>
+    </select>
                                         </div>               
                                         <div class="col-md-4">
-                                            <input type="text" placeholder="Ijin" name="ijin" class="form-control"/>
+            <select name="ijin" class="form-control">
+        <option value="">Pilih Total Hari Ijin</option>
+        <?php 
+for ($i=0; $i <30 ; $i++) { ?>
+    <option value="<?php echo $i?>" required=""><?php echo $i?></option>
+<?php }?>
+        ?>
+    </select>
                                         </div>                                                                               
                                     </div>       
                                     <div class="form-group">                                    
                                         <div class="col-md-6">
-                                            <input type="text" placeholder="Cuti" name="cuti" id="cuti" class="form-control"/>
-                                           
+<select name="cuti" class="form-control">
+        <option value="">Pilih Total Cuti</option>
+        <?php 
+for ($i=0; $i <30 ; $i++) { ?>
+    <option value="<?php echo $i?>" required=""><?php echo $i?></option>
+<?php }?>
+        ?>
+    </select>                                         
                                         </div>               
                                         <div class="col-md-3">
-                                            <input type="text" placeholder="Lembur" name="lembur" class="form-control"/>
-                                        </div>                                                                               
+ <select name="lembur" class="form-control">
+        <option value="">Pilih Total Lembur</option>
+        <?php 
+for ($i=0; $i <30 ; $i++) { ?>
+    <option value="<?php echo $i?>" required=""><?php echo $i?></option>
+<?php }?>
+        ?>
+    </select>                                       </div>                                                                               
                                         <div class="col-md-3">
-                                            <input type="text" placeholder="Telat" name="telat" class="form-control"/>
+                                         <select name="telat" class="form-control">
+        <option value="">Pilih Total Telat</option>
+        <?php 
+for ($i=0; $i <30 ; $i++) { ?>
+    <option value="<?php echo $i?>" required=""><?php echo $i?></option>
+<?php }?>
+        ?>
+    </select>
                                         </div>                                        
                                     </div>                                      
                                                                                
@@ -211,6 +245,7 @@ for ($i=1; $i <30 ; $i++) { ?>
  <input type="hidden" class="form-control cari"  name="nip" required="">                                 
   
   <button type="button" id="btnSavepotongan" onclick="savepotongan()" class="btn btn-primary">Tambah</button>
+
                                 </form>
 <div class="table-responsive">
                                      <table class="table table-bordered" id="tblpotongan">
@@ -238,44 +273,42 @@ for ($i=1; $i <30 ; $i++) { ?>
 
                             <!-- START CONDENSED TABLE SAMPLE -->
                             <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Condensed table</h3>
+                                 <div class="panel-heading">
+                                    <h3 class="panel-title">Pinjaman</h3>
                                 </div>
                                 <div class="panel-body">
-                                    <p>Add class <code>.table-hover</code> to table to get condensed table.</p>
-                                    <table class="table table-condensed">
+                                <form action="#" accept-charset="utf-8" id="formpinjaman">
+                                    
+ 
+<input type="hidden" name="id" value="<?php echo $this->uri->segment(3)?>" class="form-control-sm">
+ <input type="hidden" class="form-control cari"  name="nip1" required="">                                 
+  <input type="hidden" name="no" class="form-control-sm">
+
+  
+   <button type="button" class="btn btn-warning" id="pinjaman"><i class="fa fa-search"></i>Cari</button>
+   <button type="button" id="btnSavepinjaman" onclick="savepinjaman()" class="btn btn-primary">Tambah</button>
+                                </form>
+<div class="table-responsive">
+                                     <table class="table table-bordered" id="tblpinjaman">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Username</th>
+                                                
+                                                 
+                                                <th>No Transaksi</th>
+                                                <th>Nominal Pinjaman</th>
+                                                
+                                                <th>Aksi</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
+                                        
+                            
+                    
                                         </tbody>
-                                    </table>                                
+                                    </table>  
+
                                 </div>
                             </div>
-                            <!-- END CONDENSED TABLE SAMPLE -->
+                            </div>
 
                             <!-- START BORDERED TABLE SAMPLE -->
                             <div class="panel panel-default">
