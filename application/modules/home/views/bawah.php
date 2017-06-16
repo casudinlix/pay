@@ -1012,7 +1012,7 @@ tabelpotongan = $('#tblpotongan').DataTable({
 
     });
     //datepicker
-    $('.datepicker').datepicker({
+    $('.tgl').datepicker({
         autoclose: true,
         format: "yyyy-mm-dd",
         todayHighlight: true,

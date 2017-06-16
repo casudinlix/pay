@@ -263,8 +263,8 @@ function insentiflist(){
        
        
       $row[] = $insentif->jenis_insentif;
-      $row[] = 'Rp. '.$insentif->nominal_insentif;
-      $row[] = $insentif->jml_insentif;
+      $row[] = 'Rp. '.number_format($insentif->nominal_insentif);
+      $row[] = $insentif->jml_insentif."  x";
       $row[] = "Rp. ".number_format($insentif->jml_insentif*$insentif->nominal_insentif);
      
          
@@ -410,6 +410,7 @@ function tambahinsentif(){
     'nip'=>$this->input->post('nip'),
     'jml_insentif'=>$this->input->post('banyak', TRUE)
     );
+
   $this->db->insert('gaji_insentif', $data);
   //reload_table();
   echo json_encode(array("status" => TRUE));

@@ -54,10 +54,10 @@ function idgaji(){
   $y=date('Y');
   $b=date("m");
   $t=date('d');
- $this->db->select('RIGHT(gaji.id_gaji,2) as kode', FALSE);
+ $this->db->select('RIGHT(gaji2.id_gaji,2) as kode', FALSE);
   $this->db->order_by('id_gaji','DESC');    
   $this->db->limit(1);     
-  $query = $this->db->get('gaji');      //cek dulu apakah ada sudah ada kode di tabel.    
+  $query = $this->db->get('gaji2');      //cek dulu apakah ada sudah ada kode di tabel.    
   if($query->num_rows() <> 0){       
    //jika kode ternyata sudah ada.      
    $data = $query->row();      
