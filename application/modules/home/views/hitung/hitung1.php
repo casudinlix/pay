@@ -16,12 +16,14 @@
                                 <div class="panel-heading">
 
                                     <div class="col-md-4">
-    
+      <button class="btn btn-success" onclick="postinggaji()"><i class="glyphicon glyphicon-check"></i>POSTING</button>
+     <a href="<?php echo site_url('home/hitunggaji/'.$idgaji)?>" title=""> <button class="btn btn-info" ><i class="fa fa-plus-square"></i>Input Gaji Karyawan</button></a>
                                     </div>
 
                                     <ul class="panel-controls">
                                         <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
                                         <li><a href="#" class="panel-refresh" onclick="reload_table()"><span class="fa fa-refresh"></span></a></li>
+
                                     </ul>
                                 </div>
                                 <div class="panel-body">

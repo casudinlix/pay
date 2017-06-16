@@ -38,7 +38,10 @@ body{
         <!-- EOF CSS INCLUDE -->
     <!-- Memanggil file .css untuk style saat data dicari dalam filed -->
     <link href='<?php echo tema();?>js/jquery.autocomplete.css' rel='stylesheet' />
+      <script src="<?php echo tema();?>jquery-1.10.2.min.js"></script>
 
+ <link rel="stylesheet" type="text/css" href="<?php echo tema();?>lookupbox.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo tema();?>jquery-ui.min.css" />
 
     </head>
     <body>

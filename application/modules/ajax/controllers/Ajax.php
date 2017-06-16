@@ -12,6 +12,8 @@ class Ajax extends CI_Controller {
 			exit('No direct script access allowed :)');
 		}
      $this->load->model('m_gaji1','duddin');
+     $this->load->model('m_insentif','insentif');
+     $this->load->model('m_potongan', 'potongan');
   }
 
   public function index()
@@ -39,25 +41,26 @@ class Ajax extends CI_Controller {
 
   }
   function hitunggaji(){
-    $keyword=$this->uri->segment(3);
+    $id=$this->uri->segment(3);
       //$this->db->select('sift_name, jam_in,jam_out');
        //$this->db->like();
+    $this->db->like('nip',$id);
+   $this->db->or_like('nama_lengkap', $id);
+   
           $data =$this->db->get('all_view_1');
+          $rows = array();
           foreach($data->result() as $row)
           {
-            $arr['query'] = $keyword;
-            $arr['suggestions'][] = array(
-              'value' =>$row->nip,
-              'nama_lengkap' =>$row->nama_lengkap,
-              'nama_jabatan'=>$row->nama_jabatan,
-              'gol_jabatan'=>$row->gol_jabatan,
-              'nominal'=>$row->nominal
-              
-
-            );
+            $rows[]=$row;
           }
           // minimal PHP 5.2
-          echo json_encode($arr);
+          echo json_encode($rows);
+
+
+
+  }
+  function caricuti(){
+
   }
   function hutang(){
     $keyword=$this->uri->segment(3);
@@ -172,9 +175,14 @@ $data1=array('status_cuti'=>$status);
 
 }
 function hapusinsentif(){
-  $arr=array('id_gaji'=>$this->uri->segment(3),'id_insentif'=>$this->uri->segment(4));
+  $arr=array('id'=>$this->uri->segment(3));
   $this->db->where($arr);
-  $this->db->delete('gaji_detail');
+  $this->db->delete('gaji_insentif');
+}
+function hapuspotongan(){
+  $arr=array('id'=>$this->uri->segment(3));
+  $this->db->where($arr);
+  $this->db->delete('gaji_potongan');
 }
 function gaji(){
 
@@ -217,6 +225,184 @@ function gaji(){
         );
     //output to json format
     echo json_encode($output);
+}
+function insentiflist(){
+  $id=$this->uri->segment(3);
+  $list = $this->insentif->get_datatables($id);
+    $data = array();
+    $no = $_POST['start'];
+    foreach ($list as $insentif) {
+      $no++;
+      $row = array();
+      
+      
+       
+       
+       
+      $row[] = $insentif->jenis_insentif;
+      $row[] = 'Rp. '.$insentif->nominal_insentif;
+      $row[] = $insentif->jml_insentif;
+      $row[] = "Rp. ".number_format($insentif->jml_insentif*$insentif->nominal_insentif);
+     
+         
+      
+      
+
+      //add html for action
+      $row[] = '<a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onClick="hapusinsentif('."'".$insentif->id."'".')"><i class="fa fa-trash-o"></i> Hapus</a>
+          ';
+    
+      $data[] = $row;
+    }
+
+    $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->insentif->count_all(),
+            "recordsFiltered" => $this->insentif->count_filtered(),
+            "data" => $data,
+        );
+    //output to json format
+    echo json_encode($output);
+}
+function potonganlist(){
+
+  $id=$this->uri->segment(3);
+  $list = $this->potongan->get_datatables($id);
+    $data = array();
+    $no = $_POST['start'];
+    foreach ($list as $potongan) {
+      $no++;
+      $row = array();
+      
+      
+       
+       
+       
+      $row[] = $potongan->jenis_potongan;
+      $row[] = 'Rp. '.$potongan->nominal_potongan;
+      $row[] = $potongan->jml_potongan;
+      $row[] = "Rp. ".number_format($potongan->jml_potongan*$potongan->nominal_potongan);
+     
+         
+      
+      
+
+      //add html for action
+      $row[] = '<a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onClick="hapuspotongan('."'".$potongan->id."'".')"><i class="fa fa-trash-o"></i> Hapus</a>
+          ';
+    
+      $data[] = $row;
+    }
+
+    $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->insentif->count_all(),
+            "recordsFiltered" => $this->insentif->count_filtered(),
+            "data" => $data,
+        );
+    //output to json format
+    echo json_encode($output);
+}
+private function _validate()
+  {
+    $data = array();
+    $data['error_string'] = array();
+    $data['inputerror'] = array();
+    $data['status'] = TRUE;
+
+    if($this->input->post('nip') == '')
+    {
+      $data['inputerror'][] = 'nip';
+      $data['error_string'][] = 'NIP is required';
+       
+      
+
+      $data['status'] = FALSE;
+     echo "<script>swal('Gagal Menambahkan!', 'Isi Data Dengan Lengkap', 'error')</script>";
+
+    }
+    if($this->input->post('idinsentif') == '')
+    {
+      $data['inputerror'][] = 'nip';
+      $data['error_string'][] = 'NIP is required';
+      $data['status'] = FALSE;
+      echo "<script>swal('Gagal Menambahkan!', 'Isi Data Dengan Lengkap', 'error')</script>";
+       
+      
+      
+   
+
+    }
+
+
+    if($data['status'] === FALSE)
+    {
+      echo json_encode($data);
+      exit();
+    }
+  }
+  private function _cekpotongan()
+  {
+    $data = array();
+    $data['error_string'] = array();
+    $data['inputerror'] = array();
+    $data['status'] = TRUE;
+
+    if($this->input->post('nip') == '')
+    {
+      $data['inputerror'][] = 'nip';
+      $data['error_string'][] = 'NIP is required';
+       
+      
+
+      $data['status'] = FALSE;
+     echo "<script>swal('Gagal Menambahkan!', 'Isi Data Dengan Lengkap', 'error')</script>";
+
+    }
+    if($this->input->post('potongan') == '')
+    {
+      $data['inputerror'][] = 'nip';
+      $data['error_string'][] = 'Kolom Potongan Harus Di Isi';
+      $data['status'] = FALSE;
+      echo "<script>swal('Gagal Menambahkan!', 'Isi Data Dengan Lengkap', 'error')</script>";
+       
+      
+      
+   
+
+    }
+
+
+    if($data['status'] === FALSE)
+    {
+      echo json_encode($data);
+      exit();
+    }
+  }
+function tambahinsentif(){
+  $this->_validate();
+  $data=array(
+    'id_gaji'=>$this->input->post('id', TRUE),
+    'id_insentif'=>$this->input->post('idinsentif', TRUE),
+    'nip'=>$this->input->post('nip'),
+    'jml_insentif'=>$this->input->post('banyak', TRUE)
+    );
+  $this->db->insert('gaji_insentif', $data);
+  //reload_table();
+  echo json_encode(array("status" => TRUE));
+
+}
+function tambahpotongan(){
+  $this->_cekpotongan();
+  $data=array(
+    'id_gaji'=>$this->input->post('id', TRUE),
+    'id_potongan'=>$this->input->post('potongan', TRUE),
+    'nip'=>$this->input->post('nip',TRUE),
+    'jml_potongan'=>$this->input->post('banyak', TRUE)
+    );
+  $this->db->insert('gaji_potongan', $data);
+  //reload_table();
+  echo json_encode(array("status" => TRUE));
 }
 }
 

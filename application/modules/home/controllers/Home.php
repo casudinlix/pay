@@ -480,15 +480,12 @@ function hitunggaji(){
   $idgaji=$this->uri->segment(5);
   $this->load->model('m_list');
   $this->m_list->idgaji();
+
   $data['idgaji']=$this->m_list->idgaji();
-  $data['all']=$this->db->get_where('all_view_1',array('nip'=>$id))->row();
+  
   $data['com']=$this->db->get('company')->row();
-  $data['insentif']=$this->db->get_where('insentif',Array('gol_jabatan'=>$gol))->result();
-  $data['cek']=$this->db->get_where('gaji_detail',array('id_gaji'=>$idgaji))->result();
-$data['cekgaji']=$this->db->get_where('gaji_detail_view',array('id_gaji'=>$idgaji))->result();
-$this->db->select_sum('nominal_insentif');
-$data['sum']=$this->db->get_where('sum_insentif_gaji_view',array('id_gaji'=>$id))->row();
-$data['pinjaman']=$this->db->get_where('pinjaman', array('nip'=>$id,'status_aju'=>'APPROVE','status_pinjaman'=>'BELUM BAYAR'))->result();
+  $data['insentif']=$this->db->get('insentif')->result();
+   $data['potongan']=$this->db->get('potongan')->result();
   $this->load->view('atas',$data);
   $this->load->view('hitung/hitunggaji',$data);
   $this->load->view('bawah',$data);

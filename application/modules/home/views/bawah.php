@@ -69,8 +69,7 @@
     <!-- START SCRIPTS -->
         <!-- START PLUGINS -->
 
-
-        <script type="text/javascript" src="<?php echo tema()?>js/plugins/jquery/jquery-ui.min.js"></script>
+        
 
         <script type='text/javascript' src='<?php echo tema()?>js/plugins/icheck/icheck.min.js'></script>
         <script type='text/javascript' src='<?php echo tema();?>js/jquery.autocomplete.js'></script>
@@ -106,8 +105,9 @@
             <script type="text/javascript" src="<?php echo tema()?>js/plugins/fileinput/fileinput.min.js"></script>
             <script type="text/javascript" src="<?php echo tema()?>js/plugins/filetree/jqueryFileTree.js"></script>
         <!-- END PAGE PLUGINS -->
- 
-
+ <script type="text/javascript" src="<?php echo tema()?>js/plugins/jquery/jquery-ui.min.js"></script>
+ <script type="text/javascript" src="<?php echo tema()?>jquery-ui.min.js"></script>
+<script src="<?php echo tema();?>jquery.lookupbox.js"></script>
  <script type="text/javascript" src="<?php echo tema()?>js/plugins/datatables/jquery.dataTables.min.js"></script>
 
 <script src='<?php echo tema()?>js/fullcalendar.min.js'></script>
@@ -209,14 +209,32 @@
                     $('#nama_lengkap').val(''+suggestion.nama_lengkap); 
                     $('#nama_jabatan').val(''+suggestion.nama_jabatan); 
                     $('#gol_jabatan').val(''+suggestion.gol_jabatan); 
-                    $('#nominal').val(''+suggestion.nominal); 
+                    $('#nominal').val(''+suggestion.gapok); 
 
                     
                 }
             });
         });
     </script>
-
+<script>
+    $(document).ready(function () {
+      var site = "<?php echo site_url();?>";
+      $("#lookup1").lookupbox({
+        title: 'Cari Karyawan',
+        url: site+'ajax/hitunggaji/',
+        imgLoader: 'Loading...',
+        width: 500,
+        onItemSelected: function(data){
+          $('input[name=nip]').val(data.nip);
+          $('input[name=nama]').val(data.nama_lengkap);
+          $('input[name=jabatan]').val(data.nama_jabatan);
+          $('input[name=gol]').val(data.gol_jabatan);
+          $('input[name=gapok]').val(data.gapok);
+        },
+        tableHeader: ['NIP', 'Nama','Jabatan','Golongan','Gaji']
+      });
+    });
+    </script>
      <script type='text/javascript'>
         var site = "<?php echo site_url();?>";
         $(function(){
@@ -279,7 +297,7 @@
   </script>
 
 <?php endif; ?>
-
+ 
 <?php if ($this->session->flashdata('sukses')): ?>
   <script type="text/javascript">
     swal("Data Saved!", "You clicked the button!", "success")
@@ -407,10 +425,53 @@ showLoaderOnConfirm: true
 
           dataType: "HTML",
           success: function () {
-              setTimeout(function () {
+               
                   swal(" request finished!");
-                  window.location.reload();
-        }, 4000);
+                  reload_insentif();
+         
+
+
+          },
+          error: function (xhr, ajaxOptions, thrownError) {
+              swal("Error deleting!", "Please try again", "error");
+          }
+
+      });
+
+});
+}
+
+</script>
+<script type="text/javascript">
+function hapuspotongan($d) {
+var id = $d;
+  swal({
+title: "Are you sure?",
+text: "You will not be able to recover this Dta!"+id,
+type: "warning",
+showCancelButton: true,
+closeOnConfirm: false,
+showLoaderOnConfirm: true
+},
+
+
+ function (isConfirm) {
+
+
+
+    var url1= "<?php echo site_url('ajax/hapuspotongan/') ?>";
+
+      if (!isConfirm) return;
+      $.ajax({
+          url: url1+id,
+          type: "POST",
+
+          dataType: "HTML",
+          success: function () {
+               
+                  swal(" request finished!");
+                  reload_potongan();
+         
 
 
           },
@@ -781,6 +842,7 @@ $(".pot").select2({
 var save_method; //for save method string
 var table;
 var base_url = '<?php echo base_url();?>';
+var uri='<?php echo $this->uri->segment(3)?>'
 
 $(document).ready(function() {
 
@@ -811,7 +873,58 @@ $(document).ready(function() {
         ],
 
     });
+insentif1 = $('#insentif1').DataTable({ 
 
+        "processing": true, //Feature control the processing indicator.
+        "serverSide": true, //Feature control DataTables' server-side processing mode.
+        "order": [], //Initial no order.
+
+        // Load data for the table's content from an Ajax source
+        "ajax": {
+            "url": "<?php echo site_url('ajax/insentiflist/'.$this->uri->segment(3))?>",
+            "type": "POST"
+        },
+
+        //Set column definition initialisation properties.
+        "columnDefs": [
+            { 
+                "targets": [ 0 ], //first column
+                "orderable": false, //set not orderable
+            },
+            { 
+                "targets": [ -1 ], //last column
+                "orderable": false, //set not orderable
+            },
+
+        ],
+
+    });
+tabelpotongan = $('#tblpotongan').DataTable({ 
+
+        "processing": true, //Feature control the processing indicator.
+        "serverSide": true, //Feature control DataTables' server-side processing mode.
+        "order": [], //Initial no order.
+
+        // Load data for the table's content from an Ajax source
+        "ajax": {
+            "url": "<?php echo site_url('ajax/potonganlist/'.$this->uri->segment(3))?>",
+            "type": "POST"
+        },
+
+        //Set column definition initialisation properties.
+        "columnDefs": [
+            { 
+                "targets": [ 0 ], //first column
+                "orderable": false, //set not orderable
+            },
+            { 
+                "targets": [ -1 ], //last column
+                "orderable": false, //set not orderable
+            },
+
+        ],
+
+    });
     //datepicker
     $('.datepicker').datepicker({
         autoclose: true,
@@ -845,71 +958,33 @@ $(document).ready(function() {
 });
 
 
-
-function add_person()
-{
-    save_method = 'add';
-    $('#form')[0].reset(); // reset form on modals
-    $('.form-group').removeClass('has-error'); // clear error class
-    $('.help-block').empty(); // clear error string
-    $('#modal_form').modal('show'); // show bootstrap modal
-    $('.modal-title').text('Add Person'); // Set Title to Bootstrap modal title
-
-}
-
-function edit_person(id)
-{
-    save_method = 'update';
-    $('#form')[0].reset(); // reset form on modals
-    $('.form-group').removeClass('has-error'); // clear error class
-    $('.help-block').empty(); // clear error string
-
-
-    //Ajax Load data from ajax
-    $.ajax({
-        url : "<?php echo site_url('person/ajax_edit')?>/" + id,
-        type: "GET",
-        dataType: "JSON",
-        success: function(data)
-        {
-
-            $('[name="id"]').val(data.id);
-            $('[name="firstName"]').val(data.firstName);
-            $('[name="lastName"]').val(data.lastName);
-            $('[name="gender"]').val(data.gender);
-            $('[name="address"]').val(data.address);
-            $('[name="dob"]').datepicker('update',data.dob);
-            $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('Edit Person'); // Set title to Bootstrap modal title
-
-
-        },
-        error: function (jqXHR, textStatus, errorThrown)
-        {
-            alert('Error get data from ajax');
-        }
-    });
-}
-
 function reload_table()
 {
     table.ajax.reload(null,false); //reload datatable ajax 
+}function reload_insentif()
+{
+    insentif1.ajax.reload(null,false); //reload datatable ajax 
+}function reload_potongan()
+{
+    tabelpotongan.ajax.reload(null,false); //reload datatable ajax 
 }
-
+function swal_eror(){
+   swal("Gagal Menambahkan!", "Isi Data Dengan Lengkap", "error");
+}
 function save()
 {
-    $('#btnSave').text('saving...'); //change button text
+    $('#btnSave').text('Menyimpan...'); //change button text
     $('#btnSave').attr('disabled',true); //set button disable 
     var url;
 
-    if(save_method == 'add') {
-        url = "<?php echo site_url('person/ajax_add')?>";
-    } else {
-        url = "<?php echo site_url('person/ajax_update')?>";
-    }
+     
+        url = "<?php echo site_url('ajax/tambahinsentif/')?>";
+    
+        
+     
 
     // ajax adding data to database
-    var formData = new FormData($('#form')[0]);
+    var formData = new FormData($('#insentif')[0]);
     $.ajax({
         url : url,
         type: "POST",
@@ -922,27 +997,85 @@ function save()
 
             if(data.status) //if success close modal and reload ajax table
             {
-                $('#modal_form').modal('hide');
-                reload_table();
+                
+                reload_insentif();
             }
             else
             {
                 for (var i = 0; i < data.inputerror.length; i++) 
                 {
-                    $('[name="'+data.inputerror[i]+'"]').parent().parent().addClass('has-error'); //select parent twice to select div form-group class and add has-error class
-                    $('[name="'+data.inputerror[i]+'"]').next().text(data.error_string[i]); //select span help-block class set text error string
+ $('[nip="'+data.inputerror[i]+'"]').parent().parent().addClass('has-error'); 
+$('[name="'+data.inputerror[i]+'"]').next().text(data.error_string[i]);
+                     
+
                 }
             }
-            $('#btnSave').text('save'); //change button text
+            $('#btnSave').text('Tambah'); //change button text
             $('#btnSave').attr('disabled',false); //set button enable 
 
 
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
-            alert('Error adding / update data');
-            $('#btnSave').text('save'); //change button text
+            swal("Gagal Menambahkan!", "Isi Data Dengan Lengkap", "error");
+
+            $('#btnSave').text('Tambah'); //change button text
             $('#btnSave').attr('disabled',false); //set button enable 
+
+        }
+    });
+}
+
+function savepotongan()
+{
+    $('#btnSavepotongan').text('Menyimpan...'); //change button text
+    $('#btnSavepotongan').attr('disabled',true); //set button disable 
+    var url;
+
+     
+        url = "<?php echo site_url('ajax/tambahpotongan/')?>";
+    
+        
+     
+
+    // ajax adding data to database
+    var formData = new FormData($('#formpotongan')[0]);
+    $.ajax({
+        url : url,
+        type: "POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+        dataType: "JSON",
+        success: function(data)
+        {
+
+            if(data.status) //if success close modal and reload ajax table
+            {
+                
+                reload_potongan();
+            }
+            else
+            {
+                for (var i = 0; i < data.inputerror.length; i++) 
+                {
+ $('[nip="'+data.inputerror[i]+'"]').parent().parent().addClass('has-error'); 
+$('[name="'+data.inputerror[i]+'"]').next().text(data.error_string[i]);
+                     
+
+                }
+            }
+            $('#btnSavepotongan').text('Tambah'); //change button text
+            $('#btnSavepotongan').attr('disabled',false); //set button enable 
+
+
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+            swal("Gagal Menambahkan!", "Isi Data Dengan Lengkap", "error");
+
+            $('#btnSavepotongan').text('Tambah'); //change button text
+            $('#btnSavepotongan').attr('disabled',false); //set button enable 
 
         }
     });

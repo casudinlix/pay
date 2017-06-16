@@ -1,53 +1,42 @@
 
                 <!-- PAGE TITLE -->
                 <div class="page-title">                    
-                    <h2><span class="fa fa-arrow-circle-o-left"></span> Basic Tables</h2>
+                    <h2><a href="#" title=""><span class="fa fa-arrow-circle-o-left"></span> </a> Input Gaji Karyawan</h2>
+
                 </div>
                 <!-- END PAGE TITLE -->                
-                
+                <ul class="panel-controls">
+    
+      <li><button class="btn btn-success fa fa-save">Simpan</button></a></li>
+
+                                    </ul>
                 <!-- PAGE CONTENT WRAPPER -->
                 <div class="page-content-wrap">
-                
+                <?php echo $idgaji?>  
+                <input type="hidden" name="id" value="<?php echo $idgaji?>" placeholder="">
                     <div class="row">
                         <div class="col-md-6">
 
                             <!-- START BASIC TABLE SAMPLE -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Basic example</h3>
+                                    <h3 class="panel-title">Data Karyawan</h3>
                                 </div>
+
                                 <div class="panel-body">
-                                    <p>Add <code>.table</code> to table to get default table</p>
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>id</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Username</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>                                
+                                     <form action="" method="post" accept-charset="ut-8">
+                                      <button type="button" class="btn btn-warning" id="lookup1">Cari</button>
+                                     
+                                         <input type="text" class="form-control cari" id="" name="nip" required="">
+                                        Nama
+  <input type="text" class="form-control cari" id="nama_lengkap" required="" name="nama">
+                                            Jabatan
+ <input type="text" class="form-control cari" name="jabatan" required="">
+                                               Golongan
+   <input type="text" class="form-control cari" name="gol" required="">
+                                                  Gapok
+     <input type="text" class="form-control cari" name="gapok" required="">
+                                     </form>                           
                                 </div>
                             </div>
                             <!-- END BASIC TABLE SAMPLE -->
@@ -55,40 +44,48 @@
                             <!-- START BORDERED TABLE SAMPLE -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Bordered table</h3>
+                                    <h3 class="panel-title">Absensi</h3>
                                 </div>
                                 <div class="panel-body">
-                                    <p>Add <code>.table .table-bordered</code> to table to get table with borders.</p>
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>id</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Username</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>                                
+  
+   <div class="block">                            
+   
+                                <form class="form-horizontal" role="form">
+                                    <div class="form-group">                                        
+                                        <div class="col-md-12">
+                                            <select name="hari" class="form-control">
+        <option value="">Pilih</option>
+        <?php 
+for ($i=1; $i <30 ; $i++) { ?>
+    <option value="<?php echo $i?>" required=""><?php echo $i?></option>
+<?php }?>
+        ?>
+    </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">                                    
+                                        <div class="col-md-8">
+                                            <input type="number" placeholder="Hadir" name="hadir" class="form-control"/>
+                                        </div>               
+                                        <div class="col-md-4">
+                                            <input type="text" placeholder="Ijin" name="ijin" class="form-control"/>
+                                        </div>                                                                               
+                                    </div>       
+                                    <div class="form-group">                                    
+                                        <div class="col-md-6">
+                                            <input type="text" placeholder="Cuti" name="cuti" id="cuti" class="form-control"/>
+                                           
+                                        </div>               
+                                        <div class="col-md-3">
+                                            <input type="text" placeholder="Lembur" name="lembur" class="form-control"/>
+                                        </div>                                                                               
+                                        <div class="col-md-3">
+                                            <input type="text" placeholder="Telat" name="telat" class="form-control"/>
+                                        </div>                                        
+                                    </div>                                      
+                                                                               
+                                </form>                                                                                           
+                            </div>                              
                                 </div>
                             </div>
                             <!-- END BORDERED TABLE SAMPLE -->
@@ -152,82 +149,90 @@
                             <!-- START STRIPED TABLE SAMPLE -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Striped rows</h3>
+                                    <h3 class="panel-title">Insentif</h3>
                                 </div>
                                 <div class="panel-body">
-                                    <p>Add class <code>.table-striped</code> to table to get table striped rows.</p>
-                                    <table class="table table-striped">
+                                <form action="#" accept-charset="utf-8" id="insentif">
+                                    <select class=" form-control-sm " name="idinsentif">
+                                <option value="" required="">Pilih</option>          
+  <?php foreach($insentif as $key):?>
+<option value="<?php echo $key->id_insentif?>"><?php echo $key->id_insentif."-".$key->jenis_insentif."  (".$key->gol_jabatan.")" ?></option>
+                                        <?php endforeach;?>
+                                        
+                                    </select>
+<input type="number" name="banyak" value="1" class="form-control-sm"> 
+<input type="hidden" name="id" value="<?php echo $this->uri->segment(3)?>" class="form-control-sm">
+ <input type="hidden" class="form-control cari"  name="nip" required="">                                 
+  
+  <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Tambah</button>
+                                </form>
+<div class="table-responsive">
+                                     <table class="table table-bordered" id="insentif1">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Username</th>
+                                                
+                                                 
+                                                <th>Jenis</th>
+                                                <th>Nominal</th>
+                                                <th>Banyak</th>
+                                                <th>Total Nominal</th>
+                                                <th>Aksi</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
+                                        
+                            
+                    
                                         </tbody>
-                                    </table>                                
+                                    </table>  
+
                                 </div>
                             </div>
+                            </div>
                             <!-- END STRIPED TABLE SAMPLE -->
+
+
 
                             <!-- START TABLE HOVER ROWS -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Hover rows</h3>
+                                    <h3 class="panel-title">Potongan</h3>
                                 </div>
                                 <div class="panel-body">
-                                    <p>Add class <code>.table-hover</code> to table to highlight row on hover.</p>
-                                    <table class="table table-hover">
+                                <form action="#" accept-charset="utf-8" id="formpotongan">
+                                    <select class=" form-control-sm" name="potongan">
+                                <option value="" required="">Pilih</option>          
+  <?php foreach($potongan as $key):?>
+<option value="<?php echo $key->id_potongan?>"><?php echo $key->id_potongan."-".$key->jenis_potongan?></option>
+                                        <?php endforeach;?>
+                                        
+                                    </select>
+<input type="number" name="banyak" value="1" class="form-control-sm"> 
+<input type="hidden" name="id" value="<?php echo $this->uri->segment(3)?>" class="form-control-sm">
+ <input type="hidden" class="form-control cari"  name="nip" required="">                                 
+  
+  <button type="button" id="btnSavepotongan" onclick="savepotongan()" class="btn btn-primary">Tambah</button>
+                                </form>
+<div class="table-responsive">
+                                     <table class="table table-bordered" id="tblpotongan">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Username</th>
+                                                
+                                                 
+                                                <th>Jenis</th>
+                                                <th>Nominal</th>
+                                                <th>Banyak</th>
+                                                <th>Total Nominal</th>
+                                                <th>Aksi</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
+                                        
+                            
+                    
                                         </tbody>
-                                    </table>                                
+                                    </table>  
+
                                 </div>
+                            </div>
                             </div>
                             <!-- END TABLE HOVER ROWS -->
 
