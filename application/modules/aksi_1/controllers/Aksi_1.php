@@ -478,6 +478,25 @@ redirect($_SERVER['HTTP_REFERER']);
   }
 
 }
+function simpangaji(){
+  $data=array('id_gaji'=>$this->input->post('id', TRUE),
+    'nip'=>$this->input->post('nip', TRUE),
+    'total_hari'=>$this->input->post('hari', TRUE),
+    'total_hadir'=>$this->input->post('hadir', TRUE),
+    'total_ijin'=>$this->input->post('ijin', TRUE),
+    'total_cuti'=>$this->input->post('cuti', TRUE),
+    'total_lembur'=>$this->input->post('lembur', TRUE),
+    'total_telat'=>$this->input->post('telat', TRUE));
+$data1=array('id_gaji'=>$this->input->post('id', TRUE),
+  'bulan_gaji'=>date('Y-m-d', strtotime(str_replace('-', '/', $this->input->post('tgl',TRUE)))),
+  'nip'=>$this->input->post('nip', TRUE),
+  'status'=>'PENDING');
+  $this->db->insert('gaji_absensi', $data);
+  $this->db->insert('gaji2', $data1);
+
+  $this->session->set_flashdata('gaji', 'value');
+  redirect('home/hitung');
+}
 
 }
 

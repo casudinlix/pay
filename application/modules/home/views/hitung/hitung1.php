@@ -16,7 +16,7 @@
                                 <div class="panel-heading">
 
                                     <div class="col-md-4">
-      <button class="btn btn-success" onclick="postinggaji()"><i class="glyphicon glyphicon-check"></i>POSTING</button>
+      <button class="btn btn-success" onclick="bulk_delete()"><i class="glyphicon glyphicon-check"></i>POSTING</button>
      <a href="<?php echo site_url('home/hitunggaji/'.$idgaji)?>" title=""> <button class="btn btn-info" ><i class="fa fa-plus-square"></i>Input Gaji Karyawan</button></a>
                                     </div>
 

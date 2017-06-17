@@ -2,7 +2,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class M_gaji1 extends CI_Model {
-	var $table = 'status_gaji_view';
+	var $table = 'all_gaji_view';
+	var $gaji='gaji2';
 	var $column_order = array('id_gaji','bulan_gaji','nip','nama_lengkap','nama_jabatan','gol_jabatan','status'); //set column field database for datatable orderable
 	var $column_search = array('nip','id_gaji','nama_lengkap');
 	 //set column field database for datatable searchable just firstname , lastname , address are searchable
@@ -97,8 +98,9 @@ private function _get_datatables_query()
 
 	public function delete_by_id($id)
 	{
-		$this->db->where('id', $id);
-		$this->db->delete($this->table);
+		$data=array('status'=>'POSTING');
+		$where=$this->db->where('id_gaji', $id);
+		$this->db->update('gaji2',$data);
 	}
 }
 

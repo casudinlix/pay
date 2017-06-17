@@ -20,7 +20,7 @@
                                 </div>
 
                                 <div class="panel-body">
-                                     <form action="" method="post" accept-charset="ut-8">
+                                     <form action="#"  accept-charset="ut-8">
                                       <button type="button" class="btn btn-warning" id="lookup1"><i class="fa fa-search"></i>Cari</button>
 
                                      
@@ -47,22 +47,25 @@
   
    <div class="block">                            
    
-                                <form class="form-horizontal" role="form">
-                                    <div class="form-group">                                        
-                                        <div class="col-md-12">
-                                            <select name="hari" class="form-control">
-        <option value="">Pilih Total Hari Kerja</option>
+<form class="form-horizontal" method="post" action="<?php echo site_url('aksi_1/simpangaji')?>">
+
+ <div class="form-group">                                        
+  <div class="col-md-12">
+<input type="hidden" name="id" value="<?php echo $this->uri->segment(3)?>" class="form-control-sm">
+<input type="hidden" name="nip" class="form-control-sm">
+   <select name="hari" class="form-control">
+  <option value="">Pilih Total Hari Kerja</option>
         <?php 
 for ($i=1; $i <32 ; $i++) { ?>
     <option value="<?php echo $i?>" required=""><?php echo $i?></option>
 <?php }?>
         ?>
     </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">                                    
-                                        <div class="col-md-8">
-                                           <select name="hadir" class="form-control">
+         </div>
+       </div>
+      <div class="form-group">                                    
+     <div class="col-md-8">
+   <select name="hadir" class="form-control">
         <option value="">Total Hadir</option>
         <?php 
 for ($i=1; $i <30 ; $i++) { ?>
@@ -70,8 +73,8 @@ for ($i=1; $i <30 ; $i++) { ?>
 <?php }?>
         ?>
     </select>
-                                        </div>               
-                                        <div class="col-md-4">
+      </div>               
+    <div class="col-md-4">
             <select name="ijin" class="form-control">
         <option value="">Pilih Total Hari Ijin</option>
         <?php 
@@ -80,10 +83,10 @@ for ($i=0; $i <30 ; $i++) { ?>
 <?php }?>
         ?>
     </select>
-                                        </div>                                                                               
-                                    </div>       
-                                    <div class="form-group">                                    
-                                        <div class="col-md-6">
+  </div>                                                                               
+ </div>       
+  <div class="form-group">                                    
+    <div class="col-md-6">
 <select name="cuti" class="form-control">
         <option value="">Pilih Total Cuti</option>
         <?php 
@@ -92,32 +95,33 @@ for ($i=0; $i <30 ; $i++) { ?>
 <?php }?>
         ?>
     </select>                                         
-                                        </div>               
-                                        <div class="col-md-3">
+   </div>               
+  <div class="col-md-3">
  <select name="lembur" class="form-control">
-        <option value="">Pilih Total Lembur</option>
+   <option value="">Pilih Total Lembur</option>
         <?php 
 for ($i=0; $i <30 ; $i++) { ?>
     <option value="<?php echo $i?>" required=""><?php echo $i?></option>
 <?php }?>
         ?>
-    </select>                                       </div>                                                                               
-                                        <div class="col-md-3">
-                                         <select name="telat" class="form-control">
-        <option value="">Pilih Total Telat</option>
+    </select>                 
+ </div>                                                                               
+ <div class="col-md-3">
+   <select name="telat" class="form-control">
+    <option value="">Pilih Total Telat</option>
         <?php 
 for ($i=0; $i <30 ; $i++) { ?>
     <option value="<?php echo $i?>" required=""><?php echo $i?></option>
 <?php }?>
         ?>
     </select>
-                                        </div>                                        
-                                    </div>                                      
+  </div>                                        
+   </div>                                      
  Periode Gaji<input type="text" class="form-control datepicker" name="tgl" required="">
      
-     <button class="btn btn-success fa fa-save" id="">Simpan</button>
-                                                                             
-                                </form>                                                                                           
+     <input type="submit" class="btn btn-success fa fa-save" value="Simpan">
+  </form>
+
                             </div>                              
                                 </div>
                             </div>

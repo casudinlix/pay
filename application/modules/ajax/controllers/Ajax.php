@@ -234,9 +234,11 @@ function gaji(){
       
 
       //add html for action
-      $row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_person('."'".$duddin->id_gaji."'".')"><i class="fa fa-pencil"></i> Edit</a>
-          ';
-    
+        if ($duddin->status=="POSTING") {
+        $row[]="<span class='label label-warning'>"."COMPLETE"."</span>";
+        }else{
+$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_person('."'".$duddin->id_gaji."'".')"><i class="fa fa-pencil"></i> Edit</a>';
+    }
       $data[] = $row;
     }
 
@@ -507,6 +509,15 @@ private function _cekpinjaman()
       echo json_encode($data);
       exit();
     }
+  }
+  public function ajax_bulk_delete()
+  {
+    $list_id = $this->input->post('id');
+
+    foreach ($list_id as $id) {
+      $this->duddin->delete_by_id($id);
+    }
+    echo json_encode(array("status" => TRUE));
   }
 }
 

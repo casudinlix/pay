@@ -298,7 +298,7 @@
 <!--Untuk alert-->
 <?php if ($this->session->flashdata('gaji')): ?>
   <script type="text/javascript">
-    swal("Gaji Sudah Terposting!", "", "success")
+    swal("Gaji Sudah Tersimpan!", "", "success")
   </script>
 
 <?php endif; ?>
@@ -637,7 +637,8 @@ showLoaderOnConfirm: true
 function kasbon($d) {
 var id = $d;
 
-  swal({
+  swal(
+  {
 title: "Are you sure?",
 text: "You will not be able to recover this !"+id,
 type: "warning",
@@ -1253,12 +1254,13 @@ function bulk_delete()
     });
     if(list_id.length > 0)
     {
-        if(confirm('Are you sure delete this '+list_id.length+' data?'))
+
+        if(confirm('Are you sure Posting this '+list_id.length+' data?'))
         {
             $.ajax({
                 type: "POST",
                 data: {id:list_id},
-                url: "<?php echo site_url('person/ajax_bulk_delete')?>",
+                url: "<?php echo site_url('ajax/ajax_bulk_delete')?>",
                 dataType: "JSON",
                 success: function(data)
                 {
@@ -1268,20 +1270,21 @@ function bulk_delete()
                     }
                     else
                     {
-                        alert('Failed.');
+                         swal("Error Gagal!", "", "error");
                     }
                     
                 },
                 error: function (jqXHR, textStatus, errorThrown)
                 {
-                    alert('Error deleting data');
+                    swal("Error POSTING!", "", "error");
+                    reload_table();
                 }
             });
         }
     }
     else
     {
-        alert('no data selected');
+         swal("Error!", "Pilih Data Terlebih Dahulu", "error");
     }
 }
 
