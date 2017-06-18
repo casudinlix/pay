@@ -10,7 +10,7 @@
                     </div>
                     <div class="mb-footer">
                         <div class="pull-right">
-                            <a href="<?php echo base_url('home/out')?>" class="btn btn-success btn-lg">YA</a>
+                            <a href="<?php echo base_url('accounting/out')?>" class="btn btn-success btn-lg">YA</a>
                             <button class="btn btn-default btn-lg mb-control-close">TIDAK</button>
                         </div>
                     </div>
@@ -1255,9 +1255,20 @@ function bulk_delete()
     if(list_id.length > 0)
     {
 
-        if(confirm('Are you sure Posting this '+list_id.length+' data?'))
-        {
-            $.ajax({
+        swal({
+  title: "Apakah Anda Yakin?",
+  text: "Data Gaji Ini Akan Di simpan dan tidak dapat di edit kembali",
+  type: "info",
+  showCancelButton: true,
+  confirmButtonClass: "btn-success",
+  confirmButtonText: "Ya!",
+  cancelButtonText: "Tidak",
+  closeOnConfirm: false,
+  closeOnCancel: false
+},
+function(isConfirm) {
+  if (isConfirm) {
+$.ajax({
                 type: "POST",
                 data: {id:list_id},
                 url: "<?php echo site_url('ajax/ajax_bulk_delete')?>",
@@ -1266,6 +1277,7 @@ function bulk_delete()
                 {
                     if(data.status)
                     {
+                      
                         reload_table();
                     }
                     else
@@ -1280,13 +1292,23 @@ function bulk_delete()
                     reload_table();
                 }
             });
-        }
-    }
-    else
+
+
+    swal("Posting!", "Data Gaji Sudah Terposting.", "success");
+
+
+  } else {
+    swal("Cancelled", "Cek Kembali Data Anda :)", "error");
+  }
+});
+        
+      }else
     {
          swal("Error!", "Pilih Data Terlebih Dahulu", "error");
     }
-}
+
+       } 
+           
 
 </script>
     </body>

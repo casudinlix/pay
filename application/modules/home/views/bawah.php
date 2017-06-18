@@ -112,11 +112,11 @@
 
 <script src='<?php echo tema()?>js/fullcalendar.min.js'></script>
 <script type="text/javascript" src="<?php echo tema()?>js/plugins/tableexport/tableExport.js"></script>
-	<script type="text/javascript" src="<?php echo tema()?>js/plugins/tableexport/jquery.base64.js"></script>
-	<script type="text/javascript" src="<?php echo tema()?>js/plugins/tableexport/html2canvas.js"></script>
-	<script type="text/javascript" src="<?php echo tema()?>js/plugins/tableexport/jspdf/libs/sprintf.js"></script>
-	<script type="text/javascript" src="<?php echo tema()?>js/plugins/tableexport/jspdf/jspdf.js"></script>
-	<script type="text/javascript" src="<?php echo tema()?>js/plugins/tableexport/jspdf/libs/base64.js"></script>
+  <script type="text/javascript" src="<?php echo tema()?>js/plugins/tableexport/jquery.base64.js"></script>
+  <script type="text/javascript" src="<?php echo tema()?>js/plugins/tableexport/html2canvas.js"></script>
+  <script type="text/javascript" src="<?php echo tema()?>js/plugins/tableexport/jspdf/libs/sprintf.js"></script>
+  <script type="text/javascript" src="<?php echo tema()?>js/plugins/tableexport/jspdf/jspdf.js"></script>
+  <script type="text/javascript" src="<?php echo tema()?>js/plugins/tableexport/jspdf/libs/base64.js"></script>
         <script type="text/javascript" src="<?php echo tema();?>js/plugins/dropzone/dropzone.min.js"></script>
         <script type="text/javascript" src="<?php echo tema();?>date/jquery.dataTables.yadcf.js"></script>
 
@@ -345,28 +345,28 @@ addRemoveLinks:true,
 
 //Event ketika Memulai mengupload
 foto_upload.on("sending",function(a,b,c){
-	a.nip="<?php echo $this->uri->segment(3) ?>";
-	c.append("token",a.nip); //Menmpersiapkan token untuk masing masing foto
+  a.nip="<?php echo $this->uri->segment(3) ?>";
+  c.append("token",a.nip); //Menmpersiapkan token untuk masing masing foto
 });
 
 
 //Event ketika foto dihapus
 foto_upload.on("removedfile",function(a){
-	var token=a.nip;
-	$.ajax({
-		type:"post",
-		data:{token:token},
-		url:"<?php echo site_url('home/remove_foto') ?>",
-		cache:false,
-		dataType: 'json',
-		success: function(){
-			console.log("Foto terhapus");
-		},
-		error: function(){
-			console.log("Error");
+  var token=a.nip;
+  $.ajax({
+    type:"post",
+    data:{token:token},
+    url:"<?php echo site_url('home/remove_foto') ?>",
+    cache:false,
+    dataType: 'json',
+    success: function(){
+      console.log("Foto terhapus");
+    },
+    error: function(){
+      console.log("Error");
 
-		}
-	});
+    }
+  });
 });
 
 
@@ -1255,9 +1255,20 @@ function bulk_delete()
     if(list_id.length > 0)
     {
 
-        if(confirm('Are you sure Posting this '+list_id.length+' data?'))
-        {
-            $.ajax({
+        swal({
+  title: "Apakah Anda Yakin?",
+  text: "Data Gaji Ini Akan Di simpan dan tidak dapat di edit kembali",
+  type: "info",
+  showCancelButton: true,
+  confirmButtonClass: "btn-success",
+  confirmButtonText: "Ya!",
+  cancelButtonText: "Tidak",
+  closeOnConfirm: false,
+  closeOnCancel: false
+},
+function(isConfirm) {
+  if (isConfirm) {
+$.ajax({
                 type: "POST",
                 data: {id:list_id},
                 url: "<?php echo site_url('ajax/ajax_bulk_delete')?>",
@@ -1266,6 +1277,7 @@ function bulk_delete()
                 {
                     if(data.status)
                     {
+                      
                         reload_table();
                     }
                     else
@@ -1280,13 +1292,23 @@ function bulk_delete()
                     reload_table();
                 }
             });
-        }
-    }
-    else
+
+
+    swal("Posting!", "Data Gaji Sudah Terposting.", "success");
+
+
+  } else {
+    swal("Cancelled", "Cek Kembali Data Anda :)", "error");
+  }
+});
+        
+      }else
     {
          swal("Error!", "Pilih Data Terlebih Dahulu", "error");
     }
-}
+
+       } 
+           
 
 </script>
     </body>

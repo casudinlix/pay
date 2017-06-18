@@ -515,6 +515,7 @@ private function _cekpinjaman()
     $list_id = $this->input->post('id');
 
     foreach ($list_id as $id) {
+      
       $this->duddin->delete_by_id($id);
     }
     echo json_encode(array("status" => TRUE));

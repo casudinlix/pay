@@ -99,8 +99,12 @@ private function _get_datatables_query()
 	public function delete_by_id($id)
 	{
 		$data=array('status'=>'POSTING');
+
 		$where=$this->db->where('id_gaji', $id);
 		$this->db->update('gaji2',$data);
+
+		
+
 	}
 }
 
