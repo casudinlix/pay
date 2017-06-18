@@ -54,10 +54,10 @@ function idgaji(){
   $y=date('Y');
   $b=date("m");
   $t=date('d');
- $this->db->select('RIGHT(gaji.id_gaji,2) as kode', FALSE);
+ $this->db->select('RIGHT(gaji2.id_gaji,2) as kode', FALSE);
   $this->db->order_by('id_gaji','DESC');    
   $this->db->limit(1);     
-  $query = $this->db->get('gaji');      //cek dulu apakah ada sudah ada kode di tabel.    
+  $query = $this->db->get('gaji2');      //cek dulu apakah ada sudah ada kode di tabel.    
   if($query->num_rows() <> 0){       
    //jika kode ternyata sudah ada.      
    $data = $query->row();      
@@ -76,9 +76,9 @@ function jabatan(){
   $b=date('m');
   $y=date('y');
   $create = strtoupper(uniqid(rand(),true));
-  $s='A';
+  $s='JBT';
 
-  $style = substr($s."0"."-".$create,0,5);
+  $style = substr($s."0"."-".$create,0,7);
   return $style;
 }
 function potongan(){
@@ -86,7 +86,7 @@ function potongan(){
   $b=date('m');
   $y=date('y');
   $create = strtoupper(uniqid(rand(),true));
-  $s='P';
+  $s='PT';
 
   $style = substr($s."0"."-".$create,0,5);
   return $style; 
@@ -96,9 +96,9 @@ function insentif(){
   $b=date('m');
   $y=date('y');
   $create = strtoupper(uniqid(rand(),true));
-  $s='I';
+  $s='INS';
 
-  $style = substr($s."0"."-".$create,0,6);
+  $style = substr($s."0"."-".$create,0,7);
   return $style;
 }
 }

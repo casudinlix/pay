@@ -1,7 +1,7 @@
 
                 <!-- PAGE TITLE -->
                 <div class="page-title">                    
-                    <h2><a href="#" title=""><span class="fa fa-arrow-circle-o-left"></span> </a> Input Gaji Karyawan</h2>
+                    <h2><a href="#" title=""><span class="fa fa-arrow-circle-o-left"></span> </a> Edit Gaji Karyawan</h2>
 
                 </div>
                 <!-- END PAGE TITLE -->                
@@ -9,7 +9,7 @@
                 <!-- PAGE CONTENT WRAPPER -->
                 <div class="page-content-wrap">
                 
-                <input type="hidden" name="id" value="<?php echo $idgaji?>" placeholder="">
+                <input type="hidden" name="id" value="<?php echo $this->uri->segment(3)?>" placeholder="">
                     <div class="row">
                         <div class="col-md-6">
 
@@ -21,18 +21,17 @@
 
                                 <div class="panel-body">
                                      <form action="#"  accept-charset="ut-8">
-                                      <button type="button" class="btn btn-warning" id="lookup1"><i class="fa fa-search"></i>Cari</button>
-
+                                      
                                      
-                                         <input type="text" class="form-control cari" id="" name="nip" required="">
+<input type="text" class="form-control cari"  name="nip" value="<?php echo $kar->nip?>" readonly="">
                                         Nama
-  <input type="text" class="form-control cari" id="nama_lengkap" required="" name="nama">
+  <input type="text" class="form-control cari" required="" name="nama" value="<?php echo $kar->nama_lengkap?>" readonly="">
                                             Jabatan
- <input type="text" class="form-control cari" name="jabatan" required="">
+ <input type="text" class="form-control cari" name="jabatan" value="<?php echo $kar->nama_jabatan?>" readonly="">
                                                Golongan
-   <input type="text" class="form-control cari" name="gol" required="">
+   <input type="text" class="form-control cari" name="gol" value="<?php echo $kar->gol_jabatan?>" readonly="">
                                                   Gapok
-     <input type="text" class="form-control cari" name="gapok" required="">
+     <input type="text" class="form-control cari" name="gapok" value="<?php echo $kar->gapok?>" readonly="">
                                      </form>                           
                                 </div>
                             </div>
@@ -47,14 +46,15 @@
   
    <div class="block">                            
    
-<form class="form-horizontal" method="post" action="<?php echo site_url('aksi_1/simpangaji')?>">
+<form class="form-horizontal" method="post" action="<?php echo site_url('home/hitung')?>">
 
  <div class="form-group">                                        
   <div class="col-md-12">
 <input type="hidden" name="id" value="<?php echo $this->uri->segment(3)?>" class="form-control-sm">
 <input type="hidden" name="nip" class="form-control-sm">
    <select name="hari" class="form-control">
-  <option value="">Pilih Total Hari Kerja</option>
+  
+  <option value="<?php echo $absen->total_hari?>" selected=""><?php echo $absen->total_hari?></option>
         <?php 
 for ($i=1; $i <32 ; $i++) { ?>
     <option value="<?php echo $i?>" required=""><?php echo $i?></option>
@@ -66,7 +66,7 @@ for ($i=1; $i <32 ; $i++) { ?>
       <div class="form-group">                                    
      <div class="col-md-8">
    <select name="hadir" class="form-control">
-        <option value="">Total Hadir</option>
+        <option value="<?php echo $absen->total_hadir?>"><?php echo $absen->total_hadir?></option>
         <?php 
 for ($i=1; $i <30 ; $i++) { ?>
     <option value="<?php echo $i?>" required=""><?php echo $i?></option>
@@ -76,7 +76,7 @@ for ($i=1; $i <30 ; $i++) { ?>
       </div>               
     <div class="col-md-4">
             <select name="ijin" class="form-control">
-        <option value="">Pilih Total Hari Ijin</option>
+        <option value="<?php echo $absen->total_ijin?>"><?php echo $absen->total_ijin?></option>
         <?php 
 for ($i=0; $i <30 ; $i++) { ?>
     <option value="<?php echo $i?>" required=""><?php echo $i?></option>
@@ -88,7 +88,7 @@ for ($i=0; $i <30 ; $i++) { ?>
   <div class="form-group">                                    
     <div class="col-md-6">
 <select name="cuti" class="form-control">
-        <option value="">Pilih Total Cuti</option>
+        <option value="<?php echo $absen->total_cuti?>"><?php echo $absen->total_cuti?></option>
         <?php 
 for ($i=0; $i <30 ; $i++) { ?>
     <option value="<?php echo $i?>" required=""><?php echo $i?></option>
@@ -98,7 +98,7 @@ for ($i=0; $i <30 ; $i++) { ?>
    </div>               
   <div class="col-md-3">
  <select name="lembur" class="form-control">
-   <option value="">Pilih Total Lembur</option>
+   <option value="<?php echo $absen->total_lembur?>"><?php echo $absen->total_lembur?></option>
         <?php 
 for ($i=0; $i <30 ; $i++) { ?>
     <option value="<?php echo $i?>" required=""><?php echo $i?></option>
@@ -108,7 +108,7 @@ for ($i=0; $i <30 ; $i++) { ?>
  </div>                                                                               
  <div class="col-md-3">
    <select name="telat" class="form-control">
-    <option value="">Pilih Total Telat</option>
+    <option value="<?php echo $absen->total_telat?>"><?php echo $absen->total_telat?></option>
         <?php 
 for ($i=0; $i <30 ; $i++) { ?>
     <option value="<?php echo $i?>" required=""><?php echo $i?></option>
@@ -117,9 +117,9 @@ for ($i=0; $i <30 ; $i++) { ?>
     </select>
   </div>                                        
    </div>                                      
- Periode Gaji<input type="text" class="form-control datepicker" name="tgl" required="">
+ Periode Gaji<input type="text" class="form-control" readonly="" name="tgl" value="<?php echo tgl_indo($periode->bulan_gaji)?>" >
      
-     <input type="submit" class="btn btn-success fa fa-save" value="Simpan">
+     <input type="submit" class="btn btn-success fa fa-save" value="Update">
   </form>
 
                             </div>                              
@@ -147,7 +147,7 @@ for ($i=0; $i <30 ; $i++) { ?>
                                     </select>
 <input type="number" name="banyak" value="1" class="form-control-sm"> 
 <input type="hidden" name="id" value="<?php echo $this->uri->segment(3)?>" class="form-control-sm">
- <input type="hidden" class="form-control cari"  name="nip" required="">                                 
+ <input type="hidden" class="form-control cari"  name="nip" value="<?php echo $kar->nip?>">                                 
   
   <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Tambah</button>
                                 </form>
@@ -193,7 +193,7 @@ for ($i=0; $i <30 ; $i++) { ?>
                                     </select>
 <input type="number" name="banyak" value="1" class="form-control-sm"> 
 <input type="hidden" name="id" value="<?php echo $this->uri->segment(3)?>" class="form-control-sm">
- <input type="hidden" class="form-control cari"  name="nip" required="">                                 
+ <input type="hidden" class="form-control cari"  name="nip" value="<?php echo $kar->nip?>">                                 
   
   <button type="button" id="btnSavepotongan" onclick="savepotongan()" class="btn btn-primary">Tambah</button>
 

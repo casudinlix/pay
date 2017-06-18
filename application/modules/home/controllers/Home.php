@@ -644,4 +644,17 @@ $data['user']=$this->db->get_where('karyawan_view',array('nip'=>$id))->row();
   $this->load->view('profil/profil',$data);
   $this->load->view('bawah',$data);
 }
+function editgaji(){
+$data['com']=$this->db->get('company')->row();
+$id=$this->uri->segment(3);
+$isi=array('id_gaji'=>$id);
+$data['kar']=$this->db->get_where('all_gaji_view',$isi)->row();
+$data['absen']=$this->db->get_where('gaji_absensi', $isi)->row();
+$data['periode']=$this->db->get_where('gaji2',$isi)->row();
+$data['insentif']=$this->db->get('insentif')->result();
+$data['potongan']=$this->db->get('potongan')->result();
+  $this->load->view('atas',$data);
+  $this->load->view('hitung/editgaji',$data);
+  $this->load->view('bawah',$data);
+}
 }

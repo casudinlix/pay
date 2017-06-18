@@ -15,6 +15,8 @@
 <link href="<?php echo tema();?>select2/dist/css/select2.min.css" rel="stylesheet">
 <link href="<?php echo tema();?>date/daterangepicker.css" rel="stylesheet">
 
+ <link rel="stylesheet" type="text/css" href="<?php echo tema();?>lookupbox.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo tema();?>jquery-ui.min.css" />
 
 
 <style type="text/css">

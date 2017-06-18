@@ -27,6 +27,16 @@ $data['com']=$this->db->get('company')->row();
 $data['jumlah']=$this->db->get('karyawan')->num_rows();
 $data['cuti']=$this->db->get_where('aju_cuti',array('status_cuti'=>'POSTING','status_cuti !='=>'REJECT'))->num_rows();
 $data['kasbon']=$this->db->get_where('pinjaman',array('status_aju'=>'PENDING','status_aju !='=>'REJECT'))->num_rows();
+$data['com']=$this->db->get('company')->row();
+  $this->db->select_sum('nominal_pinjaman');
+  $this->db->where(array('status_aju'=>'APPROVE','status_pinjaman'=>'BELUM BAYAR'));
+  //$this->db->or_where_in('status_pinjaman','BELUM BAYAR');
+  $data['sum']=$this->db->get('pinjaman_view')->row();
+  $this->db->select_sum('nominal_pinjaman');
+  $this->db->where_in('status_pinjaman','LUNAS');
+    $data['lunas']=$this->db->get('pinjaman_view')->row();
+  $data['all']=$this->db->get('pinjaman_view')->result();
+  
 $this->load->view('atas', $data);
 $this->load->view('home', $data);
 $this->load->view('bawah', $data);
@@ -47,37 +57,37 @@ $this->session->unset_userdata($semua);
     $data['jumlah']=$this->db->get('karyawan_view')->num_rows();
 
     $jml = $this->db->get('karyawan');
-		$search= $this->input->post('search');
-		$config['base_url'] = site_url().'/accounting/employe/';
-		$config['total_rows']  = $jml->num_rows();
-		$config['per_page']    = 8;/*Jumlah data yang dipanggil perhalaman*/
-		$config['uri_segment'] = 3;/*data selanjutnya di parse diurisegmen 3*/
-		//Zend_Barcode::render('code128', 'image', array('text' => '1233'), array());
-		//require_once ('./application/libraries/Zend/Barcode.php');
-		//adjust the above path to the correct location
-		/*Class bootstrap pagination yang digunakan*/
-		$config['full_tag_open']    = "<div class='pagination pagination-right'>";
-		$config['full_tag_close']   = "</ul>";
-		$config['num_tag_open']     = '<li>';
-		$config['num_tag_close']    = '</li>';
-		$config['cur_tag_open']     = "<li class='disabled'><li class='active'><a href='#'>";
-		$config['cur_tag_close']    = "<span class='sr-only'></span></a></li>";
-		$config['next_tag_open']    = "<li>";
-		$config['next_tagl_close']  = "</li>";
-		$config['prev_tag_open']    = "<li>";
-		$config['prev_tagl_close']  = "</li>";
-		$config['first_tag_open']   = "<li>";
-		$config['first_tagl_close'] = "</li>";
-		$config['last_tag_open']    = "<li>";
-		$config['last_tagl_close']  = "</li>";
-		$this->pagination->initialize($config);
-		$data['halaman'] = $this->pagination->create_links();
-		/*membuat variable halaman untuk dipanggil di view nantinya*/
-		$data['offset'] = $offset;
-		$data['data'] = $this->m_list->paging($config['per_page'], $search, $offset);
-		//	$data= $this->model_item_list->view($pencarian,$offset,$data);
-		$this->load->model('m_list');
-		//$this->model_item_list->produk()->row_array();
+    $search= $this->input->post('search');
+    $config['base_url'] = site_url().'/home/employe/';
+    $config['total_rows']  = $jml->num_rows();
+    $config['per_page']    = 8;/*Jumlah data yang dipanggil perhalaman*/
+    $config['uri_segment'] = 3;/*data selanjutnya di parse diurisegmen 3*/
+    //Zend_Barcode::render('code128', 'image', array('text' => '1233'), array());
+    //require_once ('./application/libraries/Zend/Barcode.php');
+    //adjust the above path to the correct location
+    /*Class bootstrap pagination yang digunakan*/
+    $config['full_tag_open']    = "<div class='pagination pagination-right'>";
+    $config['full_tag_close']   = "</ul>";
+    $config['num_tag_open']     = '<li>';
+    $config['num_tag_close']    = '</li>';
+    $config['cur_tag_open']     = "<li class='disabled'><li class='active'><a href='#'>";
+    $config['cur_tag_close']    = "<span class='sr-only'></span></a></li>";
+    $config['next_tag_open']    = "<li>";
+    $config['next_tagl_close']  = "</li>";
+    $config['prev_tag_open']    = "<li>";
+    $config['prev_tagl_close']  = "</li>";
+    $config['first_tag_open']   = "<li>";
+    $config['first_tagl_close'] = "</li>";
+    $config['last_tag_open']    = "<li>";
+    $config['last_tagl_close']  = "</li>";
+    $this->pagination->initialize($config);
+    $data['halaman'] = $this->pagination->create_links();
+    /*membuat variable halaman untuk dipanggil di view nantinya*/
+    $data['offset'] = $offset;
+    $data['data'] = $this->m_list->paging($config['per_page'], $search, $offset);
+    //  $data= $this->model_item_list->view($pencarian,$offset,$data);
+    $this->load->model('m_list');
+    //$this->model_item_list->produk()->row_array();
 
     $this->load->view('atas', $data);
     $this->load->view('employe/employe', $data);
@@ -122,7 +132,7 @@ function uploadphoto(){
                   $this->db->where('nip', $token);
                   $this->db->update('karyawan', array('foto'=>$nama));
                   echo "Ok";
-                	//$this->db->insert('employe',array('photo'=>$nama,'token'=>$token));
+                  //$this->db->insert('employe',array('photo'=>$nama,'token'=>$token));
                 }else{
                   echo $this->upload->display_errors();
                 }
@@ -130,28 +140,28 @@ function uploadphoto(){
 }
 function remove_foto(){
   //Ambil token foto
-		$token=$this->input->post('token');
+    $token=$this->input->post('token');
 
 
-		$foto=$this->db->get_where('employe',array('nip'=>$token));
+    $foto=$this->db->get_where('employe',array('nip'=>$token));
 
 
-		if($foto->num_rows()>0){
-			$hasil=$foto->row();
-			$nama_foto=$hasil->photo;
-			if(file_exists($file=FCPATH.'/upload/employe/'.$nama_foto)){
-				unlink($file);
-			}
+    if($foto->num_rows()>0){
+      $hasil=$foto->row();
+      $nama_foto=$hasil->photo;
+      if(file_exists($file=FCPATH.'/upload/employe/'.$nama_foto)){
+        unlink($file);
+      }
       $this->db->where('nip', $token);
-			$this->db->update('employe',array('photo'=>'no.png'));
+      $this->db->update('employe',array('photo'=>'no.png'));
       echo "OK";
 
 
-		}
+    }
 
 
-		echo "{}";
-	}
+    echo "{}";
+  }
 function deletpoto($d){
   $id=$this->uri->segment(3);
   $foto=$this->db->get_where('employe',array('nip'=>$id));
@@ -232,19 +242,19 @@ function set(){
   $keyword=$this->uri->segment(3);
     //$this->db->select('sift_name, jam_in,jam_out');
      //$this->db->like();
-     		$data =$this->db->get('shift');
+        $data =$this->db->get('shift');
         foreach($data->result() as $row)
-    		{
-    			$arr['query'] = $keyword;
-    			$arr['suggestions'][] = array(
-    				'value'	=>$row->sift_name,
-    				'jam_in'	=>$row->jam_in,
-    				'jam_out'	=>$row->jam_out
+        {
+          $arr['query'] = $keyword;
+          $arr['suggestions'][] = array(
+            'value' =>$row->sift_name,
+            'jam_in'  =>$row->jam_in,
+            'jam_out' =>$row->jam_out
 
-    			);
-    		}
-    		// minimal PHP 5.2
-    		echo json_encode($arr);
+          );
+        }
+        // minimal PHP 5.2
+        echo json_encode($arr);
 
 
 }
@@ -453,11 +463,14 @@ $data['cek']=$this->db->get('aju_cuti_view')->result();
 }
 function hitung(){
     $data['com']=$this->db->get('company')->row();
-    $data['gaji']=$this->db->get('all_view_1')->result();
+   
     $this->load->model('m_list');
 $data['idgaji']=$this->m_list->idgaji();
+
+
+
      $this->load->view('atas',$data);
-  $this->load->view('hitung/hitung',$data);
+  $this->load->view('hitung/hitung1',$data);
   $this->load->view('bawah',$data);
 
 }
@@ -467,15 +480,14 @@ function hitunggaji(){
   $idgaji=$this->uri->segment(5);
   $this->load->model('m_list');
   $this->m_list->idgaji();
+
   $data['idgaji']=$this->m_list->idgaji();
-  $data['all']=$this->db->get('all_view_1',array('nip'=>$id))->row();
+  
   $data['com']=$this->db->get('company')->row();
-  $data['insentif']=$this->db->get_where('insentif',Array('gol_jabatan'=>$gol))->result();
-  $data['cek']=$this->db->get_where('gaji_detail',array('id_gaji'=>$idgaji))->result();
-$data['cekgaji']=$this->db->get_where('gaji_detail_view',array('id_gaji'=>$idgaji))->result();
-$this->db->select_sum('nominal_insentif');
-$data['sum']=$this->db->get_where('sum_insentif_gaji_view',array('id_gaji'=>$id))->row();
-$data['pinjaman']=$this->db->get_where('pinjaman', array('nip'=>$id,'status_aju'=>'APPROVE','status_pinjaman'=>'BELUM BAYAR'))->result();
+  $data['insentif']=$this->db->get('insentif')->result();
+  
+   $data['potongan']=$this->db->get('potongan')->result();
+   $data['pinjaman']=
   $this->load->view('atas',$data);
   $this->load->view('hitung/hitunggaji',$data);
   $this->load->view('bawah',$data);
@@ -504,9 +516,12 @@ $this->load->view('bawah',$data);
 function listkasbon(){
   $data['com']=$this->db->get('company')->row();
   $this->db->select_sum('nominal_pinjaman');
-  $this->db->where_in('status_aju','PENDING');
-  $this->db->or_where_in('status_aju','APPROVE');
+  $this->db->where(array('status_aju'=>'APPROVE','status_pinjaman'=>'BELUM BAYAR'));
+  //$this->db->or_where_in('status_pinjaman','BELUM BAYAR');
   $data['sum']=$this->db->get('pinjaman_view')->row();
+  $this->db->select_sum('nominal_pinjaman');
+  $this->db->where_in('status_pinjaman','LUNAS');
+    $data['lunas']=$this->db->get('pinjaman_view')->row();
   $data['all']=$this->db->get('pinjaman_view')->result();
     $this->load->view('atas',$data);
     $this->load->view('approve/kasbon',$data);
@@ -526,9 +541,9 @@ function lapkasbon(){
   $arr=array('status_aju'=>'APPROVE','status_pinjaman'=>'BELUM BAYAR');
   $this->db->select_sum('nominal_pinjaman');
   $this->db->where($arr);
-    $data['sum']=$this->db->get('kasbon_view')->row();
+    $data['sum']=$this->db->get('pinjaman_view')->row();
   $this->db->where($arr);
-  $data['all']=$this->db->get('kasbon_view')->result();
+  $data['all']=$this->db->get('pinjaman_view')->result();
     $this->load->view('atas',$data);
     $this->load->view('laporan/kasbon',$data);
     $this->load->view('bawah',$data);
@@ -611,7 +626,7 @@ function lappenggajian(){
     $this->load->view('bawah',$data);
 }
 function lapabsensi(){
-	$data['com']=$this->db->get('company')->row();
+  $data['com']=$this->db->get('company')->row();
 $data['all']=$this->db->get('absensi_view')->result();
 
 
@@ -620,13 +635,26 @@ $data['all']=$this->db->get('absensi_view')->result();
   $this->load->view('bawah',$data);
 }
 function profil(){
-	$data['com']=$this->db->get('company')->row();
-	$id=$this->uri->segment(3);
+  $data['com']=$this->db->get('company')->row();
+  $id=$this->uri->segment(3);
 $data['user']=$this->db->get_where('karyawan_view',array('nip'=>$id))->row();
 
 
   $this->load->view('atas',$data);
   $this->load->view('profil/profil',$data);
+  $this->load->view('bawah',$data);
+}
+function editgaji(){
+$data['com']=$this->db->get('company')->row();
+$id=$this->uri->segment(3);
+$isi=array('id_gaji'=>$id);
+$data['kar']=$this->db->get_where('all_gaji_view',$isi)->row();
+$data['absen']=$this->db->get_where('gaji_absensi', $isi)->row();
+$data['periode']=$this->db->get_where('gaji2',$isi)->row();
+$data['insentif']=$this->db->get('insentif')->result();
+$data['potongan']=$this->db->get('potongan')->result();
+  $this->load->view('atas',$data);
+  $this->load->view('hitung/editgaji',$data);
   $this->load->view('bawah',$data);
 }
 }

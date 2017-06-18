@@ -44,7 +44,7 @@ class Ajax extends CI_Controller {
   function hitunggaji(){
     $id=$this->uri->segment(3);
       //$this->db->select('sift_name, jam_in,jam_out');
-       //$this->db->like();
+       //$this->db->like();gaji
     $this->db->like('nip',$id);
    $this->db->or_like('nama_lengkap', $id);
    
@@ -237,7 +237,7 @@ function gaji(){
         if ($duddin->status=="POSTING") {
         $row[]="<span class='label label-warning'>"."COMPLETE"."</span>";
         }else{
-$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_person('."'".$duddin->id_gaji."'".')"><i class="fa fa-pencil"></i> Edit</a>';
+$row[] = '<a class="btn btn-sm btn-primary" href="editgaji/'."".$duddin->id_gaji."".'" title="Edit" ><i class="fa fa-pencil"></i> Edit</a>';
     }
       $data[] = $row;
     }
