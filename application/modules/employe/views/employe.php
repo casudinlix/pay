@@ -1,78 +1,96 @@
-<!-- START BREADCRUMB -->
-<ul class="breadcrumb">
-    <li><a href="<?php echo site_url('home')?>"><i class="fa fa-home"></i>Home</a></li>
-    <li><a href="<?php echo site_url('home/employe')?>"><i class="fa fa-users"></i>Employe</a></li>
 
-</ul>
-<!-- END BREADCRUMB -->
-
-
-<!-- PAGE TITLE -->
-<div class="page-title">
-    <h2><span class="fa fa-users"></span> Address Book <small><?php echo $this->session->userdata('login')."".$this->session->userdata('level')?></small></h2>
-</div>
-<!-- END PAGE TITLE -->
 
 <!-- PAGE CONTENT WRAPPER -->
 <div class="page-content-wrap">
 
     <div class="row">
         <div class="col-md-12">
-
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <p>Use search to find contacts. You can search by: name, address, phone. Or use the advanced search.
-<?php echo var_dump($this->session->all_userdata())?>
+<!-- START WIDGET SLIDER -->
+<div class="widget widget-default widget-carousel">
+    <div class="owl-carousel" id="owl-example">
+         
+         
+         
+    </div>
+    <div class="widget-controls">
+        <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
+    </div>
+</div>
+<!-- END WIDGET SLIDER -->
+
+</div>
+<div class="col-md-3">
+
+<!-- START WIDGET MESSAGES -->
  
-                    </p>
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            <div class="col-md-8">
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <span class="fa fa-search"></span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Who are you looking for?"/>
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-primary">Search</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <button class="btn btn-success btn-block"><span class="fa fa-plus"></span> Add new contact</button>
-                            </div>
-                        </div>
-                    </form>
+   
+  
+    <div class="widget-controls">
+        
+    </div>
+</div>
+ 
+     
+    
+    <div class="widget-controls">
+         
+    </div>
+</div>
+
+<!-- END WIDGET MESSAGES -->
+
+</div>
+<div class="col-md-3">
+
+<!-- START WIDGET REGISTRED -->
+ 
+    <div class="widget-item-left">
+        
+    </div>
+    
+    <div class="widget-controls">
+       
+    </div>
+</div>
+<!-- END WIDGET REGISTRED -->
+ 
+</div>
+<div class="col-md-3">
+
+<!-- START WIDGET CLOCK -->
+<div class="widget widget-info widget-padding-sm">
+    <div class="widget-big-int plugin-clock">00:00</div>
+    <div class="widget-subtitle plugin-date">Loading...</div>
+    <div class="widget-controls">
+        <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="left" title="Remove Widget"><span class="fa fa-times"></span></a>
+    </div>
+    <div class="widget-buttons widget-c3">
+        <div class="col">
+            <a href="#"><span class="fa fa-clock-o"></span></a>
+        </div>
+        <div class="col">
+            <a href="#"><span class="fa fa-bell"></span></a>
+        </div>
+        <div class="col">
+            <a href="#"><span class="fa fa-calendar"></span></a>
+        </div>
+    </div>
+</div>
+<!-- END WIDGET CLOCK -->
+
+</div>
+</div>
+<!-- END WIDGETS -->
                 </div>
             </div>
-
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-3">
-            <!-- CONTACT ITEM -->
-            <div class="panel panel-default">
-                <div class="panel-body profile">
-                    <div class="profile-image">
-                        <img src="assets/images/users/user3.jpg" alt="Nadia Ali"/>
-                    </div>
-                    <div class="profile-data">
-                        <div class="profile-data-name">Nadia Ali</div>
-                        <div class="profile-data-title">Singer-Songwriter</div>
-                    </div>
-                    <div class="profile-controls">
-                        <a href="#" class="profile-control-left"><span class="fa fa-info"></span></a>
-                        <a href="#" class="profile-control-right"><span class="fa fa-phone"></span></a>
-                    </div>
-                </div>
-                <div class="panel-body">
-                    <div class="contact-info">
-                        <p><small>Mobile</small><br/>(555) 555-55-55</p>
-                        <p><small>Email</small><br/>nadiaali@domain.com</p>
-                        <p><small>Address</small><br/>123 45 Street San Francisco, CA, USA</p>
-                    </div>
-                </div>
-            </div>
-            <!-- END CONTACT ITEM -->
-        </div>
+</div>
+<!-- PAGE CONTENT WRAPPER -->
+</div>
+<!-- END PAGE CONTENT -->
+</div>
+<!-- END PAGE CONTAINER -->
