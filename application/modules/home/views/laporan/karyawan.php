@@ -12,6 +12,7 @@
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Laporan Data Karyawan</h3>
                                     <div class="btn-group pull-right">
+                                    <a href="<?php echo site_url('home/cetak')?>" target="_blank">Cetak</a>
                                         <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> Export Data</button>
                                         <ul class="dropdown-menu">
                                              <li><a href="#" onClick ="$('#karyawan').tableExport({type:'excel',escape:'false'});"><img src='<?php echo export()?>xls.png' width="24"/> XLS</a></li>
