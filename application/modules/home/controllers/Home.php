@@ -600,7 +600,7 @@ function ditelslip(){
         $id=$this->uri->segment(3);
         $this->db->distinct();
        $this->db->select('id_gaji,nip,bulan_gaji,status');
-       $data['gaji']=$this->db->get_where('gaji_detail',array('nip'=>$id))->result();
+       $data['gaji']=$this->db->get_where('gaji2',array('nip'=>$id))->result();
 
         $data['nama']=$this->db->get_where('karyawan',array('nip'=>$id))->row();
    $this->load->view('atas',$data);

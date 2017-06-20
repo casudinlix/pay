@@ -10,7 +10,7 @@
                     </div>
                     <div class="mb-footer">
                         <div class="pull-right">
-                            <a href="<?php echo base_url('accounting/out')?>" class="btn btn-success btn-lg">YA</a>
+                            <a href="<?php echo base_url('home/out')?>" class="btn btn-success btn-lg">YA</a>
                             <button class="btn btn-default btn-lg mb-control-close">TIDAK</button>
                         </div>
                     </div>
@@ -112,11 +112,11 @@
 
 <script src='<?php echo tema()?>js/fullcalendar.min.js'></script>
 <script type="text/javascript" src="<?php echo tema()?>js/plugins/tableexport/tableExport.js"></script>
-	<script type="text/javascript" src="<?php echo tema()?>js/plugins/tableexport/jquery.base64.js"></script>
-	<script type="text/javascript" src="<?php echo tema()?>js/plugins/tableexport/html2canvas.js"></script>
-	<script type="text/javascript" src="<?php echo tema()?>js/plugins/tableexport/jspdf/libs/sprintf.js"></script>
-	<script type="text/javascript" src="<?php echo tema()?>js/plugins/tableexport/jspdf/jspdf.js"></script>
-	<script type="text/javascript" src="<?php echo tema()?>js/plugins/tableexport/jspdf/libs/base64.js"></script>
+  <script type="text/javascript" src="<?php echo tema()?>js/plugins/tableexport/jquery.base64.js"></script>
+  <script type="text/javascript" src="<?php echo tema()?>js/plugins/tableexport/html2canvas.js"></script>
+  <script type="text/javascript" src="<?php echo tema()?>js/plugins/tableexport/jspdf/libs/sprintf.js"></script>
+  <script type="text/javascript" src="<?php echo tema()?>js/plugins/tableexport/jspdf/jspdf.js"></script>
+  <script type="text/javascript" src="<?php echo tema()?>js/plugins/tableexport/jspdf/libs/base64.js"></script>
         <script type="text/javascript" src="<?php echo tema();?>js/plugins/dropzone/dropzone.min.js"></script>
         <script type="text/javascript" src="<?php echo tema();?>date/jquery.dataTables.yadcf.js"></script>
 
@@ -345,28 +345,28 @@ addRemoveLinks:true,
 
 //Event ketika Memulai mengupload
 foto_upload.on("sending",function(a,b,c){
-	a.nip="<?php echo $this->uri->segment(3) ?>";
-	c.append("token",a.nip); //Menmpersiapkan token untuk masing masing foto
+  a.nip="<?php echo $this->uri->segment(3) ?>";
+  c.append("token",a.nip); //Menmpersiapkan token untuk masing masing foto
 });
 
 
 //Event ketika foto dihapus
 foto_upload.on("removedfile",function(a){
-	var token=a.nip;
-	$.ajax({
-		type:"post",
-		data:{token:token},
-		url:"<?php echo site_url('home/remove_foto') ?>",
-		cache:false,
-		dataType: 'json',
-		success: function(){
-			console.log("Foto terhapus");
-		},
-		error: function(){
-			console.log("Error");
+  var token=a.nip;
+  $.ajax({
+    type:"post",
+    data:{token:token},
+    url:"<?php echo site_url('home/remove_foto') ?>",
+    cache:false,
+    dataType: 'json',
+    success: function(){
+      console.log("Foto terhapus");
+    },
+    error: function(){
+      console.log("Error");
 
-		}
-	});
+    }
+  });
 });
 
 
@@ -995,6 +995,33 @@ tabelpotongan = $('#tblpotongan').DataTable({
         // Load data for the table's content from an Ajax source
         "ajax": {
             "url": "<?php echo site_url('ajax/potonganlist/'.$this->uri->segment(3))?>",
+            "type": "POST"
+        },
+
+        //Set column definition initialisation properties.
+        "columnDefs": [
+            { 
+                "targets": [ 0 ], //first column
+                "orderable": false, //set not orderable
+            },
+            { 
+                "targets": [ -1 ], //last column
+                "orderable": false, //set not orderable
+            },
+
+        ],
+
+    });
+
+tabelslip = $('#tblslip').DataTable({ 
+
+        "processing": true, //Feature control the processing indicator.
+        "serverSide": true, //Feature control DataTables' server-side processing mode.
+        "order": [], //Initial no order.
+
+        // Load data for the table's content from an Ajax source
+        "ajax": {
+            "url": "<?php echo site_url('ajax/slip/')?>",
             "type": "POST"
         },
 

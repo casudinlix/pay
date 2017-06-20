@@ -15,6 +15,7 @@ class Ajax extends CI_Controller {
      $this->load->model('m_insentif','insentif');
      $this->load->model('m_potongan', 'potongan');
      $this->load->model('m_pinjaman', 'pinjaman');
+     $this->load->model('m_print_gaji', 'print');
   }
 
   public function index()
@@ -40,6 +41,59 @@ class Ajax extends CI_Controller {
       		echo json_encode($arr);
 
 
+  }
+  function slip(){
+
+
+  $list = $this->print->get_datatables();
+    $data = array();
+    $no = $_POST['start'];
+    foreach ($list as $print) {
+      $no++;
+      $row = array();
+       
+      $row[] = $print->id_gaji;
+      $row[] = tgl_indo($print->bulan_gaji);
+      $row[] = $print->nip;
+      $row[] = $print->nama_lengkap;
+      $row[] = $print->nama_jabatan;
+      $row[] = $print->gol_jabatan;
+     
+        if ($print->status=="POSTING") {
+                 $row[]="<span class='label label-warning'>".$print->status."</span>";
+
+        }else{
+       $row[]="<span class='label label-danger'>".$print->status."</span>";
+
+        }
+      
+      if ($print->status=="PENDING") {
+        $row[]="<span class='label label-danger'>".$print->status."</span>";
+
+
+      }else{
+$row[] = "<button id=". $print->id_gaji."/".$print->nip." class='btn btn-success' onclick='printgajih(this.id)'><i class='fa fa-print'></i></button>";
+      }
+
+
+
+      //add html for action
+         
+         
+        
+
+    
+      $data[] = $row;
+    }
+
+    $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->print->count_all(),
+            "recordsFiltered" => $this->print->count_filtered(),
+            "data" => $data,
+        );
+    //output to json format
+    echo json_encode($output);
   }
   function hitunggaji(){
     $id=$this->uri->segment(3);

@@ -83,7 +83,17 @@ for ($i=0; $i <30 ; $i++) { ?>
 <?php }?>
         ?>
     </select>
-  </div>                                                                               
+  </div>  
+  <div class="col-md-4">
+            <select name="alpa" class="form-control">
+        <option value="">Pilih Total Hari Alpa/Mangkir</option>
+        <?php 
+for ($i=0; $i <30 ; $i++) { ?>
+    <option value="<?php echo $i?>" required=""><?php echo $i?></option>
+<?php }?>
+        ?>
+    </select>
+  </div>                                                                             
  </div>       
   <div class="form-group">                                    
     <div class="col-md-6">

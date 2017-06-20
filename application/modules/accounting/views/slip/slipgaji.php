@@ -26,44 +26,33 @@
                                 </div>
                                 <div class="panel-body">
                                 
-                                    <table class="table datatable">
+                                    <table class="table tblslip" id="tblslip">
                                         <thead>
                                             <tr>
-                                                <th>No</th>
-
-                                                <th> Nip</th>
-                                                <th>Nama Lengkap</th>
+                                                 
+ 
+                                                <th> ID Gaji</th>
+                                                <th>Bulan Gaji</th>
+                                                <th>Nip</th>
+                                                <th>Nama Karyawan</th>
                                                 <th>Jabatan</th>
                                                 <th>Golongan</th>
-                                                <th>Gaji Pokok</th>
+                                                <th>Status Gaji</th>
                                                 
-                                                <th>Aksi</th>
+                                                <th>Print</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-<?php $no=1;
- foreach($gaji as $key):?>                                            
-<td colspan="" rowspan="" headers=""><?php echo $no?></td>
-<td colspan="" rowspan="" headers=""><?php echo $key->nip?></td>
 
-<td colspan="" rowspan="" headers=""><?php echo $key->nama_lengkap?></td>
-<td colspan="" rowspan="" headers=""><?php echo $key->nama_jabatan?></td>
-<td colspan="" rowspan="" headers=""><?php echo $key->gol_jabatan?></td>
-<td colspan="" rowspan="" headers="">Rp.<?php echo number_format($key->gapok)?></td>
-
-<td colspan="" rowspan="" headers="">
-   
-    <a title="Tambah Transaksi" href="<?php echo site_url('accounting/ditelslip/'.$key->nip)?>" class='btn btn-info'><i class="fa fa-check"></i></a>
-</td>
-</tr>
-
-<?php 
-$no++;
-endforeach;
-?>       
                                  </tbody>
                                     </table>
                                 </div>
                             </div>
- 
+ <script>
+function printgajih(id) {
+      
+    var url="<?php echo site_url('gajiprint/print/')?>"+id;
+    window.open(url, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=700,height=1000");
+}
+</script>
