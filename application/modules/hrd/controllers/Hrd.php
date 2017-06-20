@@ -487,6 +487,7 @@ function kasbon(){
   $data['sum']=$this->db->get_where('pinjaman_view',array('nip'=>$id,'status_aju'=>"APPROVE",'status_pinjaman'=>"BELUM BAYAR"))->row();
    $data['com']=$this->db->get('company')->row();
 $data['all']=$this->db->get_where('pinjaman_view',array('nip'=>$id))->result();
+$data['limit']=100000;
   $this->load->view('atas',$data);
   $this->load->view('kasbon/kasbon',$data);
   $this->load->view('bawah',$data);

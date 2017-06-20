@@ -12,12 +12,20 @@
                         <div class="col-md-12">
 
                             <!-- START DEFAULT DATATABLE -->
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
 
-                                    <div class="col-md-4">
+<?php foreach ($sum as $nom ): ?>
+                                  <?php $sisa=$nom ?>
+                                <?php endforeach; ?>
+                                   
+                                    <?php if($sisa >=$limit):?>
+                                       <strong>Maap Sisa Limit Anda sudah terpakai</strong> 
+                                    <?php else:?>
+                                        <div class="panel panel-default">
+                                <div class="panel-heading">
+                                 <div class="col-md-4">
   <a href="<?php echo site_url('hrd/addkasbon/'.$this->session->userdata('nip'))?>"  <button class="btn btn-success btn-block"><span class="fa fa-plus"></span> Tambah Pinjaman</button></a>
                                     </div>
+                                <?php endif;?>
                                     <ul class="panel-controls">
                                         <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
                                         <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
@@ -25,8 +33,10 @@
                                 </div>
                                 <div class="panel-body">
                                 <strong>  Jumlah Pinjaman Anda Sebesar <?php foreach ($sum as $key ): ?>
-                                  Rp. <?php echo number_format($key) ?>
-                                <?php endforeach; ?></strong>
+                                  Rp. <?php echo number_format($sis=$key) ?>
+                                <?php endforeach; ?>Limit Transaksi Anda Rp.<?php echo number_format($limit-$sis)?>
+                                    Dari Rp.<?php echo number_format($limit)?>
+                                </strong>
                                     <table class="table datatable">
                                         <thead>
                                             <tr>
