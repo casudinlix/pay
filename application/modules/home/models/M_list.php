@@ -88,7 +88,7 @@ function potongan(){
   $create = strtoupper(uniqid(rand(),true));
   $s='PT';
 
-  $style = substr($s."0"."-".$create,0,5);
+  $style = substr($s."0"."-".$create,0,9);
   return $style; 
 }
 function insentif(){

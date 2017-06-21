@@ -2072,7 +2072,7 @@ $potongan+=$key->jml_potongan*$key->nominal_potongan;
   <td class=xl72824 style='border-top:none'>&nbsp;</td>
   <td class=xl72824 style='border-top:none'>&nbsp;</td>
   <td class=xl72824 style='border-top:none'>&nbsp;</td>
-  <td class=xl73824 colspan=6>Total Potongan</td>
+  <td class=xl73824 colspan=6>Total Pinjaman</td>
   <td class=xl74824 style='border-top:none'>Rp</td>
   <td class=xl75824 style='border-top:none'><span style='mso-spacerun:yes'>
   </span><?php echo number_format(0)?></td>
@@ -2127,7 +2127,7 @@ $potongan+=$key->jml_potongan*$key->nominal_potongan;
   <td class=xl70824 colspan=2><span style='mso-spacerun:yes'></span>Rp</td>
   <td colspan=5 class=xl107824 style='border-right:.5pt solid black'><span style='mso-spacerun:yes'>
   	
-  </span><?php echo number_format($informasi->gapok-$potongan)?></td>
+  </span><?php echo number_format($informasi->gapok-$potongan+$jml)?></td>
   <td class=xl63824></td>
   <td class=xl63824></td>
   <td class=xl63824></td>
