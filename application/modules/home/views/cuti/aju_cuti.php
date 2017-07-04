@@ -29,7 +29,7 @@
                                                         <select name="periode" class="form-control" required="">
                                                             <option value="">--</option>
                                                             <?php foreach($sisa->result() as $key):?>
-   <option value="<?php echo $key->id_jc?>"><?php echo $key->id_jc."-".$key->awal_berlaku_cuti?></option>
+   <option value="<?php echo $key->id_jc?>"><?php echo $key->id_jc?></option>
 
                                                         <?php endforeach;?>
 

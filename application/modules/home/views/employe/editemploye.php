@@ -118,7 +118,7 @@
                       <div class="form-group">
                           <label class="col-md-3 col-xs-12 control-label">Jabatan</label>
                           <div class="col-md-6 col-xs-12">
-                            <select class="job form-control" tabindex="-1" name='job' required="">
+                            <select class="form-control"  name="job" required="">
                               <option value="<?php echo $user1->id_jabatan?>"><?php echo $user1->id_jabatan."-".$user->nama_jabatan?></option>
                             <?php foreach ($jabatan as $key): ?>
                             <option value="<?php echo $key->id_jabatan ?>"><?php echo $key->id_jabatan?> - <?php echo $key->nama_jabatan ?></option>
@@ -180,7 +180,25 @@
                                     <input type="email" class="form-control" name='email' value="<?php echo $user->email?>"/>
                                 </div>
                             </div>
-
+<div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Hak Akses</label>
+                                <div class="col-md-6 col-xs-12">
+                                    <select class="form-control" required="" name="hak">
+                                      <option value="<?php echo $pass->hak_akses?>"><?php echo $pass->hak_akses?></option>
+                                      <option value="ADMIN">ADMIN</option>
+                                      <option value="HRD">HRD</option>
+                                      <option value="ACCOUNTING">ACCOUNTING</option>
+                                      <option value="KARYAWAN">KARYAWAN</option>
+                                    </select>
+                                </div>
+                            </div>
+<div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Password</label>
+                                <div class="col-md-6 col-xs-12">
+  <input type="password" class="form-control" name='pass' value="<?php echo base64_decode($pass->pass)?>" />
+                                </div>
+                            </div>
+                           
                            
                             
                             <div class="form-group">

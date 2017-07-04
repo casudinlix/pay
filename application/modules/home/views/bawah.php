@@ -830,70 +830,7 @@ $(".table1").on('page.dt',function () {
   
 </script>
     <!-- Select2 -->
-    <script>
-      $(document).ready(function() {
-        $(".select2_single").select2({
-          placeholder: "Select a Religion",
-          allowClear: true
-        });
-$(".absensi").select2({
-          placeholder: "Jumlah Hari Kerja",
-          allowClear: true
-        });
-$(".pot").select2({
-          placeholder: "Pinjaman",
-          allowClear: true
-        });
-        $(".bank").select2({
-          placeholder: "Select a bank",
-          allowClear: true
-        });
-        
-        $(".jabatan1").select2({
-          placeholder: "Select a Jobs",
-          allowClear: true
-        });
-        $(".edu").select2({
-          placeholder: "Select a Education",
-          allowClear: true
-        });
-        $(".idtype").select2({
-          placeholder: "Select a Type ID",
-          allowClear: true
-        });
-        $(".typeemploye").select2({
-          placeholder: "Select a Type",
-          allowClear: true
-        });
-        $(".bank").select2({
-          placeholder: "Select a Bank",
-          allowClear: true
-        });
-        $(".sex").select2({
-          placeholder: "Select a Sex",
-          allowClear: true
-        });
-        $(".nikah").select2({
-          placeholder: "Select a Status",
-          allowClear: true
-        });
-        $(".level").select2({
-          placeholder: "Select a Level",
-          allowClear: true
-        });
-        $(".job").select2({
-          placeholder: "Select a Jobdesk",
-          allowClear: true
-        });
-        $(".select2_group").select2({});
-
-        $(".select2_multiple").select2({
-          maximumSelectionLength: 4,
-          placeholder: "With Max Selection limit 4",
-          allowClear: true
-        });
-      });
-    </script>
+  
 
     <!-- /Select2 -->
     <!---Untuk jadwal-->

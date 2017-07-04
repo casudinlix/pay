@@ -33,7 +33,7 @@
                                 <label class="col-md-3 col-xs-12 control-label">Jenis Kelamin</label>
                                 <div class="col-md-6 col-xs-12">
                                   <select class="sex form-control" tabindex="-1" name='sex' required="">
-                                    <option></option>
+                                    <option>Pilih</option>
                                   <?php foreach ($sex as $key): ?>
                                   <option value="<?php echo $key ?>"><?php echo $key ?></option>
 
@@ -55,7 +55,7 @@
                           <label class="col-md-3 col-xs-12 control-label">Agama</label>
                           <div class="col-md-6 col-xs-12">
                             <select class="select2_single form-control" tabindex="-1" name='agama' required="">
-                              <option></option>
+                              <option>Pilih</option>
                             <?php foreach ($agama as $key): ?>
                             <option value="<?php echo $key ?>"><?php echo $key ?></option>
 
@@ -88,7 +88,7 @@
                           <label class="col-md-3 col-xs-12 control-label">Pendidikan</label>
                           <div class="col-md-6 col-xs-12">
                             <select class="edu form-control" tabindex="-1" name='edu' required="">
-                              <option></option>
+                              <option>Pilih</option>
                             <?php foreach ($pendidikan as $key): ?>
                             <option value="<?php echo $key ?>"><?php echo $key ?></option>
 
@@ -106,7 +106,7 @@
                           <label class="col-md-3 col-xs-12 control-label">Type Identitas</label>
                           <div class="col-md-6 col-xs-12">
                             <select class="idtype form-control" tabindex="-1" name='idtype' required="">
-                              <option></option>
+                              <option>Pilih</option>
                             <?php foreach ($id as $key): ?>
                             <option value="<?php echo $key ?>"><?php echo $key ?></option>
 
@@ -119,7 +119,7 @@
                           <label class="col-md-3 col-xs-12 control-label">Jabatan</label>
                           <div class="col-md-6 col-xs-12">
                             <select class="job form-control" tabindex="-1" name='job' required="">
-                              <option></option>
+                              <option>Pilih</option>
                             <?php foreach ($job as $key): ?>
                             <option value="<?php echo $key->id_jabatan ?>"><?php echo $key->id_jabatan?> - <?php echo $key->nama_jabatan ?></option>
 
@@ -180,7 +180,24 @@
                                     <input type="email" class="form-control" name='email' required=""/>
                                 </div>
                             </div>
-
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Hak Akses</label>
+                                <div class="col-md-6 col-xs-12">
+                                    <select class="form-control" required="" name="hak">
+                                      <option value="">Pilih</option>
+                                      <option value="ADMIN">ADMIN</option>
+                                      <option value="HRD">HRD</option>
+                                      <option value="ACCOUNTING">ACCOUNTING</option>
+                                      <option value="KARYAWAN">KARYAWAN</option>
+                                    </select>
+                                </div>
+                            </div>
+<div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Password</label>
+                                <div class="col-md-6 col-xs-12">
+                                    <input type="password" class="form-control" name='pass' required=""/>
+                                </div>
+                            </div>
                            
                             
                             <div class="form-group">

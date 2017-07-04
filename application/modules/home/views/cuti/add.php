@@ -33,7 +33,8 @@
                                                 <div class="col-md-9">
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-      <input type="text" name="nip" class="form-control  nip" id="name" required="" autocomplete="off"/>
+      <input type="text" name="nama" class="form-control  nip" id="name" required="" autocomplete="off"/>
+      <button type="button" class="btn btn-warning" id="lookup1"><i class="fa fa-search"></i>Cari</button>
                                                     </div>
                                                  </div>
                                             </div>
@@ -44,6 +45,7 @@
                                                     <div class="input-group">
 <span class="input-group-addon"><span class="fa fa-hand-o-right"></span></span>
   <input type="text" name="nip" id="nip" class="form-control nip" required="" autocomplete="off"/>
+  
                                                     </div>
                                                  </div>
                                             </div>

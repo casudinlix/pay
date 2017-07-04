@@ -103,6 +103,7 @@ private function _get_datatables_query()
 	{
 		$this->db->where('id', $id);
 		$this->db->delete($this->table);
+		
 	}
 }
 

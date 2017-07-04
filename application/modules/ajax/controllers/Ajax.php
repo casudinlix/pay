@@ -228,7 +228,7 @@ function approve(){
   $kunci=$this->uri->segment(8);
   $tgl=date('Y-m-d') ;
   $user=$this->session->userdata('nama');
-  $w=array('id'=>$kunci,'id_cuti'=>$id,'tgl_awal_cuti'=>$date,'nip'=>$nip);
+  $w=array('id'=>$kunci);
 
 
   $data=array('tgl_approve'=>$tgl,'disetujui_oleh'=>$user,'status_cuti'=>'APPROVE');
@@ -307,8 +307,14 @@ function hapusinsentif(){
 }
 function hapuspinjaman(){
   $arr=array('id'=>$this->uri->segment(3));
+  $no=array('no_transaksi'=>$this->uri->segment(4));
+ 
   $this->db->where($arr);
   $this->db->delete('gaji_pinjaman');
+  $this->db->where($no);
+  $this->db->update('pinjaman', array('status_pinjaman'=>'BELUM BAYAR'));
+
+
 }
 function hapuspotongan(){
   $arr=array('id'=>$this->uri->segment(3));
@@ -421,7 +427,8 @@ function potonganlist(){
       
 
       //add html for action
-      $row[] = '<a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onClick="hapuspotongan('."'".$potongan->id."'".')"><i class="fa fa-trash-o"></i> Hapus</a>
+      $row[] = '<a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" 
+      onClick="hapuspotongan('."'".$potongan->id."'".')"><i class="fa fa-trash-o"></i> Hapus</a>
           ';
     
       $data[] = $row;
@@ -560,7 +567,8 @@ function pinjamanlist(){
       
 
       //add html for action
-      $row[] = '<a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onClick="hapuspinjaman('."'".$pinjaman->id."'".')"><i class="fa fa-trash-o"></i> Hapus</a>
+      $row[] = '<a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" 
+      onClick="hapuspinjaman('."'".$pinjaman->id."/".$pinjaman->no_transaksi."'".')"><i class="fa fa-trash-o"></i> Hapus</a>
           ';
     
       $data[] = $row;
@@ -584,7 +592,11 @@ function tambahpinjaman(){
     'no_transaksi'=>$this->input->post('no',TRUE),
 
     );
+  $data1=array('status_pinjaman'=>'LUNAS');
+$no=$this->input->post('no', TRUE);
   $this->db->insert('gaji_pinjaman', $data);
+  $this->db->where('no_transaksi', $no);
+  $this->db->update('pinjaman', $data1);
   //reload_table();
   echo json_encode(array("status" => TRUE));
 }

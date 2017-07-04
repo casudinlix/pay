@@ -2575,7 +2575,7 @@ foreach($totpotongan as $key):?>
   <td class=xl87824 style='border-top:none'>&nbsp;</td>
   <td class=xl87824 style='border-top:none'>&nbsp;</td>
   <td class=xl88824 style='border-top:none'>&nbsp;</td>
-  <td class=xl88824 colspan=8>TOTAL POTONGAN</td>
+  <td class=xl88824 colspan=8>TOTAL Pinjaman</td>
   <td class=xl88824 style='border-top:none'><span
   style='mso-spacerun:yes'></span>Rp</td>
   <td colspan=2 class=xl124824 style='border-right:2.0pt double black'><span

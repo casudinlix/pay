@@ -21,8 +21,8 @@ function addemploye(){
    
   $status=$this->input->post('status');
   $sex=$this->input->post('sex',TRUE);
-  $ttl=$this->input->post('ttl',TRUE);
-  $join=$this->input->post('join',TRUE);
+  $ttl=date('Y-m-d', strtotime(str_replace('-', '/', $this->input->post('ttl',TRUE))));
+  $join=date('Y-m-d', strtotime(str_replace('-', '/', $this->input->post('join',TRUE))));
   $agama=$this->input->post('agama',TRUE);
   $edu=$this->input->post('edu',TRUE);
   $id=$this->input->post('id',TRUE);
@@ -39,12 +39,13 @@ function addemploye(){
   $job=$this->input->post('job',TRUE);
   $account=$this->input->post('account',TRUE);
   $address=$this->input->post('alamat',TRUE);
+  $hak=$this->input->post('hak', TRUE);
 
 $personal=array('nip'=>$nip,'nama_lengkap'=>$nama,'tgl_lahir'=>$ttl,'tgl_bergabung'=>$join,'jk'=>$sex,'agama'=>$agama,'id_jabatan'=>$job,'gol_jabatan'=>$golongan,'no_rek'=>$account,'bank'=>$bank,'pendidikan'=>$edu,'alm_tinggal'=>$address,
 'email'=>$email,'no_hp'=>$phone,'no_id'=>$id,'jenis_id'=>$idtype,'foto'=>'no.png','status'=>$status);
- 
+ $login=array('nip'=>$nip,'pass'=>$pass,'hak_akses'=>$hak);
 $this->db->insert('karyawan', $personal);
-//$this->db->insert('users', $login);
+$this->db->insert('users', $login);
 
 $this->session->set_flashdata('sukses', 'value');
 redirect('home/employe');
@@ -55,8 +56,8 @@ function editemploye(){
    
   $status=$this->input->post('status');
   $sex=$this->input->post('sex',TRUE);
-  $ttl=$this->input->post('ttl',TRUE);
-  $join=$this->input->post('join',TRUE);
+  $ttl=date('Y-m-d', strtotime(str_replace('-', '/', $this->input->post('ttl',TRUE))));
+  $join=date('Y-m-d', strtotime(str_replace('-', '/', $this->input->post('join',TRUE))));
   $agama=$this->input->post('agama',TRUE);
   $edu=$this->input->post('edu',TRUE);
   $id=$this->input->post('id',TRUE);
@@ -73,11 +74,14 @@ function editemploye(){
   $job=$this->input->post('job',TRUE);
   $account=$this->input->post('account',TRUE);
   $address=$this->input->post('alamat',TRUE);
-
+$hak=$this->input->post('hak', TRUE);
+$login=array('pass'=>$pass,'hak_akses'=>$hak);
 $personal=array('nama_lengkap'=>$nama,'tgl_lahir'=>$ttl,'jk'=>$sex,'agama'=>$agama,'id_jabatan'=>$job,'gol_jabatan'=>$golongan,'no_rek'=>$account,'bank'=>$bank,'pendidikan'=>$edu,'alm_tinggal'=>$address,
 'email'=>$email,'no_hp'=>$phone,'no_id'=>$id,'jenis_id'=>$idtype,'status'=>$status);
 $this->db->where('nip', $nip);
  $this->db->update('karyawan', $personal);
+ $this->db->where('nip', $nip);
+$this->db->update('users', $login);
 
   $this->session->set_flashdata('update', 'value');
   redirect('home/employe');
@@ -166,10 +170,10 @@ $tt=$this->db->select('aktual_date');
 function ajucuti(){
   $id=$this->input->post('id', TRUE);
   $tgl=date("Y-m-d");
-  $periode=$this->input->post('periode', TRUE);
+  $periode=$this->input->post('periode',TRUE);
   $ket=$this->input->post('ket', TRUE);
-  $awal=$this->input->post('awal', TRUE);
-  $akhir=$this->input->post('akhir', TRUE);
+  $awal=date('Y-m-d', strtotime(str_replace('-', '/', $this->input->post('awal',TRUE))));
+  $akhir=date('Y-m-d', strtotime(str_replace('-', '/', $this->input->post('akhir',TRUE))));
   $data=array('id_cuti'=>$periode,'nip'=>$id,'tgl_awal_cuti'=>$awal,'tgl_akhir_cuti'=>$akhir,'ket_cuti'=>$ket,
     'status_cuti'=>'PENDING','tgl_aju_cuti'=>$tgl);
   $this->db->insert('aju_cuti', $data);
@@ -260,8 +264,8 @@ function addleave(){
   $kode=$this->input->post('kode');
   $nip=$this->input->post('nip',TRUE);
   $nama=$this->input->post('nama',TRUE);
-  $per=$this->input->post('periode');
-  $expired=$this->input->post('expired');
+  $per=date('Y-m-d', strtotime(str_replace('-', '/', $this->input->post('periode',TRUE))));
+  $expired=date('Y-m-d', strtotime(str_replace('-', '/', $this->input->post('expired',TRUE))));
   $used=$this->input->post('used',TRUE);
   $sisa=$this->input->post('sisa',TRUE);
   $data=array('id_jc'=>$kode,'nip'=>$nip,'awal_berlaku_cuti'=>$per,'akhir_berlaku_cuti'=>$expired,'terpakai'=>$used,'sisa_cuti'=>$sisa);
@@ -492,7 +496,18 @@ $data1=array('id_gaji'=>$this->input->post('id', TRUE),
   'bulan_gaji'=>date('Y-m-d', strtotime(str_replace('-', '/', $this->input->post('tgl',TRUE)))),
   'nip'=>$this->input->post('nip', TRUE),
   'user'=>$this->session->userdata('nama'),'status'=>'PENDING');
-  $this->db->insert('gaji_absensi', $data);
+  
+
+
+$cek=$this->db->get_where('pinjaman',array('nip'=>$nip,'status_aju'=>'APPROVE','status_pinjaman'=>'BELUM BAYAR'));
+$cek1=$this->db->get_where('gaji_pinjaman',array('nip'=>$nip));
+
+if ($cek->num_rows() > 0 AND $cek1->num_rows()>0) {
+  $d=array('status_pinjaman'=>'LUNAS');
+  $this->db->where(array('nip'=>$nip,'status_aju'=>'APPROVE','status_pinjaman'=>'BELUM BAYAR'));
+  $this->db->update('pinjaman', $d);
+}
+$this->db->insert('gaji_absensi', $data);
   $this->db->insert('gaji2', $data1);
 
   $this->session->set_flashdata('gaji', 'value');
@@ -512,6 +527,15 @@ $data1=array(
   'bulan_gaji'=>date('Y-m-d', strtotime(str_replace('-', '/', $this->input->post('tgl',TRUE)))),
   
   'user'=>$this->session->userdata('nama'),'status'=>'PENDING');
+
+$cek=$this->db->get_where('pinjaman',array('nip'=>$nip,'status_aju'=>'APPROVE','status_pinjaman'=>'BELUM BAYAR'));
+$cek1=$this->db->get_where('gaji_pinjaman',array('nip'=>$nip));
+
+if ($cek->num_rows() > 0 AND $cek1->num_rows()>0) {
+  $d=array('status_pinjaman'=>'LUNAS');
+  $this->db->where(array('nip'=>$nip,'status_aju'=>'APPROVE','status_pinjaman'=>'BELUM BAYAR'));
+  $this->db->update('pinjaman', $d);
+}
 $this->db->where('id_gaji', $id);
   $this->db->update('gaji_absensi', $data);
   $this->db->where('id_gaji', $id);
