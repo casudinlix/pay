@@ -61,8 +61,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					 					<p>Fasilitas-fasilitas yang tersedia di RSIA Gizar yaitu:</p>
 								<ul class="ab">
 									<li><a href="<?php echo site_url('awal/single') ?>">Instalasi Gawat Darurat (IGD) 24 jam</a></li>
-									<li><a href="<?php echo site_url('awal/single') ?>">Apotek 24 jam</a></li>
-									<li><a href="<?php echo site_url('awal/single') ?>">Praktek Dokter Umum, Bidan, Dokter Gigi, dan Dokter Spesialis (Kandungan, Anak, Kulit, Bedah) </a></li>
+									<li><a href="#">Apotek 24 jam</a></li>
+									<li><a href="#">Praktek Dokter Umum, Bidan, Dokter Gigi, dan Dokter Spesialis (Kandungan, Anak, Kulit, Bedah) </a></li>
 									<li><a href="<?php echo site_url('awal/single') ?>">USG 2 Dimensi dan 4 Dimensi</a></li>
 									<li><a href="<?php echo site_url('awal/single') ?>">Ruang Operasi </a></li>
 									<li><a href="<?php echo site_url('awal/single') ?>">Khitan Laser </a></li>

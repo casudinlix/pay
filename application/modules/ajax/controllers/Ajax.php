@@ -54,7 +54,7 @@ class Ajax extends CI_Controller {
       $row = array();
        
       $row[] = $print->id_gaji;
-      $row[] = tgl_indo($print->bulan_gaji);
+      $row[] = bulan($print->bulan_gaji);
       $row[] = $print->nip;
       $row[] = $print->nama_lengkap;
       $row[] = $print->nama_jabatan;
@@ -107,7 +107,7 @@ $row[] = "<button id=". $print->id_gaji."/".$print->nip." class='btn btn-success
       $row = array();
        
       $row[] = $print->id_gaji;
-      $row[] = tgl_indo($print->bulan_gaji);
+      $row[] = bulan($print->bulan_gaji);
       $row[] = $print->nip;
       $row[] = $print->nama_lengkap;
       $row[] = $print->nama_jabatan;
@@ -166,6 +166,30 @@ $row[] = "<button id=". $print->id_gaji."/".$print->nip." class='btn btn-success
           echo json_encode($rows);
 
 
+
+  }
+  function absensi(){
+     $id=$this->uri->segment(3);
+      //$this->db->select('sift_name, jam_in,jam_out');
+       //$this->db->like();gaji
+    //$this->db->like('nip',$id);
+   $this->db->or_like('tgl_absensi', $id);
+   $date=$id;
+  $nip=$this->uri->segment(4);
+  
+   $this->db->like(array('tgl_absensi' => $date));
+  
+   $this->db->select('id_absensi, nip,nama_lengkap,in,out,tgl_absensi,bulan_absensi,lembur,telat,status');
+   
+          $data =$this->db->get('absensi_view');
+  
+          $rows = array();
+          foreach($data->result() as $row)
+          {
+            $rows[]=$row;
+          }
+          // minimal PHP 5.2
+          echo json_encode($rows);
 
   }
 
@@ -331,7 +355,7 @@ function gaji(){
       $row = array();
       $row[] = '<input type="checkbox" class="data-check" value="'.$duddin->id_gaji.'">';
       $row[] = $duddin->id_gaji;
-      $row[] = tgl_indo($duddin->bulan_gaji);
+      $row[] = bulan($duddin->bulan_gaji);
       $row[] = $duddin->nip;
       $row[] = $duddin->nama_lengkap;
       $row[] = $duddin->nama_jabatan;

@@ -28,7 +28,7 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-
+<th> ID Gapok</th>
                                                 <th> Gaji Pokok</th>
                                                 <th> Jabatan</th>
                                                 <th>Golongan</th>
@@ -41,7 +41,7 @@
 $no=1;
                                                 foreach ($gaji as $key): ?>
                                                   <td><?php echo $no ?></td>
-
+<td><?php echo  $key->id_gapok?></td>
                                                   <td>Rp.<?php echo number_format( $key->gapok)?></td>
                                                   <td><?php echo  $key->nama_jabatan?></td>
                                                   <td><?php echo $key->gol_jabatan ?></td>

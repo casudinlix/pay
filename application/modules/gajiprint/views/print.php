@@ -1704,7 +1704,7 @@ AIQBAADiNQAAAAA=
   <td class=xl64824>&nbsp;</td>
   <td class=xl65824>&nbsp;</td>
   <td class=xl65824 colspan=3>Periode :</td>
-  <td class=xl65824 colspan=5><?php echo tgl_indo($informasi->bulan_gaji)?></td>
+  <td class=xl65824 colspan=5><?php echo bulan($informasi->bulan_gaji)?></td>
   <td class=xl66824>&nbsp;</td>
   <td class=xl65824 colspan=4>ID Gaji :</td>
   <td class=xl66824> <span style='display:none'></span></td>
@@ -1802,9 +1802,9 @@ AIQBAADiNQAAAAA=
  </tr>
  <tr height=16 style='mso-height-source:userset;height:12.0pt'>
   <td height=16 class=xl63824 style='height:12.0pt'></td>
-  <td class=xl63824 colspan=4>Jml Hari</td>
-  <td class=xl63824 align=right><?php echo $absensi->total_hari?></td>
-  <td class=xl63824 colspan=2><span style='mso-spacerun:yes'></span> (hari)</td>
+  <td class=xl63824 colspan=4></td>
+  <td class=xl63824 align=right></td>
+  <td class=xl63824 colspan=2></td>
   <td class=xl63824></td>
   <td class=xl63824></td>
   <td class=xl63824></td>
@@ -1829,7 +1829,10 @@ AIQBAADiNQAAAAA=
   <td height=16 class=xl63824 style='height:12.0pt'></td>
   <td class=xl63824 colspan=3>Hadir</td>
   <td class=xl63824></td>
-  <td class=xl63824 align=right><?php echo $absensi->total_hadir?></td>
+  <td class=xl63824 align=right> 
+  <?php echo $hadir?>
+ 
+  </td>
   <td class=xl63824 colspan=2><span style='mso-spacerun:yes'></span> (hari)</td>
   <td class=xl63824></td>
   <td class=xl63824></td>
@@ -1857,7 +1860,7 @@ AIQBAADiNQAAAAA=
   <td class=xl63824 colspan=2>Cuti</td>
   <td class=xl63824></td>
   <td class=xl63824></td>
-  <td class=xl63824 align=right><?php echo $absensi->total_cuti?></td>
+  <td class=xl63824 align=right><?php echo $cuti?></td>
   <td class=xl63824 colspan=2><span style='mso-spacerun:yes'></span> (hari)</td>
   <td class=xl63824></td>
   <td class=xl63824></td>
@@ -1883,7 +1886,7 @@ AIQBAADiNQAAAAA=
   <td class=xl63824 colspan=2>Izin</td>
   <td class=xl63824></td>
   <td class=xl63824></td>
-  <td class=xl63824 align=right><?php echo $absensi->total_ijin?></td>
+  <td class=xl63824 align=right><?php echo $ijin?></td>
   <td class=xl63824 colspan=2><span style='mso-spacerun:yes'></span>(hari)</td>
   <td class=xl63824></td>
   <td class=xl63824></td>
@@ -1922,7 +1925,7 @@ $potongan+=$key->jml_potongan*$key->nominal_potongan;
   <td height=16 class=xl63824 style='height:12.0pt'></td>
   <td class=xl63824 colspan=3>Alpha</td>
   <td class=xl63824></td>
-  <td class=xl63824 align=right><?php echo $absensi->total_alpa?></td>
+  <td class=xl63824 align=right><?php echo $alpa?></td>
   <td class=xl63824 colspan=2><span style='mso-spacerun:yes'></span>(hari)</td>
   <td class=xl63824></td>
   <td class=xl63824></td>
@@ -1951,7 +1954,7 @@ $potongan+=$key->jml_potongan*$key->nominal_potongan;
  <tr height=16 style='mso-height-source:userset;height:12.0pt'>
   <td height=16 class=xl63824 style='height:12.0pt'></td>
   <td class=xl63824 colspan=4>Lembur</td>
-  <td class=xl63824 align=right><?php echo $absensi->total_lembur?></td>
+  <td class=xl63824 align=right><?php foreach($lembur as $key){ echo $key;}?></td>
   <td class=xl63824 colspan=3><span style='mso-spacerun:yes'></span>(menit)</td>
   <td class=xl63824></td>
   <td class=xl63824></td>
@@ -1985,7 +1988,7 @@ $potongan+=$key->jml_potongan*$key->nominal_potongan;
   <td class=xl63824 colspan=2>Telat</td>
   <td class=xl63824></td>
   <td class=xl63824></td>
-  <td class=xl63824 align=right><?php echo $absensi->total_telat?></td>
+  <td class=xl63824 align=right><?php foreach($telat as $key){ echo $key;}?></td>
   <td class=xl63824 colspan=3><span style='mso-spacerun:yes'></span> &nbsp;(menit)</td>
   <td class=xl63824></td>
   <td class=xl63824></td>

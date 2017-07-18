@@ -27,7 +27,7 @@ function addemploye(){
   $edu=$this->input->post('edu',TRUE);
   $id=$this->input->post('id',TRUE);
   $idtype=$this->input->post('idtype',TRUE);
-   
+   $idabsensi=$this->input->post('idabsensi', TRUE);
   $jam=$this->input->post('jam',TRUE);
    
   $bank=$this->input->post('bank',TRUE);
@@ -41,9 +41,9 @@ function addemploye(){
   $address=$this->input->post('alamat',TRUE);
   $hak=$this->input->post('hak', TRUE);
 
-$personal=array('nip'=>$nip,'nama_lengkap'=>$nama,'tgl_lahir'=>$ttl,'tgl_bergabung'=>$join,'jk'=>$sex,'agama'=>$agama,'id_jabatan'=>$job,'gol_jabatan'=>$golongan,'no_rek'=>$account,'bank'=>$bank,'pendidikan'=>$edu,'alm_tinggal'=>$address,
+$personal=array('nip'=>$nip,'id_absensi'=>$idabsensi,'nama_lengkap'=>$nama,'tgl_lahir'=>$ttl,'tgl_bergabung'=>$join,'jk'=>$sex,'agama'=>$agama,'id_jabatan'=>$job,'gol_jabatan'=>$golongan,'no_rek'=>$account,'bank'=>$bank,'pendidikan'=>$edu,'alm_tinggal'=>$address,
 'email'=>$email,'no_hp'=>$phone,'no_id'=>$id,'jenis_id'=>$idtype,'foto'=>'no.png','status'=>$status);
- $login=array('nip'=>$nip,'pass'=>$pass,'hak_akses'=>$hak);
+ $login=array('nip'=>$nip,'nama_lengkap'=>$nama,'pass'=>$pass,'hak_akses'=>$hak);
 $this->db->insert('karyawan', $personal);
 $this->db->insert('users', $login);
 
@@ -53,7 +53,8 @@ redirect('home/employe');
 function editemploye(){
   $nip=$this->input->post('nip',TRUE);
   $nama=$this->input->post('nama',TRUE);
-   
+      $idabsensi=$this->input->post('idabsensi', TRUE);
+
   $status=$this->input->post('status');
   $sex=$this->input->post('sex',TRUE);
   $ttl=date('Y-m-d', strtotime(str_replace('-', '/', $this->input->post('ttl',TRUE))));
@@ -76,7 +77,7 @@ function editemploye(){
   $address=$this->input->post('alamat',TRUE);
 $hak=$this->input->post('hak', TRUE);
 $login=array('pass'=>$pass,'hak_akses'=>$hak);
-$personal=array('nama_lengkap'=>$nama,'tgl_lahir'=>$ttl,'jk'=>$sex,'agama'=>$agama,'id_jabatan'=>$job,'gol_jabatan'=>$golongan,'no_rek'=>$account,'bank'=>$bank,'pendidikan'=>$edu,'alm_tinggal'=>$address,
+$personal=array('id_absensi'=>$idabsensi,'nama_lengkap'=>$nama,'tgl_lahir'=>$ttl,'jk'=>$sex,'agama'=>$agama,'id_jabatan'=>$job,'gol_jabatan'=>$golongan,'no_rek'=>$account,'bank'=>$bank,'pendidikan'=>$edu,'alm_tinggal'=>$address,
 'email'=>$email,'no_hp'=>$phone,'no_id'=>$id,'jenis_id'=>$idtype,'status'=>$status);
 $this->db->where('nip', $nip);
  $this->db->update('karyawan', $personal);
@@ -182,9 +183,10 @@ function ajucuti(){
 }
 function addsalary(){
   $gol=$this->input->post('gol',TRUE);
+  $id=$this->input->post('id', TRUE);
   $salary=$this->input->post('salary',TRUE);
   $jabatan=$this->input->post('jabatan',TRUE);
-  $data=array('gapok'=>$salary,'id_jabatan'=>$jabatan,'gol_jabatan'=>$gol);
+  $data=array('id_gapok'=>$id,'gapok'=>$salary,'id_jabatan'=>$jabatan,'gol_jabatan'=>$gol);
   $this->db->insert('m_gaji', $data);
   redirect('home/salary');
 }
@@ -320,29 +322,35 @@ function import(){
               for ($i = 1; $i <= $data['numRows']; $i++) {
                    if ($data['cells'][$i][1] == '')
                        break;
-                   $dataexcel[$i - 1]['nip'] = $data['cells'][$i][1];
-                   $dataexcel[$i - 1]['in'] = $data['cells'][$i][2];
-                   $dataexcel[$i - 1]['out'] = $data['cells'][$i][3];
-                   $dataexcel[$i - 1]['tgl_absensi'] = $data['cells'][$i][4];
-                   $dataexcel[$i - 1]['lembur'] = $data['cells'][$i][5];
-                   $dataexcel[$i - 1]['telat'] = $data['cells'][$i][6];
-                   $dataexcel[$i - 1]['total'] = $data['cells'][$i][7];
-                   $dataexcel[$i - 1]['status'] = $data['cells'][$i][8];
+                     $dataexcel[$i - 1]['id_absensi'] = $data['cells'][$i][1];
+                   $dataexcel[$i - 1]['nip'] = $data['cells'][$i][2];
+                   $dataexcel[$i - 1]['in'] = $data['cells'][$i][3];
+                   $dataexcel[$i - 1]['out'] = $data['cells'][$i][4];
+                   $dataexcel[$i - 1]['tgl_absensi'] = $data['cells'][$i][5];
+                   $dataexcel[$i - 1]['bulan_absensi'] = $data['cells'][$i][6];
+                   $dataexcel[$i - 1]['lembur'] = $data['cells'][$i][7];
+                   $dataexcel[$i - 1]['telat'] = $data['cells'][$i][8];
+                   
+                   $dataexcel[$i - 1]['status'] = $data['cells'][$i][9];
               }
                for ($i = 0; $i < count($dataexcel); $i++) {
             $data = array(
+              'id_absensi' => $dataexcel[$i]['id_absensi'],
                 'nip' => $dataexcel[$i]['nip'],
                 'in' => $dataexcel[$i]['in'],
                 'out' => $dataexcel[$i]['out'],
                 'tgl_absensi' => $dataexcel[$i]['tgl_absensi'],
+                'bulan_absensi' => $dataexcel[$i]['bulan_absensi'],
                 'lembur' => $dataexcel[$i]['lembur'],
                 'telat' => $dataexcel[$i]['telat'],
-                'total' => $dataexcel[$i]['total'],
                 'status' => $dataexcel[$i]['status'],
             );
 
 
-                 $this->db->insert('absensi', $data);
+                 $e=$this->db->insert('absensi', $data);
+                 if (!$e) {
+                   echo $e;
+                 }
 
 
 
@@ -493,7 +501,7 @@ function simpangaji(){
     'total_telat'=>$this->input->post('telat', TRUE),
     'total_alpa'=>$this->input->post('alpa', TRUE));
 $data1=array('id_gaji'=>$this->input->post('id', TRUE),
-  'bulan_gaji'=>date('Y-m-d', strtotime(str_replace('-', '/', $this->input->post('tgl',TRUE)))),
+  'bulan_gaji'=> $this->input->post('tgl',TRUE),
   'nip'=>$this->input->post('nip', TRUE),
   'user'=>$this->session->userdata('nama'),'status'=>'PENDING');
   
@@ -507,7 +515,7 @@ if ($cek->num_rows() > 0 AND $cek1->num_rows()>0) {
   $this->db->where(array('nip'=>$nip,'status_aju'=>'APPROVE','status_pinjaman'=>'BELUM BAYAR'));
   $this->db->update('pinjaman', $d);
 }
-$this->db->insert('gaji_absensi', $data);
+//$this->db->insert('gaji_absensi', $data);
   $this->db->insert('gaji2', $data1);
 
   $this->session->set_flashdata('gaji', 'value');
@@ -524,7 +532,7 @@ function updategaji(){
     'total_telat'=>$this->input->post('telat', TRUE),
     'total_alpa'=>$this->input->post('alpa', TRUE));
 $data1=array(
-  'bulan_gaji'=>date('Y-m-d', strtotime(str_replace('-', '/', $this->input->post('tgl',TRUE)))),
+  'bulan_gaji'=>$this->input->post('tgl',TRUE),
   
   'user'=>$this->session->userdata('nama'),'status'=>'PENDING');
 
@@ -537,12 +545,29 @@ if ($cek->num_rows() > 0 AND $cek1->num_rows()>0) {
   $this->db->update('pinjaman', $d);
 }
 $this->db->where('id_gaji', $id);
-  $this->db->update('gaji_absensi', $data);
+  
   $this->db->where('id_gaji', $id);
   $this->db->update('gaji2', $data1);
  
   $this->session->set_flashdata('gaji', 'value');
   redirect('home/hitung');
+
+}
+function cekabsen(){
+  $date=$this->input->post('cek', TRUE);
+ $nip=$this->input->post('nip', TRUE);
+ $status=$this->input->post('status', TRUE);
+
+ $this->db->like(array('nip' => $nip, 'tgl_absensi' => $date,'status'=>$status));
+
+//$w=$this->db->where(array('nip'=>$nip,'tgl_absensi'=>$date));
+
+//echo "Data Hadir". $this->db->get_where('absensi',array($w))->num_rows();
+$data=$this->db->get('absensi')->result();
+foreach ($data as $key) {
+  echo "<a href=''>".$key->nip.$key->tgl_absensi."-".$key->status."</a>";
+  echo "<br>";
+}
 
 }
 

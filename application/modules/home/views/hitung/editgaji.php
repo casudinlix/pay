@@ -40,7 +40,7 @@
                             <!-- START BORDERED TABLE SAMPLE -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Absensi</h3>
+                                    <h3 class="panel-title">Periode</h3>
                                 </div>
                                 <div class="panel-body">
   
@@ -52,89 +52,9 @@
   <div class="col-md-12">
 <input type="hidden" name="id" value="<?php echo $this->uri->segment(3)?>" class="form-control-sm">
  
-Total Hari
-   <select name="hari" class="form-control">
-  
-  <option value="<?php echo $absen->total_hari?>" selected=""><?php echo $absen->total_hari?></option>
-        <?php 
-for ($i=1; $i <32 ; $i++) { ?>
-    <option value="<?php echo $i?>" required=""><?php echo $i?></option>
-<?php }?>
-        ?>
-    </select>
-         </div>
-       </div>
-      <div class="form-group">                                    
-     <div class="col-md-8">
-     Total Hadir
-   <select name="hadir" class="form-control">
-        <option value="<?php echo $absen->total_hadir?>"><?php echo $absen->total_hadir?></option>
-        <?php 
-for ($i=1; $i <30 ; $i++) { ?>
-    <option value="<?php echo $i?>" required=""><?php echo $i?></option>
-<?php }?>
-        ?>
-    </select>
-      </div>               
-    <div class="col-md-4">
-    Total Ijin
-            <select name="ijin" class="form-control">
-        <option value="<?php echo $absen->total_ijin?>"><?php echo $absen->total_ijin?></option>
-        <?php 
-for ($i=0; $i <30 ; $i++) { ?>
-    <option value="<?php echo $i?>" required=""><?php echo $i?></option>
-<?php }?>
-        ?>
-    </select>
-  </div>   
-  <div class="col-md-4">
-  Total Alpa / Mangkir
-            <select name="alpa" class="form-control">
-        <option value="<?php echo $absen->total_alpa?>"><?php echo $absen->total_alpa?></option>
-        <?php 
-for ($i=0; $i <30 ; $i++) { ?>
-    <option value="<?php echo $i?>" required=""><?php echo $i?></option>
-<?php }?>
-        ?>
-    </select>
-  </div>                                                                             
- </div>       
-  <div class="form-group">                                    
-    <div class="col-md-6">
-    Total Cuti
-<select name="cuti" class="form-control">
-        <option value="<?php echo $absen->total_cuti?>"><?php echo $absen->total_cuti?></option>
-        <?php 
-for ($i=0; $i <30 ; $i++) { ?>
-    <option value="<?php echo $i?>" required=""><?php echo $i?></option>
-<?php }?>
-        ?>
-    </select>                                         
-   </div>               
-  <div class="col-md-3">
-  Total Lembur
- <select name="lembur" class="form-control">
-   <option value="<?php echo $absen->total_lembur?>"><?php echo $absen->total_lembur?></option>
-        <?php 
-for ($i=0; $i <30 ; $i++) { ?>
-    <option value="<?php echo $i?>" required=""><?php echo $i?></option>
-<?php }?>
-        ?>
-    </select>                 
- </div>                                                                               
- <div class="col-md-3">
- Total Telat
-   <select name="telat" class="form-control">
-    <option value="<?php echo $absen->total_telat?>"><?php echo $absen->total_telat?></option>
-        <?php 
-for ($i=0; $i <30 ; $i++) { ?>
-    <option value="<?php echo $i?>" required=""><?php echo $i?></option>
-<?php }?>
-        ?>
-    </select>
   </div>                                        
    </div>                                      
- Periode Gaji<input type="text" class="form-control tgl"  name="tgl" value="<?php echo $periode->bulan_gaji?>" >
+ Periode Gaji<input type="month" class="form-control"  name="tgl" value="<?php echo $periode->bulan_gaji?>" >
      
      <input type="submit" class="btn btn-success fa fa-save" value="Update">
   </form>

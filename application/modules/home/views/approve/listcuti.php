@@ -14,12 +14,14 @@
                                            <thead>
                                                <tr>
                                                    <th width="30">No</th>
+                                                   <th width="70">ID</th>
                                                    <th width="70">NIP</th>
                                                    <th width="100">Nama Lengkap</th>
                                                    <th width="100">Tanggal Request</th>
                                                     <th width="100">Tanggal Awal Cuti</th>
                                                      <th width="100">Tanggal Akhir Cuti</th>
                                                     <th width="100">Lama Cuti</th>
+                                                     
                                                    <th width="100">Keterangan</th>
                                                    <th width="100">Di Setujui Oleh</th>
                                                    <th width="100">Tgl Di Setujui</th>
@@ -40,6 +42,7 @@ $total=$dari->diff($sampai);
 
                                                 <tr id="trow_1">
 <td><?php echo $no ?></td>
+<td><?php echo $key->id_cuti ?></td>
 <td><?php echo $key->nip ?></td>
 <td><?php echo $key->nama_lengkap ?></td>
 <td><?php echo tgl_indo($key->tgl_aju_cuti) ?></td>
@@ -47,6 +50,9 @@ $total=$dari->diff($sampai);
 <td><?php echo tgl_indo($key->tgl_akhir_cuti) ?></td>
 <td><?php echo $total->d+1 ?> Hari</td>
 <input type="hidden" name="lama" value="<?php echo $lama=$total->d+1;?>">
+
+ 
+
 <td><?php echo $key->ket_cuti ?></td>
 <td><?php echo $key->disetujui_oleh ?></td>
 <td><?php echo $key->tgl_approve ?></td>

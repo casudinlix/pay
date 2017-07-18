@@ -20,9 +20,8 @@
                                              <li><a href="#" onClick ="$('#kasbon').tableExport({type:'excel',escape:'false'});"><img src='<?php echo export()?>xls.png' width="24"/> XLS</a></li>
                                         <li class="divider"></li>
 
-                                        <li><a href="#" onClick ="$('#kasbon').tableExport({type:'doc',escape:'false'});"><img src='<?php echo export()?>word.png' width="24"/> Word</a></li>
-                                         <li class="divider"></li>
-                                         <li><a href="#" onClick ="$('#kasbon').tableExport({type:'pdf',escape:'false'});"><img src='<?php echo export()?>pdf.png' width="24"/> PDF</a></li>
+
+                                         <li><a href="<?php echo site_url('laporan/cetakpinjaman')?>" target="_blank" ><img src='<?php echo export()?>pdf.png' width="24"/> PDF</a></li>
                                     </ul>
                                     </div> 
                                     <div class="col-md-4">

@@ -131,21 +131,35 @@ function potongan(){
   return $kodejadi;
 }
 function insentif(){
-  $this->db->select('RIGHT(insentif.id_insentif,2) as kode', FALSE);
-  $this->db->order_by('id_insentif','DESC');    
-  $this->db->limit(1);     
-  $query = $this->db->get('insentif');      //cek dulu apakah ada sudah ada kode di tabel.    
+  $this->db->select('max(insentif.id) as kode', FALSE);
+       $query = $this->db->get('insentif');      //cek dulu apakah ada sudah ada kode di tabel.    
   if($query->num_rows() <> 0){       
    //jika kode ternyata sudah ada.      
    $data = $query->row();      
-   $kode = intval($data->kode) + 1;     
+   $kode = intval($data->kode) +1;     
   }
   else{       
    //jika kode belum ada      
    $kode = 1;     
   }
-  $kodemax = str_pad($kode, 3, "00", STR_PAD_LEFT);    
+  $kodemax = str_pad($kode, 2, "0", STR_PAD_LEFT);    
   $kodejadi = "INS-".$kodemax;     
+  return $kodejadi;    
+}
+function gapok(){
+  $this->db->select('max(m_gaji.id) as kode', FALSE);
+       $query = $this->db->get('m_gaji');      //cek dulu apakah ada sudah ada kode di tabel.    
+  if($query->num_rows() <> 0){       
+   //jika kode ternyata sudah ada.      
+   $data = $query->row();      
+   $kode = intval($data->kode) +1;     
+  }
+  else{       
+   //jika kode belum ada      
+   $kode = 1;     
+  }
+  $kodemax = str_pad($kode, 2, "0", STR_PAD_LEFT);    
+  $kodejadi = "GP-".$kodemax;     
   return $kodejadi;    
 }
 }

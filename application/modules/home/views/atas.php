@@ -41,6 +41,7 @@ body{
       <script src="<?php echo tema();?>jquery-1.10.2.min.js"></script>
 
  <link rel="stylesheet" type="text/css" href="<?php echo tema();?>lookupbox.css" />
+ <link rel="stylesheet" type="text/css" href="<?php echo tema();?>lookupbox1.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo tema();?>jquery-ui.min.css" />
 
     </head>

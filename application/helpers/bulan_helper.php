@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-function tgl_indo($day){
+function bulan($day){
  $day = explode ("-",$day);
  switch ($day[1]){
  case 1:
@@ -39,20 +39,8 @@ function tgl_indo($day){
  $day[1] = "Desember";
  break;
  }
- $day_indo = $day[2]." ".$day[1]." ".$day[0];
+ $day_indo = $day[1];
  return $day_indo;
-}
-function hitunglembur($in,$out){
-  
-  list($h,$m,$s)=explode(":",$in);
-$dtawal=mktime($h,$m,$s,"1","1","1");
-list($h,$m,$s)=explode(":",$out);
-$dtakhir=mktime($h,$m,$s,"1","1","1");
-$dtselisih=$dtakhir - $dtawal;
-$totalmenit=$dtselisih/60;
-$jam=explode(".",$totalmenit/60);
-$sisamenit=($totalmenit/60)-$jam[0];
-$sisa=$sisamenit*60;
-return ;
+
 
 }

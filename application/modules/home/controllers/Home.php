@@ -283,6 +283,16 @@ $data['all']=$this->db->get('absensi_view')->result();
   $this->load->view('absensi/absensi',$data);
   $this->load->view('bawah',$data);
 }
+function attendancex(){
+$data['com']=$this->db->get('company')->row();
+$data['all']=$this->db->get('absensi_view')->result();
+
+$this->load->view('atas',$data);
+   
+  $this->load->view('absensi/absensi',$data);
+   $this->load->view('bawah',$data);
+   
+}
 function salary(){
 $data['com']=$this->db->get('company')->row();
 $data['gaji']=$this->db->get('m_gaji_view')->result();
@@ -293,7 +303,8 @@ $data['gaji']=$this->db->get('m_gaji_view')->result();
 function addsalary(){
 $data['com']=$this->db->get('company')->row();
 $data['jabatan']=$this->db->get('jabatan')->result();
-
+$this->load->model('m_list');
+$data['code']=$this->m_list->gapok();
 $this->load->view('atas',$data);
 $this->load->view('salary/addsalary',$data);
 $this->load->view('bawah',$data);
@@ -458,6 +469,7 @@ function approvecuti(){
   $this->db->where_in('status_cuti','POSTING');
 $this->db->or_where_in('status_cuti', 'APPROVE');
 $data['cek']=$this->db->get('aju_cuti_view')->result();
+
   $this->load->view('atas',$data);
   $this->load->view('approve/listcuti',$data);
   $this->load->view('bawah',$data);
@@ -612,18 +624,10 @@ function ditelslip(){
 }
 function lappenggajian(){
           $data['com']=$this->db->get('company')->row();
-            $this->db->distinct();
-          $this->db->select('gaji_view.id_gaji,gaji_view.nip,karyawan.nama_lengkap,gaji_view.bulan_gaji,gaji_view.total_potongan,gaji_view. total_insentif,gaji_view.gapok,gaji_view.total_gaji');
-          $this->db->from('gaji_view');
-          $this->db->join('karyawan', 'karyawan.nip = gaji_view.nip', 'inner');
-         $data['gaji']=$this->db->get()->result();
-   
-         $this->db->select_sum('total_insentif');
-         
-         $data['sum']=$this->db->get('gaji')->row();
-         $this->db->select_sum('total_gaji');
-         $data['gajip']=$this->db->get('gaji')->row();
- $this->load->view('atas',$data);
+            $data['all']=$this->db->get('all_gaji_view')->result();
+
+            
+    $this->load->view('atas',$data);
     $this->load->view('laporan/penggajian',$data);
     $this->load->view('bawah',$data);
 }
@@ -651,7 +655,7 @@ $data['com']=$this->db->get('company')->row();
 $id=$this->uri->segment(3);
 $isi=array('id_gaji'=>$id);
 $data['kar']=$this->db->get_where('all_gaji_view',$isi)->row();
-$data['absen']=$this->db->get_where('gaji_absensi', $isi)->row();
+ 
 $data['periode']=$this->db->get_where('gaji2',$isi)->row();
 $data['insentif']=$this->db->get('insentif')->result();
 $data['potongan']=$this->db->get('potongan')->result();
@@ -659,7 +663,10 @@ $data['potongan']=$this->db->get('potongan')->result();
   $this->load->view('hitung/editgaji',$data);
   $this->load->view('bawah',$data);
 }
-function cetak(){
+function cekabsen(){
+$data['com']=$this->db->get('company')->row();  
+  $this->load->view('absensi/cekabsen',$data);
+   
 
 }
 }

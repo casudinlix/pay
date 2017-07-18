@@ -23,9 +23,8 @@
                                         <li><a href="#" onClick ="$('#example').tableExport({type:'excel',escape:'false'});"><img src='<?php echo export()?>xls.png' width="24"/> XLS</a></li>
                                         <li class="divider"></li>
 
-                                        <li><a href="#" onClick ="$('#example').tableExport({type:'doc',escape:'false'});"><img src='<?php echo export()?>word.png' width="24"/> Word</a></li>
                                          <li class="divider"></li>
-                                         <li><a href="#" onClick ="$('#example').tableExport({type:'pdf',escape:'false'});"><img src='<?php echo export()?>pdf.png' width="24"/> PDF</a></li>
+                                         <li><a href="<?php echo site_url('laporan/cetakabsensi')?>" target="_blank"><img src='<?php echo export()?>pdf.png' width="24"/> PDF</a></li>
                                     </ul>
                                   </div>
                                     <ul class="panel-controls">
@@ -50,7 +49,7 @@
                                               <th class="info">Telat</th>
                                               <th class="info">Total</th>
                                               <th class="info">Status</th>
-                                              <th class="warning">Aksi</th>
+                                               
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -66,8 +65,8 @@
 <td colspan="" rowspan="" headers=""><?php echo $key->telat?></td>
 <td colspan="" rowspan="" headers=""><?php echo $key->total?>Jam</td>
 <td colspan="" rowspan="" headers=""><?php echo $key->status?></td>
-                                                  <td>
-                                                  </tr>
+    
+    </tr>
                                                 <?php
                     endforeach; ?>
                                         </tbody>

@@ -108,6 +108,7 @@
  <script type="text/javascript" src="<?php echo tema()?>js/plugins/jquery/jquery-ui.min.js"></script>
  <script type="text/javascript" src="<?php echo tema()?>jquery-ui.min.js"></script>
 <script src="<?php echo tema();?>jquery.lookupbox.js"></script>
+<script src="<?php echo tema();?>jquery.lookupbox1.js"></script>
  <script type="text/javascript" src="<?php echo tema()?>js/plugins/datatables/jquery.dataTables.min.js"></script>
 
 <script src='<?php echo tema()?>js/fullcalendar.min.js'></script>
@@ -232,6 +233,33 @@
           $('input[name=gapok]').val(data.gapok);
         },
         tableHeader: ['NIP', 'Nama','Jabatan','Golongan','Gaji']
+      });
+    });
+    </script>
+    <script>
+    $(document).ready(function () {
+      var site = "<?php echo site_url();?>";
+      $("#absensi").tampil({
+        title: 'Cari Data Absensi',
+        url: site+'ajax/absensi/',
+        imgLoader: 'Loading...',
+        width: 600,
+        onItemSelected: function(data){
+          $('input[name=id_absensi]').val(data.id_absensi);
+
+          $('input[name=nip]').val(data.nip);
+          $('input[name=nama]').val(data.nama_lengkap);
+          $('input[name=in]').val(data.in);
+          $('input[name=out]').val(data.out);
+          $('input[name=tgl_absensi]').val(data.tgl_absensi);
+                    $('input[name=bulan_absensi]').val(data.bulan_absensi);
+
+           $('input[name=lembur]').val(data.lembur);
+            $('input[name=telat]').val(data.telat);
+            
+          $('input[name=status]').val(data.status);
+        },
+        tableHeader: ['ID Absensi','NIP', 'Nama','IN','OUT','Tgl Absen','Bulan','Lembur','Telat','Status']
       });
     });
     </script>
@@ -825,10 +853,7 @@ $(".table1").on('page.dt',function () {
 });
 </script>
 
-<script type="text/javascript" charset="utf-8" async defer>
-  
-  
-</script>
+
     <!-- Select2 -->
   
 

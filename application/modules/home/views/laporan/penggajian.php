@@ -19,10 +19,8 @@
                                         <ul class="dropdown-menu">
                                              <li><a href="#" onClick ="$('#gaji').tableExport({type:'excel',escape:'false'});"><img src='<?php echo export()?>xls.png' width="24"/> XLS</a></li>
                                         <li class="divider"></li>
-b
-                                        <li><a href="#" onClick ="$('#gaji').tableExport({type:'doc',escape:'false'});"><img src='<?php echo export()?>word.png' width="24"/> Word</a></li>
-                                         <li class="divider"></li>
-                                         <li><a href="#" onClick ="$('#gaji').tableExport({type:'pdf',escape:'false'});"><img src='<?php echo export()?>pdf.png' width="24"/> PDF</a></li>
+
+                                         <li><a href="<?php echo site_url('laporan/cetakpenggajian')?>" target="_blank" ><img src='<?php echo export()?>pdf.png' width="24"/> PDF</a></li>
                                     </ul>
                                     </div> 
                                     <div class="col-md-4">
@@ -33,17 +31,7 @@ b
                                     </ul>
                                 </div>
                                 <div class="panel-body">
-                                <strong>Total Insentif</strong>
-                                <?php foreach($sum as $key){
-                                    echo "Rp.<i>".number_format($key)."</i>";
-
-                                    }?>
-                                    
-                                <strong>Total Gaji Bersih</strong>
-                                 <?php foreach($gajip as $key){
-                                    echo "Rp.<i>".number_format($key)."</i>";
-
-                                    }?>
+                                
                                     <table class="table datatable" id="gaji">
                                         <thead>
                                             <tr>
@@ -52,11 +40,12 @@ b
                                                 <th> ID Gaji</th>
                                                 <th> Nip</th>
                                                 <th> Nama Karyawan</th>
-                                                <th>Tanggal Gaji</th>
-                                                <th>Total Potongan</th>
-                                                <th>Total Insentif</th>
+                                                <th> Jabatan</th>
+                                                <th> Golongan</th>
+                                                <th>Bulan Gaji</th>
+                                                
                                                 <th>Gaji Pokok</th>
-                                                <th>Total Gaji Bersih</th>
+                                                 
                                                
                                             </tr>
                                         </thead>
@@ -64,19 +53,17 @@ b
                                             <tr>
                                                 <?php
 $no=1;
-                                                foreach ($gaji as $key): ?>
+    foreach ($all as $key): ?>
                                                   <td><?php echo $no ?></td>
 <td colspan="" rowspan="" headers=""><?php echo $key->id_gaji ?></td>
 
 <td colspan="" rowspan="" headers=""><?php echo $key->nip ?></td>
 <td colspan="" rowspan="" headers=""><?php echo $key->nama_lengkap ?></td>
-<td colspan="" rowspan="" headers=""><?php echo tgl_indo($key->bulan_gaji) ?></td>
-<td colspan="" rowspan="" headers="">Rp.<?php echo number_format($key->total_potongan) ?></td>
-<td colspan="" rowspan="" headers="">Rp.<?php echo number_format($key->total_insentif) ?></td>
+<td colspan="" rowspan="" headers=""><?php echo $key->nama_jabatan ?></td>
+<td colspan="" rowspan="" headers=""><?php echo $key->gol_jabatan?></td>
+<td colspan="" rowspan="" headers=""><?php echo bulan($key->bulan_gaji) ?></td>
 <td colspan="" rowspan="" headers="">Rp.<?php echo number_format($key->gapok) ?></td>
- 
- <td colspan="" rowspan="" headers="">Rp.<?php echo number_format($key->total_gaji) ?></td>
- 
+
    
   
 

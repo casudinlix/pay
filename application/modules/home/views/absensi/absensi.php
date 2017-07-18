@@ -37,22 +37,23 @@
     <form action="<?php echo site_url();?>aksi_1/import" method="post" enctype="multipart/form-data">
 
   <input type="file" name="file" required="">
-  <i class="fa fa-cloud-upload"><input type="submit" name="" value="Import" class="btn btn-warning"></i>
+  <input type="submit" name="" value="Import" class="">
                           </form>
 
 
      <table class="table table-responsive table1" id="example">
                                         <thead>
                                             <tr>
-
+<th colspan="" class="danger">ID Absensi</th>
                                               <th colspan="" class="danger">NIP</th>
                                               <th colspan="" class="danger">Name</th>
                                              
                                               <th class="info">Jam In / Out</th>
                                               <th class="info">Tanggal</th>
+                                              <th class="info">Bulan</th>
                                               <th class="info">Lembur</th>
                                               <th class="info">Telat</th>
-                                              <th class="info">Total</th>
+                                              
                                               <th class="info">Status</th>
                                               <th class="warning">Aksi</th>
                                             </tr>
@@ -60,17 +61,18 @@
                                         <tbody>
                                             <tr>
                                            <?php   foreach ($all as $key): ?>
-                                                  
+                                                  <td><?php echo $key->id_absensi?></td>
 
                                                   <td><?php echo $key->nip?></td>
 <td colspan="" rowspan="" headers=""><?php echo $key->nama_lengkap?></td>
 <td colspan="" rowspan="" headers=""><?php echo $key->in."-".$key->out?></td>
 <td colspan="" rowspan="" headers=""><?php echo tgl_indo($key->tgl_absensi)?></td>
+<td colspan="" rowspan="" headers=""><?php echo bulan($key->bulan_absensi)?></td>
 <td colspan="" rowspan="" headers=""><?php echo $key->lembur?></td>
 <td colspan="" rowspan="" headers=""><?php echo $key->telat?></td>
-<td colspan="" rowspan="" headers=""><?php echo $key->total?>Jam</td>
+
 <td colspan="" rowspan="" headers=""><?php echo $key->status?></td>
-                                                  <td>
+                                                  <td>XX</td>
                                                   </tr>
                                                 <?php
                     endforeach; ?>

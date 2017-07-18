@@ -21,7 +21,15 @@
                                         <div class="col-md-6">
 
 
-
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">ID Gapok</label>
+                                                <div class="col-md-9">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><span class="fa fa-money"></span></span>
+   <input type="text" name="id" class="form-control" required="" value="<?php echo $code?>" readonly=""/>
+                                                    </div>
+                                                </div>
+</div>
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Gaji</label>
                                                 <div class="col-md-9">

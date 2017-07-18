@@ -211,6 +211,13 @@
                                   </div>
                             </div>
                            
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label"> ID Absensi</label>
+                                <div class="col-md-6 col-xs-12">
+                                  <input type="number" name="idabsensi" class="form-control">
+                                  </div>
+                            </div>
+
                                                 </div>
                     </div>
                   </div>

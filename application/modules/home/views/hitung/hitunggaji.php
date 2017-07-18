@@ -41,94 +41,17 @@
                             <!-- START BORDERED TABLE SAMPLE -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Absensi</h3>
+                                    <h3 class="panel-title">Periode Gaji</h3>
                                 </div>
                                 <div class="panel-body">
   
    <div class="block">                            
    
 <form class="form-horizontal" method="post" action="<?php echo site_url('aksi_1/simpangaji')?>">
+                   <input type="hidden" name="id" value="<?php echo $idgaji?>" placeholder="">  
+                   <input type="hidden" class="form-control cari" id="" name="nip" required="">        
+ Periode Gaji<input type="month" class="form-control" name="tgl" required="">
 
- <div class="form-group">                                        
-  <div class="col-md-12">
-<input type="hidden" name="id" value="<?php echo $this->uri->segment(3)?>" class="form-control-sm">
-<input type="hidden" name="nip" class="form-control-sm">
-   <select name="hari" class="form-control">
-  <option value="">Pilih Total Hari Kerja</option>
-        <?php 
-for ($i=1; $i <32 ; $i++) { ?>
-    <option value="<?php echo $i?>" required=""><?php echo $i?></option>
-<?php }?>
-        ?>
-    </select>
-         </div>
-       </div>
-      <div class="form-group">                                    
-     <div class="col-md-8">
-   <select name="hadir" class="form-control">
-        <option value="">Total Hadir</option>
-        <?php 
-for ($i=1; $i <30 ; $i++) { ?>
-    <option value="<?php echo $i?>" required=""><?php echo $i?></option>
-<?php }?>
-        ?>
-    </select>
-      </div>               
-    <div class="col-md-4">
-            <select name="ijin" class="form-control">
-        <option value="">Pilih Total Hari Ijin</option>
-        <?php 
-for ($i=0; $i <30 ; $i++) { ?>
-    <option value="<?php echo $i?>" required=""><?php echo $i?></option>
-<?php }?>
-        ?>
-    </select>
-  </div>  
-  <div class="col-md-4">
-            <select name="alpa" class="form-control">
-        <option value="">Pilih Total Hari Alpa/Mangkir</option>
-        <?php 
-for ($i=0; $i <30 ; $i++) { ?>
-    <option value="<?php echo $i?>" required=""><?php echo $i?></option>
-<?php }?>
-        ?>
-    </select>
-  </div>                                                                             
- </div>       
-  <div class="form-group">                                    
-    <div class="col-md-6">
-<select name="cuti" class="form-control">
-        <option value="">Pilih Total Cuti</option>
-        <?php 
-for ($i=0; $i <30 ; $i++) { ?>
-    <option value="<?php echo $i?>" required=""><?php echo $i?></option>
-<?php }?>
-        ?>
-    </select>                                         
-   </div>               
-  <div class="col-md-3">
- <select name="lembur" class="form-control">
-   <option value="">Pilih Total Lembur</option>
-        <?php 
-for ($i=0; $i <30 ; $i++) { ?>
-    <option value="<?php echo $i?>" required=""><?php echo $i?></option>
-<?php }?>
-        ?>
-    </select>                 
- </div>                                                                               
- <div class="col-md-3">
-   <select name="telat" class="form-control">
-    <option value="">Pilih Total Telat</option>
-        <?php 
-for ($i=0; $i <30 ; $i++) { ?>
-    <option value="<?php echo $i?>" required=""><?php echo $i?></option>
-<?php }?>
-        ?>
-    </select>
-  </div>                                        
-   </div>                                      
- Periode Gaji<input type="text" class="form-control datepicker" name="tgl" required="">
-     
      <input type="submit" class="btn btn-success fa fa-save" value="Simpan">
   </form>
 
@@ -285,3 +208,11 @@ for ($i=0; $i <30 ; $i++) { ?>
             <!-- END PAGE CONTENT -->
         </div>
         <!-- END PAGE CONTAINER -->    
+                         </div>
+ <script>
+function cekabsen(id) {
+      
+    var url="<?php echo site_url('home/cekabsen/')?>"+id;
+    window.open(url, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=400,left=300,width=600,height=900");
+}
+</script>
