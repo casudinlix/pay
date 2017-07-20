@@ -23,7 +23,7 @@
                                     </ul>
                                 </div>
                                 <div class="panel-body">
-                                <strong>Total Semua Pinjaman Karyawan</strong>
+                                <strong>Total Semua Pinjaman Karyawan Belum Lunas</strong>
                                 <?php foreach ($sum as $key): ?>
                                   Rp.<?php echo number_format($key) ?>
                                 <?php endforeach; ?>
@@ -41,6 +41,8 @@
                                                 <th> Nominal</th>
                                                 <th> Keterangan</th>
                                                 <th>Tanggal Pengajuan</th>
+                                                <th>Limit Pinjaman</th>
+                                                <th>Sisa Limit</th>
                                                 <th>Tanggal Di Setujui</th>
                                                 <th>Disetujui Oleh</th>
                                                 <th>Status</th>
@@ -58,9 +60,12 @@ $no=1;
                                                   <td><?php echo $key->nama_lengkap ?></td>
 <td colspan="" rowspan="" headers=""><?php echo $key->no_transaksi ?></td>
 
-<td colspan="" rowspan="" headers="">Rp.<?php echo number_format($key->nominal_pinjaman )?></td>
+<td colspan="" rowspan="" headers="">Rp.<b><?php echo number_format($key->nominal_pinjaman )?></b></td>
 <td colspan="" rowspan="" headers=""><?php echo $key->ket_pinjaman ?></td>
+
 <td colspan="" rowspan="" headers=""><?php echo tgl_indo($key->tgl_aju_pinjaman) ?></td>
+<td colspan="" rowspan="" headers="">Rp.<b><?php echo number_format($limit) ?></b></td>
+<td colspan="" rowspan="" headers="">Rp.<b><?php echo number_format($limit-$key->nominal_pinjaman) ?></b></td>
 <td colspan="" rowspan="" headers=""><?php echo tgl_indo($key->tgl_approve) ?></td>
 <td colspan="" rowspan="" headers=""><?php echo $key->disetujui_oleh ?></td>
 <td colspan="" rowspan="" headers="">

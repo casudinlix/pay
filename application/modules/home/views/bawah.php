@@ -245,21 +245,14 @@
         imgLoader: 'Loading...',
         width: 600,
         onItemSelected: function(data){
-          $('input[name=id_absensi]').val(data.id_absensi);
+           
 
-          $('input[name=nip]').val(data.nip);
-          $('input[name=nama]').val(data.nama_lengkap);
-          $('input[name=in]').val(data.in);
-          $('input[name=out]').val(data.out);
-          $('input[name=tgl_absensi]').val(data.tgl_absensi);
-                    $('input[name=bulan_absensi]').val(data.bulan_absensi);
+          
+          $('input[name=lembur]').val(data.lembur);
+          $('input[name=telat]').val(data.telat);
 
-           $('input[name=lembur]').val(data.lembur);
-            $('input[name=telat]').val(data.telat);
-            
-          $('input[name=status]').val(data.status);
         },
-        tableHeader: ['ID Absensi','NIP', 'Nama','IN','OUT','Tgl Absen','Bulan','Lembur','Telat','Status']
+        tableHeader: ['NIP','Periode','Lembur','Telat','Status']
       });
     });
     </script>

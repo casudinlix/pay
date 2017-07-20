@@ -49,7 +49,13 @@
    
 <form class="form-horizontal" method="post" action="<?php echo site_url('aksi_1/simpangaji')?>">
                    <input type="hidden" name="id" value="<?php echo $idgaji?>" placeholder="">  
-                   <input type="hidden" class="form-control cari" id="" name="nip" required="">        
+                   <input type="hidden" class="form-control cari" id="" name="nip" required="">  
+<button type="button" id="absensi" class="btn btn-primary"><i class="fa fa-search"></i>Cari</button>
+                   <br/>      
+                   Lembur
+                   <input type="text" class="form-control cari" id="" name="lembur" required="">
+                   Telat
+                   <input type="text" class="form-control cari" id="" name="telat" required="">
  Periode Gaji<input type="month" class="form-control" name="tgl" required="">
 
      <input type="submit" class="btn btn-success fa fa-save" value="Simpan">

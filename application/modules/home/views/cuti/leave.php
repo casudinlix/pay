@@ -43,6 +43,10 @@
                                         <tbody>
                                             <tr>
  <?php $no=1;
+
+ if ($cek==FALSE || NULL) {
+   echo "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>";
+ }
   foreach($cek as $key):
 $dari=new dateTime($key->tgl_awal_cuti);
 $sampai=new dateTime($key->tgl_akhir_cuti);

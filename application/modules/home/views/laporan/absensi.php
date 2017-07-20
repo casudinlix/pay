@@ -47,7 +47,7 @@
                                               <th class="info">Tanggal</th>
                                               <th class="info">Lembur</th>
                                               <th class="info">Telat</th>
-                                              <th class="info">Total</th>
+                                              
                                               <th class="info">Status</th>
                                                
                                             </tr>
@@ -63,7 +63,7 @@
 <td colspan="" rowspan="" headers=""><?php echo tgl_indo($key->tgl_absensi)?></td>
 <td colspan="" rowspan="" headers=""><?php echo $key->lembur?></td>
 <td colspan="" rowspan="" headers=""><?php echo $key->telat?></td>
-<td colspan="" rowspan="" headers=""><?php echo $key->total?>Jam</td>
+ 
 <td colspan="" rowspan="" headers=""><?php echo $key->status?></td>
     
     </tr>

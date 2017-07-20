@@ -71,7 +71,7 @@ $this->session->unset_userdata($semua);
   $data['sum']=$this->db->get_where('pinjaman_view',array('nip'=>$id,'status_aju'=>"APPROVE",'status_pinjaman'=>"BELUM BAYAR"))->row();
    $data['com']=$this->db->get('company')->row();
 $data['all']=$this->db->get_where('pinjaman_view',array('nip'=>$id))->result();
-$data['limit']=100000;
+$data['limit']=500000;
   $this->load->view('atas',$data);
   $this->load->view('kasbon/kasbon',$data);
   $this->load->view('bawah',$data);
@@ -90,7 +90,7 @@ $this->load->view('bawah',$data);
 
     $data['gaji']=$this->db->get('all_view_1')->result();
     $this->load->model('m_list');
-$data['idgaji']=$this->m_list->idgaji();
+ 
      $this->load->view('atas',$data);
   $this->load->view('slip/slipgaji',$data);
   $this->load->view('bawah',$data);

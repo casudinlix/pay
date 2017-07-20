@@ -55,6 +55,9 @@
                                         <tbody>
                                             <tr>
                                                 <?php
+          if ($all==FALSE) {
+                         echo "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>";                           # code...
+            }                                      
 $no=1;
                                                 foreach ($all as $key): ?>
                                                   <td><?php echo $no ?></td>

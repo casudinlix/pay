@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <!-- META SECTION -->
+           <!-- META SECTION -->
         <title><?php echo $com->title ?></title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -20,12 +20,12 @@
 <style type="text/css">
 
 body{
-	background-color: #E8E9EC;
+    background-color: #E8E9EC;
 }
 
 .dropzone {
-	margin-top: 100px;
-	border: 2px dashed #0087F7;
+    margin-top: 100px;
+    border: 2px dashed #0087F7;
 }
 
 </style>
@@ -38,6 +38,11 @@ body{
         <!-- EOF CSS INCLUDE -->
     <!-- Memanggil file .css untuk style saat data dicari dalam filed -->
     <link href='<?php echo tema();?>js/jquery.autocomplete.css' rel='stylesheet' />
+      <script src="<?php echo tema();?>jquery-1.10.2.min.js"></script>
+
+ <link rel="stylesheet" type="text/css" href="<?php echo tema();?>lookupbox.css" />
+ <link rel="stylesheet" type="text/css" href="<?php echo tema();?>lookupbox1.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo tema();?>jquery-ui.min.css" />
 
 
     </head>

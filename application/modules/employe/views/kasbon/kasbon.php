@@ -23,7 +23,7 @@
                                         <div class="panel panel-default">
                                 <div class="panel-heading">
                                  <div class="col-md-4">
-  <a href="<?php echo site_url('employe/addkasbon/'.$this->session->userdata('nip'))?>"  <button class="btn btn-success btn-block"><span class="fa fa-plus"></span> Tambah Pinjaman</button></a>
+  <a href="<?php echo site_url('employe/addkasbon/'.$this->session->userdata('nip'))?>"> <button class="btn btn-success btn-block"><span class="fa fa-plus"></span> Tambah Pinjaman</button></a>
                                     </div>
                                 <?php endif;?>
                                     <ul class="panel-controls">
@@ -55,6 +55,9 @@
                                         <tbody>
                                             <tr>
                                                 <?php
+                                                if ($all==FALSE||NULL) {
+echo "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>";
+                                                }
 $no=1;
                                                 foreach ($all as $key): ?>
                                                   <td><?php echo $no ?></td>

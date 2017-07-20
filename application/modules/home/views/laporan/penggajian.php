@@ -45,6 +45,7 @@
                                                 <th>Bulan Gaji</th>
                                                 
                                                 <th>Gaji Pokok</th>
+                                                <th>Status</th>
                                                  
                                                
                                             </tr>
@@ -63,6 +64,7 @@ $no=1;
 <td colspan="" rowspan="" headers=""><?php echo $key->gol_jabatan?></td>
 <td colspan="" rowspan="" headers=""><?php echo bulan($key->bulan_gaji) ?></td>
 <td colspan="" rowspan="" headers="">Rp.<?php echo number_format($key->gapok) ?></td>
+<td colspan="" rowspan="" headers=""><?php echo $key->status ?></td>
 
    
   

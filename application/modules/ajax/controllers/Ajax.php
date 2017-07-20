@@ -170,18 +170,13 @@ $row[] = "<button id=". $print->id_gaji."/".$print->nip." class='btn btn-success
   }
   function absensi(){
      $id=$this->uri->segment(3);
-      //$this->db->select('sift_name, jam_in,jam_out');
-       //$this->db->like();gaji
-    //$this->db->like('nip',$id);
-   $this->db->or_like('tgl_absensi', $id);
-   $date=$id;
-  $nip=$this->uri->segment(4);
-  
-   $this->db->like(array('tgl_absensi' => $date));
-  
-   $this->db->select('id_absensi, nip,nama_lengkap,in,out,tgl_absensi,bulan_absensi,lembur,telat,status');
+ 
+
+   $this->db->like(array('bulan_absensi' => $id));
+  $this->db->distinct();
+   $this->db->select('nip,bulan_absensi,lembur,telat,status');
    
-          $data =$this->db->get('absensi_view');
+          $data =$this->db->get('sum_absen_view1');
   
           $rows = array();
           foreach($data->result() as $row)
@@ -198,9 +193,9 @@ $row[] = "<button id=". $print->id_gaji."/".$print->nip." class='btn btn-success
       $this->db->select('no_transaksi, nip,nama_lengkap,nominal_pinjaman,status_pinjaman');
 
        //$this->db->like();
-    $this->db->or_like('nip',$id);
+    $this->db->like('nip',$id);
    
-   $this->db->where('status_aju', 'APPROVE');
+   $this->db->where(array('status_aju'=> 'APPROVE','status_pinjaman'=>'BELUM BAYAR'));
    
           $data =$this->db->get('pinjaman_view');
           $rows = array();

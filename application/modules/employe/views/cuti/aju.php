@@ -12,6 +12,10 @@
                                     </ul>
                                 </div>
                                 <div class="panel-body">
+
+                                <?php if($sisa->num_rows()==0){
+                                    echo "Maap Anda Tidak Mempunyai Jatah Cuti Silahkan Ajukan Ke Admin";
+                                    }else{?>
                                   <p>Sisa Cuti Anda Adalah <b><?php echo $sisa->row()->sisa_cuti?></b> Berlaku Sampai
                                   <b><?php echo tgl_indo($sisa->row()->akhir_berlaku_cuti)?></b></p>
                                 </div>
@@ -29,7 +33,7 @@
                                                         <select name="periode" class="form-control" required="">
                                                             <option value="">--</option>
                                                             <?php foreach($sisa->result() as $key):?>
-   <option value="<?php echo $key->id_jc?>"><?php echo $key->id_jc."-".$key->awal_berlaku_cuti?></option>
+   <option value="<?php echo $key->id_jc?>"><?php echo $key->id_jc?></option>
 
                                                         <?php endforeach;?>
 
@@ -94,7 +98,7 @@
                                 </div>
                             </div>
                             </form>
-                            
+                            <?php }?>
                         </div>
                     </div>                    
                     

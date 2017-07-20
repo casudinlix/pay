@@ -1847,12 +1847,17 @@ AIQBAADiNQAAAAA=
   <td class=xl63824></td>
   <td class=xl63824></td>
   <td class=xl63824></td>
-  <td class=xl63824 colspan=3></td>
+  <td class=xl63824 colspan=3>Potongan Lain**</td>
   <td class=xl63824></td>
   <td class=xl63824></td>
   <td class=xl63824></td>
-  <td class=xl77824></td>
-  <td class=xl79824><span style='mso-spacerun:yes'></span></td>
+  <td class=xl77824>Rp</td>
+  <?php 
+$totalpotongan=0;
+  foreach($totpotongan as $key){
+  	$totalpotongan+=$key->jml_potongan*$key->nominal_potongan;
+  	}?>
+  <td class=xl79824><?php echo number_format($totalpotongan)?><span style='mso-spacerun:yes'></span></td>
   <td class=xl63824></td>
  </tr>
  <tr height=16 style='mso-height-source:userset;height:12.0pt'>
@@ -2578,7 +2583,7 @@ foreach($totpotongan as $key):?>
   <td class=xl87824 style='border-top:none'>&nbsp;</td>
   <td class=xl87824 style='border-top:none'>&nbsp;</td>
   <td class=xl88824 style='border-top:none'>&nbsp;</td>
-  <td class=xl88824 colspan=8>TOTAL PINJAMAN</td>
+  <td class=xl88824 colspan=8>TOTAL POTONGAN</td>
   <td class=xl88824 style='border-top:none'><span
   style='mso-spacerun:yes'></span>Rp</td>
   <td colspan=2 class=xl124824 style='border-right:2.0pt double black'><span

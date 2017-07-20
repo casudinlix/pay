@@ -26,7 +26,7 @@
        nip: "nip",
       searchResultId: "lookupbox-search-result",
       width: 400,
-      htmlForm: '<form id="lookupbox-search-form" onsubmit="return false" ><input id="lookupbox-search-key" type="month" name="key" /> <input id="nip" type="text" name="key" /> <input type="button" id="lookupbox-search-button" value="Search" /> <span id="loading1"></span></form><div id="lookupbox-search-result"></div>',
+      htmlForm: '<form id="lookupbox-search-form" onsubmit="return false" ><input id="lookupbox-search-key" type="month" name="key" /><input type="button" id="lookupbox-search-button" value="Search" /> <span id="loading1"></span></form><div id="lookupbox-search-result"></div>',
       modal: true,
       draggable: true,
       onItemSelected: null,

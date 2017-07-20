@@ -458,7 +458,6 @@ function ajucuti(){
   $id=$this->uri->segment(3);
     $data['com']=$this->db->get('company')->row();
     $data['sisa']=$this->db->get_where('jatah_cuti',array('nip'=>$id));
-
     $this->load->view('atas',$data);
   $this->load->view('cuti/aju_cuti',$data);
   $this->load->view('bawah',$data);
@@ -507,12 +506,13 @@ function hitunggaji(){
 }
 function kasbon(){
   $id=$this->session->userdata('nip');
-
+$data['limit']=500000;
   $this->db->select_sum('nominal_pinjaman');
   $data['sum']=$this->db->get_where('pinjaman_view',array('nip'=>$id,'status_aju'=>"APPROVE",'status_pinjaman'=>"BELUM BAYAR"))->row();
+
    $data['com']=$this->db->get('company')->row();
 $data['all']=$this->db->get_where('pinjaman_view',array('nip'=>$id))->result();
-$data['limit']=100000;
+
   $this->load->view('atas',$data);
   $this->load->view('kasbon/kasbon',$data);
   $this->load->view('bawah',$data);
@@ -529,6 +529,7 @@ $this->load->view('bawah',$data);
 }
 function listkasbon(){
   $data['com']=$this->db->get('company')->row();
+  $data['limit']=500000;
   $this->db->select_sum('nominal_pinjaman');
   $this->db->where(array('status_aju'=>'APPROVE','status_pinjaman'=>'BELUM BAYAR'));
   //$this->db->or_where_in('status_pinjaman','BELUM BAYAR');

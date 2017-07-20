@@ -34,7 +34,11 @@
                                        <tbody>
                                          <tr>
 
-  <?php foreach ($absen as $absen1): ?>
+  <?php
+if ($absen==NULL||FALSE) {
+  echo "<td></td><td></td><td></td><td></td><td></td><td></td><td></td>";
+}
+   foreach ($absen as $absen1): ?>
     <td><?php echo $absen1->in ?></td>
     <td><?php echo $absen1->out ?></td><td><?php echo tgl_indo($absen1->tgl_absensi) ?></td>
     <td><?php echo $absen1->lembur?></td>

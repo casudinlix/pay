@@ -53,7 +53,13 @@
 <input type="hidden" name="id" value="<?php echo $this->uri->segment(3)?>" class="form-control-sm">
  
   </div>                                        
-   </div>                                      
+   </div>     
+   <button type="button" id="absensi" class="btn btn-primary"><i class="fa fa-search"></i>Cari</button>
+                   <br/>      
+                   Lembur
+                   <input type="text" class="form-control cari" id="" name="lembur" required="">
+                   Telat
+                   <input type="text" class="form-control cari" id="" name="telat" required="">                                 
  Periode Gaji<input type="month" class="form-control"  name="tgl" value="<?php echo $periode->bulan_gaji?>" >
      
      <input type="submit" class="btn btn-success fa fa-save" value="Update">

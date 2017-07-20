@@ -22,8 +22,7 @@ function print(){
 if ($pin==false) {
 	 
 	$data['informasi']=$this->db->get_where('all_gaji_view', $array)->row();
-		$data['absensi']=$this->db->get_where('gaji_absensi',$array)->row();
-		 
+ 		 
 		$pinjaman=$this->db->select_sum('nominal_pinjaman');
 		$data['pinjaman']=$this->db->get_where('pinjaman_view1',$array)->result();
 		$this->db->get_where('pinjaman_view1',$array)->result();
@@ -60,14 +59,20 @@ $data['hadir']=$this->db->get_where('absensi',array('nip'=>$nip,'status' =>'HADI
 
 }else{
 		$data['informasi']=$this->db->get_where('all_gaji_view', $array)->row();
-		$data['absensi']=$this->db->get_where('gaji_absensi',$array)->row();
-		 
-		$data['pinjaman']=$this->db->get_where('pinjaman_view1',$array)->result();
+
+
 		$data['user']=$this->db->get_where('gaji2',$array)->row();
 
 		$data['totinsentif']=$this->db->get_where('gaji_insentif_view', $array)->result();
 
 		$data['totpotongan']=$this->db->get_where('gaji_potongan_view', $array)->result();
+		$this->db->select_sum('nominal_pinjaman');
+ 		 
+		$kasbon=$this->db->get_where('pinjaman_view1',$array)->result();
+foreach ($kasbon as $key) {
+	$data['pinjaman']=$key->nominal_pinjaman;
+	
+}
 		//hitung absensi
 		$ambil=$this->db->get_where('all_gaji_view', $array)->result();
 		foreach ($ambil as $key) {

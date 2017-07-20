@@ -12,6 +12,10 @@
                                     </ul>
                                 </div>
                                 <div class="panel-body">
+
+                                <?php if($sisa->num_rows()==0){
+                                    echo "Maap Anda Tidak Mempunyai Jatah Cuti Silahkan Ajukan Ke Admin";
+                                    }else{?>
                                   <p>Sisa Cuti Anda Adalah <b><?php echo $sisa->row()->sisa_cuti?></b> Berlaku Sampai
                                   <b><?php echo tgl_indo($sisa->row()->akhir_berlaku_cuti)?></b></p>
                                 </div>
@@ -94,7 +98,7 @@
                                 </div>
                             </div>
                             </form>
-                            
+                            <?php }?>
                         </div>
                     </div>                    
                     

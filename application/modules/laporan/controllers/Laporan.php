@@ -112,7 +112,7 @@ $this->fpdf->Cell(26,10,'OUT',1,0,'C');
 $this->fpdf->Cell(35,10,'Tanggal Absensi',1,0,'C');
 $this->fpdf->Cell(27,10,'Lembur',1,0,'C');
 $this->fpdf->Cell(27,10,'Telat',1,0,'C');
-$this->fpdf->Cell(20,10,'Total',1,0,'C');
+ 
 $this->fpdf->Cell(25,10,'Status',1,0,'C');
  
 $this->fpdf->Ln();
@@ -129,8 +129,7 @@ $this->fpdf->Cell(26,10,$key->out,1,0,'C');
 $this->fpdf->Cell(35,10,tgl_indo($key->tgl_absensi),1,0,'C');
 $this->fpdf->Cell(27,10,$key->lembur,1,0,'C');
 $this->fpdf->Cell(27,10,$key->telat,1,0,'C');
-$this->fpdf->Cell(20,10,$key->total,1,0,'C');
-$this->fpdf->Cell(25,10,$key->status,1,0,'C');
+ $this->fpdf->Cell(25,10,$key->status,1,0,'C');
 	
 
 	$this->fpdf->Ln();
@@ -216,20 +215,34 @@ $this->fpdf->Ln(20);
 
 $this->fpdf->SetFont('Times','B',10);
 $this->fpdf->Cell(10,10,'No',1,0,'C');
-$this->fpdf->Cell(35,10,'Nomor Transaksi',1,0,'C');
+$this->fpdf->Cell(35,10,'ID Gaji',1,0,'C');
 $this->fpdf->Cell(20,10,'NIP',1,0,'C');
 $this->fpdf->Cell(30,10,'Nama Karyawan',1,0,'C');
-$this->fpdf->Cell(36,10,'Nominal Pinjaman',1,0,'C');
-$this->fpdf->Cell(35,10,'Keterangan',1,0,'C');
-$this->fpdf->Cell(37,10,'Tanggal Pengajuan',1,0,'C');
-$this->fpdf->Cell(37,10,'Tanggal Approve',1,0,'C');
-$this->fpdf->Cell(20,10,'Di Setujui',1,0,'C');
-$this->fpdf->Cell(25,10,'Status',1,0,'C');
+$this->fpdf->Cell(36,10,'Jabatan',1,0,'C');
+$this->fpdf->Cell(35,10,'Golongan',1,0,'C');
+$this->fpdf->Cell(37,10,'Periode Gaji',1,0,'C');
+$this->fpdf->Cell(37,10,'Gaji Pokok',1,0,'C');
+$this->fpdf->Cell(37,10,'Status',1,0,'C');
  
 $this->fpdf->Ln();
 $this->fpdf->SetFont('Helvetica','I',6);
+$data=$this->db->get('all_gaji_view')->result();
+$no=1;
+foreach ($data as $key) {
+$this->fpdf->Cell(10,10,$no,1,0,'C');
+$this->fpdf->Cell(35,10,$key->id_gaji,1,0,'C');
+$this->fpdf->Cell(20,10,$key->nip,1,0,'C');
+$this->fpdf->Cell(30,10,$key->nama_lengkap,1,0,'C');
+$this->fpdf->Cell(36,10,$key->nama_jabatan,1,0,'C');
+$this->fpdf->Cell(35,10,$key->gol_jabatan,1,0,'C');
+$this->fpdf->Cell(37,10,bulan($key->bulan_gaji),1,0,'C');
+$this->fpdf->Cell(37,10,"Rp".number_format($key->gapok),1,0,'C');
+$this->fpdf->Cell(37,10,$key->status,1,0,'C');
 
 
+	$this->fpdf->Ln();
+	$no++;
+}
 
 $this->fpdf->Output('laporan_penggajian.pdf','I');
 
